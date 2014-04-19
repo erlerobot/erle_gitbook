@@ -2,14 +2,14 @@ Erle Robotics GitBook
 =======================
 
 
-Book
+Libro
 -----
 En este libro aprenderás a como utilizar el drone [Erle](http://erlerobot.com), el **primer robot volador de bajo coste y pequeñas dimensiones**.
 
 ![erlelogo](img/erlelogo.png)
 
 
-About
+Acerca de
 -----
 Durante años hemos estado trabajando en el área de la robótica, particularmente con *drones*. Hemos desarrollado nuestras carreras en Universidades y centros de investigación pero en todos estos lugares hemos encontrado el mismo problema: los drones son **cajas negras** (revisad nuestro [60s pitch](https://www.youtube.com/watch?v=tKAqjyXaC18)). No diseñados para el aprendizaje, la investigación o el desarrollo de aplicaciones. El software es en la mayoría de los casos desconocido o *cerrado* así que: ¿cómo vamos a educar a las siguientes generaciones en esta prometedora tecnología?, ¿cómo comenzamos a prorgramar drones si no disponemos de más de 1000$?, ¿con qué drone trabajamos si no queremos arriesgarnos a perder una mano?.
 

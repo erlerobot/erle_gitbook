@@ -13,8 +13,10 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="./Blink2.html" />
         
-        <link rel="prev" href="../tutorials/Tutorials.html" />
+        
+        <link rel="prev" href="./Tutorials.html" />
         
 
         <meta property="og:title" content="Blink a LED | Erle Robotics GitBook">
@@ -29,12 +31,12 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
         
     </head>
     <body>
         
-    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1397833715234">
+    <div class="book"  data-level="2.1" data-basepath="." data-revision="1397945577940">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -49,7 +51,7 @@
     
 
     <!-- Title -->
-    <h1><a href="../" >Erle Robotics GitBook</a></h1>
+    <h1><a href="./" >Erle Robotics GitBook</a></h1>
 </div>
 
     <div class="book-summary">
@@ -59,31 +61,39 @@
     <ul class="summary">
         
         <li data-level="0" data-path="index.html">
-            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
         </li>
         
             <li  data-level="1" data-path="basics/README.html">
                 
-                <a href="../basics/README.html">
+                <a href="./basics/README.html">
                     <i class="fa fa-check"></i> <b>1.</b> Basics
                 </a>
                 
                 
             </li>
         
-            <li  data-level="2" data-path="tutorials/Tutorials.html">
+            <li  data-level="2" data-path="Tutorials.html">
                 
-                <a href="../tutorials/Tutorials.html">
+                <a href="./Tutorials.html">
                     <i class="fa fa-check"></i> <b>2.</b> Tutorials
                 </a>
                 
                 
                 <ul class="articles">
                     
-                        <li  data-level="2.1" data-path="tutorials/Blink.html">
+                        <li  data-level="2.1" data-path="Blink.html">
                             
-                            <a href="../tutorials/Blink.html">
+                            <a href="./Blink.html">
                                 <i class="fa fa-check"></i> <b>2.1.</b> Blink a LED
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="Blink2.html">
+                            
+                            <a href="./Blink2.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Blink a LED in C++
                             </a>
                             
                         </li>
@@ -100,26 +110,28 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 100%;min-width: 66.66666666666667%;"></div>
+        <div class="inner" style="width: 75%;min-width: 50%;"></div>
     </div>
     <div class="chapters">
     
-        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="../basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 33.333333333333336%;"></a>
+        <a href="./basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 25%;"></a>
     
-        <a href="../tutorials/Tutorials.html" title="Tutorials" class="chapter done new-chapter" data-progress="2" style="left: 66.66666666666667%;"></a>
+        <a href="./Tutorials.html" title="Tutorials" class="chapter done new-chapter" data-progress="2" style="left: 50%;"></a>
     
-        <a href="../tutorials/Blink.html" title="Blink a LED" class="chapter done " data-progress="2.1" style="left: 100%;"></a>
+        <a href="./Blink.html" title="Blink a LED" class="chapter done " data-progress="2.1" style="left: 75%;"></a>
+    
+        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="2.2" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_238">
+                    <section class="normal" id="section-gitbook_317">
                     
-                        <h1 id="hello-world-in-robotics-blink-a-led">Hello world in robotics: blink a LED</h1>
+                        <h1 id="tutorial-1-hello-world-in-robotics-blink-a-led">Tutorial 1: Hello world in robotics: blink a LED</h1>
 <h2 id="goal">Goal</h2>
 <p>In this tutorial we will dive into the a practical example that teaches <em>how to make one of the robot LEDs blink</em> (the hello world in robotics).</p>
 <h2 id="material">Material</h2>
@@ -133,11 +145,12 @@
 <h2 id="tutorial">Tutorial</h2>
 <p>Erle has four user LEDS, usr0 - usr3 accesible throught the sysfs interface at <code>/sys/class/leds</code>. This interface abstracts the LEDs as files which means that we can actually <strong>control how these LEDs behave writing in a file</strong>. Cool, isn&#39;t it?</p>
 <p>We will make blink one of the onboard USER Leds through simple bash shell commands.</p>
-<p><img src="tutorials/tutorials/img/leds.jpg" alt="leds"></p>
+<p><img src="img/leds.jpg" alt="leds"></p>
 <p>First, move yourself to the LEDs sysfs dir:</p>
 <pre><code>cd /sys/class/leds
 </code></pre><p>If you check the content of this directory (<code>ls</code>) you should see something like this:</p>
-<pre><code>erlerobot:green:usr0@
+<pre><code>
+erlerobot:green:usr0@
 erlerobot:green:usr1@
 erlerobot:green:usr2@
 erlerobot:green:usr3@
@@ -155,7 +168,7 @@ To switch the LED <code>usr0</code> on type:</p>
                     
                     </section>
                 
-                    <section class="exercise" id="section-gitbook_239">
+                    <section class="exercise" id="section-gitbook_318">
                     
                         <div class="header">
     <h2>Exercise</h2>
@@ -193,20 +206,22 @@ echo &quot;heartbeat&quot; &gt; trigger</pre>
         </div>
 
         
-        <a href="../tutorials/Tutorials.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="./Tutorials.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Blink2.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-        <link rel="stylesheet" href="../gitbook/style.css">
+        <link rel="stylesheet" href="gitbook/style.css">
         
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
-        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
-        <script src="../gitbook/app.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
         
     </body>
 </html>
