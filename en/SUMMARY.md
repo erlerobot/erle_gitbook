@@ -1,6 +1,6 @@
 # Summary
 
 * [Basics](basics/README.md)
-* [Tutorials](tutorials/Tutorials.md)
-    * [Blink a LED](tutorials/Blink.md)
+* [Tutorials](Tutorials.md)
+    * [Blink a LED](Blink.md)
 
