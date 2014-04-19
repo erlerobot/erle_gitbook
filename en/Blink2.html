@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Blink a LED | Erle Robotics GitBook</title>
+        <title>Blink a LED in C++ | Erle Robotics GitBook</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,11 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="./Blink2.html" />
         
-        
-        <link rel="prev" href="./Tutorials.html" />
+        <link rel="prev" href="./Blink.html" />
         
 
-        <meta property="og:title" content="Blink a LED | Erle Robotics GitBook">
+        <meta property="og:title" content="Blink a LED in C++ | Erle Robotics GitBook">
         <meta property="og:site_name" content="Erle Robotics GitBook">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -36,7 +34,7 @@
     </head>
     <body>
         
-    <div class="book" data-github="erlerobot/erle_gitbook" data-level="2.1" data-basepath="." data-revision="1397946237522">
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="2.2" data-basepath="." data-revision="1397946237522">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -72,7 +70,7 @@
             <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/Blink.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/Blink2.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -126,7 +124,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 75%;min-width: 50%;"></div>
+        <div class="inner" style="width: 100%;min-width: 75%;"></div>
     </div>
     <div class="chapters">
     
@@ -138,18 +136,21 @@
     
         <a href="./Blink.html" title="Blink a LED" class="chapter done " data-progress="2.1" style="left: 75%;"></a>
     
-        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="2.2" style="left: 100%;"></a>
+        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter done " data-progress="2.2" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_1">
+                    <section class="normal" id="section-gitbook_4">
                     
-                        <h1 id="tutorial-1-hello-world-in-robotics-blink-a-led">Tutorial 1: Hello world in robotics: blink a LED</h1>
+                        <h1 id="blink-a-led-in-c-">Blink a LED in C++</h1>
 <h2 id="goal">Goal</h2>
-<p>In this tutorial we will dive into the a practical example that teaches <em>how to make one of the robot LEDs blink</em> (the hello world in robotics).</p>
+<p>In this tutorial we will explain how to make a <strong>program in C++ that will switch on and off one of the robot&#39;s LED</strong>. The program will be called <code>ledc++</code>:</p>
+<pre><code class="lang-bash">ledc++ [parameter]
+</code></pre>
+<p><em>parameter</em> will be either <code>on</code>, <code>off</code>, <code>flash</code> or <code>status</code>.</p>
 <h2 id="material">Material</h2>
 <p>In order to follow the tutorial you will need:</p>
 <ul>
@@ -159,62 +160,91 @@
 <li>A computer with a serial terminal installed (you can use PuTTy in Windows or minicom in Unix-based OSs)</li>
 </ul>
 <h2 id="tutorial">Tutorial</h2>
-<p>Erle has four user LEDS, usr0 - usr3 accesible throught the sysfs interface at <code>/sys/class/leds</code>. This interface abstracts the LEDs as files which means that we can actually <strong>control how these LEDs behave writing in a file</strong>. Cool, isn&#39;t it?</p>
-<p>We will make blink one of the onboard USER Leds through simple bash shell commands.</p>
-<p><img src="img/leds.jpg" alt="leds"></p>
-<p>First, move yourself to the LEDs sysfs dir:</p>
-<pre><code>cd /sys/class/leds
-</code></pre><p>If you check the content of this directory (<code>ls</code>) you should see something like this:</p>
-<pre><code>
-erlerobot:green:usr0@
-erlerobot:green:usr1@
-erlerobot:green:usr2@
-erlerobot:green:usr3@
-</code></pre><p>Each of this directories allows you to interface with its corresponding LED and has a set of files that allow you to perform different tasks. For example, let&#39;s play with the <code>usr0</code>:</p>
-<pre><code>cd erlerobot:green:usr0@
-ls
-</code></pre><p>The content of listing (doing <code>ls</code>) this directory should be:</p>
-<pre><code>brightness  device@  max_brightness  power/  subsystem@  trigger  uevent
-</code></pre><p>As we said before, these files allow you to control the LEDs by writting on them but we can also <em>check what they are doing right now by reading them</em>. Simple blinking can be achieved by writting on the <code>brightness</code> file.
-To switch the LED <code>usr0</code> on type:</p>
-<pre><code>echo 1 &gt; brightness
-</code></pre><p>and to switch it off type:</p>
-<pre><code>echo 0 &gt; brightness
+<p>Create a blank file called <code>ledc++.cpp</code>:</p>
+<pre><code>touch ledc++.cpp
+</code></pre><p>Edit the file (we personally like <code>vim</code> but feel free to learn any editor you like) and add the following content:</p>
+<pre><code class="lang-cpp">
+<span class="hljs-comment">/** Simple On-board LED flashing program - written by Derek Molloy
+    for the ee402 module 
+
+    This program uses USR LED 0 and can be executed in three ways:
+         makeLED on
+         makeLED off
+         makeLED flash  (flash at 100ms intervals - on 50ms/off 50ms)
+         makeLED status (get the trigger status)
+*/</span>
+
+<span class="hljs-preprocessor">#include&lt;iostream&gt;</span>
+<span class="hljs-preprocessor">#include&lt;fstream&gt;</span>
+<span class="hljs-preprocessor">#include&lt;string&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-preprocessor">#define LED0_PATH "/sys/class/leds/beaglebone:green:usr0"</span>
+
+<span class="hljs-keyword">void</span> removeTrigger(){
+   <span class="hljs-comment">// remove the trigger from the LED</span>
+   <span class="hljs-built_in">std</span>::fstream fs;
+   fs.open( LED0_PATH <span class="hljs-string">"/trigger"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+   fs &lt;&lt; <span class="hljs-string">"none"</span>;
+   fs.close();
+}
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[]){
+   <span class="hljs-keyword">if</span>(argc!=<span class="hljs-number">2</span>){
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Usage is makeLED and one of: on, off, flash or status"</span> 
+&lt;&lt; endl;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"e.g. makeLED flash"</span> &lt;&lt; endl;
+   }
+
+   <span class="hljs-built_in">string</span> cmd(argv[<span class="hljs-number">1</span>]);
+   <span class="hljs-built_in">std</span>::fstream fs;
+   <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Starting the LED flash program"</span> &lt;&lt; endl;
+   <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"The LED Path is: "</span> &lt;&lt; LED0_PATH &lt;&lt; endl;     
+
+   <span class="hljs-comment">// select whether it is on, off or flash</span>
+   <span class="hljs-keyword">if</span>(cmd==<span class="hljs-string">"on"</span>){
+    removeTrigger();
+    fs.open (LED0_PATH <span class="hljs-string">"/brightness"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+    fs &lt;&lt; <span class="hljs-string">"1"</span>;
+    fs.close();
+   }
+   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cmd==<span class="hljs-string">"off"</span>){
+    removeTrigger();
+    fs.open (LED0_PATH <span class="hljs-string">"/brightness"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+    fs &lt;&lt; <span class="hljs-string">"0"</span>;
+    fs.close();
+   }
+   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cmd==<span class="hljs-string">"flash"</span>){
+    fs.open (LED0_PATH <span class="hljs-string">"/trigger"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+    fs &lt;&lt; <span class="hljs-string">"timer"</span>;
+    fs.close();
+    fs.open (LED0_PATH <span class="hljs-string">"/delay_on"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+    fs &lt;&lt; <span class="hljs-string">"50"</span>;
+    fs.close();
+    fs.open (LED0_PATH <span class="hljs-string">"/delay_off"</span>, <span class="hljs-built_in">std</span>::fstream::out);
+    fs &lt;&lt; <span class="hljs-string">"50"</span>;
+    fs.close();
+   }
+   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cmd==<span class="hljs-string">"status"</span>){
+    <span class="hljs-comment">// display the current trigger details</span>
+    fs.open( LED0_PATH <span class="hljs-string">"/trigger"</span>, <span class="hljs-built_in">std</span>::fstream::in);
+    <span class="hljs-built_in">string</span> line;
+    <span class="hljs-keyword">while</span>(getline(fs,line)) <span class="hljs-built_in">cout</span> &lt;&lt; line;
+    fs.close();      
+   }
+   <span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Invalid command"</span> &lt;&lt; endl;
+   }
+   <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Finished the LED flash program"</span> &lt;&lt; endl;
+   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
 </code></pre>
-                    
-                    </section>
-                
-                    <section class="exercise" id="section-gitbook_2">
-                    
-                        <div class="header">
-    <h2>Exercise</h2>
-</div>
-<div class="alert alert-success">
-    <b>Correct!</b>
-</div>
-
-<div class="alert alert-danger error-message">
-    <b>False!</b>
-</div>
-
-<div class="message">
-    <p>Put LED <code>usr0</code> in <code>heartbeat</code> mode:</p>
-
-</div>
-<div class="editor" style="height: 40px"># write in here</div>
-
-<pre class="hidden code-solution"># the solution (assumes that you&#39;re at the usr0 directory)
-echo &quot;heartbeat&quot; &gt; trigger</pre>
-<pre class="hidden code-validation">assert(x == 10);</pre>
-
-
-<div class="btn-group btn-group-justified">
-    <a href="#" class="btn btn-default action-submit">Submit</a>
-    <a href="#" class="btn btn-default action-solution">Solution</a>
-    
-    <a href="https://github.com/erlerobot/erle_gitbook/issues/new" target="_blank" class="btn btn-default">Have a Question?</a>
-    
-</div>
+<p>Now compile the code:</p>
+<pre><code class="lang-bash">g++ ledc++.cpp -o ledc++
+</code></pre>
+<p>Finally, try calling the program with the different arguments [<code>on</code>, <code>off</code>, <code>flash</code> or <code>status</code>]:</p>
+<pre><code class="lang-bash">./ledc++ on
+</code></pre>
 
                     
                     </section>
@@ -224,10 +254,8 @@ echo &quot;heartbeat&quot; &gt; trigger</pre>
         </div>
 
         
-        <a href="./Tutorials.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="./Blink.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="./Blink2.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
