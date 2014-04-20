@@ -1,4 +1,4 @@
-Tutorial 1: Hello world in robotics: blink a LED
+Hello world in robotics: blink a LED
 ======
 
 Goal
