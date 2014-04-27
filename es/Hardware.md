@@ -123,3 +123,10 @@ Los bancos de pines de expansión *P8* y *P9* tienen asignadas las siguientes fu
 | P9.46 | |
 
 
+Licencia
+--------
+Parte del contenido es un derivado del *BeagleBone System Reference Manual Rev A6.0.0* con licencia Creative Commons Attribution-Share Alike 3.0 Unported License. Para ver una copia de esta licencia visite [http://creativecommons.org/licenses/by-sa/3.0/](http://creativecommons.org/licenses/by-sa/3.0/) o envíe una carta a *Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA*.
+
+Todo trabajo derivado ha de ser atribuído a Gerald Coley de BeagleBoard.org. 
+
+Preguntas, dudas y/o problemas pueden ser enviados a gerald@BeagleBoard.org.

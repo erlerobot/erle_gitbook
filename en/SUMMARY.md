@@ -3,10 +3,10 @@
 * [Basics](basics/README.md)
 * Software
 * [Hardware](Hardware.md)
-	* Processor
+	* [Processor](Processor.md)
+	* [Memory](Memory.md)
 	* System Power
 	* Current Measurement
-	* Memory
 	* USB
 	* EEPROM
 	* ADC

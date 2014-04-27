@@ -3,10 +3,10 @@
 * [Básico](basics/README.md)
 * Software
 * [Hardware](Hardware.md)
-	* Procesador
+	* [Procesador](Processor.md)
+	* [Memoria](Memory.md)
 	* Alimentación
 	* Medida de la corriente
-	* Memoria
 	* USB
 	* EEPROM
 	* ADC

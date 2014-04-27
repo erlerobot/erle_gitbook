@@ -24,8 +24,12 @@ Todo esto en un *pequeño ordenador Linux que vuela*. Con Erle, queremos acercar
 
 ![erle](img/erle.jpg)
 
-Autores
------
-- [Víctor Mayoral Vilches](https://github.com/vmayoral)
 
-    
+Licencia
+--------
+A menos de que se especifique lo contrario este contenido está registrado con licencia Creative Commons Attribution-NonComercial-Share Alike 3.0 Unported License. Para ver una copia de esta licencia visite [http://creativecommons.org/licenses/by-sa/3.0/](http://creativecommons.org/licenses/by-sa/3.0/) o envíe una carta a *Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA*.
+
+Todo trabajo derivado ha de ser atribuído a *Víctor Mayoral Vilches* de *Erle Robotics S.L.*. 
+
+Preguntas, dudas y/o problemas pueden ser enviados a support [at] erlerobot.com.
+
