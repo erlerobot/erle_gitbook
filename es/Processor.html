@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Parpadeo de un LED | Erle Robotics GitBook</title>
+        <title>Procesador | Erle Robotics GitBook</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="./Blink2.html" />
+        <link rel="next" href="./Memory.html" />
         
         
-        <link rel="prev" href="./Tutorials.html" />
+        <link rel="prev" href="./Hardware.html" />
         
 
-        <meta property="og:title" content="Parpadeo de un LED | Erle Robotics GitBook">
+        <meta property="og:title" content="Procesador | Erle Robotics GitBook">
         <meta property="og:site_name" content="Erle Robotics GitBook">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -36,7 +36,7 @@
     </head>
     <body>
         
-    <div class="book" data-github="erlerobot/erle_gitbook" data-level="5.1" data-basepath="." data-revision="1398542800574">
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="3.1" data-basepath="." data-revision="1398542800574">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -72,7 +72,7 @@
             <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/Blink.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/Processor.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -205,7 +205,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 85.71428571428571%;min-width: 71.42857142857143%;"></div>
+        <div class="inner" style="width: 42.857142857142854%;min-width: 28.571428571428573%;"></div>
     </div>
     <div class="chapters">
     
@@ -217,11 +217,11 @@
     
         <a href="./Processor.html" title="Procesador" class="chapter done " data-progress="3.1" style="left: 42.857142857142854%;"></a>
     
-        <a href="./Memory.html" title="Memoria" class="chapter done " data-progress="3.2" style="left: 57.142857142857146%;"></a>
+        <a href="./Memory.html" title="Memoria" class="chapter  " data-progress="3.2" style="left: 57.142857142857146%;"></a>
     
-        <a href="./Tutorials.html" title="Tutoriales" class="chapter done new-chapter" data-progress="5" style="left: 71.42857142857143%;"></a>
+        <a href="./Tutorials.html" title="Tutoriales" class="chapter  new-chapter" data-progress="5" style="left: 71.42857142857143%;"></a>
     
-        <a href="./Blink.html" title="Parpadeo de un LED" class="chapter done " data-progress="5.1" style="left: 85.71428571428571%;"></a>
+        <a href="./Blink.html" title="Parpadeo de un LED" class="chapter  " data-progress="5.1" style="left: 85.71428571428571%;"></a>
     
         <a href="./Blink2.html" title="Parpadeo de un LED en C++" class="chapter  " data-progress="5.2" style="left: 100%;"></a>
     
@@ -230,76 +230,14 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_7">
                     
-                        <h1 id="hola-mundo-en-rob-tica-parpadeo-de-un-led">Hola mundo en robótica: parpadeo de un LED</h1>
-<h2 id="objetivo">Objetivo</h2>
-<p>En este tutorial empezaremos con un ejemplo práctico que demostrará <em>cómo hacer que uno de los LEDs del robot parpadeen</em>.</p>
-<h2 id="material">Material</h2>
-<p>Para seguir el tutorial necesitas:</p>
-<ul>
-<li>El robot Erle.</li>
-<li>Una tarjeta microSD de 8 GB con la <em>Distrución Ubuntu Linux</em> que proporcionamos.</li>
-<li>un conector (macho) USB-to-miniUSB</li>
-<li>Un ordenador con un terminal serial instalado (en Windows puedes usar PuTTy in en <em>Unixes</em> <code>minicom</code>).</li>
-</ul>
-<h2 id="tutorial">Tutorial</h2>
-<p>Erle tiene cuatro LEDs, usr0 - usr3 accesibles a través de la interfaz sysfs en <code>/sys/class/leds</code>. Esta interfaz permite abstraer los LEDs a través de ficheros, esto significa que <strong>es posible controlar los LEDs escribiendo en un fichero</strong>. Genial, ¿verdad?.</p>
-<p>Nuestro objetivo será hacer que uno de estos user LEDs parpadeen utilizando sencillas instrucciones de la shell de Unix.</p>
-<p><img src="img/leds.jpg" alt="leds"></p>
-<p>En primer lugar nos movemos al directorio sysfs correspondiente:</p>
-<pre><code>cd /sys/class/leds
-</code></pre><p>Si revisas el contenido de este directorio (<code>ls</code>) deberías ver algo como esto:</p>
-<pre><code>erlerobot:green:usr0@
-erlerobot:green:usr1@
-erlerobot:green:usr2@
-erlerobot:green:usr3@
-</code></pre><p>Cada uno de estos directorios te permite modificar el comportamiento del LED correspondiente. Dentro de cada uno de estos directorios hay ficheros que se encargan de activar los LEDs de diferentes formas. Vamos a probar el <code>usr0</code>:</p>
-<pre><code>cd erlerobot:green:usr0@
-ls
-</code></pre><p>El contenido de listar (escribiendo <code>ls</code>) este directorio debe ser:</p>
-<pre><code>brightness  device@  max_brightness  power/  subsystem@  trigger  uevent
-</code></pre><p>Como hemos dicho anteriormente, cada uno de estos ficheros te permite controlar el comportamiento del LED correspondiente y para ello basta con escribir en ellos <em>el contenido adecuado</em>. También es posible conocer el estado de los LEDs leyendo estos ficheros.
-Para conseguir que el LED se encienda o apague basta con escribir en el fichero <code>brightness</code>.
-Para encender el LED <code>usr0</code> escribe:</p>
-<pre><code>echo 1 &gt; brightness
-</code></pre><p>y para apagarlo:</p>
-<pre><code>echo 0 &gt; brightness
-</code></pre>
-                    
-                    </section>
-                
-                    <section class="exercise" id="section-gitbook_3">
-                    
-                        <div class="header">
-    <h2>Exercise</h2>
-</div>
-<div class="alert alert-success">
-    <b>Correct!</b>
-</div>
-
-<div class="alert alert-danger error-message">
-    <b>False!</b>
-</div>
-
-<div class="message">
-    <p>Pon el LED <code>usr0</code> en modo <code>heartbeat</code> (latido de corazón):</p>
-
-</div>
-<div class="editor" style="height: 40px"># escribe aquí</div>
-
-<pre class="hidden code-solution"># la solución (asumiendo que estás en el directorio usr0)
-echo &quot;heartbeat&quot; &gt; trigger</pre>
-<pre class="hidden code-validation">assert(x == 10);</pre>
-
-
-<div class="btn-group btn-group-justified">
-    <a href="#" class="btn btn-default action-submit">Submit</a>
-    <a href="#" class="btn btn-default action-solution">Solution</a>
-    
-    <a href="https://github.com/erlerobot/erle_gitbook/issues/new" target="_blank" class="btn btn-default">Have a Question?</a>
-    
-</div>
+                        <h1 id="procesador">Procesador</h1>
+<p>El robot utiliza actualmente el procesador AM3359 (se prevé un cambio al AM3358 que proporciona velocidades de hasta 1GHz) en el encapsulado de 15x15 mm. La velocidad del procesador será dependiente de los circuitos integrados suministrados por el fabricante pero nunca inferior a 720 MHz.</p>
+<h2 id="licencia">Licencia</h2>
+<p>Parte del contenido es un derivado del <em>BeagleBone System Reference Manual Rev A6.0.0</em> con licencia Creative Commons Attribution-Share Alike 3.0 Unported License. Para ver una copia de esta licencia visite <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">http://creativecommons.org/licenses/by-sa/3.0/</a> o envíe una carta a <em>Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA</em>.</p>
+<p>Todo trabajo derivado ha de ser atribuído a Gerald Coley de BeagleBoard.org. </p>
+<p>Preguntas, dudas y/o problemas pueden ser enviados a gerald@BeagleBoard.org.</p>
 
                     
                     </section>
@@ -309,10 +247,10 @@ echo &quot;heartbeat&quot; &gt; trigger</pre>
         </div>
 
         
-        <a href="./Tutorials.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="./Hardware.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./Blink2.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        <a href="./Memory.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
