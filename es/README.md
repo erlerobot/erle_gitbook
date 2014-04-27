@@ -15,14 +15,13 @@ Durante años hemos estado trabajando en el área de la robótica, particularmen
 
 Llevamos trabajando duro para dar una respuesta a todas estas preguntas: **Erle**.
 
-```
+![erle](img/erle.jpg)
+
 Inspirado por el BeagleBone (un ordenador del tamaño de una tarjeta de crédito), hemos diseñado un robot de pequeñas dimensiones que incluye cerca de 40 sensores, varias interfaces de I/O y capacidad para procesar información en tiempo real.
 Erle representa la siguiente generación de robots voladores que se encargarán de resolver tareas en el ámbito urbano. Tareas como la monitorización del medio ambiente, la asistencia aérea en situaciones de riesgo o la vigilancia de zonas que lo requieran.
-```
 
 Todo esto en un *pequeño ordenador Linux que vuela*. Con Erle, queremos acercar la robótica a personas y negocios.
 
-![erle](img/erle.jpg)
 
 
 Licencia
