@@ -5,18 +5,19 @@
 * [Hardware](Hardware.md)
 	* [Processor](Processor.md)
 	* [Memory](Memory.md)
-	* System Power
-	* Current Measurement
+	* [System Power](Systempower.md)
+	* [Current Measurement](Current.md)	
 	* USB
-	* EEPROM
+	* [EEPROM](EEPROM.md)
 	* ADC
-	* Expansion headers
+	* [Hardware Map](HardwareMap.md)
 * [ROS](ROS.md)
 	* [Concepts](ROS-concepts.md)
 	* Technical Overview
-	* Tutorials
 * [Tutorials](Tutorials.md)
     * [Blink a LED](Blink.md)
     * [Blink a LED in C++](Blink2.md)
+	* ROS 1: Installing and Configuring Your ROS Environment
+	* ROS 2: Navigating the ROS Filesystem    
 
 
