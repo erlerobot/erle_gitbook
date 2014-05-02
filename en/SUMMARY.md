@@ -10,7 +10,8 @@
 	* USB
 	* [EEPROM](EEPROM.md)
 	* ADC
-	* [Hardware Map](HardwareMap.md)
+	* Sensors
+	* Hardware Map
 * [ROS](ROS.md)
 	* [Concepts](ROS-concepts.md)
 	* Technical Overview

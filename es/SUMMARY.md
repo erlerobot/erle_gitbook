@@ -5,7 +5,7 @@
 * [Hardware](Hardware.md)
 	* [Procesador](Processor.md)
 	* [Memoria](Memory.md)
-	* Alimentación
+	* [Alimentación](Alimentacion.md)
 	* Medida de la corriente
 	* USB
 	* EEPROM
