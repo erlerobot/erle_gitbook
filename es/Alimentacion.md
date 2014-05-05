@@ -1,7 +1,7 @@
 Alimentación
 ============
 
-La selección de cualquiera de los 5 VDC o el USB como fuente de alimentaci�n se maneja internamente en el TPS65217B y cambia automáicamente a la energ�a 5VDC aunque ambas est�n conectadas. SW puede cambiar la configuraci�n de la corriente a trav�s de la interfaz I2C del procesador. Adem�s, el SO puede leer el TPS65217B y determinar si la placa se est� ejecutando en la entrada de 5 VDC o la entrada USB. Esto puede ser interesante para conocer la capacidad de la Junta para suministrar corriente para cosas como la frecuencia de funcionamiento y las tarjetas de expansi�n.
+La selección de cualquiera de los 5 VDC o el USB como fuente de alimentaci�n se maneja internamente en el TPS65217B y cambia automáticamente a la energ�a 5VDC aunque ambas est�n conectadas. SW puede cambiar la configuraci�n de la corriente a trav�s de la interfaz I2C del procesador. Adem�s, el SO puede leer el TPS65217B y determinar si la placa se est� ejecutando en la entrada de 5 VDC o la entrada USB. Esto puede ser interesante para conocer la capacidad de la Junta para suministrar corriente para cosas como la frecuencia de funcionamiento y las tarjetas de expansi�n.
 
 Administraci�n de energ�a del circuito integrado (PMIC)
 --------
