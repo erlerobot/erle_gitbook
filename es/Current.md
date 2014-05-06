@@ -1,13 +1,13 @@
 Medición de corriente
 ===========
 
-El BEAGLEBONE tiene un método según el cual se puede medir el consumo de corriente de la junta , sin contar el puerto Host USB y tarjetas de expansión , . La caída de tensión en una resistencia de 0,1 ohmios se mide para determinar el consumo de corriente .
+El BEAGLEBONE tiene un método según el cual se puede medir el consumo de corriente de la junta, sin contar el puerto Host USB y tarjetas de expansión. La caída de tensión en una resistencia de 0,1 ohmios se mide para determinar el consumo de corriente.
 
 ! [actual] ( img / currentmeas.png )
 
-Conexión ` SYS_5V `
+Conexión `SYS_5V`
 ----------
-El carril ` SYS_5V ` se mide para determinar la parte alta de la resistencia en serie . El carril ` SYS_5V ` está conectado a la ` pasador ` MUX_OUT . Antes de ser conectado al segundo multiplexor interno , la tensión se divide por 3 . Una señal de ` 5V ` dará lugar a una tensión de 1.66V ` ` en el ` pasador ` MUX_OUT .
+El carril `SYS_5V` se mide para determinar la parte alta de la resistencia en serie . El carril ` SYS_5V ` está conectado a la ` pasador ` MUX_OUT . Antes de ser conectado al segundo multiplexor interno, la tensión se divide por 3 . Una señal de ` 5V ` dará lugar a una tensión de 1.66V ` ` en el ` pasador ` MUX_OUT .
 
 
 Conexión ` SYS_VOLT `
