@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Introduction | Erle Robotics GitBook</title>
+        <title>Dynamical model | Erle Robotics GitBook</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,11 +13,11 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="./basics/README.html" />
+        <link rel="next" href="./ReferenceFrames.html" />
         
         
 
-        <meta property="og:title" content="Introduction | Erle Robotics GitBook">
+        <meta property="og:title" content="Dynamical model | Erle Robotics GitBook">
         <meta property="og:site_name" content="Erle Robotics GitBook">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="erlerobot/erle_gitbook" data-level="0" data-basepath="." data-revision="1399387654149">
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="5" data-basepath="." data-revision="1399387654149">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -106,7 +106,7 @@
             <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/README.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/DynamicalModel.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -363,33 +363,33 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 0%;min-width: 0%;"></div>
+        <div class="inner" style="width: 64.70588235294117%;min-width: 58.8235294117647%;"></div>
     </div>
     <div class="chapters">
     
         <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="./basics/README.html" title="Basics" class="chapter  new-chapter" data-progress="1" style="left: 5.882352941176471%;"></a>
+        <a href="./basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 5.882352941176471%;"></a>
     
-        <a href="./Hardware.html" title="Hardware" class="chapter  new-chapter" data-progress="3" style="left: 11.764705882352942%;"></a>
+        <a href="./Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 11.764705882352942%;"></a>
     
-        <a href="./Processor.html" title="Processor" class="chapter  " data-progress="3.1" style="left: 17.647058823529413%;"></a>
+        <a href="./Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 17.647058823529413%;"></a>
     
-        <a href="./I2C.html" title="I2C" class="chapter  " data-progress="3.10" style="left: 23.529411764705884%;"></a>
+        <a href="./I2C.html" title="I2C" class="chapter done " data-progress="3.10" style="left: 23.529411764705884%;"></a>
     
-        <a href="./Memory.html" title="Memory" class="chapter  " data-progress="3.2" style="left: 29.41176470588235%;"></a>
+        <a href="./Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 29.41176470588235%;"></a>
     
-        <a href="./Systempower.html" title="System Power" class="chapter  " data-progress="3.3" style="left: 35.294117647058826%;"></a>
+        <a href="./Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 35.294117647058826%;"></a>
     
-        <a href="./Current.html" title="Current Measurement" class="chapter  " data-progress="3.4" style="left: 41.1764705882353%;"></a>
+        <a href="./Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 41.1764705882353%;"></a>
     
-        <a href="./EEPROM.html" title="EEPROM" class="chapter  " data-progress="3.6" style="left: 47.05882352941177%;"></a>
+        <a href="./EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 47.05882352941177%;"></a>
     
-        <a href="./ROS.html" title="ROS" class="chapter  new-chapter" data-progress="4" style="left: 52.94117647058823%;"></a>
+        <a href="./ROS.html" title="ROS" class="chapter done new-chapter" data-progress="4" style="left: 52.94117647058823%;"></a>
     
-        <a href="./ROS-concepts.html" title="Concepts" class="chapter  " data-progress="4.1" style="left: 58.8235294117647%;"></a>
+        <a href="./ROS-concepts.html" title="Concepts" class="chapter done " data-progress="4.1" style="left: 58.8235294117647%;"></a>
     
-        <a href="./DynamicalModel.html" title="Dynamical model" class="chapter  new-chapter" data-progress="5" style="left: 64.70588235294117%;"></a>
+        <a href="./DynamicalModel.html" title="Dynamical model" class="chapter done new-chapter" data-progress="5" style="left: 64.70588235294117%;"></a>
     
         <a href="./ReferenceFrames.html" title="Reference Frames" class="chapter  " data-progress="5.1" style="left: 70.58823529411765%;"></a>
     
@@ -408,23 +408,40 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_16">
+                    <section class="normal" id="section-gitbook_20">
                     
-                        <h1 id="erle-robotics-gitbook">Erle Robotics GitBook</h1>
-<h2 id="book">Book</h2>
-<p>In this book you&#39;ll learn how to use the drone <a href="http://erlerobot.com" target="_blank">Erle</a>, the <strong>first low cost and open personal drone</strong>.</p>
-<p><img src="img/erlelogo.png" alt="erlelogo"></p>
-<h2 id="about">About</h2>
-<p>For years we&#39;ve been working in the robotics field, particularly with drones. We have worked in several Universities and research centers and in all these places we actually found that most of the <strong>drones are black boxes</strong> (check out our <a href="https://www.youtube.com/watch?v=tKAqjyXaC18" target="_blank">60s pitch</a>). Not meant to be used for learning, research. The software they use is in most of the cases unknown, closed source or <em>not documented</em>. 
-Given these conditions, how are we going to educate the next generations on this flying technologies? How do you get started programming drones if you don&#39;t have $1000+ budget? Which platform allows me to get started with drones without risking a hand?</p>
-<p>We are coming up with an answer to all these questions: <strong>Erle</strong>.</p>
-<p><img src="img/erle.jpg" alt="erle"></p>
-<p>Inspired by the BeagleBone development board, we have designed a small flying robot with about 40 sensors, plenty of I/O and processing power for real-time analysis. Erle represents the next generation of nano aerial robots that will be used in cities solving tasks such as surveillance, enviromental monitoring or even providing aid at catastrophes.</p>
-<p>All of it in a small size Linux flying computer that is bringing robotics to the people and business.</p>
-<h2 id="license">License</h2>
-<p>Unless specified, this content is licensed under the Creative Commons Attribution-NonComercial-Share Alike 3.0 Unported License. To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">http://creativecommons.org/licenses/by-sa/3.0/</a> or send a letter to <em>Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA</em>.</p>
-<p>All derivative works are to be attributed to <em>Víctor Mayoral Vilches</em> of <em>Erle Robotics S.L.</em>. </p>
-<p>For any questions, concerns, or issues submit them to support [at] erlerobot.com.</p>
+                        <h1 id="dynamical-model">Dynamical model</h1>
+<h2 id="what-is-dynamical-model-">What is dynamical model?</h2>
+<p>The <em>dynamical model</em> is a <strong>set of equations describing the attitude and position of the device</strong>.</p>
+<h2 id="quadrotor-concept">Quadrotor concept</h2>
+<p>The robot <a href="http://erlerobot.com" target="_blank">Erle</a> is a <em>quadcopter</em>:</p>
+<blockquote>
+<p>A quadcopter, also called a quadrotor helicopter, quadrotor, is a multirotor helicopter that is lifted and propelled by four rotors. Quadcopters are classified as rotorcraft, as opposed to fixed-wing aircraft, because their lift is generated by a set of revolving narrow-chord airfoils.</p>
+</blockquote>
+<p>From the ﬁrst days in helicopter development, the quadrotor layout was seen as an alternative. In a regular helicopter conﬁguration the torque is counteracted by the tail rotor. When using two rotors the torques of the rotors can compensated by each other. But two rotors create still has challenges in control as the rotational and translational motions are still highly coupled.</p>
+<p>With four rotors the control becomes easier and the rotational motions can be decoupled for the gyroscopic eﬀects. Translational motions are achieved by tilting the vehicle. In the most common layout for quadrotor, the <em>two pairs of rotors (1, 3) and (2, 4) turn in opposite directions</em> as shown in the figure:</p>
+<p><img src="img/quad.png" alt="quad"></p>
+<p>By varying the rotor speeds, one can change the lift forces and create motion. Increasing or decreasing the four rotor speeds together generates vertical motion. Changing the 2 and 4 propellers speed conversely produces <strong>roll</strong> rotation coupled with lateral motion. <strong>Pitch</strong> rotation and the corresponding lateral motion result from 1 and 3 propellers speed conversely modiﬁed. <strong>Yaw</strong> rotation results from the diﬀerence in the counter-torque between the pairs of rotors.</p>
+<h3 id="advantages-and-disadvantages">Advantages and disadvantages</h3>
+<p>As only thrust control can be used to change position, blade-pitch control of the rotors is not necessary and thus rotor <em>mechanics are simpliﬁed, which make the quadrotor layout interesting for smaller sized Vertical/Short Take Oﬀ and Landing (V/STOL) UAVs (Unmanned Aerial Vehicles)</em>. Another advantage is
+that with a quadrotor the thrust is solely used to compensate for the weight and not to counteract the torque, because the four rotors eliminate the gyroscopic eﬀect, so thrust is completely used to carry the payload.</p>
+<p>For micro UAVs, four rotors results in a very small rotor diameter, which penalises eﬃciency and increases energy consumption to get similar lift. Also the size and weight of a quadrotor with similar payload is higher than a normal helicopter. The simpliﬁcations in building and control which is oﬀered by the concept, makes it still a very favourable design for UAVs.</p>
+<h2 id="dynamical-model-of-a-quadrotor">Dynamical model of a quadrotor</h2>
+<p>The <em>dynamical model of the quadrotor</em>  is basically that of a rotating rigid body with six degrees of freedom and four inputs.</p>
+<p>According to <a href="http://andrew.gibiansky.com/downloads/pdf/Quadcopter%20Dynamics,%20Simulation,%20and%20Control.pdf" target="_blank">Quadcopter Dynamics, Simulation, and Control</a>:</p>
+<blockquote>
+<p>The development of quadcopters has stalled until very recently, because <strong>controlling four independent rotors has proven to be incredibly difficult</strong> and impossible without electronic assistance. The decreasing cost of modern microprocessors has made electronic and even completely autonomous control of quadcopters feasible for commercial, military, and even hobbyist purposes.</p>
+<p>Quadcopter control is a fundamentally difficult and interesting problem:</p>
+<p>With <em>six degrees of freedom</em> (three translational and three rotational) and only <em>four independent inputs</em> (rotor speeds), quadcopters are <strong>severely underactuated</strong>.
+In order to achieve six degrees of freedom, rotational and translational motion are coupled. The resulting dynamics are highly nonlinear, especially after accounting for the complicated aerodynamic effects. Furthermore, unlike ground vehicles, helicopters have very little friction to prevent their motion, so they must provide their own damping in order to stop moving and remain stable.</p>
+<p>Together, these factors create a very interesting control problem.</p>
+</blockquote>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a href="http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf" target="_blank">Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV</a></li>
+<li><a href="http://andrew.gibiansky.com/downloads/pdf/Quadcopter%20Dynamics,%20Simulation,%20and%20Control.pdf" target="_blank">Quadcopter Dynamics, Simulation, and Control</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Quadcopter" target="_blank">Quadcopter</a></li>
+</ul>
 
                     
                     </section>
@@ -435,7 +452,7 @@ Given these conditions, how are we going to educate the next generations on this
 
         
         
-        <a href="./basics/README.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        <a href="./ReferenceFrames.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
