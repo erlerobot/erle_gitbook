@@ -12,9 +12,11 @@
 	* ADC
 	* Sensors
 	* Hardware Map
+	* [I2C](I2C.md)
 * [ROS](ROS.md)
 	* [Concepts](ROS-concepts.md)
 	* Technical Overview
+* Autopilot	
 * [Tutorials](Tutorials.md)
     * [Blink a LED](Blink.md)
     * [Blink a LED in C++](Blink2.md)
