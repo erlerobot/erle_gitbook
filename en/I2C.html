@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>EEPROM | Erle Robotics GitBook</title>
+        <title>I2C | Erle Robotics GitBook</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,9 +13,11 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="./ROS.html" />
+        
         
 
-        <meta property="og:title" content="EEPROM | Erle Robotics GitBook">
+        <meta property="og:title" content="I2C | Erle Robotics GitBook">
         <meta property="og:site_name" content="Erle Robotics GitBook">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -38,7 +40,7 @@
 
 
         
-    <div class="book" data-github="erlerobot/erle_gitbook" data-level="3.6" data-basepath="." data-revision="1399370856174">
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="3.10" data-basepath="." data-revision="1399370856174">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -104,7 +106,7 @@
             <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/EEPROM.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/I2C.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -296,7 +298,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 61.53846153846154%;min-width: 53.84615384615385%;"></div>
+        <div class="inner" style="width: 30.76923076923077%;min-width: 23.076923076923077%;"></div>
     </div>
     <div class="chapters">
     
@@ -310,13 +312,13 @@
     
         <a href="./I2C.html" title="I2C" class="chapter done " data-progress="3.10" style="left: 30.76923076923077%;"></a>
     
-        <a href="./Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 38.46153846153846%;"></a>
+        <a href="./Memory.html" title="Memory" class="chapter  " data-progress="3.2" style="left: 38.46153846153846%;"></a>
     
-        <a href="./Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 46.15384615384615%;"></a>
+        <a href="./Systempower.html" title="System Power" class="chapter  " data-progress="3.3" style="left: 46.15384615384615%;"></a>
     
-        <a href="./Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 53.84615384615385%;"></a>
+        <a href="./Current.html" title="Current Measurement" class="chapter  " data-progress="3.4" style="left: 53.84615384615385%;"></a>
     
-        <a href="./EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 61.53846153846154%;"></a>
+        <a href="./EEPROM.html" title="EEPROM" class="chapter  " data-progress="3.6" style="left: 61.53846153846154%;"></a>
     
         <a href="./ROS.html" title="ROS" class="chapter  new-chapter" data-progress="4" style="left: 69.23076923076923%;"></a>
     
@@ -333,71 +335,68 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_21">
+                    <section class="normal" id="section-gitbook_23">
                     
-                        <h1 id="electrically-erasable-programmable-read-only-memory-eeprom-">Electrically Erasable Programmable Read Only Memory (EEPROM)</h1>
-<p>The robot Erle is equipped with a single <strong>CAT24C256W</strong> EEPROM to allow the Software to identify the board.</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Size (bytes)</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Header</td>
-<td>4</td>
-<td><code>0xAA</code>, <code>0x55</code>, <code>0x33</code>, <code>0xEE</code></td>
-</tr>
-<tr>
-<td>Board Name</td>
-<td>8</td>
-<td>Name for board in <strong>ASCII</strong>: <code>A335BONE</code></td>
-</tr>
-<tr>
-<td>Version</td>
-<td>4</td>
-<td>Hardware version code for board in <strong>ASCII</strong>: <code>00A￼3</code> for Rev A3,<code>00A4</code> for Rev A4,<code>00A5</code> for Rev A5,<code>00A6</code> for Rev A6</td>
-</tr>
-<tr>
-<td>Serial Number</td>
-<td>12</td>
-<td>Serial number of the board. 12 character string is <strong>ASCII</strong> with the following scheme: <code>WWYY4P16nnnn</code>, where <code>WW</code> is a 2 digit week of the year of production, <code>YY</code> corresponds to the year of production, <code>nnnn</code> is an incrementing board number.</td>
-</tr>
-<tr>
-<td>Configuration option</td>
-<td>32</td>
-<td><strong>ASCII</strong>: <code>0000000000000000000000000000000</code> (64 0s in hex)</td>
-</tr>
-<tr>
-<td>RSVD</td>
-<td>6</td>
-<td><strong>ASCII</strong>: <code>000000</code></td>
-</tr>
-<tr>
-<td>RSVD</td>
-<td>6</td>
-<td><strong>ASCII</strong>: <code>000000</code></td>
-</tr>
-<tr>
-<td>RSVD</td>
-<td>6</td>
-<td><strong>ASCII</strong>: <code>000000</code></td>
-</tr>
-<tr>
-<td>Security</td>
-<td>20</td>
-<td>Board theft protection</td>
-</tr>
-<tr>
-<td>Available</td>
-<td>32682</td>
-<td>Available for other non-volatile code/data</td>
-</tr>
-</tbody>
-</table>
+                        <h1 id="inter-integrated-circuits-i-c-">Inter Integrated Circuits (I²C)</h1>
+<p>I²C (Inter-Integrated Circuit)(alternately spelled I2C or IIC, most commonly pronounced I-squared-C) is a multimaster serial single-ended computer bus invented by the Philips semiconductor division, today NXP Semiconductors, and <strong>used for attaching low-speed peripherals to a motherboard, embedded system, cellphone, or other digital electronic devices</strong>. </p>
+<p>Several competitors, such as Siemens AG (later Infineon Technologies AG, now Intel mobile communications), NEC, Texas Instruments, STMicroelectronics (formerly SGS-Thomson), Motorola (later Freescale), and Intersil, have introduced compatible I²C products to the market since the mid-1990s.</p>
+<p>Since October 10, 2006, no licensing fees are required to implement the I²C protocol. However, fees are still required to obtain I²C slave addresses allocated by NXP.</p>
+<h4 id="interesting-remark">Interesting remark</h4>
+<pre><code>SMBus, defined by Intel in 1995, is a subset of I²C that defines the protocols more strictly. One purpose of SMBus is to promote robustness and interoperability. Accordingly, modern I²C systems incorporate policies and rules from SMBus, sometimes supporting both I²C and SMBus, requiring only minimal reconfiguration.
+</code></pre><h2 id="i-c-in-the-robot-erle-http-erlerobot-com-">I²C in the <a href="http://erlerobot.com" target="_blank">robot Erle</a></h2>
+<p>The educational drone <a href="http://erlerobot.com" target="_blank">Erle</a> includes 3 I²C busses available under <code>/dev</code>: <code>/dev/i2c-0</code>, <code>/dev/i2c-1</code> and <code>/dev/i2c-2</code>.</p>
+<h4 id="take-in-account">Take in account</h4>
+<hr>
+<p><code>/dev/i2c-2</code> is by default not activated. In order to activate it you should type:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> BB-I2C1 &gt; <span class="hljs-variable">$SLOTS</span>
+</code></pre>
+<p>You can verify that it has been activated typing:</p>
+<pre><code class="lang-bash">cat <span class="hljs-variable">$SLOTS</span>
+</code></pre>
+<hr>
+<h2 id="inspecting-i-c">Inspecting I²C</h2>
+<p>A good tool to inspect the I²C bus is the <code>i2cdetect</code> bash command:</p>
+<pre><code>i2cdetect -r 1
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-1 using read byte commands.
+I will probe address range 0x03-0x77.
+Continue? [Y/n] 
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+10: -- -- -- 13 -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- UU UU UU UU -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --
+</code></pre><p>This command sends a ping to the <code>0x03</code>-<code>0x77</code> range (in hexadecimal) and records the answers in every address thereby it&#39;s able to figure out if there are any devices. Particularly we can see that the addresses <code>0x13</code> and <code>0x68</code> answered which correspond to the IR and IMU sensors respectively.</p>
+<h2 id="instantiate-i-c-devices-from-the-userspace">Instantiate I²C devices from the userspace</h2>
+<p>The Linux kernel also allows to manually configure I²C devices through a sysfs interface:</p>
+<blockquote>
+<p>In general, the kernel should know which I2C devices are connected and<br>what addresses they live at. However, in certain cases, it does not, so a<br>sysfs interface was added to let the user provide the information. This<br>interface is made of 2 attribute files which are created in every I2C bus<br>directory: new_device and delete_device. Both files are write only and you<br>must write the right parameters to them in order to properly instantiate,<br>respectively delete, an I2C device.                                             </p>
+<p>File new_device takes 2 parameters: the name of the I2C device (a string)<br>and the address of the I2C device (a number, typically expressed in<br>hexadecimal starting with 0x, but can also be expressed in decimal.)            </p>
+<p>File delete_device takes a single parameter: the address of the I2C<br>device. As no two devices can live at the same address on a given I2C<br>segment, the address is sufficient to uniquely identify the device to be<br>deleted.                                                                        </p>
+<p>Example:<br><code>echo eeprom 0x50 &gt; /sys/bus/i2c/devices/i2c-3/new_device</code></p>
+<p>While this interface should only be used when in-kernel device declaration<br>can&#39;t be done, there is a variety of cases where it can be helpful:             </p>
+<ul>
+<li>The I2C driver usually detects devices (method 3 above) but the bus<br>segment your device lives on doesn&#39;t have the proper class bit set and<br>thus detection doesn&#39;t trigger.                                               </li>
+<li>The I2C driver usually detects devices, but your device lives at an<br>unexpected address.                                                           </li>
+<li>The I2C driver usually detects devices, but your device is not detected,<br>either because the detection routine is too strict, or because your<br>device is not officially supported yet but you know it is compatible.         </li>
+<li>You are developing a driver on a test board, where you soldered the I2C<br>device yourself.                                                              </li>
+</ul>
+<p>This interface is a replacement for the force_* module parameters some I2C<br>drivers implement. Being implemented in i2c-core rather than in each<br>device driver individually, it is much more efficient, and also has the<br>advantage that you do not have to reload the driver to change a setting.<br>You can also instantiate the device before the driver is loaded or even<br>available, and you don&#39;t need to know what driver the device needs.       </p>
+</blockquote>
+<p>Considering this, we could instantiate a sensor (hih6130) connected to <code>/dev/i2c-1</code> and with address <code>0x27</code> doing:</p>
+<pre><code>echo hih6130 0x27 &gt; /sys/bus/i2c/devices/i2c-1/new_device
+</code></pre><p>After that, the device will be available under <code>/sys/bus/i2c/drivers/hih6130/1-0027</code>.</p>
+<p>To remove the device you can use:</p>
+<pre><code>echo 0x27 &gt; /sys/bus/i2c/devices/i2c-1/delete_device
+</code></pre><h2 id="sources">Sources</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/I%C2%B2C" target="_blank">Wikipedia</a></li>
+<li><a href="http://lxr.free-electrons.com/source/Documentation/i2c/instantiating-devices" target="_blank">Linux kernel documentation</a></li>
+</ul>
 
                     
                     </section>
@@ -407,6 +406,8 @@
         </div>
 
         
+        
+        <a href="./ROS.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
