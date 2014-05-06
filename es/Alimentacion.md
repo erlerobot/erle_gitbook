@@ -6,7 +6,7 @@ La selección de cualquiera de los 5 VDC o el USB como fuente de alimentación s
 Administración de energía del circuito integrado (PMIC)
 --------
 
-La administración de energía del circuito integrado ( PMIC ) en el sistema la gestiona [ TPS65217B ] ( http://www.ti.com/product/tps65217b ) . El *TPS65217B* es un chip que consiste en un circuito de alimentación de doble entrada lineal, tres convertidores reductores, cuatro LDO y un impulso convertidor de alta eficiencia para soportar dos cadenas de hasta 10 LEDs en serie. El sistema se suministra por un puerto USB o adaptador de DC. Tres convertidores de alta eficiencia de 2.25MHz están dirigidos a proporcionar el voltaje del núcleo, MPU, y el voltaje de la memoria para la tarjeta.
+La administración de energía del circuito integrado ( PMIC ) en el sistema la gestiona [TPS65217B](http://www.ti.com/product/tps65217b). El *TPS65217B* es un chip que consiste en un circuito de alimentación de doble entrada lineal, tres convertidores reductores, cuatro LDO y un impulso convertidor de alta eficiencia para soportar dos cadenas de hasta 10 LEDs en serie. El sistema se suministra por un puerto USB o adaptador de DC. Tres convertidores de alta eficiencia de 2.25MHz están dirigidos a proporcionar el voltaje del núcleo, MPU, y el voltaje de la memoria para la tarjeta.
 
 Los convertidores reductores entran en un modo de baja potencia con cargas ligeras para una máxima eficiencia en la gama más amplia posible de las corrientes de carga. Para aplicaciones de bajo nivel de ruido de los dispositivos pueden ser forzados a PWM de frecuencia fija utilizando la interfaz I2C. Los convertidores reductores permiten el uso de pequeños inductores y condensadores para lograr un pequeño tamaño de solución.
 
