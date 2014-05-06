@@ -27,6 +27,7 @@ Una alimentación de 5V DC se puede utilizar para proporcionar alimentación a l
 ------
 
 **La Entrada de energía 5V DC no se rellena. Si es necesario, soldar un conector cilíndrico exterior x 5.5mm positivo 2.1MM centro**
+
 ------
 
 ![5v](img/5vconnector.jpg)
