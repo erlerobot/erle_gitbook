@@ -41,6 +41,8 @@ In order to achieve six degrees of freedom, rotational and translational motion 
 >
 >Together, these factors create a very interesting control problem.
 
+There are many articles, papers and thesis that discuss the dynamical model of the quadcopter but we personally like [Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV](http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf).
+
 Sources
 -----
 - [Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV](http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf)

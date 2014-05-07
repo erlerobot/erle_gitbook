@@ -17,11 +17,6 @@
     * [Concepts](ROS-concepts.md)
     * Technical Overview
 * [Dynamical model](DynamicalModel.md)
-    * [Reference Frames](ReferenceFrames.md)
-    * Kinematic relations
-    * Dynamic equations
-    * Simpliﬁed model
-    * Motor dynamics
 * [Autopilot](Autopilot.md)
     * [A simplified autopilot](SimpleAutopilot.md)
     * ArduPilot
