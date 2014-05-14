@@ -64,86 +64,65 @@ Crear instancias de dispositivos I²C desde el espacio de usuario
 El kernel de Linux también permite configurar manualmente los dispositivos I²C a través de una interfaz de sysfs:
 
 > En general, el núcleo debe saber qué dispositivos I2C están conectados y 
-> en qué dirección están. Sin embargo, en ciertos casos no lo hace,
-
-
-
-
-
-
-I2C
-> ¿Qué aborda viven en . Sin embargo , en ciertos casos , no lo hace, por lo que un
-Se añadió > interfaz sysfs para que el usuario proporcione la información . este
-> Interfaz es de 2 archivos de atributos que se crean en cada bus I2C
-> Directorio : new_device y delete_device . Ambos archivos son de sólo escritura y
-> Deben escribir los parámetros correctos para ellos con el fin de crear una instancia adecuada,
-> Respectivamente borrar, un dispositivo I2C .
+> en qué dirección están. Sin embargo, en ciertos casos no lo hace, por lo que
+> un interfaz sysfs se añadió para que el usuario proporcione la información.
+> Este interfaz es de 2 archivos de atributos que se crean en cada bus I2C
+> Directorio: new_device y delete_device, ambos archivos son de sólo escritura y 
+> deben escribir los parámetros correctos con el fin de crear una instancia 
+> adecuada en un dispositivo I2C.
 >
-> New_device archivo tarda 2 parámetros : el nombre del dispositivo I2C (una cadena)
-> Y la dirección del dispositivo I2C ( un número , típicamente expresada en
-> Hexadecimal empezando por 0x , pero también puede ser expresado en decimal . )
+> El archivo new_device tiene 2 parámetros: el nombre del dipositivo I2c (una 
+> cadena) y la dirección del dispositivo I2C (un número expresado en hexadecimal
+> empezando por 0x, pero también puede ser expresado en decimal.
 >
-> Delete_device archivo toma un único parámetro : la dirección del I2C
-> Dispositivo. Como no hay dos dispositivos pueden vivir en la misma dirección en un I2C dado
-> Segmento , la dirección es suficiente para identificar de forma exclusiva el dispositivo para que sea
-> Borrada .
-
-
-> In general, the kernel should know which I2C devices are connected and          
-> what addresses they live at. However, in certain cases, it does not, so a       
-> sysfs interface was added to let the user provide the information. This         
-> interface is made of 2 attribute files which are created in every I2C bus       
-> directory: new_device and delete_device. Both files are write only and you      
-> must write the right parameters to them in order to properly instantiate,       
-> respectively delete, an I2C device.                                             
->                                                                                 
-> File new_device takes 2 parameters: the name of the I2C device (a string)       
-> and the address of the I2C device (a number, typically expressed in             
-> hexadecimal starting with 0x, but can also be expressed in decimal.)            
->                                                                                 
-> File delete_device takes a single parameter: the address of the I2C             
-> device. As no two devices can live at the same address on a given I2C           
-> segment, the address is sufficient to uniquely identify the device to be        
-> deleted.                                                                        
+> El archivo delete_device toma un único parámetro: la dirección del dispositivo 
+> I2C. Como no hay dos dispositivos pueden estar en la misma dirección en un I2C
+> dado un segmento, la dirección es suficiente para identificar de forma exclusiva 
+> el dispositivo para que sea borrado.
+>
+>                  
 >                                                                                 
 > Ejemplo:                                                                        
 > ```echo eeprom 0x50 > /sys/bus/i2c/devices/i2c-3/new_device```
 >                                                                                 
-> While this interface should only be used when in-kernel device declaration      
-> can't be done, there is a variety of cases where it can be helpful:             
-> * The I2C driver usually detects devices (method 3 above) but the bus           
->   segment your device lives on doesn't have the proper class bit set and        
->   thus detection doesn't trigger.                                               
-> * The I2C driver usually detects devices, but your device lives at an           
->   unexpected address.                                                           
-> * The I2C driver usually detects devices, but your device is not detected,      
->   either because the detection routine is too strict, or because your           
->   device is not officially supported yet but you know it is compatible.         
-> * You are developing a driver on a test board, where you soldered the I2C       
->   device yourself.                                                              
->                                                                                 
-> This interface is a replacement for the force_* module parameters some I2C      
-> drivers implement. Being implemented in i2c-core rather than in each            
-> device driver individually, it is much more efficient, and also has the         
-> advantage that you do not have to reload the driver to change a setting.        
-> You can also instantiate the device before the driver is loaded or even         
-> available, and you don't need to know what driver the device needs.       
+>
+> Mientras que esta interfaz sólo debe utilizarse cuando la declaración del núcleo 
+> del dispositivo no se puede hacer, hay una variedad de casos en los que puede ser útil:
+> * El controlador I2C normalmente detecta los dispositivos (método 3 anterior ), pero el 
+>   segmento del bus de su dispositivo sigue vivo no tiene el conjunto adecuado de bits de clase y
+>   así la detección no se dispara .
+> * El controlador I2C normalmente detecta los dispositivos, pero el dispositivo está en una
+>   dirección inesperada .
+> * El controlador I2C normalmente detecta los dispositivos, pero no se detecta el dispositivo,
+>   ya sea porque la rutina de detección es demasiado estricta, o porque su dispositivo
+>   no está soportado oficialmente todavía, pero sabes que es compatible.
+> * Está desarrollando un conductor en un tablero de prueba, donde suelda el dispositivo I2C
+>   usted mismo .
+>
+> Esta interfaz es un reemplazo para los parámetros Force_ * que algunos drivers del módulos I2C
+> implementan. En ejecución de i2c -core en lugar de en cada controlador de dispositivo de forma 
+> individual, es mucho más eficiente, y también tiene la ventaja de que usted no tiene que 
+> volver a cargar el controlador para cambiar un ajuste.
+> También puede crear una instancia del dispositivo antes de que el controlador se carga o incluso
+> disponibles, y usted no necesita saber qué driver necesita el dispositivo.
 
 
-Considering this, we could instantiate a sensor (hih6130) connected to `/dev/i2c-1` and with address `0x27` doing:
+
+
+Considerando esto, se puede instanciar el sensor (hih6130) conectado a `/dev/i2c-1` y con la dirección `0x27` ofrecerá:
 
 ```
 echo hih6130 0x27 > /sys/bus/i2c/devices/i2c-1/new_device 
 ```
 
-After that, the device will be available under `/sys/bus/i2c/drivers/hih6130/1-0027`.
+Después de esto, el dispositivo estará listo bajo `/sys/bus/i2c/drivers/hih6130/1-0027`.
 
-To remove the device you can use:
+Para retirar el dispositivo que se pueda utilizar:
 ```
 echo 0x27 > /sys/bus/i2c/devices/i2c-1/delete_device
 ```
 
-Sources
+Fuentes
 ------
 - [Wikipedia](http://en.wikipedia.org/wiki/I%C2%B2C)
 - [Linux kernel documentation](http://lxr.free-electrons.com/source/Documentation/i2c/instantiating-devices)
