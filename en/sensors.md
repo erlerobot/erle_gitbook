@@ -3,7 +3,7 @@
 
 Below the sensors included in [Erle's board](http://erlerobot.com) are described:
 
-## Inertial Measurement Units (IMUs)
+### Inertial Measurement Units (IMUs)
 
 | **Sensor**   | **Features** |
 |----|---------|
@@ -12,7 +12,7 @@ Below the sensors included in [Erle's board](http://erlerobot.com) are described
 | *MPU9250* |  256MB DDR2 400MHz|
 | *LSM9DS0* | USB to Serial Adapter, On Board JTAG via USB|
 
-## Barometers
+### Barometers
 
 | **Sensor**   | **Features** |
 |----|---------|
@@ -20,7 +20,7 @@ Below the sensors included in [Erle's board](http://erlerobot.com) are described
 | *BMP250* | TPS65217B, Power Regulators, LiION Single cell |
 
 
-## Why so many sensors?
+### Why so many sensors?
 
 Well, think about the possibilities of using new algorithms and control techniques with many sources of information.
 

@@ -21,7 +21,11 @@
    * Technical Overview
 * [BeaglePilot](BeaglePilot.md)
    * [A simplified autopilot](SimpleAutopilot.md)
-   * [MAVLink](mavlink.md)
+* [MAVLink](mavlink.md)
+   * [MAVLink in action](mavlinkaction.md)
+   * ROS integration: mavlink_ros
+   * Creating a MAVLink message
+* [MAVProxy](mavproxy.md)
 * [General Tutorials](Tutorials.md)
    * [Blink a LED](Blink.md)
    * [Blink a LED in C++](Blink2.md)
@@ -30,5 +34,4 @@
 * ROS Tutorials 
    * Installing and Configuring Your ROS Environment
    * Navigating the ROS Filesystem    
-
 

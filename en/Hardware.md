@@ -1,8 +1,7 @@
-Hardware
-=========
+#Hardware
 
-Overview
----------
+###Overview
+
 Below the most relevant features of the robot Erle are pictured in a table:
 
 |    | **Feature** |
@@ -21,8 +20,8 @@ Below the most relevant features of the robot Erle are pictured in a table:
 | **Weight** | 35 grams |
 
 
-License
---------
+###License
+
 Part of the content is a derivative of the *BeagleBone System Reference Manual Rev A6.0.0*  licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-sa/3.0/](http://creativecommons.org/licenses/by-sa/3.0/) or send a letter to *Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA*.
 
 All derivative works are to be attributed to Gerald Coley of BeagleBoard.org.

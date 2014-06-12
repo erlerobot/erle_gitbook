@@ -1,6 +1,6 @@
 # The basics
 
-Erle is a small flying robot with about 40 sensors, plenty of I/O and processing power for real-time analysis.
+Erle is a small-size linux computer with more then 30 sensors, plenty of I/O and processing power for real-time analysis.
 
 
 ### Features

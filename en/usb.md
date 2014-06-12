@@ -1,13 +1,13 @@
 # USB
 
 
-## USB0 Port
+### USB0 Port
 The HUB connects direct to the USB0 port on the processor. This allows that port to be accessible from the same USB connector as the Serial and JTAG ports.
 
-### USB Client Port
+#### USB Client Port
 Access to USB0 is provided via the onboard USB Hub. It will show up on a PC as a standard USB serial device (usually `/dev/tty[something]`).
 
-## USB1 Port
+### USB1 Port
 On the board is a single USB Type A connector with full LS/FS/HS Host support that connects to USB1 on the processor. The port can provide power on/off control and **up to 500mA** of current at 5V.
 
 
@@ -19,7 +19,7 @@ You can use a wireless keyboard/mouse/screen configuration or you can add a HUB 
 
 ```
 
-## License
+### License
 
 Part of the content is a derivative of the *BeagleBone System Reference Manual Rev A6.0.0*  licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-sa/3.0/](http://creativecommons.org/licenses/by-sa/3.0/) or send a letter to *Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA*.
 

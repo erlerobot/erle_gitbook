@@ -1,6 +1,6 @@
 # More about I/O
 
-##Inter Integrated Circuits (I²C)
+###Inter Integrated Circuits (I²C)
 
 I²C (Inter-Integrated Circuit)(alternately spelled I2C or IIC, most commonly pronounced I-squared-C) is a multimaster serial single-ended computer bus invented by the Philips semiconductor division, today NXP Semiconductors, and **used for attaching low-speed peripherals to a motherboard, embedded system, cellphone, or other digital electronic devices**.
 
@@ -8,12 +8,12 @@ Several competitors, such as Siemens AG (later Infineon Technologies AG, now Int
 
 Since October 10, 2006, no licensing fees are required to implement the I²C protocol. However, fees are still required to obtain I²C slave addresses allocated by NXP.
 
-####Interesting remark
+#####Interesting remark
 ```
 SMBus, defined by Intel in 1995, is a subset of I²C that defines the protocols more strictly. One purpose of SMBus is to promote robustness and interoperability. Accordingly, modern I²C systems incorporate policies and rules from SMBus, sometimes supporting both I²C and SMBus, requiring only minimal reconfiguration.
 ```
 
-###I²C in the [Erle`s board](http://erlerobot.com)
+####I²C in the [Erle`s board](http://erlerobot.com)
 
 The educational drone [Erle](http://erlerobot.com) includes 3 I²C busses available under `/dev`: `/dev/i2c-0`, `/dev/i2c-1` and `/dev/i2c-2`.
 
@@ -54,7 +54,7 @@ Continue? [Y/n]
 
 This command sends a ping to the `0x03`-`0x77` range (in hexadecimal) and records the answers in every address thereby it's able to figure out if there are any devices. Particularly we can see that the addresses `0x13` and `0x68` answered which correspond to the IR and IMU sensors respectively.
 
-###Instantiate I²C devices from the userspace
+####Instantiate I²C devices from the userspace
 
 
 The Linux kernel also allows to manually configure I²C devices through a sysfs interface:
@@ -113,7 +113,7 @@ To remove the device you can use:
 echo 0x27 > /sys/bus/i2c/devices/i2c-1/delete_device
 ```
 
-## Sources
+### Sources
 
 - [Wikipedia](http://en.wikipedia.org/wiki/I%C2%B2C)
 - [Linux kernel documentation](http://lxr.free-electrons.com/source/Documentation/i2c/instantiating-devices)

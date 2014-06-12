@@ -1,5 +1,4 @@
-Memory
-=======
+#Memory
 
 A single 16 bit DDR2 memory device is used. The design supports 128MB or 256MB of memory. The standard configuration is 256MB at 400MHz.
 

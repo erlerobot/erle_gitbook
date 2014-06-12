@@ -1,5 +1,5 @@
-Electrically Erasable Programmable Read Only Memory (EEPROM)
-=======
+# Electrically Erasable Programmable Read Only Memory (EEPROM)
+
 
 The robot Erle is equipped with a single **CAT24C256W** EEPROM to allow the Software to identify the board.
 

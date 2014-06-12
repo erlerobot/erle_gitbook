@@ -17,13 +17,13 @@ Depending on the controlled variable the perception of the control of a quadroto
 The task of an autopilot is to abstract the user from the different physical parameters (such as velocity, angular rates or moments) and offer a simple interface so that the piloting is as easy as possible.
 ```
 
-## Autopilots in Erle
+### Autopilots in Erle
 
 We have been working hard on [BeaglePilot](BeaglePilot.md), a complete Linux-based autopilot based on ardupilot that provides all the necessary tools and has been built by a collaboration between Erle Robotics, 3DRobotics, Google and BeagleBoard.
 
 Although *it shouldn't be used in real drones*, we also provide a [simplified autopilot](SimpleAutopilot.md) implemented in python.
 
-##Sources
+###Sources
 
 - [Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV](http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf)
 - [Wikipedia](http://en.wikipedia.org/wiki/Autopilot)

@@ -1,10 +1,9 @@
-System Power
-============
+# System Power
 
 The selection of either the 5VDC or the USB as the power source is handled internally to the TPS65217B and automatically switches to 5VDC power if both are connected. SW can change the power configuration via the I2C interface from the processor. In addition, the SW can read the TPS65217B and determine if the board is running on the 5VDC input or the USB input. This can be beneficial to know the capability of the board to supply current for things like operating frequency and expansion cards.
 
-Power Management Integrated Circuit (PMIC)
---------
+### Power Management Integrated Circuit (PMIC)
+
 
 The main Power Management IC (PMIC) in the system is the [TPS65217B](http://www.ti.com/product/tps65217b). The *TPS65217B* is a single chip power management IC consisting of a linear dual-input power path, three step-down converters, four LDOs, and a high-efficiency boost converter to power two strings of up to 10 LEDs in series. The system is supplied by a USB port or DC adapter. Three high-efficiency 2.25MHz step-down converters are targeted at providing the core voltage, MPU, and memory voltage for the board.
 
@@ -16,8 +15,8 @@ By default **only LDO1 is always ON** but any rail can be configured to remain u
 The selection of either the 5VDC or the USB as the power source is handled internally to the TPS65217B and automatically switches to 5VDC power if both are connected. Software can change the power configuration via the I2C interface from the processor. In addition, the **software can read the TPS65217B and determine if the board is running on the 5VDC input or the USB input**. This can be beneficial to know the capability of the board to supply current for things like operating frequency and expansion cards.
 
 
-5V DC Power Input
----------
+### 5V DC Power Input
+
 
 ![5v](img/5v.png)
 
@@ -34,8 +33,7 @@ A 5V DC supply can be used to provide power to the board. The power supply curre
 
 
 
-USB Power
---------
+### USB Power
 
 ![5v](img/usbpower.png)
 
@@ -43,8 +41,7 @@ The board can also be powered from the USB port. A **typical USB port is limited
 
 The 5VDC supply from the USB port is provided on the `SYS_5V` rail of the expansion header for use by a Cape.
 
-Power consumption
---------
+### Power consumption
 
 | MODE | USB (mA) | DC (mA)* | DC + USB (mA) |
 | -----|-----|----|----------|
