@@ -1,0 +1,15 @@
+{
+    "github": "erlerobot/erle_gitbook",
+    "githubHost": "https://github.com/",
+    "links": {
+        "home": null,
+        "about": "https://github.com/erlerobot",
+        "issues": "https://github.com/erlerobot/erle_gitbook/issues",
+        "contribute": "https://github.com/erlerobot/erle_gitbook/pulls",
+        "sharing": {
+            "google": null,
+            "facebook": null,
+            "twitter": null
+        }
+    }
+}
