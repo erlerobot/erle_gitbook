@@ -1,0 +1,947 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>Hardware Map | Erle Robotics GitBook</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="erlerobot">
+        <meta name="description" content="In this book you&#39;ll learn the basics of our  technology, a small-size Linux computer for making drones.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./ROS.html" />
+        
+        
+        <link rel="prev" href="./sensors.html" />
+        
+
+        <meta property="og:title" content="Hardware Map | Erle Robotics GitBook">
+        <meta property="og:site_name" content="Erle Robotics GitBook">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/erlerobot">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="3.10" data-basepath="." data-revision="1402496333563">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/HardwareMap.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basics/README.html">
+            
+            <a href="./basics/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Basics
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> Software</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" >
+            
+            <span><b>2.1.</b> Linux</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Autopilot.html">
+            
+            <a href="./Autopilot.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+            <span><b>2.3.</b> Robot Operative System (ROS)</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Hardware.html">
+            
+            <a href="./Hardware.html">
+                <i class="fa fa-check"></i> <b>3.</b> Hardware
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="Processor.html">
+            
+            <a href="./Processor.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="Memory.html">
+            
+            <a href="./Memory.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="Systempower.html">
+            
+            <a href="./Systempower.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="Current.html">
+            
+            <a href="./Current.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="usb.html">
+            
+            <a href="./usb.html">
+                <i class="fa fa-check"></i> <b>3.5.</b> USB
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="EEPROM.html">
+            
+            <a href="./EEPROM.html">
+                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="adc.html">
+            
+            <a href="./adc.html">
+                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="IO.html">
+            
+            <a href="./IO.html">
+                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="sensors.html">
+            
+            <a href="./sensors.html">
+                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="HardwareMap.html">
+            
+            <a href="./HardwareMap.html">
+                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="ROS.html">
+            
+            <a href="./ROS.html">
+                <i class="fa fa-check"></i> <b>4.</b> ROS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="ROS-concepts.html">
+            
+            <a href="./ROS-concepts.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Concepts
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+            <span><b>4.2.</b> Technical Overview</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="BeaglePilot.html">
+            
+            <a href="./BeaglePilot.html">
+                <i class="fa fa-check"></i> <b>5.</b> BeaglePilot
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="SimpleAutopilot.html">
+            
+            <a href="./SimpleAutopilot.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> A simplified autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="mavlink.html">
+            
+            <a href="./mavlink.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> MAVLink
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="Tutorials.html">
+            
+            <a href="./Tutorials.html">
+                <i class="fa fa-check"></i> <b>6.</b> General Tutorials
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="Blink.html">
+            
+            <a href="./Blink.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> Blink a LED
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="Blink2.html">
+            
+            <a href="./Blink2.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> Blink a LED in C++
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" >
+            
+            <span><b>7.</b> BeaglePilot Tutorials </span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" >
+            
+            <span><b>7.1.</b> Installing and Configuring BeaglePilot</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" >
+            
+            <span><b>8.</b> ROS Tutorials </span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" >
+            
+            <span><b>8.1.</b> Installing and Configuring Your ROS Environment</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" >
+            
+            <span><b>8.2.</b> Navigating the ROS Filesystem    </span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 23.80952380952381%;min-width: 19.047619047619047%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 4.761904761904762%;"></a>
+    
+        <a href="./Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 9.523809523809524%;"></a>
+    
+        <a href="./Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 14.285714285714286%;"></a>
+    
+        <a href="./Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 19.047619047619047%;"></a>
+    
+        <a href="./HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 23.80952380952381%;"></a>
+    
+        <a href="./Memory.html" title="Memory" class="chapter  " data-progress="3.2" style="left: 28.571428571428573%;"></a>
+    
+        <a href="./Systempower.html" title="System Power" class="chapter  " data-progress="3.3" style="left: 33.333333333333336%;"></a>
+    
+        <a href="./Current.html" title="Current Measurement" class="chapter  " data-progress="3.4" style="left: 38.095238095238095%;"></a>
+    
+        <a href="./usb.html" title="USB" class="chapter  " data-progress="3.5" style="left: 42.857142857142854%;"></a>
+    
+        <a href="./EEPROM.html" title="EEPROM" class="chapter  " data-progress="3.6" style="left: 47.61904761904762%;"></a>
+    
+        <a href="./adc.html" title="ADC" class="chapter  " data-progress="3.7" style="left: 52.38095238095238%;"></a>
+    
+        <a href="./IO.html" title="I/O" class="chapter  " data-progress="3.8" style="left: 57.142857142857146%;"></a>
+    
+        <a href="./sensors.html" title="Sensors" class="chapter  " data-progress="3.9" style="left: 61.904761904761905%;"></a>
+    
+        <a href="./ROS.html" title="ROS" class="chapter  new-chapter" data-progress="4" style="left: 66.66666666666667%;"></a>
+    
+        <a href="./ROS-concepts.html" title="Concepts" class="chapter  " data-progress="4.1" style="left: 71.42857142857143%;"></a>
+    
+        <a href="./BeaglePilot.html" title="BeaglePilot" class="chapter  new-chapter" data-progress="5" style="left: 76.19047619047619%;"></a>
+    
+        <a href="./SimpleAutopilot.html" title="A simplified autopilot" class="chapter  " data-progress="5.1" style="left: 80.95238095238095%;"></a>
+    
+        <a href="./mavlink.html" title="MAVLink" class="chapter  " data-progress="5.2" style="left: 85.71428571428571%;"></a>
+    
+        <a href="./Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="6" style="left: 90.47619047619048%;"></a>
+    
+        <a href="./Blink.html" title="Blink a LED" class="chapter  " data-progress="6.1" style="left: 95.23809523809524%;"></a>
+    
+        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="6.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_635">
+                    
+                        <h1 id="hardware-map">Hardware Map</h1>
+<p>The expansion headers P8 and P9 are assigned to the following pins:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Pin</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P8.1</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>P8.2</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>P8.3</td>
+<td>GPIO1_6</td>
+</tr>
+<tr>
+<td>P8.4</td>
+<td>GPIO1_7</td>
+</tr>
+<tr>
+<td>P8.5</td>
+<td>GPIO1_2</td>
+</tr>
+<tr>
+<td>P8.6</td>
+<td>GPIO1_3</td>
+</tr>
+<tr>
+<td>P8.7</td>
+<td>MPU_9250_DRDY</td>
+</tr>
+<tr>
+<td>P8.8</td>
+<td>ACCEL_DRDY</td>
+</tr>
+<tr>
+<td>P8.9</td>
+<td>TIMER5</td>
+</tr>
+<tr>
+<td>P8.10</td>
+<td>MAG_DRDY</td>
+</tr>
+<tr>
+<td>P8.11</td>
+<td>GPIO1_13</td>
+</tr>
+<tr>
+<td>P8.12</td>
+<td>GPIO1_12</td>
+</tr>
+<tr>
+<td>P8.13</td>
+<td>PWM_2</td>
+</tr>
+<tr>
+<td>P8.14</td>
+<td>MPU_6000_DRDY</td>
+</tr>
+<tr>
+<td>P8.15</td>
+<td>GPIO1_15</td>
+</tr>
+<tr>
+<td>P8.16</td>
+<td>GPIO1_14</td>
+</tr>
+<tr>
+<td>P8.17</td>
+<td>GPIO0_27</td>
+</tr>
+<tr>
+<td>P8.18</td>
+<td>GPIO2_1</td>
+</tr>
+<tr>
+<td>P8.19</td>
+<td>PWM_3</td>
+</tr>
+<tr>
+<td>P8.20</td>
+<td>GPIO1_31</td>
+</tr>
+<tr>
+<td>P8.21</td>
+<td>GPIO1_30</td>
+</tr>
+<tr>
+<td>P8.22</td>
+<td>GPIO1_5</td>
+</tr>
+<tr>
+<td>P8.23</td>
+<td>GPIO1_4</td>
+</tr>
+<tr>
+<td>P8.24</td>
+<td>GPIO1_1</td>
+</tr>
+<tr>
+<td>P8.25</td>
+<td>GPIO1_0</td>
+</tr>
+<tr>
+<td>P8.26</td>
+<td>GPIO1_29</td>
+</tr>
+<tr>
+<td>P8.27</td>
+<td>GPIO2_22</td>
+</tr>
+<tr>
+<td>P8.28</td>
+<td>GPIO2_24</td>
+</tr>
+<tr>
+<td>P8.29</td>
+<td>GPIO2_23</td>
+</tr>
+<tr>
+<td>P8.30</td>
+<td>GPIO2_25</td>
+</tr>
+<tr>
+<td>P8.31</td>
+<td>UART5_CTSN</td>
+</tr>
+<tr>
+<td>P8.32</td>
+<td>UART5_RTSN</td>
+</tr>
+<tr>
+<td>P8.33</td>
+<td>UART4_RTSN</td>
+</tr>
+<tr>
+<td>P8.34</td>
+<td>GYRO_DRDY</td>
+</tr>
+<tr>
+<td>P8.35</td>
+<td>UART4_CTSN</td>
+</tr>
+<tr>
+<td>P8.36</td>
+<td>UART3_CTSN</td>
+</tr>
+<tr>
+<td>P8.37</td>
+<td>UART5_TXD</td>
+</tr>
+<tr>
+<td>P8.38</td>
+<td>UART5_RXD</td>
+</tr>
+<tr>
+<td>P8.39</td>
+<td>GPIO2_12</td>
+</tr>
+<tr>
+<td>P8.40</td>
+<td>GPIO2_13</td>
+</tr>
+<tr>
+<td>P8.41</td>
+<td>GPIO2_10</td>
+</tr>
+<tr>
+<td>P8.42</td>
+<td>GPIO2_11</td>
+</tr>
+<tr>
+<td>P8.43</td>
+<td>GPIO2_8</td>
+</tr>
+<tr>
+<td>P8.44</td>
+<td>GPIO2_9</td>
+</tr>
+<tr>
+<td>P8.45</td>
+<td>GPIO2_6</td>
+</tr>
+<tr>
+<td>P8.46</td>
+<td>GPIO2_7</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Pin</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P9.1</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>P9.2</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>P9.3</td>
+<td>3V3</td>
+</tr>
+<tr>
+<td>P9.4</td>
+<td>3V3</td>
+</tr>
+<tr>
+<td>P9.5</td>
+<td>VDD_5V</td>
+</tr>
+<tr>
+<td>P9.6</td>
+<td>VDD_5V</td>
+</tr>
+<tr>
+<td>P9.7</td>
+<td>SYS_5V</td>
+</tr>
+<tr>
+<td>P9.8</td>
+<td>SYS_5V</td>
+</tr>
+<tr>
+<td>P9.9</td>
+<td>PWR_BUT</td>
+</tr>
+<tr>
+<td>P9.10</td>
+<td>SYS_RESET</td>
+</tr>
+<tr>
+<td>P9.11</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.12</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.13</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.14</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.15</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.16</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.17</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.18</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.19</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.20</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.21</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.22</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.23</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.24</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.25</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.26</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.27</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.28</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.29</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.30</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.31</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.32</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.33</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.34</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.35</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.36</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.37</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.38</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.39</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.40</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.41</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.42</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.43</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.44</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.45</td>
+<td></td>
+</tr>
+<tr>
+<td>P9.46</td>
+</tr>
+</tbody>
+</table>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./sensors.html" class="navigation navigation-prev " aria-label="Previous page: Sensors"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./ROS.html" class="navigation navigation-next " aria-label="Next page: ROS"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

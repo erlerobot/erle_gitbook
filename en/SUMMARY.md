@@ -2,27 +2,33 @@
 
 * [Basics](basics/README.md)
 * Software
+   * Linux
+   * [Autopilot](Autopilot.md)
+   * Robot Operative System (ROS)
 * [Hardware](Hardware.md)
-    * [Processor](Processor.md)
-    * [Memory](Memory.md)
-    * [System Power](Systempower.md)
-    * [Current Measurement](Current.md)
-    * USB
-    * [EEPROM](EEPROM.md)
-    * ADC
-    * Sensors
-    * Hardware Map
-    * [I2C](I2C.md)
+   * [Processor](Processor.md)
+   * [Memory](Memory.md)
+   * [System Power](Systempower.md)
+   * [Current Measurement](Current.md)
+   * [USB](usb.md)
+   * [EEPROM](EEPROM.md)
+   * [ADC](adc.md)
+   * [I/O](IO.md)
+   * [Sensors](sensors.md)
+   * [Hardware Map](HardwareMap.md)
 * [ROS](ROS.md)
-    * [Concepts](ROS-concepts.md)
-    * Technical Overview
-* [Dynamical model](DynamicalModel.md)
-* [Autopilot](Autopilot.md)
-    * [A simplified autopilot](SimpleAutopilot.md)
-    * ArduPilot
-* [Tutorials](Tutorials.md)
-    * [Blink a LED](Blink.md)
-    * [Blink a LED in C++](Blink2.md)
-    * ROS 1: Installing and Configuring Your ROS Environment
-    * ROS 2: Navigating the ROS Filesystem    
+   * [Concepts](ROS-concepts.md)
+   * Technical Overview
+* [BeaglePilot](BeaglePilot.md)
+   * [A simplified autopilot](SimpleAutopilot.md)
+   * [MAVLink](mavlink.md)
+* [General Tutorials](Tutorials.md)
+   * [Blink a LED](Blink.md)
+   * [Blink a LED in C++](Blink2.md)
+* BeaglePilot Tutorials 
+   * Installing and Configuring BeaglePilot
+* ROS Tutorials 
+   * Installing and Configuring Your ROS Environment
+   * Navigating the ROS Filesystem    
+
 

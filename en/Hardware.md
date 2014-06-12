@@ -17,8 +17,8 @@ Below the most relevant features of the robot Erle are pictured in a table:
 | **SD/MMC Connector** | microSD , 3.3V |
 | **User Interface** | Reset Button, Boot button |
 | **Overvoltage Protection** | Shutdown @ 5.6V MAX (only board) |
-| **Expansion Connectors** | Power 5V, 3.3V , VDD_ADC(1.8V), 3.3V I/O on all signals, McASP0, SPI1, I2C, GPIO(65), LCD, GPMC, MMC1, MMC2, 7 AIN(1.8V MAX), 4 Timers, 3 Serial Ports, CAN0, EHRPWM(0,2),XDMA Interrupt, LED Backlight, Expansion Board ID (Up to 3 can be stacked) |
-| **Weight** | |
+| **Expansion Connectors** | Power 5V, 3.3V , VDD_ADC(1.8V), 3.3V I/O on all signals, McASP0, SPI, I2C, GPIO(65), LCD, GPMC, MMC1, MMC2, 7 AIN(1.8V MAX), 4 Timers, 3 Serial Ports, CAN0, eHRPWM(8),XDMA Interrupt, LED Backlight |
+| **Weight** | 35 grams |
 
 
 License
