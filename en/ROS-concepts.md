@@ -1,12 +1,12 @@
-ROS: Concepts
-=========
+#ROS: Concepts
+
 
 ROS has three levels of concepts: the **Filesystem level**, the **Computation Graph level**, and the **Community level**. These levels and concepts are summarized below and later sections go into each of these in greater detail.
 
 In addition to the three levels of concepts, ROS also defines two types of names: **Package Resource Names** and **Graph Resource Names**, also discussed below.
 
-Filesystem level
------------
+###Filesystem level
+
 
 The filesystem level concepts mainly cover ROS resources that you encounter on disk, such as:
 
@@ -17,8 +17,8 @@ The filesystem level concepts mainly cover ROS resources that you encounter on d
 - **Message (msg) types**: Message descriptions, stored in my_package/msg/MyMessageType.msg, define the data structures for messages sent in ROS.
 - **Service (srv) types**: Service descriptions, stored in my_package/srv/MyServiceType.srv, define the request and response data structures for services in ROS.
 
-Computation Graph level
------------
+###Computation Graph level
+
 
 The Computation Graph is the peer-to-peer network of ROS processes that are processing data together. The basic Computation Graph concepts of ROS are *nodes*, *Master*, *Parameter Server*, *messages*, *services*, *topics*, and *bags*, all of which provide data to the Graph in different ways.
 
@@ -51,8 +51,8 @@ Later we might add another laser to our robot, so we need to reconfigure our sys
 
 
 
-Community level
------------
+###Community level
+
 
 The ROS Community Level concepts are ROS resources that enable separate communities to exchange software and knowledge. These resources include:
 
@@ -64,10 +64,10 @@ The ROS Community Level concepts are ROS resources that enable separate communit
 - [**ROS Answers**](http://answers.ros.org/): A Q&A site for answering your ROS-related questions.
 - [**Blog**](http://www.willowgarage.com/blog): The [Willow Garage Blog](http://www.willowgarage.com/blog) provides regular updates, including photos and videos.
 
-Naming
-------
+###Naming
 
-###Graph Resource Names
+
+####Graph Resource Names
 
 Graph Resource Names provide a hierarchical naming structure that is used for all resources in a ROS Computation Graph, such as Nodes, Parameters, Topics, and Services. These names are very powerful in ROS and central to how larger and more complicated systems are composed in ROS, so it is critical to understand how these names work and how you can manipulate them.
 
@@ -82,7 +82,7 @@ Graph Resource Names are an important mechanism in ROS for providing encapsulati
 
 Names are resolved relatively, so resources do not need to be aware of which namespace they are in. This simplifies programming as nodes that work together can be written as if they are all in the top-level namespace. When these Nodes are integrated into a larger system, they can be pushed down into a namespace that defines their collection of code. For example, one could take a Stanford demo and a Willow Garage demo and merge them into a new demo with stanford and wg subgraphs. If both demos had a Node named 'camera', they would not conflict. Tools (e.g. graph visualization) as well as parameters (e.g. demo_name) that need to be visible to the entire graph can be created by top-level Nodes.
 
-####Valid Names
+#####Valid Names
 
 A valid name has the following characteristics:
 
@@ -94,7 +94,8 @@ A valid name has the following characteristics:
 **Exception**: base names (described below) cannot have forward slashes (/) or tildes (~) in them.
 
 ------
-####Resolving
+
+#####Resolving
 
 There are four types of Graph Resource Names in ROS: base, relative, global, and private, which have the following syntax:
 
@@ -120,11 +121,11 @@ Here are some name resolution examples:
 |`/wg/node2` | `bar -> /wg/bar` | `/bar -> /bar` | `~bar -> /wg/node2/bar` |
 | `/wg/node3` | `foo/bar -> /wg/foo/bar` | `/foo/bar -> /foo/bar` | `~foo/bar -> /wg/node3/foo/bar` |
 
-####Remapping
+#####Remapping
 
 Any name within a ROS Node can be remapped when the Node is launched at the command-line. For more information on this feature, see [Remapping Arguments](http://wiki.ros.org/Remapping%20Arguments).
 
-###Package Resource Names
+####Package Resource Names
 
 Package Resource Names are used in ROS with Filesystem-Level concepts to simplify the process of referring to files and data types on disk. Package Resource Names are very simple: they are just the name of the Package that the resource is in plus the name of the resource. For example, the name `std_msgs/String` refers to the "String" message type in the "std_msgs" Package.
 
@@ -136,7 +137,7 @@ Some of the ROS-related files that may be referred to using Package Resource Nam
 
 Package Resource Names are very similar to file paths, except they are much shorter. This is due to the ability of ROS to locate Packages on disk and make additional assumptions about their contents. For example, Message descriptions are always stored in the `msg` subdirectory and have the `.msg` extension, so `std_msgs/String` is shorthand for `path/to/std_msgs/msg/String.msg`. Similarly, the Node type `foo/bar` is equivalent to searching for a file named `bar` in Package `foo` with executable permissions.
 
-####Valid Names
+#####Valid Names
 
 Package Resource Names have strict naming rules as they are often used in auto-generated code. For this reason, a ROS package cannot have special characters other than an underscore, and they must start with an alphabetical character. A valid name has the following characteristics:
 

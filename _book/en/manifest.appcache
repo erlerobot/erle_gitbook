@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1402571317369
+# Revision 1402904556908
 
 CACHE:
 Autopilot.html
@@ -21,9 +21,11 @@ Systempower.html
 Tutorials.html
 adc.html
 basics/README.html
+beaglepilottasks.html
 mavlink.html
 mavlinkaction.html
 mavproxy.html
+rostechnicaloverview.html
 sensors.html
 usb.html
 gitbook/app.js

@@ -1,6 +1,136 @@
 # MAVLink in action
 
-A MAVLink message is handled by `ArduCopter`, `ArduPlane` or `APMRover' inside a function called `handleMessage` that belongs to  `GCS_MavLink.pde`:
+A MAVLink message is handled by `ArduCopter`, `ArduPlane` or `APMRover` inside a function called `handleMessage` that belongs to  `GCS_MavLink.pde`:
+
+
+The following sections describe how the code interprets a MAVLink message:
+
+### Parse message
+
+The code reads the System ID and Component ID (any system using MavLink has a System ID and Component ID) and checks whether is fine to continue.
+
+Then it handles Message ID:
+
+```
+    switch (msg->msgid) {
+    case MAVLINK_MSG_ID_HEARTBEAT:      // MAV ID: 0
+    {
+        ...
+    }
+
+    case MAVLINK_MSG_ID_SET_MODE:       // MAV ID: 11
+    {
+        ...
+    }
+
+    ...
+```
+
+#### `MAVLINK_MSG_ID` types
+The following content describes some of the most relevant `MAVLINK_MSG_ID` kinds:
+
+1. `MAVLINK_MSG_ID_HEARTBEAT`
+This is the most important message. The GCS keeps sending a message to the autopilot to find out whether it is connected to it (every 1 second). This is to make sure the MP is in sync with APM when you update some parameters. If a number of heartbeats are missed, a failsafe (can be) is triggered and copter lands, continues the mission or Returns to launch (also called, RTL). The failsafe option can be enabled/disabled. **Heartbeats cannot be stopped**.
+2. `MAVLINK_MSG_ID_REQUEST_DATA_STREAM`
+Sensors, RC channels, GPS position, status.
+3. `MAVLINK_MSG_ID_COMMAND_LONG`
+Loiter unlimited, RTL, Land, Mission start, Arm/Disarm, Reboot
+4. `SET_MODE`
+E.g. set_mode(packet.custom_mode);
+5. `MAVLINK_MSG_ID_MISSION_REQUEST_LIST`
+Total waypoints: command_total variable of parameters. This stores the total number of waypoints that are present (except home location, for multi-copters)
+6. `MAVLINK_MSG_ID_MISSION_REQUEST`
+Set of MAV_CMD value enum members, such as: (MAV_CMD_)CHANGE_ALT, SET_HOME, CONDITION_YAW, TAKE_OFF, NAV_LOITER_TIME
+7. `MAVLINK_MSG_ID_MISSION_ACK`
+turn off waypoint send
+8. `MAVLINK_MSG_ID_PARAM_REQUEST_LIST`
+count_parameters (Count the total parameters)
+9. `MAVLINK_MSG_ID_PARAM_REQUEST_READ`
+Receive and decode parameters (Make sense of Param name and Id)
+10. `MAVLINK_MSG_ID_MISSION_CLEAR_ALL`
+When you use mission planner flight data screen and say, Clear Mission with the mouse menu, this is where it goes. It clears the EEPROM memory from the autopilot.
+11. `MAVLINK_MSG_ID_MISSION_SET_CURRENT`
+This is used to change active command during mid mission. E.g. when you click on MP google map screen and click ‘Fly To Here’, as an example.
+12. `MAVLINK_MSG_ID_MISSION_COUNT`
+Save the total number of waypoints (excluding home location) -> for Multicopters.
+13. `MAVLINK_MSG_ID_MISSION_WRITE_PARTIAL_LIST`
+Just keeping a global variable stating that the autopilot is receiving commands now. This is to avoid other MAVLink actions while important parameters are being set.
+14. `MAVLINK_MSG_ID_SET_MAG_OFFSETS`
+Set the mag_ofs_x, mag_ofs_y, mag_ofs_z, say after compass calibration to EEPROM of the autopilot. Mission Planner (MP) automatically does this or you can do this too by going to Full Parameters List under SOFTWARE CONFIGURATION.
+15. `MAVLINK_MSG_ID_MISSION_ITEM`
+This is an interesting part. This message contains sub messages for taking real-time action. Like setting waypoints and advanced features:
+    - Receive a Waypoint (WP) from GCS and store in EEPROM of the autopilot.
+    - Sends 4 params (e.g. Delay, HitRad, -, and Yaw Angle) for LOITER_TIME (as ID) + (Lat, Long, Alt: Defines the 3D position of object in space). These parameters are defined as an Enum in code + Options (1 = Store Altitude (Alt) relative to home altitude). Each Command (or ID) may have different parameters of interest. Mission Planner shows ‘blank’ header for column, because there is no parameter defined for this ID.
+As a summary, the interesting parameters sent with every action are:
+4 params + ID (of action) + (Lat, Long, Alt) defines 3D position of copter. Note the 4 params can be some sort of custom action as for camera setting, camera trigger, Loiter time, etc.
+    - As in figure below from Mission Planner, each ID defines a waypoint (AFAIK). LOITER_TIME, LOITER_UNLIMITED, WAYPOINT all are waypoints that send along with other parameters (LATITUDE, LONGITUDE and ALTITUDE) because each is saved as a waypoint in the autopilot (ALTITUDE is always relative to home altitude with the current design.).
+    - You can define ‘these actions’ in Common.xml and use Python GUI generator to generate the code that the autopilot will use.
+16. `MAVLINK_MSG_ID_PARAM_SET`
+Set the parameter. Remember, we can also set a value to a parameter in the Ground Control Stations (e.g. Mission Planner, ‘Full Parameter List’).
+17. `MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE`
+Override RC channel values for HIL (Hardware-In-Loop-Simulation) (Or complete GCS control of the switch position via GUI)
+18. `MAVLINK_MSG_ID_HIL_STATE`
+Used for HIL simulation. It is a virtual reality with your copter/ plane.
+19. `MAVLINK_MSG_ID_DIGICAM_CONFIGURE`
+20. `MAVLINK_MSG_ID_MOUNT_CONFIGURE`
+21. `MAVLINK_MSG_ID_MOUNT_CONTROL`
+22. `MAVLINK_MSG_ID_MOUNT_STATUS`
+So far, as the name suggests, configures the appropriate command settings as set by the user.
+23. `MAVLINK_MSG_ID_RADIO, MAVLINK_MSG_ID_RADIO_STATUS`
+Studies the packet rate of the telemetry/USB and auto adjusts the delay between sending receiving packets if the signal strength is lower than expected or errors are getting higher. It is like an adaptive software flow control. Look at `__mavlink_radio_t`
+in C++ (BeaglePilot/ardupilot code).
+
+
+### Extract the payload
+The **payload data** is extracted from the message and put into a packet. A packet is a data structure based on a **type** of information.
+
+The packet is put into an *appropriate data structure*. There are plenty of data structures e.g. for Attitude (pitch, roll, yaw orientation), GPS, RC channels, etc. that groups similar things together, to be it modular, understandable. These data structures are ‘perfectly 100% alike’ at the sending and receiving ends.
+
+In the following code, this step is performed at `mavlink_msg_rc_channels_override_decode`.
+
+```
+    case MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE:       // MAV ID: 70
+    {
+        // allow override of RC channel values for HIL
+        // or for complete GCS control of switch position
+        // and RC PWM values.
+        if(msg->sysid != g.sysid_my_gcs) break;                         // Only accept control from our gcs
+        mavlink_rc_channels_override_t packet;
+        int16_t v[8];
+        mavlink_msg_rc_channels_override_decode(msg, &packet);
+
+        // exit immediately if this command is not meant for this vehicle
+        if (mavlink_check_target(packet.target_system,packet.target_component)) {
+            break;
+        }
+
+        v[0] = packet.chan1_raw;
+        v[1] = packet.chan2_raw;
+        v[2] = packet.chan3_raw;
+        v[3] = packet.chan4_raw;
+        v[4] = packet.chan5_raw;
+        v[5] = packet.chan6_raw;
+        v[6] = packet.chan7_raw;
+        v[7] = packet.chan8_raw;
+        hal.rcin->set_overrides(v, 8);
+
+        // record that rc are overwritten so we can trigger a failsafe if we lose contact with groundstation
+        failsafe.rc_override_active = true;
+        // a RC override message is consiered to be a 'heartbeat' from the ground station for failsafe purposes
+        failsafe.last_heartbeat_ms = millis();
+        break;
+    }
+```
+
+
+------
+
+### Reference code
+
+------
+
+
+The following snippet presents the code of the function `handleMessage':
 
 ``` C
 
@@ -485,14 +615,6 @@ void GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
 } // end handle mavlink
 ```
 
-The following sections describe how the code interprets a MAVLink message:
-
-### Parse System ID and Component ID
-
-The code reads the System ID and Component ID (any system using MavLink has a System ID and Component ID) and checks whether is fine to continue.
-
-### Extract the payload
-The **payload data** is extracted from the message and put into a packet. A packet is a data structure based on a **type** of information.
-
-### Compose a data structure
-The packet is put into an *appropriate data structure*. There are plenty of data structures e.g. for Attitude (pitch, roll, yaw orientation), GPS, RC channels, etc. that groups similar things together, to be it modular, understandable. These data structures are ‘perfectly 100% alike’ at the sending and receiving ends.
+### Sources:
+- [MavLink Tutorial for Absolute Dummies (Part –I)](http://api.ning.com/files/i*tFWQTF2R*7Mmw7hksAU-u9IABKNDO9apguOiSOCfvi2znk1tXhur0Bt00jTOldFvob-Sczg3*lDcgChG26QaHZpzEcISM5/MAVLINK_FOR_DUMMIESPart1_v.1.1.pdf)
+- MAVLink source code

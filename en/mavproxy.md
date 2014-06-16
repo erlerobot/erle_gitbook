@@ -1,6 +1,6 @@
 # MAVProxy: A UAV ground station software package for MAVLink based systems
 
-MAVProxy is a fully-functioning Ground Control Station for UAV's (Unmanned Aerial Vehicles). The intent is for a minimalist, portable and extendable GCS for any UAV supporting the MAVLink protocol.
+MAVProxy is a fully-functioning Ground Control Station for UAV's (Unmanned Aerial Vehicles). The intent is for a minimalist, portable and extendable Ground Control Station (GCS) for any UAV supporting the MAVLink protocol.
 
 ### Features:
 

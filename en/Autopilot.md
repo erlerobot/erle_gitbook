@@ -19,9 +19,9 @@ The task of an autopilot is to abstract the user from the different physical par
 
 ### Autopilots in Erle
 
-We have been working hard on [BeaglePilot](BeaglePilot.md), a complete Linux-based autopilot based on ardupilot that provides all the necessary tools and has been built by a collaboration between Erle Robotics, 3DRobotics, Google and BeagleBoard.
+We have been working hard on [BeaglePilot](BeaglePilot.md), a complete Linux-based autopilot based on ardupilot that provides all the necessary tools and has been built by a collaboration between different entities and contributors.
 
-Although *it shouldn't be used in real drones*, we also provide a [simplified autopilot](SimpleAutopilot.md) implemented in python.
+Although *it shouldn't be used in real drones*, we also provide a [simplified autopilot](SimpleAutopilot.md) implemented in python that should be used for pedagogical matters.
 
 ###Sources
 
