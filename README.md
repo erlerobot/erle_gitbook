@@ -1,5 +1,6 @@
 #Erle Robotics GitBook
 
+[![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)
 
 ##Book
 

@@ -1,10 +1,10 @@
 # Summary
 
 * [Basics](basics/README.md)
-* Software
-   * Linux
+* [Software](software.md)
+   * [Linux](linux.md)
    * [Autopilot](Autopilot.md)
-   * Robot Operative System (ROS)
+   * [Robot Operative System (ROS)](ros-intro.md)
 * [Hardware](Hardware.md)
    * [Processor](Processor.md)
    * [Memory](Memory.md)
@@ -19,8 +19,8 @@
 * [BeaglePilot](BeaglePilot.md)
    * [A simplified autopilot](SimpleAutopilot.md)
    * [BeaglePilot tasks](beaglepilottasks.md)
-* BeaglePilot Tutorials 
-   * Installing and Configuring BeaglePilot
+   * Tutorials 
+       * Installing and Configuring BeaglePilot
 * [MAVLink](mavlink.md)
    * [MAVLink in action](mavlinkaction.md)
    * ROS integration: mavlink_ros
@@ -29,9 +29,11 @@
 * [ROS](ROS.md)
    * [Concepts](ROS-concepts.md)
    * [Technical Overview](rostechnicaloverview.md)
-* ROS Tutorials 
-   * Installing and Configuring Your ROS Environment
-   * Navigating the ROS Filesystem    
+   * [Tutorials ](rostutorials.md)
+       * [Installing and Configuring Your ROS Environment](rosinstall.md)
+       * [Navigating the ROS Filesystem    ](rosnavigating.md)
+       * [Creating a ROS Package](/creating_a_ros_package.md)
+       * [Building a ROS Package](./building_a_ros_package)
 * [General Tutorials](Tutorials.md)
    * [Blink a LED](Blink.md)
    * [Blink a LED in C++](Blink2.md)
