@@ -1,0 +1,1120 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>MAVLink in action | Erle Robotics GitBook</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="erlerobot">
+        <meta name="description" content="[![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        
+        <link rel="prev" href="./mavlink.html" />
+        
+
+        <meta property="og:title" content="MAVLink in action | Erle Robotics GitBook">
+        <meta property="og:site_name" content="Erle Robotics GitBook">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/erlerobot">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="5.1" data-basepath="." data-revision="1403006056439">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/mavlinkaction.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="basics/README.html">
+                
+                <a href="./basics/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Basics
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2" data-path="software.html">
+                
+                <a href="./software.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Software
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="linux.html">
+                            
+                            <a href="./linux.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="Autopilot.html">
+                            
+                            <a href="./Autopilot.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="ros-intro.html">
+                            
+                            <a href="./ros-intro.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="Hardware.html">
+                
+                <a href="./Hardware.html">
+                    <i class="fa fa-check"></i> <b>3.</b> Hardware
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="Processor.html">
+                            
+                            <a href="./Processor.html">
+                                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="Memory.html">
+                            
+                            <a href="./Memory.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="Systempower.html">
+                            
+                            <a href="./Systempower.html">
+                                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="Current.html">
+                            
+                            <a href="./Current.html">
+                                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.5" data-path="usb.html">
+                            
+                            <a href="./usb.html">
+                                <i class="fa fa-check"></i> <b>3.5.</b> USB
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.6" data-path="EEPROM.html">
+                            
+                            <a href="./EEPROM.html">
+                                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.7" data-path="adc.html">
+                            
+                            <a href="./adc.html">
+                                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.8" data-path="IO.html">
+                            
+                            <a href="./IO.html">
+                                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.9" data-path="sensors.html">
+                            
+                            <a href="./sensors.html">
+                                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.10" data-path="HardwareMap.html">
+                            
+                            <a href="./HardwareMap.html">
+                                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="BeaglePilot.html">
+                
+                <a href="./BeaglePilot.html">
+                    <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="SimpleAutopilot.html">
+                            
+                            <a href="./SimpleAutopilot.html">
+                                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="beaglepilottasks.html">
+                            
+                            <a href="./beaglepilottasks.html">
+                                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" >
+                            
+                            <span><b>4.3.</b> Tutorials </span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="mavlink.html">
+                
+                <a href="./mavlink.html">
+                    <i class="fa fa-check"></i> <b>5.</b> MAVLink
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="mavlinkaction.html">
+                            
+                            <a href="./mavlinkaction.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> MAVLink in action
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" >
+                            
+                            <span><b>5.2.</b> ROS integration: mavlink_ros</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.3" >
+                            
+                            <span><b>5.3.</b> Creating a MAVLink message</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="6" data-path="mavproxy.html">
+                
+                <a href="./mavproxy.html">
+                    <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="7" data-path="ROS.html">
+                
+                <a href="./ROS.html">
+                    <i class="fa fa-check"></i> <b>7.</b> ROS
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="7.1" data-path="ROS-concepts.html">
+                            
+                            <a href="./ROS-concepts.html">
+                                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="7.2" data-path="rostechnicaloverview.html">
+                            
+                            <a href="./rostechnicaloverview.html">
+                                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="7.3" data-path="rostutorials.html">
+                            
+                            <a href="./rostutorials.html">
+                                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="8" data-path="Tutorials.html">
+                
+                <a href="./Tutorials.html">
+                    <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="8.1" data-path="Blink.html">
+                            
+                            <a href="./Blink.html">
+                                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="8.2" data-path="Blink2.html">
+                            
+                            <a href="./Blink2.html">
+                                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 72.41379310344827%;min-width: 68.96551724137932%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 3.4482758620689653%;"></a>
+    
+        <a href="./software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 6.896551724137931%;"></a>
+    
+        <a href="./linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 10.344827586206897%;"></a>
+    
+        <a href="./Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 13.793103448275861%;"></a>
+    
+        <a href="./ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 17.24137931034483%;"></a>
+    
+        <a href="./Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 20.689655172413794%;"></a>
+    
+        <a href="./Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 24.137931034482758%;"></a>
+    
+        <a href="./HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 27.586206896551722%;"></a>
+    
+        <a href="./Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 31.03448275862069%;"></a>
+    
+        <a href="./Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 34.48275862068966%;"></a>
+    
+        <a href="./Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 37.93103448275862%;"></a>
+    
+        <a href="./usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 41.37931034482759%;"></a>
+    
+        <a href="./EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 44.827586206896555%;"></a>
+    
+        <a href="./adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 48.275862068965516%;"></a>
+    
+        <a href="./IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 51.724137931034484%;"></a>
+    
+        <a href="./sensors.html" title="Sensors" class="chapter done " data-progress="3.9" style="left: 55.172413793103445%;"></a>
+    
+        <a href="./BeaglePilot.html" title="BeaglePilot" class="chapter done new-chapter" data-progress="4" style="left: 58.62068965517241%;"></a>
+    
+        <a href="./SimpleAutopilot.html" title="A simplified autopilot" class="chapter done " data-progress="4.1" style="left: 62.06896551724138%;"></a>
+    
+        <a href="./beaglepilottasks.html" title="BeaglePilot tasks" class="chapter done " data-progress="4.2" style="left: 65.51724137931035%;"></a>
+    
+        <a href="./mavlink.html" title="MAVLink" class="chapter done new-chapter" data-progress="5" style="left: 68.96551724137932%;"></a>
+    
+        <a href="./mavlinkaction.html" title="MAVLink in action" class="chapter done " data-progress="5.1" style="left: 72.41379310344827%;"></a>
+    
+        <a href="./mavproxy.html" title="MAVProxy" class="chapter  new-chapter" data-progress="6" style="left: 75.86206896551724%;"></a>
+    
+        <a href="./ROS.html" title="ROS" class="chapter  new-chapter" data-progress="7" style="left: 79.3103448275862%;"></a>
+    
+        <a href="./ROS-concepts.html" title="Concepts" class="chapter  " data-progress="7.1" style="left: 82.75862068965517%;"></a>
+    
+        <a href="./rostechnicaloverview.html" title="Technical Overview" class="chapter  " data-progress="7.2" style="left: 86.20689655172414%;"></a>
+    
+        <a href="./rostutorials.html" title="Tutorials " class="chapter  " data-progress="7.3" style="left: 89.65517241379311%;"></a>
+    
+        <a href="./Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 93.10344827586206%;"></a>
+    
+        <a href="./Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 96.55172413793103%;"></a>
+    
+        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_46">
+                    
+                        <h1 id="mavlink-in-action">MAVLink in action</h1>
+<p>A MAVLink message is handled by <code>ArduCopter</code>, <code>ArduPlane</code> or <code>APMRover</code> inside a function called <code>handleMessage</code> that belongs to  <code>GCS_MavLink.pde</code>:</p>
+<p>The following sections describe how the code interprets a MAVLink message:</p>
+<h3 id="parse-message">Parse message</h3>
+<p>The code reads the System ID and Component ID (any system using MavLink has a System ID and Component ID) and checks whether is fine to continue.</p>
+<p>Then it handles Message ID:</p>
+<pre><code>    switch (msg-&gt;msgid) {
+    case MAVLINK_MSG_ID_HEARTBEAT:      // MAV ID: 0
+    {
+        ...
+    }
+
+    case MAVLINK_MSG_ID_SET_MODE:       // MAV ID: 11
+    {
+        ...
+    }
+
+    ...
+</code></pre><h4 id="-mavlink_msg_id-types"><code>MAVLINK_MSG_ID</code> types</h4>
+<p>The following content describes some of the most relevant <code>MAVLINK_MSG_ID</code> kinds:</p>
+<ol>
+<li><code>MAVLINK_MSG_ID_HEARTBEAT</code>
+This is the most important message. The GCS keeps sending a message to the autopilot to find out whether it is connected to it (every 1 second). This is to make sure the MP is in sync with APM when you update some parameters. If a number of heartbeats are missed, a failsafe (can be) is triggered and copter lands, continues the mission or Returns to launch (also called, RTL). The failsafe option can be enabled/disabled. <strong>Heartbeats cannot be stopped</strong>.</li>
+<li><code>MAVLINK_MSG_ID_REQUEST_DATA_STREAM</code>
+Sensors, RC channels, GPS position, status.</li>
+<li><code>MAVLINK_MSG_ID_COMMAND_LONG</code>
+Loiter unlimited, RTL, Land, Mission start, Arm/Disarm, Reboot</li>
+<li><code>SET_MODE</code>
+E.g. set_mode(packet.custom_mode);</li>
+<li><code>MAVLINK_MSG_ID_MISSION_REQUEST_LIST</code>
+Total waypoints: command_total variable of parameters. This stores the total number of waypoints that are present (except home location, for multi-copters)</li>
+<li><code>MAVLINK_MSG_ID_MISSION_REQUEST</code>
+Set of MAV<em>CMD value enum members, such as: (MAV_CMD</em>)CHANGE_ALT, SET_HOME, CONDITION_YAW, TAKE_OFF, NAV_LOITER_TIME</li>
+<li><code>MAVLINK_MSG_ID_MISSION_ACK</code>
+turn off waypoint send</li>
+<li><code>MAVLINK_MSG_ID_PARAM_REQUEST_LIST</code>
+count_parameters (Count the total parameters)</li>
+<li><code>MAVLINK_MSG_ID_PARAM_REQUEST_READ</code>
+Receive and decode parameters (Make sense of Param name and Id)</li>
+<li><code>MAVLINK_MSG_ID_MISSION_CLEAR_ALL</code>
+When you use mission planner flight data screen and say, Clear Mission with the mouse menu, this is where it goes. It clears the EEPROM memory from the autopilot.</li>
+<li><code>MAVLINK_MSG_ID_MISSION_SET_CURRENT</code>
+This is used to change active command during mid mission. E.g. when you click on MP google map screen and click ‘Fly To Here’, as an example.</li>
+<li><code>MAVLINK_MSG_ID_MISSION_COUNT</code>
+Save the total number of waypoints (excluding home location) -&gt; for Multicopters.</li>
+<li><code>MAVLINK_MSG_ID_MISSION_WRITE_PARTIAL_LIST</code>
+Just keeping a global variable stating that the autopilot is receiving commands now. This is to avoid other MAVLink actions while important parameters are being set.</li>
+<li><code>MAVLINK_MSG_ID_SET_MAG_OFFSETS</code>
+Set the mag_ofs_x, mag_ofs_y, mag_ofs_z, say after compass calibration to EEPROM of the autopilot. Mission Planner (MP) automatically does this or you can do this too by going to Full Parameters List under SOFTWARE CONFIGURATION.</li>
+<li><code>MAVLINK_MSG_ID_MISSION_ITEM</code>
+This is an interesting part. This message contains sub messages for taking real-time action. Like setting waypoints and advanced features:<ul>
+<li>Receive a Waypoint (WP) from GCS and store in EEPROM of the autopilot.</li>
+<li>Sends 4 params (e.g. Delay, HitRad, -, and Yaw Angle) for LOITER_TIME (as ID) + (Lat, Long, Alt: Defines the 3D position of object in space). These parameters are defined as an Enum in code + Options (1 = Store Altitude (Alt) relative to home altitude). Each Command (or ID) may have different parameters of interest. Mission Planner shows ‘blank’ header for column, because there is no parameter defined for this ID.
+As a summary, the interesting parameters sent with every action are:
+4 params + ID (of action) + (Lat, Long, Alt) defines 3D position of copter. Note the 4 params can be some sort of custom action as for camera setting, camera trigger, Loiter time, etc.</li>
+<li>As in figure below from Mission Planner, each ID defines a waypoint (AFAIK). LOITER_TIME, LOITER_UNLIMITED, WAYPOINT all are waypoints that send along with other parameters (LATITUDE, LONGITUDE and ALTITUDE) because each is saved as a waypoint in the autopilot (ALTITUDE is always relative to home altitude with the current design.).</li>
+<li>You can define ‘these actions’ in Common.xml and use Python GUI generator to generate the code that the autopilot will use.</li>
+</ul>
+</li>
+<li><code>MAVLINK_MSG_ID_PARAM_SET</code>
+Set the parameter. Remember, we can also set a value to a parameter in the Ground Control Stations (e.g. Mission Planner, ‘Full Parameter List’).</li>
+<li><code>MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE</code>
+Override RC channel values for HIL (Hardware-In-Loop-Simulation) (Or complete GCS control of the switch position via GUI)</li>
+<li><code>MAVLINK_MSG_ID_HIL_STATE</code>
+Used for HIL simulation. It is a virtual reality with your copter/ plane.</li>
+<li><code>MAVLINK_MSG_ID_DIGICAM_CONFIGURE</code></li>
+<li><code>MAVLINK_MSG_ID_MOUNT_CONFIGURE</code></li>
+<li><code>MAVLINK_MSG_ID_MOUNT_CONTROL</code></li>
+<li><code>MAVLINK_MSG_ID_MOUNT_STATUS</code>
+So far, as the name suggests, configures the appropriate command settings as set by the user.</li>
+<li><code>MAVLINK_MSG_ID_RADIO, MAVLINK_MSG_ID_RADIO_STATUS</code>
+Studies the packet rate of the telemetry/USB and auto adjusts the delay between sending receiving packets if the signal strength is lower than expected or errors are getting higher. It is like an adaptive software flow control. Look at <code>__mavlink_radio_t</code>
+in C++ (BeaglePilot/ardupilot code).</li>
+</ol>
+<h3 id="extract-the-payload">Extract the payload</h3>
+<p>The <strong>payload data</strong> is extracted from the message and put into a packet. A packet is a data structure based on a <strong>type</strong> of information.</p>
+<p>The packet is put into an <em>appropriate data structure</em>. There are plenty of data structures e.g. for Attitude (pitch, roll, yaw orientation), GPS, RC channels, etc. that groups similar things together, to be it modular, understandable. These data structures are ‘perfectly 100% alike’ at the sending and receiving ends.</p>
+<p>In the following code, this step is performed at <code>mavlink_msg_rc_channels_override_decode</code>.</p>
+<pre><code>    case MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE:       // MAV ID: 70
+    {
+        // allow override of RC channel values for HIL
+        // or for complete GCS control of switch position
+        // and RC PWM values.
+        if(msg-&gt;sysid != g.sysid_my_gcs) break;                         // Only accept control from our gcs
+        mavlink_rc_channels_override_t packet;
+        int16_t v[8];
+        mavlink_msg_rc_channels_override_decode(msg, &amp;packet);
+
+        // exit immediately if this command is not meant for this vehicle
+        if (mavlink_check_target(packet.target_system,packet.target_component)) {
+            break;
+        }
+
+        v[0] = packet.chan1_raw;
+        v[1] = packet.chan2_raw;
+        v[2] = packet.chan3_raw;
+        v[3] = packet.chan4_raw;
+        v[4] = packet.chan5_raw;
+        v[5] = packet.chan6_raw;
+        v[6] = packet.chan7_raw;
+        v[7] = packet.chan8_raw;
+        hal.rcin-&gt;set_overrides(v, 8);
+
+        // record that rc are overwritten so we can trigger a failsafe if we lose contact with groundstation
+        failsafe.rc_override_active = true;
+        // a RC override message is consiered to be a &#39;heartbeat&#39; from the ground station for failsafe purposes
+        failsafe.last_heartbeat_ms = millis();
+        break;
+    }
+</code></pre><hr>
+<h3 id="reference-code">Reference code</h3>
+<hr>
+<p>The following snippet presents the code of the function `handleMessage&#39;:</p>
+<pre><code class="lang-C">
+<span class="hljs-keyword">void</span> GCS_MAVLINK::handleMessage(mavlink_message_t* msg)
+{
+    uint8_t result = MAV_RESULT_FAILED;         <span class="hljs-comment">// assume failure.  Each messages id is responsible for return ACK or NAK if required</span>
+
+    <span class="hljs-keyword">switch</span> (msg-&gt;msgid) {
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_HEARTBEAT:      <span class="hljs-comment">// MAV ID: 0</span>
+    {
+        <span class="hljs-comment">// We keep track of the last time we received a heartbeat from our GCS for failsafe purposes</span>
+        <span class="hljs-keyword">if</span>(msg-&gt;sysid != g.sysid_my_gcs) <span class="hljs-keyword">break</span>;
+        failsafe.last_heartbeat_ms = millis();
+        pmTest1++;
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_SET_MODE:       <span class="hljs-comment">// MAV ID: 11</span>
+    {
+        <span class="hljs-comment">// decode</span>
+        mavlink_set_mode_t packet;
+        mavlink_msg_set_mode_decode(msg, &amp;packet);
+
+        <span class="hljs-comment">// only accept custom modes because there is no easy mapping from Mavlink flight modes to AC flight modes</span>
+        <span class="hljs-keyword">if</span> (packet.base_mode &amp; MAV_MODE_FLAG_CUSTOM_MODE_ENABLED) {
+            <span class="hljs-keyword">if</span> (set_mode(packet.custom_mode)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+        }
+
+        <span class="hljs-comment">// send ACK or NAK</span>
+        mavlink_msg_command_ack_send_buf(msg, chan, MAVLINK_MSG_ID_SET_MODE, result);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_PARAM_REQUEST_READ:         <span class="hljs-comment">// MAV ID: 20</span>
+    {
+        handle_param_request_read(msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_PARAM_REQUEST_LIST:         <span class="hljs-comment">// MAV ID: 21</span>
+    {
+        handle_param_request_list(msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_PARAM_SET:     <span class="hljs-comment">// 23</span>
+    {
+        handle_param_set(msg, &amp;DataFlash);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_WRITE_PARTIAL_LIST: <span class="hljs-comment">// MAV ID: 38</span>
+    {
+        handle_mission_write_partial_list(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+<span class="hljs-preprocessor">#ifdef MAVLINK_MSG_ID_SET_MAG_OFFSETS</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_SET_MAG_OFFSETS:
+    {
+        mavlink_set_mag_offsets_t packet;
+        mavlink_msg_set_mag_offsets_decode(msg, &amp;packet);
+        <span class="hljs-comment">// exit immediately if this command is not meant for this vehicle</span>
+        <span class="hljs-keyword">if</span> (mavlink_check_target(packet.target_system,packet.target_component)) {
+            <span class="hljs-keyword">break</span>;
+        }
+        compass.set_offsets(Vector3f(packet.mag_ofs_x, packet.mag_ofs_y, packet.mag_ofs_z));
+        <span class="hljs-keyword">break</span>;
+    }
+<span class="hljs-preprocessor">#endif</span>
+
+    <span class="hljs-comment">// GCS has sent us a command from GCS, store to EEPROM</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_ITEM:           <span class="hljs-comment">// MAV ID: 39</span>
+    {
+        handle_mission_item(msg, mission);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-comment">// read an individual command from EEPROM and send it to the GCS</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_REQUEST:     <span class="hljs-comment">// MAV ID: 40</span>
+    {
+        handle_mission_request(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_SET_CURRENT:    <span class="hljs-comment">// MAV ID: 41</span>
+    {
+        handle_mission_set_current(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-comment">// GCS request the full list of commands, we return just the number and leave the GCS to then request each command individually</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_REQUEST_LIST:       <span class="hljs-comment">// MAV ID: 43</span>
+    {
+        handle_mission_request_list(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-comment">// GCS provides the full number of commands it wishes to upload</span>
+    <span class="hljs-comment">//  individual commands will then be sent from the GCS using the MAVLINK_MSG_ID_MISSION_ITEM message</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_COUNT:          <span class="hljs-comment">// MAV ID: 44</span>
+    {
+        handle_mission_count(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MISSION_CLEAR_ALL:      <span class="hljs-comment">// MAV ID: 45</span>
+    {
+        handle_mission_clear_all(mission, msg);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_REQUEST_DATA_STREAM:    <span class="hljs-comment">// MAV ID: 66</span>
+    {
+        handle_request_data_stream(msg, <span class="hljs-keyword">false</span>);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE:       <span class="hljs-comment">// MAV ID: 70</span>
+    {
+        <span class="hljs-comment">// allow override of RC channel values for HIL</span>
+        <span class="hljs-comment">// or for complete GCS control of switch position</span>
+        <span class="hljs-comment">// and RC PWM values.</span>
+        <span class="hljs-keyword">if</span>(msg-&gt;sysid != g.sysid_my_gcs) <span class="hljs-keyword">break</span>;                         <span class="hljs-comment">// Only accept control from our gcs</span>
+        mavlink_rc_channels_override_t packet;
+        int16_t v[<span class="hljs-number">8</span>];
+        mavlink_msg_rc_channels_override_decode(msg, &amp;packet);
+
+        <span class="hljs-comment">// exit immediately if this command is not meant for this vehicle</span>
+        <span class="hljs-keyword">if</span> (mavlink_check_target(packet.target_system,packet.target_component)) {
+            <span class="hljs-keyword">break</span>;
+        }
+
+        v[<span class="hljs-number">0</span>] = packet.chan1_raw;
+        v[<span class="hljs-number">1</span>] = packet.chan2_raw;
+        v[<span class="hljs-number">2</span>] = packet.chan3_raw;
+        v[<span class="hljs-number">3</span>] = packet.chan4_raw;
+        v[<span class="hljs-number">4</span>] = packet.chan5_raw;
+        v[<span class="hljs-number">5</span>] = packet.chan6_raw;
+        v[<span class="hljs-number">6</span>] = packet.chan7_raw;
+        v[<span class="hljs-number">7</span>] = packet.chan8_raw;
+        hal.rcin-&gt;set_overrides(v, <span class="hljs-number">8</span>);
+
+        <span class="hljs-comment">// record that rc are overwritten so we can trigger a failsafe if we lose contact with groundstation</span>
+        failsafe.rc_override_active = <span class="hljs-keyword">true</span>;
+        <span class="hljs-comment">// a RC override message is consiered to be a 'heartbeat' from the ground station for failsafe purposes</span>
+        failsafe.last_heartbeat_ms = millis();
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-comment">// Pre-Flight calibration requests</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_COMMAND_LONG:       <span class="hljs-comment">// MAV ID: 76</span>
+    {
+        <span class="hljs-comment">// decode packet</span>
+        mavlink_command_long_t packet;
+        mavlink_msg_command_long_decode(msg, &amp;packet);
+
+        <span class="hljs-comment">// exit immediately if this command is not meant for this vehicle</span>
+        <span class="hljs-keyword">if</span> (mavlink_check_target(packet.target_system, packet.target_component)) {
+            <span class="hljs-keyword">break</span>;
+        }
+
+        <span class="hljs-keyword">switch</span>(packet.command) {
+
+        <span class="hljs-keyword">case</span> MAV_CMD_NAV_LOITER_UNLIM:
+            <span class="hljs-keyword">if</span> (set_mode(LOITER)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_NAV_RETURN_TO_LAUNCH:
+            <span class="hljs-keyword">if</span> (set_mode(RTL)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_NAV_LAND:
+            <span class="hljs-keyword">if</span> (set_mode(LAND)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_MISSION_START:
+            <span class="hljs-keyword">if</span> (set_mode(AUTO)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_PREFLIGHT_CALIBRATION:
+            <span class="hljs-keyword">if</span> (packet.param1 == <span class="hljs-number">1</span> ||
+                packet.param2 == <span class="hljs-number">1</span>) {
+                ins.init_accel();
+                ahrs.set_trim(Vector3f(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>));             <span class="hljs-comment">// clear out saved trim</span>
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">if</span> (packet.param3 == <span class="hljs-number">1</span>) {
+                init_barometer(<span class="hljs-keyword">false</span>);                      <span class="hljs-comment">// fast barometer calibration</span>
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">if</span> (packet.param4 == <span class="hljs-number">1</span>) {
+                trim_radio();
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">if</span> (packet.param5 == <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">float</span> trim_roll, trim_pitch;
+                <span class="hljs-comment">// this blocks</span>
+                AP_InertialSensor_UserInteract_MAVLink interact(chan);
+                <span class="hljs-keyword">if</span>(ins.calibrate_accel(&amp;interact, trim_roll, trim_pitch)) {
+                    <span class="hljs-comment">// reset ahrs's trim to suggested values from calibration routine</span>
+                    ahrs.set_trim(Vector3f(trim_roll, trim_pitch, <span class="hljs-number">0</span>));
+                }
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">if</span> (packet.param6 == <span class="hljs-number">1</span>) {
+                <span class="hljs-comment">// compassmot calibration</span>
+                result = mavlink_compassmot(chan);
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_COMPONENT_ARM_DISARM:
+            <span class="hljs-keyword">if</span> (packet.param1 == <span class="hljs-number">1.0f</span>) {
+                <span class="hljs-comment">// run pre_arm_checks and arm_checks and display failures</span>
+                pre_arm_checks(<span class="hljs-keyword">true</span>);
+                <span class="hljs-keyword">if</span>(ap.pre_arm_check &amp;&amp; arm_checks(<span class="hljs-keyword">true</span>)) {
+                    init_arm_motors();
+                    result = MAV_RESULT_ACCEPTED;
+                }<span class="hljs-keyword">else</span>{
+                    AP_Notify::flags.arming_failed = <span class="hljs-keyword">true</span>;  <span class="hljs-comment">// init_arm_motors function will reset flag back to false</span>
+                    result = MAV_RESULT_UNSUPPORTED;
+                }
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (packet.param1 == <span class="hljs-number">0.0f</span>)  {
+                init_disarm_motors();
+                result = MAV_RESULT_ACCEPTED;
+            } <span class="hljs-keyword">else</span> {
+                result = MAV_RESULT_UNSUPPORTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_SET_SERVO:
+            <span class="hljs-keyword">if</span> (ServoRelayEvents.do_set_servo(packet.param1, packet.param2)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_REPEAT_SERVO:
+            <span class="hljs-keyword">if</span> (ServoRelayEvents.do_repeat_servo(packet.param1, packet.param2, packet.param3, packet.param4*<span class="hljs-number">1000</span>)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_SET_RELAY:
+            <span class="hljs-keyword">if</span> (ServoRelayEvents.do_set_relay(packet.param1, packet.param2)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_REPEAT_RELAY:
+            <span class="hljs-keyword">if</span> (ServoRelayEvents.do_repeat_relay(packet.param1, packet.param2, packet.param3*<span class="hljs-number">1000</span>)) {
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN:
+            <span class="hljs-keyword">if</span> (packet.param1 == <span class="hljs-number">1</span> || packet.param1 == <span class="hljs-number">3</span>) {
+                <span class="hljs-comment">// when packet.param1 == 3 we reboot to hold in bootloader</span>
+                hal.scheduler-&gt;reboot(packet.param1 == <span class="hljs-number">3</span>);
+                result = MAV_RESULT_ACCEPTED;
+            }
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_FENCE_ENABLE:
+<span class="hljs-preprocessor">#if AC_FENCE == ENABLED</span>
+            result = MAV_RESULT_ACCEPTED;
+            <span class="hljs-keyword">switch</span> ((uint16_t)packet.param1) {
+                <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+                    fence.enable(<span class="hljs-keyword">false</span>);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                    fence.enable(<span class="hljs-keyword">true</span>);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    result = MAV_RESULT_FAILED;
+                    <span class="hljs-keyword">break</span>;
+            }
+<span class="hljs-preprocessor">#else</span>
+            <span class="hljs-comment">// if fence code is not included return failure</span>
+            result = MAV_RESULT_FAILED;
+<span class="hljs-preprocessor">#endif</span>
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">case</span> MAV_CMD_DO_MOTOR_TEST:
+            <span class="hljs-comment">// param1 : motor sequence number (a number from 1 to max number of motors on the vehicle)</span>
+            <span class="hljs-comment">// param2 : throttle type (0=throttle percentage, 1=PWM, 2=pilot throttle channel pass-through. See MOTOR_TEST_THROTTLE_TYPE enum)</span>
+            <span class="hljs-comment">// param3 : throttle (range depends upon param2)</span>
+            <span class="hljs-comment">// param4 : timeout (in seconds)</span>
+            result = mavlink_motor_test_start(chan, (uint8_t)packet.param1, (uint8_t)packet.param2, (uint16_t)packet.param3, packet.param4);
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">default</span>:
+            result = MAV_RESULT_UNSUPPORTED;
+            <span class="hljs-keyword">break</span>;
+        }
+
+        <span class="hljs-comment">// send ACK or NAK</span>
+        mavlink_msg_command_ack_send_buf(msg, chan, packet.command, result);
+
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_COMMAND_ACK:        <span class="hljs-comment">// MAV ID: 77</span>
+    {
+        command_ack_counter++;
+        <span class="hljs-keyword">break</span>;
+    }
+
+<span class="hljs-preprocessor">#if HIL_MODE != HIL_MODE_DISABLED</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_HIL_STATE:          <span class="hljs-comment">// MAV ID: 90</span>
+    {
+        mavlink_hil_state_t packet;
+        mavlink_msg_hil_state_decode(msg, &amp;packet);
+
+        <span class="hljs-comment">// set gps hil sensor</span>
+        Location loc;
+        loc.lat = packet.lat;
+        loc.lng = packet.lon;
+        loc.alt = packet.alt/<span class="hljs-number">10</span>;
+        Vector3f vel(packet.vx, packet.vy, packet.vz);
+        vel *= <span class="hljs-number">0.01f</span>;
+
+        gps.setHIL(<span class="hljs-number">0</span>, AP_GPS::GPS_OK_FIX_3D,
+                   packet.time_usec/<span class="hljs-number">1000</span>,
+                   loc, vel, <span class="hljs-number">10</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">true</span>);
+
+        <span class="hljs-keyword">if</span> (!ap.home_is_set) {
+            init_home();
+        }
+
+
+        <span class="hljs-comment">// rad/sec</span>
+        Vector3f gyros;
+        gyros.x = packet.rollspeed;
+        gyros.y = packet.pitchspeed;
+        gyros.z = packet.yawspeed;
+
+        <span class="hljs-comment">// m/s/s</span>
+        Vector3f accels;
+        accels.x = packet.xacc * (GRAVITY_MSS/<span class="hljs-number">1000.0</span>);
+        accels.y = packet.yacc * (GRAVITY_MSS/<span class="hljs-number">1000.0</span>);
+        accels.z = packet.zacc * (GRAVITY_MSS/<span class="hljs-number">1000.0</span>);
+
+        ins.set_gyro(<span class="hljs-number">0</span>, gyros);
+
+        ins.set_accel(<span class="hljs-number">0</span>, accels);
+
+        barometer.setHIL(packet.alt*<span class="hljs-number">0.001f</span>);
+        compass.setHIL(packet.roll, packet.pitch, packet.yaw);
+
+        <span class="hljs-keyword">break</span>;
+    }
+<span class="hljs-preprocessor">#endif <span class="hljs-comment">//  HIL_MODE != HIL_MODE_DISABLED</span></span>
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_RADIO:
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_RADIO_STATUS:       <span class="hljs-comment">// MAV ID: 109</span>
+    {
+        handle_radio_status(msg, DataFlash, (g.log_bitmask &amp; MASK_LOG_PM) != <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_LOG_REQUEST_LIST ... MAVLINK_MSG_ID_LOG_REQUEST_END:    <span class="hljs-comment">// MAV ID: 117 ... 122</span>
+        <span class="hljs-keyword">if</span> (!in_mavlink_delay &amp;&amp; !motors.armed()) {
+            handle_log_message(msg, DataFlash);
+        }
+        <span class="hljs-keyword">break</span>;
+
+<span class="hljs-preprocessor">#if HAL_CPU_CLASS &gt; HAL_CPU_CLASS_16</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_SERIAL_CONTROL:
+        handle_serial_control(msg, gps);
+        <span class="hljs-keyword">break</span>;
+<span class="hljs-preprocessor">#endif</span>
+
+<span class="hljs-preprocessor">#if CAMERA == ENABLED</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_DIGICAM_CONFIGURE:      <span class="hljs-comment">// MAV ID: 202</span>
+        camera.configure_msg(msg);
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_DIGICAM_CONTROL:
+        camera.control_msg(msg);
+        <span class="hljs-keyword">break</span>;
+<span class="hljs-preprocessor">#endif <span class="hljs-comment">// CAMERA == ENABLED</span></span>
+
+<span class="hljs-preprocessor">#if MOUNT == ENABLED</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MOUNT_CONFIGURE:        <span class="hljs-comment">// MAV ID: 204</span>
+        camera_mount.configure_msg(msg);
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MOUNT_CONTROL:
+        camera_mount.control_msg(msg);
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_MOUNT_STATUS:
+        camera_mount.status_msg(msg);
+        <span class="hljs-keyword">break</span>;
+<span class="hljs-preprocessor">#endif <span class="hljs-comment">// MOUNT == ENABLED</span></span>
+
+<span class="hljs-preprocessor">#if AC_RALLY == ENABLED</span>
+    <span class="hljs-comment">// receive a rally point from GCS and store in EEPROM</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_RALLY_POINT: {
+        mavlink_rally_point_t packet;
+        mavlink_msg_rally_point_decode(msg, &amp;packet);
+        <span class="hljs-keyword">if</span> (mavlink_check_target(packet.target_system, packet.target_component))
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-keyword">if</span> (packet.idx &gt;= rally.get_rally_total() ||
+            packet.idx &gt;= MAX_RALLYPOINTS) {
+            send_text_P(SEVERITY_LOW,PSTR(<span class="hljs-string">"bad rally point message ID"</span>));
+            <span class="hljs-keyword">break</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (packet.count != rally.get_rally_total()) {
+            send_text_P(SEVERITY_LOW,PSTR(<span class="hljs-string">"bad rally point message count"</span>));
+            <span class="hljs-keyword">break</span>;
+        }
+
+        RallyLocation rally_point;
+        rally_point.lat = packet.lat;
+        rally_point.lng = packet.lng;
+        rally_point.alt = packet.alt;
+        rally_point.break_alt = packet.break_alt;
+        rally_point.land_dir = packet.land_dir;
+        rally_point.flags = packet.flags;
+
+        <span class="hljs-keyword">if</span> (!rally.set_rally_point_with_index(packet.idx, rally_point)) {
+            send_text_P(SEVERITY_HIGH, PSTR(<span class="hljs-string">"error setting rally point"</span>));
+        }
+
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-comment">//send a rally point to the GCS</span>
+    <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_RALLY_FETCH_POINT: {
+        <span class="hljs-comment">//send_text_P(SEVERITY_HIGH, PSTR("## getting rally point in GCS_Mavlink.pde 1")); // #### TEMP</span>
+
+        mavlink_rally_fetch_point_t packet;
+        mavlink_msg_rally_fetch_point_decode(msg, &amp;packet);
+        <span class="hljs-keyword">if</span> (mavlink_check_target(packet.target_system, packet.target_component))
+            <span class="hljs-keyword">break</span>;
+
+        <span class="hljs-comment">//send_text_P(SEVERITY_HIGH, PSTR("## getting rally point in GCS_Mavlink.pde 2")); // #### TEMP</span>
+
+        <span class="hljs-keyword">if</span> (packet.idx &gt; rally.get_rally_total()) {
+            send_text_P(SEVERITY_LOW, PSTR(<span class="hljs-string">"bad rally point index"</span>));
+            <span class="hljs-keyword">break</span>;
+        }
+
+        <span class="hljs-comment">//send_text_P(SEVERITY_HIGH, PSTR("## getting rally point in GCS_Mavlink.pde 3")); // #### TEMP</span>
+
+        RallyLocation rally_point;
+        <span class="hljs-keyword">if</span> (!rally.get_rally_point_with_index(packet.idx, rally_point)) {
+           send_text_P(SEVERITY_LOW, PSTR(<span class="hljs-string">"failed to set rally point"</span>));
+           <span class="hljs-keyword">break</span>;
+        }
+
+        <span class="hljs-comment">//send_text_P(SEVERITY_HIGH, PSTR("## getting rally point in GCS_Mavlink.pde 4")); // #### TEMP</span>
+
+        mavlink_msg_rally_point_send_buf(msg,
+                                         chan, msg-&gt;sysid, msg-&gt;compid, packet.idx,
+                                         rally.get_rally_total(), rally_point.lat, rally_point.lng,
+                                         rally_point.alt, rally_point.break_alt, rally_point.land_dir,
+                                         rally_point.flags);
+
+        <span class="hljs-comment">//send_text_P(SEVERITY_HIGH, PSTR("## getting rally point in GCS_Mavlink.pde 5")); // #### TEMP</span>
+
+        <span class="hljs-keyword">break</span>;
+    }
+<span class="hljs-preprocessor">#endif <span class="hljs-comment">// AC_RALLY == ENABLED</span></span>
+
+
+    }     <span class="hljs-comment">// end switch</span>
+} <span class="hljs-comment">// end handle mavlink</span>
+</code></pre>
+<h3 id="sources-">Sources:</h3>
+<ul>
+<li><a href="http://api.ning.com/files/i*tFWQTF2R*7Mmw7hksAU-u9IABKNDO9apguOiSOCfvi2znk1tXhur0Bt00jTOldFvob-Sczg3*lDcgChG26QaHZpzEcISM5/MAVLINK_FOR_DUMMIESPart1_v.1.1.pdf" target="_blank">MavLink Tutorial for Absolute Dummies (Part –I)</a></li>
+<li>MAVLink source code</li>
+</ul>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./mavlink.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>

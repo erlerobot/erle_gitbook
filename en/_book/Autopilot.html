@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Dynamical model | Erle Robotics GitBook</title>
+        <title>Autopilot | Erle Robotics GitBook</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,11 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="./Autopilot.html" />
+        <link rel="next" href="./SimpleAutopilot.html" />
         
+        
+        <link rel="prev" href="./DynamicalModel.html" />
         
 
-        <meta property="og:title" content="Dynamical model | Erle Robotics GitBook">
+        <meta property="og:title" content="Autopilot | Erle Robotics GitBook">
         <meta property="og:site_name" content="Erle Robotics GitBook">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,50 +42,56 @@
 
 
         
-    <div class="book" data-github="erlerobot/erle_gitbook" data-level="5" data-basepath="." data-revision="1399458836329">
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="6" data-basepath="." data-revision="1401186327374">
     <div class="book-header">
     <!-- Actions Left -->
     
-    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
     
-    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
     <span id="font-settings-wrapper">
-        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
         </a>
         <div class="dropdown-menu font-settings">
-	<div class="dropdown-caret">
-  <span class="caret-outer"></span>
-  <span class="caret-inner"></span>
-</div>
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
 
-	<div class="btn-group btn-block">
-		<button id="reduce-font-size" class="btn btn-default">A</button>
-		<button id="enlarge-font-size" class="btn btn-default">A</button>
-	</div>
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
 
-	<ul class="list-group font-family-list">
-		<li class="list-group-item" data-font="0">Serif</li>
-		<li class="list-group-item" data-font="1">Sans</li>
-	</ul>
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
 
-	<div class="btn-group btn-group-xs btn-block color-theme-list">
-	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
-	</div>
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
 </div>
 
     </span>
 
     <!-- Actions Right -->
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
 
     
-    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
-    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
     
 
     <!-- Title -->
@@ -100,21 +108,29 @@
     <ul class="summary">
         
         <li>
-            <a href="https://github.com/erlerobot" target="blank">About the author</a>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
         </li>
-        <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
-        </li>
-        <li>
-            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/DynamicalModel.md" target="blank">Edit and Contribute</a>
-        </li>
-        <li class="divider"></li>
         
+
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/Autopilot.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+
         <li data-level="0" data-path="index.html">
             <a href="./"><i class="fa fa-check"></i> Introduction</a>
         </li>
         
-            <li  data-level="1" data-path="basics/README.html">
+            <li class="chapter " data-level="1" data-path="basics/README.html">
                 
                 <a href="./basics/README.html">
                     <i class="fa fa-check"></i> <b>1.</b> Basics
@@ -123,14 +139,14 @@
                 
             </li>
         
-            <li  data-level="2" >
+            <li class="chapter " data-level="2" >
                 
                 <span><b>2.</b> Software</span>
                 
                 
             </li>
         
-            <li  data-level="3" data-path="Hardware.html">
+            <li class="chapter " data-level="3" data-path="Hardware.html">
                 
                 <a href="./Hardware.html">
                     <i class="fa fa-check"></i> <b>3.</b> Hardware
@@ -215,7 +231,7 @@
                 
             </li>
         
-            <li  data-level="4" data-path="ROS.html">
+            <li class="chapter " data-level="4" data-path="ROS.html">
                 
                 <a href="./ROS.html">
                     <i class="fa fa-check"></i> <b>4.</b> ROS
@@ -242,7 +258,7 @@
                 
             </li>
         
-            <li  data-level="5" data-path="DynamicalModel.html">
+            <li class="chapter " data-level="5" data-path="DynamicalModel.html">
                 
                 <a href="./DynamicalModel.html">
                     <i class="fa fa-check"></i> <b>5.</b> Dynamical model
@@ -251,7 +267,7 @@
                 
             </li>
         
-            <li  data-level="6" data-path="Autopilot.html">
+            <li class="chapter " data-level="6" data-path="Autopilot.html">
                 
                 <a href="./Autopilot.html">
                     <i class="fa fa-check"></i> <b>6.</b> Autopilot
@@ -278,7 +294,7 @@
                 
             </li>
         
-            <li  data-level="7" data-path="Tutorials.html">
+            <li class="chapter " data-level="7" data-path="Tutorials.html">
                 
                 <a href="./Tutorials.html">
                     <i class="fa fa-check"></i> <b>7.</b> Tutorials
@@ -319,6 +335,13 @@
                 
             </li>
         
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
     </ul>
 </div>
 
@@ -327,7 +350,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 68.75%;min-width: 62.5%;"></div>
+        <div class="inner" style="width: 75%;min-width: 68.75%;"></div>
     </div>
     <div class="chapters">
     
@@ -355,7 +378,7 @@
     
         <a href="./DynamicalModel.html" title="Dynamical model" class="chapter done new-chapter" data-progress="5" style="left: 68.75%;"></a>
     
-        <a href="./Autopilot.html" title="Autopilot" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
+        <a href="./Autopilot.html" title="Autopilot" class="chapter done new-chapter" data-progress="6" style="left: 75%;"></a>
     
         <a href="./SimpleAutopilot.html" title="A simplified autopilot" class="chapter  " data-progress="6.1" style="left: 81.25%;"></a>
     
@@ -370,40 +393,22 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_20">
+                    <section class="normal" id="section-gitbook_3">
                     
-                        <h1 id="dynamical-model">Dynamical model</h1>
-<h2 id="what-is-dynamical-model-">What is dynamical model?</h2>
-<p>The <em>dynamical model</em> is a <strong>set of equations describing the attitude and position of the device</strong>.</p>
-<h2 id="quadrotor-concept">Quadrotor concept</h2>
-<p>The robot <a href="http://erlerobot.com" target="_blank">Erle</a> is a <em>quadcopter</em>:</p>
+                        <h1 id="autopilot">Autopilot</h1>
+<p>An <strong>autopilot is the software that provides assistance while controlling a drone</strong>. While many autopilots allow the drone to fly autonomously following some pre-specified geographical points (e.g. using GPS), the autonomous flight is a characeristic of the autopilot but not the autopilot itself.</p>
+<p>According to the <a href="http://en.wikipedia.org/wiki/Autopilot" target="_blank">Wikipedia</a>:</p>
 <blockquote>
-<p>A quadcopter, also called a quadrotor helicopter, quadrotor, is a multirotor helicopter that is lifted and propelled by four rotors. Quadcopters are classified as rotorcraft, as opposed to fixed-wing aircraft, because their lift is generated by a set of revolving narrow-chord airfoils.</p>
+<p>An autopilot is a system used to control the trajectory of a vehicle without constant &#39;hands-on&#39; control by a human operator being required. Autopilots do not replace a human operator, but assist them in controlling the vehicle, allowing them to focus on broader aspects of operation, such as monitoring the trajectory, weather and systems.[1] Autopilots are used in aircraft, boats (known as self-steering gear), spacecraft, missiles, and others. Autopilots have evolved significantly over time, from early autopilots that merely held an attitude to modern autopilots capable of performing automated landings under the supervision of a pilot.</p>
 </blockquote>
-<p>From the ﬁrst days in helicopter development, the quadrotor layout was seen as an alternative. In a regular helicopter conﬁguration the torque is counteracted by the tail rotor. When using two rotors the torques of the rotors can compensated by each other. But two rotors create still has challenges in control as the rotational and translational motions are still highly coupled.</p>
-<p>With four rotors the control becomes easier and the rotational motions can be decoupled for the gyroscopic eﬀects. Translational motions are achieved by tilting the vehicle. In the most common layout for quadrotor, the <em>two pairs of rotors (1, 3) and (2, 4) turn in opposite directions</em> as shown in the figure:</p>
-<p><img src="img/quad.png" alt="quad"></p>
-<p>By varying the rotor speeds, one can change the lift forces and create motion. Increasing or decreasing the four rotor speeds together generates vertical motion. Changing the 2 and 4 propellers speed conversely produces <strong>roll</strong> rotation coupled with lateral motion. <strong>Pitch</strong> rotation and the corresponding lateral motion result from 1 and 3 propellers speed conversely modiﬁed. <strong>Yaw</strong> rotation results from the diﬀerence in the counter-torque between the pairs of rotors.</p>
-<h3 id="advantages-and-disadvantages">Advantages and disadvantages</h3>
-<p>As only thrust control can be used to change position, blade-pitch control of the rotors is not necessary and thus rotor <em>mechanics are simpliﬁed, which make the quadrotor layout interesting for smaller sized Vertical/Short Take Oﬀ and Landing (V/STOL) UAVs (Unmanned Aerial Vehicles)</em>. Another advantage is
-that with a quadrotor the thrust is solely used to compensate for the weight and not to counteract the torque, because the four rotors eliminate the gyroscopic eﬀect, so thrust is completely used to carry the payload.</p>
-<p>For micro UAVs, four rotors results in a very small rotor diameter, which penalises eﬃciency and increases energy consumption to get similar lift. Also the size and weight of a quadrotor with similar payload is higher than a normal helicopter. The simpliﬁcations in building and control which is oﬀered by the concept, makes it still a very favourable design for UAVs.</p>
-<h2 id="dynamical-model-of-a-quadrotor">Dynamical model of a quadrotor</h2>
-<p>The <em>dynamical model of the quadrotor</em>  is basically that of a rotating rigid body with six degrees of freedom and four inputs.</p>
-<p>According to <a href="http://andrew.gibiansky.com/downloads/pdf/Quadcopter%20Dynamics,%20Simulation,%20and%20Control.pdf" target="_blank">Quadcopter Dynamics, Simulation, and Control</a>:</p>
-<blockquote>
-<p>The development of quadcopters has stalled until very recently, because <strong>controlling four independent rotors has proven to be incredibly difficult</strong> and impossible without electronic assistance. The decreasing cost of modern microprocessors has made electronic and even completely autonomous control of quadcopters feasible for commercial, military, and even hobbyist purposes.</p>
-<p>Quadcopter control is a fundamentally difficult and interesting problem:</p>
-<p>With <em>six degrees of freedom</em> (three translational and three rotational) and only <em>four independent inputs</em> (rotor speeds), quadcopters are <strong>severely underactuated</strong>.
-In order to achieve six degrees of freedom, rotational and translational motion are coupled. The resulting dynamics are highly nonlinear, especially after accounting for the complicated aerodynamic effects. Furthermore, unlike ground vehicles, helicopters have very little friction to prevent their motion, so they must provide their own damping in order to stop moving and remain stable.</p>
-<p>Together, these factors create a very interesting control problem.</p>
-</blockquote>
-<p>There are many articles, papers and thesis that discuss the dynamical model of the quadcopter but we personally like <a href="http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf" target="_blank">Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV</a>.</p>
+<p>To understand this better, let&#39;s analyze different ways of controlling a <strong>quadcopter</strong>:</p>
+<p><img src="img/quad-control.png" alt="quad-control"></p>
+<p>Depending on the controlled variable the perception of the control of a quadrotor by a pilot is perceived diﬀerently. According to the image, the easiest case for the pilot is controlling the <strong>desired ($_d$) positions</strong> through $x_d$, $y_d$ and $z_d$ (there&#39;s still one more level which corresponds to complete autonomous flight where the pilot can set desired begin and endpoint).</p>
+<p>The task of an autopilot is to <strong>abstract the user</strong> from the different <strong>physical parameters</strong> (such as <strong>velocity</strong>, <strong>angular rates</strong> or <strong>moments</strong>) and offer a simple interface so that the piloting is as easy as possible.</p>
 <h2 id="sources">Sources</h2>
 <ul>
 <li><a href="http://www.st.ewi.tudelft.nl/~koen/in4073/Resources/MSc_thesis_X-UFO.pdf" target="_blank">Design, implementation and ﬂight test of indoor navigation and control system for a quadrotor UAV</a></li>
-<li><a href="http://andrew.gibiansky.com/downloads/pdf/Quadcopter%20Dynamics,%20Simulation,%20and%20Control.pdf" target="_blank">Quadcopter Dynamics, Simulation, and Control</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Quadcopter" target="_blank">Quadcopter</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Autopilot" target="_blank">Wikipedia</a></li>
 </ul>
 
                     
@@ -414,8 +419,10 @@ In order to achieve six degrees of freedom, rotational and translational motion 
         </div>
 
         
+        <a href="./DynamicalModel.html" class="navigation navigation-prev " aria-label="Previous page: Dynamical model"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./Autopilot.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="./SimpleAutopilot.html" class="navigation navigation-next " aria-label="Next page: A simplified autopilot"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>I/O | Erle Robotics GitBook</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="erlerobot">
+        <meta name="description" content="[![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./sensors.html" />
+        
+        
+        <link rel="prev" href="./adc.html" />
+        
+
+        <meta property="og:title" content="I/O | Erle Robotics GitBook">
+        <meta property="og:site_name" content="Erle Robotics GitBook">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/erlerobot">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="3.8" data-basepath="." data-revision="1403006056439">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank">About the author</a>
+        </li>
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank">Questions and Issues</a>
+        </li>
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/edit/master/IO.md" target="blank">Edit and Contribute</a>
+        </li>
+        <li class="divider"></li>
+        
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="basics/README.html">
+                
+                <a href="./basics/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Basics
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2" data-path="software.html">
+                
+                <a href="./software.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Software
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="linux.html">
+                            
+                            <a href="./linux.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="Autopilot.html">
+                            
+                            <a href="./Autopilot.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="ros-intro.html">
+                            
+                            <a href="./ros-intro.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" data-path="Hardware.html">
+                
+                <a href="./Hardware.html">
+                    <i class="fa fa-check"></i> <b>3.</b> Hardware
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="Processor.html">
+                            
+                            <a href="./Processor.html">
+                                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="Memory.html">
+                            
+                            <a href="./Memory.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="Systempower.html">
+                            
+                            <a href="./Systempower.html">
+                                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="Current.html">
+                            
+                            <a href="./Current.html">
+                                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.5" data-path="usb.html">
+                            
+                            <a href="./usb.html">
+                                <i class="fa fa-check"></i> <b>3.5.</b> USB
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.6" data-path="EEPROM.html">
+                            
+                            <a href="./EEPROM.html">
+                                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.7" data-path="adc.html">
+                            
+                            <a href="./adc.html">
+                                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.8" data-path="IO.html">
+                            
+                            <a href="./IO.html">
+                                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.9" data-path="sensors.html">
+                            
+                            <a href="./sensors.html">
+                                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.10" data-path="HardwareMap.html">
+                            
+                            <a href="./HardwareMap.html">
+                                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="BeaglePilot.html">
+                
+                <a href="./BeaglePilot.html">
+                    <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="SimpleAutopilot.html">
+                            
+                            <a href="./SimpleAutopilot.html">
+                                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="beaglepilottasks.html">
+                            
+                            <a href="./beaglepilottasks.html">
+                                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" >
+                            
+                            <span><b>4.3.</b> Tutorials </span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="mavlink.html">
+                
+                <a href="./mavlink.html">
+                    <i class="fa fa-check"></i> <b>5.</b> MAVLink
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="mavlinkaction.html">
+                            
+                            <a href="./mavlinkaction.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> MAVLink in action
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" >
+                            
+                            <span><b>5.2.</b> ROS integration: mavlink_ros</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.3" >
+                            
+                            <span><b>5.3.</b> Creating a MAVLink message</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="6" data-path="mavproxy.html">
+                
+                <a href="./mavproxy.html">
+                    <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="7" data-path="ROS.html">
+                
+                <a href="./ROS.html">
+                    <i class="fa fa-check"></i> <b>7.</b> ROS
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="7.1" data-path="ROS-concepts.html">
+                            
+                            <a href="./ROS-concepts.html">
+                                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="7.2" data-path="rostechnicaloverview.html">
+                            
+                            <a href="./rostechnicaloverview.html">
+                                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="7.3" data-path="rostutorials.html">
+                            
+                            <a href="./rostutorials.html">
+                                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="8" data-path="Tutorials.html">
+                
+                <a href="./Tutorials.html">
+                    <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="8.1" data-path="Blink.html">
+                            
+                            <a href="./Blink.html">
+                                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="8.2" data-path="Blink2.html">
+                            
+                            <a href="./Blink2.html">
+                                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 51.724137931034484%;min-width: 48.275862068965516%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 3.4482758620689653%;"></a>
+    
+        <a href="./software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 6.896551724137931%;"></a>
+    
+        <a href="./linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 10.344827586206897%;"></a>
+    
+        <a href="./Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 13.793103448275861%;"></a>
+    
+        <a href="./ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 17.24137931034483%;"></a>
+    
+        <a href="./Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 20.689655172413794%;"></a>
+    
+        <a href="./Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 24.137931034482758%;"></a>
+    
+        <a href="./HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 27.586206896551722%;"></a>
+    
+        <a href="./Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 31.03448275862069%;"></a>
+    
+        <a href="./Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 34.48275862068966%;"></a>
+    
+        <a href="./Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 37.93103448275862%;"></a>
+    
+        <a href="./usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 41.37931034482759%;"></a>
+    
+        <a href="./EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 44.827586206896555%;"></a>
+    
+        <a href="./adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 48.275862068965516%;"></a>
+    
+        <a href="./IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 51.724137931034484%;"></a>
+    
+        <a href="./sensors.html" title="Sensors" class="chapter  " data-progress="3.9" style="left: 55.172413793103445%;"></a>
+    
+        <a href="./BeaglePilot.html" title="BeaglePilot" class="chapter  new-chapter" data-progress="4" style="left: 58.62068965517241%;"></a>
+    
+        <a href="./SimpleAutopilot.html" title="A simplified autopilot" class="chapter  " data-progress="4.1" style="left: 62.06896551724138%;"></a>
+    
+        <a href="./beaglepilottasks.html" title="BeaglePilot tasks" class="chapter  " data-progress="4.2" style="left: 65.51724137931035%;"></a>
+    
+        <a href="./mavlink.html" title="MAVLink" class="chapter  new-chapter" data-progress="5" style="left: 68.96551724137932%;"></a>
+    
+        <a href="./mavlinkaction.html" title="MAVLink in action" class="chapter  " data-progress="5.1" style="left: 72.41379310344827%;"></a>
+    
+        <a href="./mavproxy.html" title="MAVProxy" class="chapter  new-chapter" data-progress="6" style="left: 75.86206896551724%;"></a>
+    
+        <a href="./ROS.html" title="ROS" class="chapter  new-chapter" data-progress="7" style="left: 79.3103448275862%;"></a>
+    
+        <a href="./ROS-concepts.html" title="Concepts" class="chapter  " data-progress="7.1" style="left: 82.75862068965517%;"></a>
+    
+        <a href="./rostechnicaloverview.html" title="Technical Overview" class="chapter  " data-progress="7.2" style="left: 86.20689655172414%;"></a>
+    
+        <a href="./rostutorials.html" title="Tutorials " class="chapter  " data-progress="7.3" style="left: 89.65517241379311%;"></a>
+    
+        <a href="./Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 93.10344827586206%;"></a>
+    
+        <a href="./Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 96.55172413793103%;"></a>
+    
+        <a href="./Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_20">
+                    
+                        <h1 id="more-about-i-o">More about I/O</h1>
+<h3 id="inter-integrated-circuits-i-c-">Inter Integrated Circuits (I²C)</h3>
+<p>I²C (Inter-Integrated Circuit)(alternately spelled I2C or IIC, most commonly pronounced I-squared-C) is a multimaster serial single-ended computer bus invented by the Philips semiconductor division, today NXP Semiconductors, and <strong>used for attaching low-speed peripherals to a motherboard, embedded system, cellphone, or other digital electronic devices</strong>.</p>
+<p>Several competitors, such as Siemens AG (later Infineon Technologies AG, now Intel mobile communications), NEC, Texas Instruments, STMicroelectronics (formerly SGS-Thomson), Motorola (later Freescale), and Intersil, have introduced compatible I²C products to the market since the mid-1990s.</p>
+<p>Since October 10, 2006, no licensing fees are required to implement the I²C protocol. However, fees are still required to obtain I²C slave addresses allocated by NXP.</p>
+<h5 id="interesting-remark">Interesting remark</h5>
+<pre><code>SMBus, defined by Intel in 1995, is a subset of I²C that defines the protocols more strictly. One purpose of SMBus is to promote robustness and interoperability. Accordingly, modern I²C systems incorporate policies and rules from SMBus, sometimes supporting both I²C and SMBus, requiring only minimal reconfiguration.
+</code></pre><h4 id="i-c-in-the-erle-s-board-http-erlerobot-com-">I²C in the <a href="http://erlerobot.com" target="_blank">Erle`s board</a></h4>
+<p>The educational drone <a href="http://erlerobot.com" target="_blank">Erle</a> includes 3 I²C busses available under <code>/dev</code>: <code>/dev/i2c-0</code>, <code>/dev/i2c-1</code> and <code>/dev/i2c-2</code>.</p>
+<hr>
+<p><code>/dev/i2c-2</code> is by default not activated. In order to activate it you should type:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> BB-I2C1 &gt; <span class="hljs-variable">$SLOTS</span>
+</code></pre>
+<p>You can verify that it has been activated typing:</p>
+<pre><code class="lang-bash">cat <span class="hljs-variable">$SLOTS</span>
+</code></pre>
+<hr>
+<h4 id="inspecting-i-c">Inspecting I²C</h4>
+<p>A good tool to inspect the I²C bus is the <code>i2cdetect</code> bash command:</p>
+<pre><code>i2cdetect -r 1
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-1 using read byte commands.
+I will probe address range 0x03-0x77.
+Continue? [Y/n]
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- 13 -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- UU UU UU UU -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+</code></pre><p>This command sends a ping to the <code>0x03</code>-<code>0x77</code> range (in hexadecimal) and records the answers in every address thereby it&#39;s able to figure out if there are any devices. Particularly we can see that the addresses <code>0x13</code> and <code>0x68</code> answered which correspond to the IR and IMU sensors respectively.</p>
+<h4 id="instantiate-i-c-devices-from-the-userspace">Instantiate I²C devices from the userspace</h4>
+<p>The Linux kernel also allows to manually configure I²C devices through a sysfs interface:</p>
+<blockquote>
+<p>In general, the kernel should know which I2C devices are connected and
+what addresses they live at. However, in certain cases, it does not, so a
+sysfs interface was added to let the user provide the information. This
+interface is made of 2 attribute files which are created in every I2C bus
+directory: new_device and delete_device. Both files are write only and you
+must write the right parameters to them in order to properly instantiate,
+respectively delete, an I2C device.</p>
+<p>File new_device takes 2 parameters: the name of the I2C device (a string)
+and the address of the I2C device (a number, typically expressed in
+hexadecimal starting with 0x, but can also be expressed in decimal.)</p>
+<p>File delete_device takes a single parameter: the address of the I2C
+device. As no two devices can live at the same address on a given I2C
+segment, the address is sufficient to uniquely identify the device to be
+deleted.</p>
+<p>Example:
+<code>echo eeprom 0x50 &gt; /sys/bus/i2c/devices/i2c-3/new_device</code></p>
+<p>While this interface should only be used when in-kernel device declaration
+can&#39;t be done, there is a variety of cases where it can be helpful:</p>
+<ul>
+<li>The I2C driver usually detects devices (method 3 above) but the bus
+segment your device lives on doesn&#39;t have the proper class bit set and
+thus detection doesn&#39;t trigger.</li>
+<li>The I2C driver usually detects devices, but your device lives at an
+unexpected address.</li>
+<li>The I2C driver usually detects devices, but your device is not detected,
+either because the detection routine is too strict, or because your
+device is not officially supported yet but you know it is compatible.</li>
+<li>You are developing a driver on a test board, where you soldered the I2C
+device yourself.</li>
+</ul>
+<p>This interface is a replacement for the force_* module parameters some I2C
+drivers implement. Being implemented in i2c-core rather than in each
+device driver individually, it is much more efficient, and also has the
+advantage that you do not have to reload the driver to change a setting.
+You can also instantiate the device before the driver is loaded or even
+available, and you don&#39;t need to know what driver the device needs.</p>
+</blockquote>
+<p>Considering this, we could instantiate a sensor (hih6130) connected to <code>/dev/i2c-1</code> and with address <code>0x27</code> doing:</p>
+<pre><code>echo hih6130 0x27 &gt; /sys/bus/i2c/devices/i2c-1/new_device
+</code></pre><p>After that, the device will be available under <code>/sys/bus/i2c/drivers/hih6130/1-0027</code>.</p>
+<p>To remove the device you can use:</p>
+<pre><code>echo 0x27 &gt; /sys/bus/i2c/devices/i2c-1/delete_device
+</code></pre><h3 id="sources">Sources</h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/I%C2%B2C" target="_blank">Wikipedia</a></li>
+<li><a href="http://lxr.free-electrons.com/source/Documentation/i2c/instantiating-devices" target="_blank">Linux kernel documentation</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./adc.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./sensors.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>
