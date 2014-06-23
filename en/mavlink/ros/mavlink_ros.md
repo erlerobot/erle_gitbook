@@ -122,7 +122,7 @@ MAVLINK SERIAL TO ROS BRIDGE STARTED ON MAV 42 (COMPONENT ID:110) - RUNNING.
 
 ---
 
-In another extract some information:
+In another terminal:
 
 ```bash
 root@erlerobot:~# rosnode list

@@ -9,7 +9,7 @@ Compilation is performed as described in the [mavlink_ros:compiling instructions
 Exact instructions for this package are provided with its [source code](https://github.com/cberzan/roscopter).
 
 
-### Running
+### Running `roscopter`
 
 ```bash
 rosrun roscopter roscopter_node.py  --device=/dev/ttyO4 --baudrate=115200
@@ -23,6 +23,13 @@ Sending all stream request for rate 10
 
 
 ```
+
+`roscopter` can also be launched using a socket over the network:
+```
+rosrun roscopter roscopter_node.py  --device tcp:127.0.0.1:6000  --baudrate=115200
+```
+
+#### Playing with `roscopter`
 
 In another terminal:
 ```bash
@@ -64,3 +71,37 @@ yawspeed: 6.91747991368e-05
 
 
 ```
+
+#### Visualizing `roscopter`
+
+![node-graph](img/roscopter_graph.png)
+
+Let's start visualizing the topic `/attitude` values and its graphical representation:
+
+---
+
+**Through all this process the board has been static on our desk. The bad results are not due to the bad performance of the ROS package but to problems with the attitude estimation inside of ArduPilot.**
+
+---
+
+`rostopic echo /attitude`
+![](img/roscopter_values1.png)
+and a plot using `rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
+![](img/roscopter_plot1.png)
+
+These values are a bit unexpected so we repeat the process taking several screenshots:
+`rostopic echo /attitude`
+![](img/roscopter_values2.png)
+`rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
+![](img/roscopter_plot21.png)
+`rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
+![](img/roscopter_plot22.png)
+`rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
+![](img/roscopter_plot23.png)
+
+Seems we have an issue with the attitude :(.
+
+*On the other hand topic `/raw_imu` values cannot be visualized*
+
+
+
