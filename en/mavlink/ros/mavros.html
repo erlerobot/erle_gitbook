@@ -1,0 +1,1412 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>mavros | Erle Robotics GitBook</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="erlerobot">
+    
+    
+    <link rel="next" href="../../mavlink/ros/roscopter.html" />
+    
+    
+    <link rel="prev" href="../../mavlink/ros/autopilot_bridge.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="5.2.3" data-basepath="../.." data-revision="1403708638783">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../../" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/pulls" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basics/README.html">
+            
+            <a href="../../basics/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Basics
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="software/software.html">
+            
+            <a href="../../software/software.html">
+                <i class="fa fa-check"></i> <b>2.</b> Software
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="software/linux.html">
+            
+            <a href="../../software/linux.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="software/Autopilot.html">
+            
+            <a href="../../software/Autopilot.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="software/ros-intro.html">
+            
+            <a href="../../software/ros-intro.html">
+                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="hardware/Hardware.html">
+            
+            <a href="../../hardware/Hardware.html">
+                <i class="fa fa-check"></i> <b>3.</b> Hardware
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="hardware/Processor.html">
+            
+            <a href="../../hardware/Processor.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="hardware/Memory.html">
+            
+            <a href="../../hardware/Memory.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="hardware/Systempower.html">
+            
+            <a href="../../hardware/Systempower.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="hardware/Current.html">
+            
+            <a href="../../hardware/Current.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="hardware/usb.html">
+            
+            <a href="../../hardware/usb.html">
+                <i class="fa fa-check"></i> <b>3.5.</b> USB
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="hardware/EEPROM.html">
+            
+            <a href="../../hardware/EEPROM.html">
+                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="hardware/adc.html">
+            
+            <a href="../../hardware/adc.html">
+                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="hardware/IO.html">
+            
+            <a href="../../hardware/IO.html">
+                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="hardware/sensors.html">
+            
+            <a href="../../hardware/sensors.html">
+                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="hardware/HardwareMap.html">
+            
+            <a href="../../hardware/HardwareMap.html">
+                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="beaglepilot/BeaglePilot.html">
+            
+            <a href="../../beaglepilot/BeaglePilot.html">
+                <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="beaglepilot/SimpleAutopilot.html">
+            
+            <a href="../../beaglepilot/SimpleAutopilot.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="beaglepilot/beaglepilottasks.html">
+            
+            <a href="../../beaglepilot/beaglepilottasks.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="beaglepilot/attitude_heading_reference_system.html">
+            
+            <a href="../../beaglepilot/attitude_heading_reference_system.html">
+                <i class="fa fa-check"></i> <b>4.3.</b> Attitude Heading Reference System
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="beaglepilot/ahrs_in_beaglepilot.html">
+            
+            <a href="../../beaglepilot/ahrs_in_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.3.1.</b> AHRS in BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="beaglepilot/beaglepilottutorials.html">
+            
+            <a href="../../beaglepilot/beaglepilottutorials.html">
+                <i class="fa fa-check"></i> <b>4.4.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+            
+            <a href="../../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.4.1.</b> Installing and Configuring BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="mavlink/mavlink.html">
+            
+            <a href="../../mavlink/mavlink.html">
+                <i class="fa fa-check"></i> <b>5.</b> MAVLink
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="mavlink/mavlinkaction.html">
+            
+            <a href="../../mavlink/mavlinkaction.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> mavlink in action
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="mavlink/mavlinkros.html">
+            
+            <a href="../../mavlink/mavlinkros.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> ROS integration
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="mavlink/ros/mavlink_ros.html">
+            
+            <a href="../../mavlink/ros/mavlink_ros.html">
+                <i class="fa fa-check"></i> <b>5.2.1.</b> mavlink_ros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="mavlink/ros/autopilot_bridge.html">
+            
+            <a href="../../mavlink/ros/autopilot_bridge.html">
+                <i class="fa fa-check"></i> <b>5.2.2.</b> autopilot_bridge
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="mavlink/ros/mavros.html">
+            
+            <a href="../../mavlink/ros/mavros.html">
+                <i class="fa fa-check"></i> <b>5.2.3.</b> mavros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="mavlink/ros/roscopter.html">
+            
+            <a href="../../mavlink/ros/roscopter.html">
+                <i class="fa fa-check"></i> <b>5.2.4.</b> roscopter
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="mavlink/creating_a_mavlink_message.html">
+            
+            <a href="../../mavlink/creating_a_mavlink_message.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Creating a MAVLink message
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="mavproxy/mavproxy.html">
+            
+            <a href="../../mavproxy/mavproxy.html">
+                <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ros/ROS.html">
+            
+            <a href="../../ros/ROS.html">
+                <i class="fa fa-check"></i> <b>7.</b> ROS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ros/ROS-concepts.html">
+            
+            <a href="../../ros/ROS-concepts.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="ros/rostechnicaloverview.html">
+            
+            <a href="../../ros/rostechnicaloverview.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="ros/rostutorials.html">
+            
+            <a href="../../ros/rostutorials.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.3.1" data-path="ros/tutorials/rosinstall.html">
+            
+            <a href="../../ros/tutorials/rosinstall.html">
+                <i class="fa fa-check"></i> <b>7.3.1.</b> Installing and Configuring Your ROS Environment
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.2" data-path="ros/tutorials/rosnavigating.html">
+            
+            <a href="../../ros/tutorials/rosnavigating.html">
+                <i class="fa fa-check"></i> <b>7.3.2.</b> Navigating the ROS Filesystem
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.3" data-path="ros/tutorials/creating_a_ros_package.html">
+            
+            <a href="../../ros/tutorials/creating_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.3.</b> Creating a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.4" data-path="ros/tutorials/building_a_ros_package.html">
+            
+            <a href="../../ros/tutorials/building_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.4.</b> Building a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.5" data-path="ros/tutorials/understanding_ros_nodes.html">
+            
+            <a href="../../ros/tutorials/understanding_ros_nodes.html">
+                <i class="fa fa-check"></i> <b>7.3.5.</b> Understanding ROS Nodes
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.6" data-path="ros/tutorials/understanding_ros_topics.html">
+            
+            <a href="../../ros/tutorials/understanding_ros_topics.html">
+                <i class="fa fa-check"></i> <b>7.3.6.</b> Understanding ROS Topics
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="tutorials/Tutorials.html">
+            
+            <a href="../../tutorials/Tutorials.html">
+                <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="tutorials/Blink.html">
+            
+            <a href="../../tutorials/Blink.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="tutorials/Blink2.html">
+            
+            <a href="../../tutorials/Blink2.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 64.44444444444444%;min-width: 62.22222222222222%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../../basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 2.2222222222222223%;"></a>
+    
+        <a href="../../software/software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 4.444444444444445%;"></a>
+    
+        <a href="../../software/linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 6.666666666666667%;"></a>
+    
+        <a href="../../software/Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 8.88888888888889%;"></a>
+    
+        <a href="../../software/ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../../hardware/Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 13.333333333333334%;"></a>
+    
+        <a href="../../hardware/Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 15.555555555555555%;"></a>
+    
+        <a href="../../hardware/HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 17.77777777777778%;"></a>
+    
+        <a href="../../hardware/Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 20%;"></a>
+    
+        <a href="../../hardware/Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../../hardware/Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 24.444444444444443%;"></a>
+    
+        <a href="../../hardware/usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 26.666666666666668%;"></a>
+    
+        <a href="../../hardware/EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 28.88888888888889%;"></a>
+    
+        <a href="../../hardware/adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 31.11111111111111%;"></a>
+    
+        <a href="../../hardware/IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../../hardware/sensors.html" title="Sensors" class="chapter done " data-progress="3.9" style="left: 35.55555555555556%;"></a>
+    
+        <a href="../../beaglepilot/BeaglePilot.html" title="BeaglePilot" class="chapter done new-chapter" data-progress="4" style="left: 37.77777777777778%;"></a>
+    
+        <a href="../../beaglepilot/SimpleAutopilot.html" title="A simplified autopilot" class="chapter done " data-progress="4.1" style="left: 40%;"></a>
+    
+        <a href="../../beaglepilot/beaglepilottasks.html" title="BeaglePilot tasks" class="chapter done " data-progress="4.2" style="left: 42.22222222222222%;"></a>
+    
+        <a href="../../beaglepilot/attitude_heading_reference_system.html" title="Attitude Heading Reference System" class="chapter done " data-progress="4.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../../beaglepilot/ahrs_in_beaglepilot.html" title="AHRS in BeaglePilot" class="chapter done " data-progress="4.3.1" style="left: 46.666666666666664%;"></a>
+    
+        <a href="../../beaglepilot/beaglepilottutorials.html" title="Tutorials " class="chapter done " data-progress="4.4" style="left: 48.888888888888886%;"></a>
+    
+        <a href="../../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html" title="Installing and Configuring BeaglePilot" class="chapter done " data-progress="4.4.1" style="left: 51.111111111111114%;"></a>
+    
+        <a href="../../mavlink/mavlink.html" title="MAVLink" class="chapter done new-chapter" data-progress="5" style="left: 53.333333333333336%;"></a>
+    
+        <a href="../../mavlink/mavlinkaction.html" title="mavlink in action" class="chapter done " data-progress="5.1" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../../mavlink/mavlinkros.html" title="ROS integration" class="chapter done " data-progress="5.2" style="left: 57.77777777777778%;"></a>
+    
+        <a href="../../mavlink/ros/mavlink_ros.html" title="mavlink_ros" class="chapter done " data-progress="5.2.1" style="left: 60%;"></a>
+    
+        <a href="../../mavlink/ros/autopilot_bridge.html" title="autopilot_bridge" class="chapter done " data-progress="5.2.2" style="left: 62.22222222222222%;"></a>
+    
+        <a href="../../mavlink/ros/mavros.html" title="mavros" class="chapter done " data-progress="5.2.3" style="left: 64.44444444444444%;"></a>
+    
+        <a href="../../mavlink/ros/roscopter.html" title="roscopter" class="chapter  " data-progress="5.2.4" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../../mavlink/creating_a_mavlink_message.html" title="Creating a MAVLink message" class="chapter  " data-progress="5.3" style="left: 68.88888888888889%;"></a>
+    
+        <a href="../../mavproxy/mavproxy.html" title="MAVProxy" class="chapter  new-chapter" data-progress="6" style="left: 71.11111111111111%;"></a>
+    
+        <a href="../../ros/ROS.html" title="ROS" class="chapter  new-chapter" data-progress="7" style="left: 73.33333333333333%;"></a>
+    
+        <a href="../../ros/ROS-concepts.html" title="Concepts" class="chapter  " data-progress="7.1" style="left: 75.55555555555556%;"></a>
+    
+        <a href="../../ros/rostechnicaloverview.html" title="Technical Overview" class="chapter  " data-progress="7.2" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../../ros/rostutorials.html" title="Tutorials " class="chapter  " data-progress="7.3" style="left: 80%;"></a>
+    
+        <a href="../../ros/tutorials/rosinstall.html" title="Installing and Configuring Your ROS Environment" class="chapter  " data-progress="7.3.1" style="left: 82.22222222222223%;"></a>
+    
+        <a href="../../ros/tutorials/rosnavigating.html" title="Navigating the ROS Filesystem" class="chapter  " data-progress="7.3.2" style="left: 84.44444444444444%;"></a>
+    
+        <a href="../../ros/tutorials/creating_a_ros_package.html" title="Creating a ROS Package" class="chapter  " data-progress="7.3.3" style="left: 86.66666666666667%;"></a>
+    
+        <a href="../../ros/tutorials/building_a_ros_package.html" title="Building a ROS Package" class="chapter  " data-progress="7.3.4" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../../ros/tutorials/understanding_ros_nodes.html" title="Understanding ROS Nodes" class="chapter  " data-progress="7.3.5" style="left: 91.11111111111111%;"></a>
+    
+        <a href="../../ros/tutorials/understanding_ros_topics.html" title="Understanding ROS Topics" class="chapter  " data-progress="7.3.6" style="left: 93.33333333333333%;"></a>
+    
+        <a href="../../tutorials/Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 95.55555555555556%;"></a>
+    
+        <a href="../../tutorials/Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 97.77777777777777%;"></a>
+    
+        <a href="../../tutorials/Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4056">
+                    
+                        <h1 id="-mavros-ros-package"><code>mavros</code> ROS package</h1>
+<p>This package (available <a href="https://github.com/vooon/mavros" target="_blank">here</a>) implemment a MAVLink extendable communication node for ROS with UDP proxy for Ground Control Station. It includes the following features:</p>
+<ul>
+<li>Communication with autopilot via serial port</li>
+<li>UDP proxy for Ground Control Station</li>
+<li>mavlink_ros compatible ROS topics (Mavlink.msg)</li>
+<li>Plugin system for ROS-MAVLink translation</li>
+<li>Parameter manipulation tool</li>
+<li>Waypoint manipulation tool</li>
+</ul>
+<h4 id="compiling-mavros-">Compiling <code>mavros</code></h4>
+<p>Compilation is performed as described in the <a href="mavlink_ros.html">mavlink_ros:compiling instructions</a>. The package should be downloaded into <code>~/catkin_ws/src</code> and <code>catkin_make</code> should be called from <code>catkin_ws</code> (refer to <a href="../../ros/tutorials/building_a_ros_package.html">ROS: Building a ROS Package</a> for learning more about ROS package compilation).</p>
+<hr>
+<p><em>WARNING: Invoking, <code>catkin_make</code> for compiling <code>mavros</code> has proved to be time consuming. The package should come pre-compiled with the provided SD-card Erle Robotics images</em></p>
+<hr>
+<p><em>COMPILATION ERRORS</em>: After fixing several issues there&#39;re still some open matters. The package hasn&#39;t compiled yet:</p>
+<pre><code class="lang-bash">root@erlerobot:~/catkin_ws<span class="hljs-comment"># catkin_make</span>
+Base path: /root/catkin_ws
+Source space: /root/catkin_ws/src
+Build space: /root/catkin_ws/build
+Devel space: /root/catkin_ws/devel
+Install space: /root/catkin_ws/install
+<span class="hljs-comment">####</span>
+<span class="hljs-comment">#### Running command: "make cmake_check_build_system" in "/root/catkin_ws/build"</span>
+<span class="hljs-comment">####</span>
+-- Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel
+-- Using CMAKE_PREFIX_PATH: /root/catkin_ws/devel;/opt/ros/groovy
+-- This workspace overlays: /root/catkin_ws/devel;/opt/ros/groovy
+-- Found gtest sources under <span class="hljs-string">'/usr/src/gtest'</span>: gtests will be built
+-- Using CATKIN_TEST_RESULTS_DIR: /root/catkin_ws/build/test_results
+-- catkin <span class="hljs-number">0.5</span>.<span class="hljs-number">65</span>
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing <span class="hljs-number">14</span> packages <span class="hljs-keyword">in</span> topological order:
+-- ~~  - actionlib_msgs
+-- ~~  - common_msgs (metapackage)
+-- ~~  - diagnostic_msgs
+-- ~~  - erle_beginner_tutorials
+-- ~~  - geometry_msgs
+-- ~~  - nav_msgs
+-- ~~  - sensor_msgs
+-- ~~  - autopilot_bridge
+-- ~~  - mavlink_ros
+-- ~~  - mavros
+-- ~~  - shape_msgs
+-- ~~  - stereo_msgs
+-- ~~  - trajectory_msgs
+-- ~~  - visualization_msgs
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: <span class="hljs-string">'actionlib_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/actionlib_msgs)
+-- actionlib_msgs: <span class="hljs-number">3</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin metapackage: <span class="hljs-string">'common_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/common_msgs)
+-- +++ processing catkin package: <span class="hljs-string">'diagnostic_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/diagnostic_msgs)
+-- diagnostic_msgs: <span class="hljs-number">3</span> messages, <span class="hljs-number">1</span> services
+-- +++ processing catkin package: <span class="hljs-string">'erle_beginner_tutorials'</span>
+-- ==&gt; add_subdirectory(erle_beginner_tutorials)
+-- +++ processing catkin package: <span class="hljs-string">'geometry_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/geometry_msgs)
+-- geometry_msgs: <span class="hljs-number">23</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'nav_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/nav_msgs)
+-- Generating .msg files <span class="hljs-keyword">for</span> action nav_msgs/GetMap /root/catkin_ws/src/common_msgs/nav_msgs/action/GetMap.action
+Generating <span class="hljs-keyword">for</span> action GetMap
+-- nav_msgs: <span class="hljs-number">12</span> messages, <span class="hljs-number">2</span> services
+-- +++ processing catkin package: <span class="hljs-string">'sensor_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/sensor_msgs)
+-- sensor_msgs: <span class="hljs-number">25</span> messages, <span class="hljs-number">1</span> services
+-- +++ processing catkin package: <span class="hljs-string">'autopilot_bridge'</span>
+-- ==&gt; add_subdirectory(autopilot_bridge)
+-- autopilot_bridge: <span class="hljs-number">3</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'mavlink_ros'</span>
+-- ==&gt; add_subdirectory(mavlink_ros)
+-- WARNING: you are using the obsolete <span class="hljs-string">'PKGCONFIG'</span> macro, use FindPkgConfig
+-- WARNING: you are using the obsolete <span class="hljs-string">'PKGCONFIG'</span> macro, use FindPkgConfig
+-- mavlink_ros: <span class="hljs-number">1</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'mavros'</span>
+-- ==&gt; add_subdirectory(mavros)
+-- mavros: <span class="hljs-number">7</span> messages, <span class="hljs-number">15</span> services
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/ardupilotmega.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/autoquad.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/common.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/matrixpilot.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/minimal.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/pixhawk.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/slugs.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/test.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/ualberta.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/sensesoar.xml
+-- +++ processing catkin package: <span class="hljs-string">'shape_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/shape_msgs)
+-- shape_msgs: <span class="hljs-number">4</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'stereo_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/stereo_msgs)
+-- stereo_msgs: <span class="hljs-number">1</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'trajectory_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/trajectory_msgs)
+-- trajectory_msgs: <span class="hljs-number">2</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'visualization_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/visualization_msgs)
+-- visualization_msgs: <span class="hljs-number">10</span> messages, <span class="hljs-number">0</span> services
+-- Configuring <span class="hljs-keyword">done</span>
+-- Generating <span class="hljs-keyword">done</span>
+-- Build files have been written to: /root/catkin_ws/build
+<span class="hljs-comment">####</span>
+<span class="hljs-comment">#### Running command: "make -j1 -l1" in "/root/catkin_ws/build"</span>
+<span class="hljs-comment">####</span>
+-- Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel
+-- Using CMAKE_PREFIX_PATH: /root/catkin_ws/devel;/opt/ros/groovy
+-- This workspace overlays: /root/catkin_ws/devel;/opt/ros/groovy
+-- Found gtest sources under <span class="hljs-string">'/usr/src/gtest'</span>: gtests will be built
+-- Using CATKIN_TEST_RESULTS_DIR: /root/catkin_ws/build/test_results
+-- catkin <span class="hljs-number">0.5</span>.<span class="hljs-number">65</span>
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing <span class="hljs-number">14</span> packages <span class="hljs-keyword">in</span> topological order:
+-- ~~  - actionlib_msgs
+-- ~~  - common_msgs (metapackage)
+-- ~~  - diagnostic_msgs
+-- ~~  - erle_beginner_tutorials
+-- ~~  - geometry_msgs
+-- ~~  - nav_msgs
+-- ~~  - sensor_msgs
+-- ~~  - autopilot_bridge
+-- ~~  - mavlink_ros
+-- ~~  - mavros
+-- ~~  - shape_msgs
+-- ~~  - stereo_msgs
+-- ~~  - trajectory_msgs
+-- ~~  - visualization_msgs
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: <span class="hljs-string">'actionlib_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/actionlib_msgs)
+-- actionlib_msgs: <span class="hljs-number">3</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin metapackage: <span class="hljs-string">'common_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/common_msgs)
+-- +++ processing catkin package: <span class="hljs-string">'diagnostic_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/diagnostic_msgs)
+-- diagnostic_msgs: <span class="hljs-number">3</span> messages, <span class="hljs-number">1</span> services
+-- +++ processing catkin package: <span class="hljs-string">'erle_beginner_tutorials'</span>
+-- ==&gt; add_subdirectory(erle_beginner_tutorials)
+-- +++ processing catkin package: <span class="hljs-string">'geometry_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/geometry_msgs)
+-- geometry_msgs: <span class="hljs-number">23</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'nav_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/nav_msgs)
+-- Generating .msg files <span class="hljs-keyword">for</span> action nav_msgs/GetMap /root/catkin_ws/src/common_msgs/nav_msgs/action/GetMap.action
+Generating <span class="hljs-keyword">for</span> action GetMap
+-- nav_msgs: <span class="hljs-number">12</span> messages, <span class="hljs-number">2</span> services
+-- +++ processing catkin package: <span class="hljs-string">'sensor_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/sensor_msgs)
+-- sensor_msgs: <span class="hljs-number">25</span> messages, <span class="hljs-number">1</span> services
+-- +++ processing catkin package: <span class="hljs-string">'autopilot_bridge'</span>
+-- ==&gt; add_subdirectory(autopilot_bridge)
+-- autopilot_bridge: <span class="hljs-number">3</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'mavlink_ros'</span>
+-- ==&gt; add_subdirectory(mavlink_ros)
+-- WARNING: you are using the obsolete <span class="hljs-string">'PKGCONFIG'</span> macro, use FindPkgConfig
+-- WARNING: you are using the obsolete <span class="hljs-string">'PKGCONFIG'</span> macro, use FindPkgConfig
+-- mavlink_ros: <span class="hljs-number">1</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'mavros'</span>
+-- ==&gt; add_subdirectory(mavros)
+-- mavros: <span class="hljs-number">7</span> messages, <span class="hljs-number">15</span> services
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/ardupilotmega.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/autoquad.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/common.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/matrixpilot.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/minimal.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/pixhawk.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/slugs.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/test.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/ualberta.xml
+-- processing: /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/sensesoar.xml
+-- +++ processing catkin package: <span class="hljs-string">'shape_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/shape_msgs)
+-- shape_msgs: <span class="hljs-number">4</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'stereo_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/stereo_msgs)
+-- stereo_msgs: <span class="hljs-number">1</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'trajectory_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/trajectory_msgs)
+-- trajectory_msgs: <span class="hljs-number">2</span> messages, <span class="hljs-number">0</span> services
+-- +++ processing catkin package: <span class="hljs-string">'visualization_msgs'</span>
+-- ==&gt; add_subdirectory(common_msgs/visualization_msgs)
+-- visualization_msgs: <span class="hljs-number">10</span> messages, <span class="hljs-number">0</span> services
+-- Configuring <span class="hljs-keyword">done</span>
+-- Generating <span class="hljs-keyword">done</span>
+-- Build files have been written to: /root/catkin_ws/build
+make[<span class="hljs-number">2</span>]: Warning: File `/root/catkin_ws/src/common_msgs/actionlib_msgs/msg/GoalID.msg<span class="hljs-string">' has modification time 4.2e+02 s in the future
+[  0%] Generating C++ code from actionlib_msgs/GoalID.msg
+[  0%] Generating C++ code from actionlib_msgs/GoalStatus.msg
+[  0%] Generating C++ code from actionlib_msgs/GoalStatusArray.msg
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[  0%] Built target actionlib_msgs_gencpp
+make[2]: Warning: File `/root/catkin_ws/src/common_msgs/actionlib_msgs/msg/GoalID.msg'</span> has modification time <span class="hljs-number">4.2</span>e+<span class="hljs-number">02</span> s <span class="hljs-keyword">in</span> the future
+[  <span class="hljs-number">1</span>%] Generating Lisp code from actionlib_msgs/GoalID.msg
+[  <span class="hljs-number">1</span>%] Generating Lisp code from actionlib_msgs/GoalStatus.msg
+[  <span class="hljs-number">1</span>%] Generating Lisp code from actionlib_msgs/GoalStatusArray.msg
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[  <span class="hljs-number">1</span>%] Built target actionlib_msgs_genlisp
+make[<span class="hljs-number">2</span>]: Warning: File `/root/catkin_ws/src/common_msgs/actionlib_msgs/msg/GoalID.msg<span class="hljs-string">' has modification time 4.2e+02 s in the future
+[  1%] Generating Python from MSG actionlib_msgs/GoalID
+[  2%] Generating Python from MSG actionlib_msgs/GoalStatus
+[  2%] Generating Python from MSG actionlib_msgs/GoalStatusArray
+[  2%] Generating Python msg __init__.py for actionlib_msgs
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[  2%] Built target actionlib_msgs_genpy
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[  <span class="hljs-number">3</span>%] Generating C++ code from diagnostic_msgs/DiagnosticArray.msg
+[  <span class="hljs-number">3</span>%] Generating C++ code from diagnostic_msgs/DiagnosticStatus.msg
+[  <span class="hljs-number">3</span>%] Generating C++ code from diagnostic_msgs/KeyValue.msg
+[  <span class="hljs-number">4</span>%] Generating C++ code from diagnostic_msgs/SelfTest.srv
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[  <span class="hljs-number">4</span>%] Built target diagnostic_msgs_gencpp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[  4%] Generating Lisp code from diagnostic_msgs/DiagnosticArray.msg
+[  4%] Generating Lisp code from diagnostic_msgs/DiagnosticStatus.msg
+[  4%] Generating Lisp code from diagnostic_msgs/KeyValue.msg
+[  5%] Generating Lisp code from diagnostic_msgs/SelfTest.srv
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[  5%] Built target diagnostic_msgs_genlisp
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[  <span class="hljs-number">5</span>%] Generating Python from MSG diagnostic_msgs/DiagnosticArray
+[  <span class="hljs-number">5</span>%] Generating Python from MSG diagnostic_msgs/DiagnosticStatus
+[  <span class="hljs-number">5</span>%] Generating Python from MSG diagnostic_msgs/KeyValue
+[  <span class="hljs-number">6</span>%] Generating Python code from SRV diagnostic_msgs/SelfTest
+[  <span class="hljs-number">6</span>%] Generating Python msg __init__.py <span class="hljs-keyword">for</span> diagnostic_msgs
+[  <span class="hljs-number">6</span>%] Generating Python srv __init__.py <span class="hljs-keyword">for</span> diagnostic_msgs
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[  <span class="hljs-number">6</span>%] Built target diagnostic_msgs_genpy
+make[<span class="hljs-number">2</span>]: Warning: File `/root/catkin_ws/src/common_msgs/geometry_msgs/msg/Point.msg<span class="hljs-string">' has modification time 4e+02 s in the future
+[  7%] Generating C++ code from geometry_msgs/Point.msg
+[  7%] Generating C++ code from geometry_msgs/Point32.msg
+[  7%] Generating C++ code from geometry_msgs/PointStamped.msg
+[  7%] Generating C++ code from geometry_msgs/Polygon.msg
+[  8%] Generating C++ code from geometry_msgs/PolygonStamped.msg
+[  8%] Generating C++ code from geometry_msgs/Pose2D.msg
+[  8%] Generating C++ code from geometry_msgs/Pose.msg
+[  8%] Generating C++ code from geometry_msgs/PoseArray.msg
+[  9%] Generating C++ code from geometry_msgs/PoseStamped.msg
+[  9%] Generating C++ code from geometry_msgs/PoseWithCovariance.msg
+[  9%] Generating C++ code from geometry_msgs/PoseWithCovarianceStamped.msg
+[  9%] Generating C++ code from geometry_msgs/Quaternion.msg
+[ 10%] Generating C++ code from geometry_msgs/QuaternionStamped.msg
+[ 10%] Generating C++ code from geometry_msgs/Transform.msg
+[ 10%] Generating C++ code from geometry_msgs/TransformStamped.msg
+[ 11%] Generating C++ code from geometry_msgs/Twist.msg
+[ 11%] Generating C++ code from geometry_msgs/TwistStamped.msg
+[ 11%] Generating C++ code from geometry_msgs/TwistWithCovariance.msg
+[ 11%] Generating C++ code from geometry_msgs/TwistWithCovarianceStamped.msg
+[ 12%] Generating C++ code from geometry_msgs/Vector3.msg
+[ 12%] Generating C++ code from geometry_msgs/Vector3Stamped.msg
+[ 12%] Generating C++ code from geometry_msgs/Wrench.msg
+[ 12%] Generating C++ code from geometry_msgs/WrenchStamped.msg
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 12%] Built target geometry_msgs_gencpp
+make[2]: Warning: File `/root/catkin_ws/src/common_msgs/geometry_msgs/msg/Point.msg'</span> has modification time <span class="hljs-number">3.5</span>e+<span class="hljs-number">02</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">13</span>%] Generating Lisp code from geometry_msgs/Point.msg
+[ <span class="hljs-number">13</span>%] Generating Lisp code from geometry_msgs/Point32.msg
+[ <span class="hljs-number">13</span>%] Generating Lisp code from geometry_msgs/PointStamped.msg
+[ <span class="hljs-number">13</span>%] Generating Lisp code from geometry_msgs/Polygon.msg
+[ <span class="hljs-number">14</span>%] Generating Lisp code from geometry_msgs/PolygonStamped.msg
+[ <span class="hljs-number">14</span>%] Generating Lisp code from geometry_msgs/Pose2D.msg
+[ <span class="hljs-number">14</span>%] Generating Lisp code from geometry_msgs/Pose.msg
+[ <span class="hljs-number">14</span>%] Generating Lisp code from geometry_msgs/PoseArray.msg
+[ <span class="hljs-number">15</span>%] Generating Lisp code from geometry_msgs/PoseStamped.msg
+[ <span class="hljs-number">15</span>%] Generating Lisp code from geometry_msgs/PoseWithCovariance.msg
+[ <span class="hljs-number">15</span>%] Generating Lisp code from geometry_msgs/PoseWithCovarianceStamped.msg
+[ <span class="hljs-number">15</span>%] Generating Lisp code from geometry_msgs/Quaternion.msg
+[ <span class="hljs-number">16</span>%] Generating Lisp code from geometry_msgs/QuaternionStamped.msg
+[ <span class="hljs-number">16</span>%] Generating Lisp code from geometry_msgs/Transform.msg
+[ <span class="hljs-number">16</span>%] Generating Lisp code from geometry_msgs/TransformStamped.msg
+[ <span class="hljs-number">17</span>%] Generating Lisp code from geometry_msgs/Twist.msg
+[ <span class="hljs-number">17</span>%] Generating Lisp code from geometry_msgs/TwistStamped.msg
+[ <span class="hljs-number">17</span>%] Generating Lisp code from geometry_msgs/TwistWithCovariance.msg
+[ <span class="hljs-number">17</span>%] Generating Lisp code from geometry_msgs/TwistWithCovarianceStamped.msg
+[ <span class="hljs-number">18</span>%] Generating Lisp code from geometry_msgs/Vector3.msg
+[ <span class="hljs-number">18</span>%] Generating Lisp code from geometry_msgs/Vector3Stamped.msg
+[ <span class="hljs-number">18</span>%] Generating Lisp code from geometry_msgs/Wrench.msg
+[ <span class="hljs-number">18</span>%] Generating Lisp code from geometry_msgs/WrenchStamped.msg
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">18</span>%] Built target geometry_msgs_genlisp
+make[<span class="hljs-number">2</span>]: Warning: File `/root/catkin_ws/src/common_msgs/geometry_msgs/msg/Point.msg<span class="hljs-string">' has modification time 3.3e+02 s in the future
+[ 19%] Generating Python from MSG geometry_msgs/Point
+[ 19%] Generating Python from MSG geometry_msgs/Point32
+[ 19%] Generating Python from MSG geometry_msgs/PointStamped
+[ 19%] Generating Python from MSG geometry_msgs/Polygon
+[ 20%] Generating Python from MSG geometry_msgs/PolygonStamped
+[ 20%] Generating Python from MSG geometry_msgs/Pose2D
+[ 20%] Generating Python from MSG geometry_msgs/Pose
+[ 20%] Generating Python from MSG geometry_msgs/PoseArray
+[ 21%] Generating Python from MSG geometry_msgs/PoseStamped
+[ 21%] Generating Python from MSG geometry_msgs/PoseWithCovariance
+[ 21%] Generating Python from MSG geometry_msgs/PoseWithCovarianceStamped
+[ 21%] Generating Python from MSG geometry_msgs/Quaternion
+[ 22%] Generating Python from MSG geometry_msgs/QuaternionStamped
+[ 22%] Generating Python from MSG geometry_msgs/Transform
+[ 22%] Generating Python from MSG geometry_msgs/TransformStamped
+[ 22%] Generating Python from MSG geometry_msgs/Twist
+[ 23%] Generating Python from MSG geometry_msgs/TwistStamped
+[ 23%] Generating Python from MSG geometry_msgs/TwistWithCovariance
+[ 23%] Generating Python from MSG geometry_msgs/TwistWithCovarianceStamped
+[ 24%] Generating Python from MSG geometry_msgs/Vector3
+[ 24%] Generating Python from MSG geometry_msgs/Vector3Stamped
+[ 24%] Generating Python from MSG geometry_msgs/Wrench
+[ 24%] Generating Python from MSG geometry_msgs/WrenchStamped
+[ 25%] Generating Python msg __init__.py for geometry_msgs
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 25%] Built target geometry_msgs_genpy
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">26</span>%] Generating C++ code from nav_msgs/GridCells.msg
+[ <span class="hljs-number">26</span>%] Generating C++ code from nav_msgs/MapMetaData.msg
+[ <span class="hljs-number">26</span>%] Generating C++ code from nav_msgs/OccupancyGrid.msg
+[ <span class="hljs-number">26</span>%] Generating C++ code from nav_msgs/Odometry.msg
+[ <span class="hljs-number">27</span>%] Generating C++ code from nav_msgs/Path.msg
+[ <span class="hljs-number">27</span>%] Generating C++ code from nav_msgs/GetMapAction.msg
+[ <span class="hljs-number">27</span>%] Generating C++ code from nav_msgs/GetMapActionGoal.msg
+[ <span class="hljs-number">28</span>%] Generating C++ code from nav_msgs/GetMapActionResult.msg
+[ <span class="hljs-number">28</span>%] Generating C++ code from nav_msgs/GetMapActionFeedback.msg
+[ <span class="hljs-number">28</span>%] Generating C++ code from nav_msgs/GetMapGoal.msg
+[ <span class="hljs-number">28</span>%] Generating C++ code from nav_msgs/GetMapResult.msg
+[ <span class="hljs-number">29</span>%] Generating C++ code from nav_msgs/GetMapFeedback.msg
+[ <span class="hljs-number">29</span>%] Generating C++ code from nav_msgs/GetMap.srv
+[ <span class="hljs-number">29</span>%] Generating C++ code from nav_msgs/GetPlan.srv
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">29</span>%] Built target nav_msgs_gencpp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 29%] Generating Lisp code from nav_msgs/GridCells.msg
+[ 30%] Generating Lisp code from nav_msgs/MapMetaData.msg
+[ 30%] Generating Lisp code from nav_msgs/OccupancyGrid.msg
+[ 30%] Generating Lisp code from nav_msgs/Odometry.msg
+[ 30%] Generating Lisp code from nav_msgs/Path.msg
+[ 31%] Generating Lisp code from nav_msgs/GetMapAction.msg
+[ 31%] Generating Lisp code from nav_msgs/GetMapActionGoal.msg
+[ 31%] Generating Lisp code from nav_msgs/GetMapActionResult.msg
+[ 31%] Generating Lisp code from nav_msgs/GetMapActionFeedback.msg
+[ 32%] Generating Lisp code from nav_msgs/GetMapGoal.msg
+[ 32%] Generating Lisp code from nav_msgs/GetMapResult.msg
+[ 32%] Generating Lisp code from nav_msgs/GetMapFeedback.msg
+[ 32%] Generating Lisp code from nav_msgs/GetMap.srv
+[ 33%] Generating Lisp code from nav_msgs/GetPlan.srv
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 33%] Built target nav_msgs_genlisp
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">33</span>%] Generating Python from MSG nav_msgs/GridCells
+[ <span class="hljs-number">33</span>%] Generating Python from MSG nav_msgs/MapMetaData
+[ <span class="hljs-number">34</span>%] Generating Python from MSG nav_msgs/OccupancyGrid
+[ <span class="hljs-number">34</span>%] Generating Python from MSG nav_msgs/Odometry
+[ <span class="hljs-number">34</span>%] Generating Python from MSG nav_msgs/Path
+[ <span class="hljs-number">34</span>%] Generating Python from MSG nav_msgs/GetMapAction
+[ <span class="hljs-number">35</span>%] Generating Python from MSG nav_msgs/GetMapActionGoal
+[ <span class="hljs-number">35</span>%] Generating Python from MSG nav_msgs/GetMapActionResult
+[ <span class="hljs-number">35</span>%] Generating Python from MSG nav_msgs/GetMapActionFeedback
+[ <span class="hljs-number">35</span>%] Generating Python from MSG nav_msgs/GetMapGoal
+[ <span class="hljs-number">36</span>%] Generating Python from MSG nav_msgs/GetMapResult
+[ <span class="hljs-number">36</span>%] Generating Python from MSG nav_msgs/GetMapFeedback
+[ <span class="hljs-number">36</span>%] Generating Python code from SRV nav_msgs/GetMap
+[ <span class="hljs-number">36</span>%] Generating Python code from SRV nav_msgs/GetPlan
+[ <span class="hljs-number">37</span>%] Generating Python msg __init__.py <span class="hljs-keyword">for</span> nav_msgs
+[ <span class="hljs-number">37</span>%] Generating Python srv __init__.py <span class="hljs-keyword">for</span> nav_msgs
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">37</span>%] Built target nav_msgs_genpy
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 37%] Generating C++ code from sensor_msgs/CameraInfo.msg
+[ 37%] Generating C++ code from sensor_msgs/ChannelFloat32.msg
+[ 37%] Generating C++ code from sensor_msgs/CompressedImage.msg
+[ 38%] Generating C++ code from sensor_msgs/FluidPressure.msg
+[ 38%] Generating C++ code from sensor_msgs/Illuminance.msg
+[ 38%] Generating C++ code from sensor_msgs/Image.msg
+[ 38%] Generating C++ code from sensor_msgs/Imu.msg
+[ 39%] Generating C++ code from sensor_msgs/JointState.msg
+[ 39%] Generating C++ code from sensor_msgs/Joy.msg
+[ 39%] Generating C++ code from sensor_msgs/JoyFeedback.msg
+[ 40%] Generating C++ code from sensor_msgs/JoyFeedbackArray.msg
+[ 40%] Generating C++ code from sensor_msgs/LaserEcho.msg
+[ 40%] Generating C++ code from sensor_msgs/LaserScan.msg
+[ 40%] Generating C++ code from sensor_msgs/MagneticField.msg
+[ 41%] Generating C++ code from sensor_msgs/MultiEchoLaserScan.msg
+[ 41%] Generating C++ code from sensor_msgs/NavSatFix.msg
+[ 41%] Generating C++ code from sensor_msgs/NavSatStatus.msg
+[ 41%] Generating C++ code from sensor_msgs/PointCloud.msg
+[ 42%] Generating C++ code from sensor_msgs/PointCloud2.msg
+[ 42%] Generating C++ code from sensor_msgs/PointField.msg
+[ 42%] Generating C++ code from sensor_msgs/Range.msg
+[ 42%] Generating C++ code from sensor_msgs/RegionOfInterest.msg
+[ 43%] Generating C++ code from sensor_msgs/RelativeHumidity.msg
+[ 43%] Generating C++ code from sensor_msgs/Temperature.msg
+[ 43%] Generating C++ code from sensor_msgs/TimeReference.msg
+[ 43%] Generating C++ code from sensor_msgs/SetCameraInfo.srv
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 43%] Built target sensor_msgs_gencpp
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">44</span>%] Generating Lisp code from sensor_msgs/CameraInfo.msg
+[ <span class="hljs-number">44</span>%] Generating Lisp code from sensor_msgs/ChannelFloat32.msg
+[ <span class="hljs-number">44</span>%] Generating Lisp code from sensor_msgs/CompressedImage.msg
+[ <span class="hljs-number">44</span>%] Generating Lisp code from sensor_msgs/FluidPressure.msg
+[ <span class="hljs-number">45</span>%] Generating Lisp code from sensor_msgs/Illuminance.msg
+[ <span class="hljs-number">45</span>%] Generating Lisp code from sensor_msgs/Image.msg
+[ <span class="hljs-number">45</span>%] Generating Lisp code from sensor_msgs/Imu.msg
+[ <span class="hljs-number">45</span>%] Generating Lisp code from sensor_msgs/JointState.msg
+[ <span class="hljs-number">46</span>%] Generating Lisp code from sensor_msgs/Joy.msg
+[ <span class="hljs-number">46</span>%] Generating Lisp code from sensor_msgs/JoyFeedback.msg
+[ <span class="hljs-number">46</span>%] Generating Lisp code from sensor_msgs/JoyFeedbackArray.msg
+[ <span class="hljs-number">47</span>%] Generating Lisp code from sensor_msgs/LaserEcho.msg
+[ <span class="hljs-number">47</span>%] Generating Lisp code from sensor_msgs/LaserScan.msg
+[ <span class="hljs-number">47</span>%] Generating Lisp code from sensor_msgs/MagneticField.msg
+[ <span class="hljs-number">47</span>%] Generating Lisp code from sensor_msgs/MultiEchoLaserScan.msg
+[ <span class="hljs-number">48</span>%] Generating Lisp code from sensor_msgs/NavSatFix.msg
+[ <span class="hljs-number">48</span>%] Generating Lisp code from sensor_msgs/NavSatStatus.msg
+[ <span class="hljs-number">48</span>%] Generating Lisp code from sensor_msgs/PointCloud.msg
+[ <span class="hljs-number">48</span>%] Generating Lisp code from sensor_msgs/PointCloud2.msg
+[ <span class="hljs-number">49</span>%] Generating Lisp code from sensor_msgs/PointField.msg
+[ <span class="hljs-number">49</span>%] Generating Lisp code from sensor_msgs/Range.msg
+[ <span class="hljs-number">49</span>%] Generating Lisp code from sensor_msgs/RegionOfInterest.msg
+[ <span class="hljs-number">49</span>%] Generating Lisp code from sensor_msgs/RelativeHumidity.msg
+[ <span class="hljs-number">50</span>%] Generating Lisp code from sensor_msgs/Temperature.msg
+[ <span class="hljs-number">50</span>%] Generating Lisp code from sensor_msgs/TimeReference.msg
+[ <span class="hljs-number">50</span>%] Generating Lisp code from sensor_msgs/SetCameraInfo.srv
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">50</span>%] Built target sensor_msgs_genlisp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 50%] Generating Python from MSG sensor_msgs/CameraInfo
+[ 51%] Generating Python from MSG sensor_msgs/ChannelFloat32
+[ 51%] Generating Python from MSG sensor_msgs/CompressedImage
+[ 51%] Generating Python from MSG sensor_msgs/FluidPressure
+[ 51%] Generating Python from MSG sensor_msgs/Illuminance
+[ 52%] Generating Python from MSG sensor_msgs/Image
+[ 52%] Generating Python from MSG sensor_msgs/Imu
+[ 52%] Generating Python from MSG sensor_msgs/JointState
+[ 53%] Generating Python from MSG sensor_msgs/Joy
+[ 53%] Generating Python from MSG sensor_msgs/JoyFeedback
+[ 53%] Generating Python from MSG sensor_msgs/JoyFeedbackArray
+[ 53%] Generating Python from MSG sensor_msgs/LaserEcho
+[ 54%] Generating Python from MSG sensor_msgs/LaserScan
+[ 54%] Generating Python from MSG sensor_msgs/MagneticField
+[ 54%] Generating Python from MSG sensor_msgs/MultiEchoLaserScan
+[ 54%] Generating Python from MSG sensor_msgs/NavSatFix
+[ 55%] Generating Python from MSG sensor_msgs/NavSatStatus
+[ 55%] Generating Python from MSG sensor_msgs/PointCloud
+[ 55%] Generating Python from MSG sensor_msgs/PointCloud2
+[ 55%] Generating Python from MSG sensor_msgs/PointField
+[ 56%] Generating Python from MSG sensor_msgs/Range
+[ 56%] Generating Python from MSG sensor_msgs/RegionOfInterest
+[ 56%] Generating Python from MSG sensor_msgs/RelativeHumidity
+[ 56%] Generating Python from MSG sensor_msgs/Temperature
+[ 57%] Generating Python from MSG sensor_msgs/TimeReference
+[ 57%] Generating Python code from SRV sensor_msgs/SetCameraInfo
+[ 57%] Generating Python msg __init__.py for sensor_msgs
+[ 57%] Generating Python srv __init__.py for sensor_msgs
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 57%] Built target sensor_msgs_genpy
+make[2]: Warning: File `/opt/ros/groovy/lib/gencpp/gen_cpp.py'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">58</span>%] Generating C++ code from autopilot_bridge/Heartbeat.msg
+[ <span class="hljs-number">58</span>%] Generating C++ code from autopilot_bridge/LLA.msg
+[ <span class="hljs-number">58</span>%] Generating C++ code from autopilot_bridge/Status.msg
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">58</span>%] Built target autopilot_bridge_gencpp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/lib/genlisp/gen_lisp.py<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 58%] Generating Lisp code from autopilot_bridge/Heartbeat.msg
+[ 59%] Generating Lisp code from autopilot_bridge/LLA.msg
+[ 59%] Generating Lisp code from autopilot_bridge/Status.msg
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 59%] Built target autopilot_bridge_genlisp
+make[2]: Warning: File `/opt/ros/groovy/lib/genpy/genmsg_py.py'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">59</span>%] Generating Python from MSG autopilot_bridge/Heartbeat
+[ <span class="hljs-number">59</span>%] Generating Python from MSG autopilot_bridge/LLA
+[ <span class="hljs-number">60</span>%] Generating Python from MSG autopilot_bridge/Status
+[ <span class="hljs-number">60</span>%] Generating Python msg __init__.py <span class="hljs-keyword">for</span> autopilot_bridge
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">60</span>%] Built target autopilot_bridge_genpy
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 61%] Generating C++ code from mavlink_ros/Mavlink.msg
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 61%] Built target mavlink_ros_gencpp
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">61</span>%] Generating Lisp code from mavlink_ros/Mavlink.msg
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">61</span>%] Built target mavlink_ros_genlisp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 61%] Generating Python from MSG mavlink_ros/Mavlink
+[ 61%] Generating Python msg __init__.py for mavlink_ros
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 61%] Built target mavlink_ros_genpy
+Scanning dependencies of target mavlink_ros_serial
+make[2]: Warning: File `/opt/ros/groovy/include/XmlRpcDecl.h'</span> has modification time <span class="hljs-number">4.2</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">62</span>%] Building CXX object mavlink_ros/CMakeFiles/mavlink_ros_serial.dir/src/mavlink_ros_serial.cpp.o
+Linking CXX executable /root/catkin_ws/devel/lib/mavlink_ros/mavlink_ros_serial
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">62</span>%] Built target mavlink_ros_serial
+[ <span class="hljs-number">62</span>%] Built target ardupilotmega.xml-v1.<span class="hljs-number">0</span>
+[ <span class="hljs-number">62</span>%] Built target autoquad.xml-v1.<span class="hljs-number">0</span>
+[ <span class="hljs-number">62</span>%] Built target common.xml-v1.<span class="hljs-number">0</span>
+[ <span class="hljs-number">62</span>%] Built target matrixpilot.xml-v1.<span class="hljs-number">0</span>
+Scanning dependencies of target mavconn
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/include/ros/assert.h<span class="hljs-string">' has modification time 4.2e+08 s in the future
+[ 63%] Building CXX object mavros/CMakeFiles/mavconn.dir/src/mavconn/mavconn_interface.cpp.o
+[ 63%] Building CXX object mavros/CMakeFiles/mavconn.dir/src/mavconn/mavconn_serial.cpp.o
+[ 63%] Building CXX object mavros/CMakeFiles/mavconn.dir/src/mavconn/mavconn_udp.cpp.o
+In file included from /root/catkin_ws/src/mavros/src/mavconn/mavconn_udp.cpp:23:0:
+/root/catkin_ws/src/mavros/src/mavconn/mavconn_udp.h:47:40: warning: ‘auto_ptr’ is deprecated (declared at /usr/include/c++/4.6/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+Linking CXX shared library /root/catkin_ws/devel/lib/libmavconn.so
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 63%] Built target mavconn
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">63</span>%] Generating C++ code from mavros/Mavlink.msg
+[ <span class="hljs-number">63</span>%] Generating C++ code from mavros/Waypoint.msg
+[ <span class="hljs-number">63</span>%] Generating C++ code from mavros/WaypointList.msg
+[ <span class="hljs-number">64</span>%] Generating C++ code from mavros/BatteryStatus.msg
+[ <span class="hljs-number">64</span>%] Generating C++ code from mavros/State.msg
+[ <span class="hljs-number">64</span>%] Generating C++ code from mavros/RCIn.msg
+[ <span class="hljs-number">64</span>%] Generating C++ code from mavros/RCOut.msg
+[ <span class="hljs-number">65</span>%] Generating C++ code from mavros/ParamSet.srv
+[ <span class="hljs-number">65</span>%] Generating C++ code from mavros/ParamGet.srv
+[ <span class="hljs-number">65</span>%] Generating C++ code from mavros/ParamPull.srv
+[ <span class="hljs-number">66</span>%] Generating C++ code from mavros/ParamPush.srv
+[ <span class="hljs-number">66</span>%] Generating C++ code from mavros/WaypointSetCurrent.srv
+[ <span class="hljs-number">66</span>%] Generating C++ code from mavros/WaypointClear.srv
+[ <span class="hljs-number">66</span>%] Generating C++ code from mavros/WaypointPull.srv
+[ <span class="hljs-number">67</span>%] Generating C++ code from mavros/WaypointPush.srv
+[ <span class="hljs-number">67</span>%] Generating C++ code from mavros/WaypointGOTO.srv
+[ <span class="hljs-number">67</span>%] Generating C++ code from mavros/OverrideRCIn.srv
+[ <span class="hljs-number">67</span>%] Generating C++ code from mavros/CommandLong.srv
+[ <span class="hljs-number">68</span>%] Generating C++ code from mavros/CommandBool.srv
+[ <span class="hljs-number">68</span>%] Generating C++ code from mavros/CommandMode.srv
+[ <span class="hljs-number">68</span>%] Generating C++ code from mavros/CommandHome.srv
+[ <span class="hljs-number">68</span>%] Generating C++ code from mavros/StreamRate.srv
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">68</span>%] Built target mavros_gencpp
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg<span class="hljs-string">' has modification time 4.1e+08 s in the future
+[ 69%] Generating Lisp code from mavros/Mavlink.msg
+[ 69%] Generating Lisp code from mavros/Waypoint.msg
+[ 69%] Generating Lisp code from mavros/WaypointList.msg
+[ 69%] Generating Lisp code from mavros/BatteryStatus.msg
+[ 70%] Generating Lisp code from mavros/State.msg
+[ 70%] Generating Lisp code from mavros/RCIn.msg
+[ 70%] Generating Lisp code from mavros/RCOut.msg
+[ 70%] Generating Lisp code from mavros/ParamSet.srv
+[ 71%] Generating Lisp code from mavros/ParamGet.srv
+[ 71%] Generating Lisp code from mavros/ParamPull.srv
+[ 71%] Generating Lisp code from mavros/ParamPush.srv
+[ 72%] Generating Lisp code from mavros/WaypointSetCurrent.srv
+[ 72%] Generating Lisp code from mavros/WaypointClear.srv
+[ 72%] Generating Lisp code from mavros/WaypointPull.srv
+[ 72%] Generating Lisp code from mavros/WaypointPush.srv
+[ 73%] Generating Lisp code from mavros/WaypointGOTO.srv
+[ 73%] Generating Lisp code from mavros/OverrideRCIn.srv
+[ 73%] Generating Lisp code from mavros/CommandLong.srv
+[ 73%] Generating Lisp code from mavros/CommandBool.srv
+[ 74%] Generating Lisp code from mavros/CommandMode.srv
+[ 74%] Generating Lisp code from mavros/CommandHome.srv
+[ 74%] Generating Lisp code from mavros/StreamRate.srv
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 74%] Built target mavros_genlisp
+make[2]: Warning: File `/opt/ros/groovy/share/std_msgs/msg/Header.msg'</span> has modification time <span class="hljs-number">4.1</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">74</span>%] Generating Python from MSG mavros/Mavlink
+[ <span class="hljs-number">75</span>%] Generating Python from MSG mavros/Waypoint
+[ <span class="hljs-number">75</span>%] Generating Python from MSG mavros/WaypointList
+[ <span class="hljs-number">75</span>%] Generating Python from MSG mavros/BatteryStatus
+[ <span class="hljs-number">75</span>%] Generating Python from MSG mavros/State
+[ <span class="hljs-number">76</span>%] Generating Python from MSG mavros/RCIn
+[ <span class="hljs-number">76</span>%] Generating Python from MSG mavros/RCOut
+[ <span class="hljs-number">76</span>%] Generating Python code from SRV mavros/ParamSet
+[ <span class="hljs-number">76</span>%] Generating Python code from SRV mavros/ParamGet
+[ <span class="hljs-number">77</span>%] Generating Python code from SRV mavros/ParamPull
+[ <span class="hljs-number">77</span>%] Generating Python code from SRV mavros/ParamPush
+[ <span class="hljs-number">77</span>%] Generating Python code from SRV mavros/WaypointSetCurrent
+[ <span class="hljs-number">77</span>%] Generating Python code from SRV mavros/WaypointClear
+[ <span class="hljs-number">78</span>%] Generating Python code from SRV mavros/WaypointPull
+[ <span class="hljs-number">78</span>%] Generating Python code from SRV mavros/WaypointPush
+[ <span class="hljs-number">78</span>%] Generating Python code from SRV mavros/WaypointGOTO
+[ <span class="hljs-number">79</span>%] Generating Python code from SRV mavros/OverrideRCIn
+[ <span class="hljs-number">79</span>%] Generating Python code from SRV mavros/CommandLong
+[ <span class="hljs-number">79</span>%] Generating Python code from SRV mavros/CommandBool
+[ <span class="hljs-number">79</span>%] Generating Python code from SRV mavros/CommandMode
+[ <span class="hljs-number">80</span>%] Generating Python code from SRV mavros/CommandHome
+[ <span class="hljs-number">80</span>%] Generating Python code from SRV mavros/StreamRate
+[ <span class="hljs-number">80</span>%] Generating Python msg __init__.py <span class="hljs-keyword">for</span> mavros
+[ <span class="hljs-number">80</span>%] Generating Python srv __init__.py <span class="hljs-keyword">for</span> mavros
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">80</span>%] Built target mavros_genpy
+make[<span class="hljs-number">2</span>]: Warning: File `/opt/ros/groovy/include/XmlRpcDecl.h<span class="hljs-string">' has modification time 4.2e+08 s in the future
+[ 81%] Building CXX object mavros/CMakeFiles/mavros_node.dir/src/mavros_node.cpp.o
+In file included from /root/catkin_ws/src/mavros/src/mavros_node.cpp:30:0:
+/root/catkin_ws/src/mavros/src/mavconn/mavconn_udp.h:47:40: warning: ‘auto_ptr’ is deprecated (declared at /usr/include/c++/4.6/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+[ 81%] Building CXX object mavros/CMakeFiles/mavros_node.dir/src/uas.cpp.o
+Linking CXX executable /root/catkin_ws/devel/lib/mavros/mavros_node
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 81%] Built target mavros_node
+Scanning dependencies of target mavros_plugins
+make[2]: Warning: File `/opt/ros/groovy/include/XmlRpcDecl.h'</span> has modification time <span class="hljs-number">4.2</span>e+<span class="hljs-number">08</span> s <span class="hljs-keyword">in</span> the future
+[ <span class="hljs-number">81</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/dummy.cpp.o
+[ <span class="hljs-number">81</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/sys_status.cpp.o
+[ <span class="hljs-number">82</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/imu_pub.cpp.o
+[ <span class="hljs-number">82</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/gps.cpp.o
+[ <span class="hljs-number">82</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/param.cpp.o
+[ <span class="hljs-number">82</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/waypoint.cpp.o
+[ <span class="hljs-number">83</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/rc_io.cpp.o
+[ <span class="hljs-number">83</span>%] Building CXX object mavros/CMakeFiles/mavros_plugins.dir/src/plugins/command.cpp.o
+Linking CXX shared library /root/catkin_ws/devel/lib/libmavros_plugins.so
+make[<span class="hljs-number">2</span>]: warning:  Clock skew detected.  Your build may be incomplete.
+[ <span class="hljs-number">83</span>%] Built target mavros_plugins
+Scanning dependencies of target minimal.xml-v1.<span class="hljs-number">0</span>
+[ <span class="hljs-number">83</span>%] Generating minimal.xml-v1.<span class="hljs-number">0</span>-stamp
+Validating /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/minimal.xml
+Parsing /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/minimal.xml
+Found <span class="hljs-number">1</span> MAVLink message types <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> XML files
+Generating C implementation <span class="hljs-keyword">in</span> directory /root/catkin_ws/devel/include/mavlink/v1.<span class="hljs-number">0</span>/minimal
+Copying fixed headers
+[ <span class="hljs-number">83</span>%] Built target minimal.xml-v1.<span class="hljs-number">0</span>
+Scanning dependencies of target pixhawk.xml-v1.<span class="hljs-number">0</span>
+[ <span class="hljs-number">83</span>%] Generating pixhawk.xml-v1.<span class="hljs-number">0</span>-stamp
+Validating /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/pixhawk.xml
+Parsing /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/pixhawk.xml
+Note: message IMAGE_AVAILABLE is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">100</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message WATCHDOG_PROCESS_INFO is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">263</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message PATTERN_DETECTED is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">114</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Validating /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/common.xml
+Parsing /root/catkin_ws/src/mavros/mavlink/message_definitions/v1.<span class="hljs-number">0</span>/common.xml
+Note: message GPS_STATUS is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">109</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message HIGHRES_IMU is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">70</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message HIL_SENSOR is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">72</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message SIM_STATE is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">92</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message FILE_TRANSFER_START is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">262</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message FILE_TRANSFER_DIR_LIST is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">257</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message HIL_STATE_QUATERNION is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">72</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message LOG_DATA is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">105</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message GPS_INJECT_DATA is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">121</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message SERIAL_CONTROL is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">87</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Note: message ENCAPSULATED_DATA is longer than <span class="hljs-number">64</span> bytes long (<span class="hljs-number">263</span> bytes), which can cause fragmentation since many radio modems use <span class="hljs-number">64</span> bytes as maximum air transfer unit.
+Merged enum MAV_CMD
+Found <span class="hljs-number">123</span> MAVLink message types <span class="hljs-keyword">in</span> <span class="hljs-number">2</span> XML files
+Generating C implementation <span class="hljs-keyword">in</span> directory /root/catkin_ws/devel/include/mavlink/v1.<span class="hljs-number">0</span>/pixhawk
+Generating C implementation <span class="hljs-keyword">in</span> directory /root/catkin_ws/devel/include/mavlink/v1.<span class="hljs-number">0</span>/common
+Copying fixed headers
+Traceback (most recent call last):
+  File <span class="hljs-string">"/root/catkin_ws/src/mavros/mavlink/pymavlink/generator/mavgen.py"</span>, line <span class="hljs-number">166</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+    mavgen(opts, args)
+  File <span class="hljs-string">"/root/catkin_ws/src/mavros/mavlink/pymavlink/generator/mavgen.py"</span>, line <span class="hljs-number">93</span>, <span class="hljs-keyword">in</span> mavgen
+    mavgen_c.generate(opts.output, xml)
+  File <span class="hljs-string">"/usr/local/lib/python2.7/dist-packages/pymavlink/generator/mavgen_c.py"</span>, line <span class="hljs-number">650</span>, <span class="hljs-keyword">in</span> generate
+    copy_fixed_headers(basename, xml_list[<span class="hljs-number">0</span>])
+  File <span class="hljs-string">"/usr/local/lib/python2.7/dist-packages/pymavlink/generator/mavgen_c.py"</span>, line <span class="hljs-number">493</span>, <span class="hljs-keyword">in</span> copy_fixed_headers
+    shutil.copy(src, dest)
+  File <span class="hljs-string">"/usr/lib/python2.7/shutil.py"</span>, line <span class="hljs-number">117</span>, <span class="hljs-keyword">in</span> copy
+    copyfile(src, dst)
+  File <span class="hljs-string">"/usr/lib/python2.7/shutil.py"</span>, line <span class="hljs-number">82</span>, <span class="hljs-keyword">in</span> copyfile
+    with open(src, <span class="hljs-string">'rb'</span>) as fsrc:
+IOError: [Errno <span class="hljs-number">2</span>] No such file or directory: <span class="hljs-string">'/usr/local/lib/python2.7/dist-packages/pymavlink/generator/C/include_v1.0/pixhawk/pixhawk.pb.h'</span>
+make[<span class="hljs-number">2</span>]: *** [mavros/pixhawk.xml-v1.<span class="hljs-number">0</span>-stamp] Error <span class="hljs-number">1</span>
+make[<span class="hljs-number">1</span>]: *** [mavros/CMakeFiles/pixhawk.xml-v1.<span class="hljs-number">0</span>.dir/all] Error <span class="hljs-number">2</span>
+make: *** [all] Error <span class="hljs-number">2</span>
+Invoking <span class="hljs-string">"make"</span> failed
+</code></pre>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../mavlink/ros/autopilot_bridge.html" class="navigation navigation-prev " aria-label="Previous page: autopilot_bridge"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../mavlink/ros/roscopter.html" class="navigation navigation-next " aria-label="Next page: roscopter"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

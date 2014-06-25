@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Attitude Heading Reference System | Erle Robotics GitBook</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="erlerobot">
+    
+    
+    <link rel="next" href="../beaglepilot/ahrs_in_beaglepilot.html" />
+    
+    
+    <link rel="prev" href="../beaglepilot/beaglepilottasks.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="4.3" data-basepath=".." data-revision="1403708638783">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/pulls" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basics/README.html">
+            
+            <a href="../basics/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Basics
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="software/software.html">
+            
+            <a href="../software/software.html">
+                <i class="fa fa-check"></i> <b>2.</b> Software
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="software/linux.html">
+            
+            <a href="../software/linux.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="software/Autopilot.html">
+            
+            <a href="../software/Autopilot.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="software/ros-intro.html">
+            
+            <a href="../software/ros-intro.html">
+                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="hardware/Hardware.html">
+            
+            <a href="../hardware/Hardware.html">
+                <i class="fa fa-check"></i> <b>3.</b> Hardware
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="hardware/Processor.html">
+            
+            <a href="../hardware/Processor.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="hardware/Memory.html">
+            
+            <a href="../hardware/Memory.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="hardware/Systempower.html">
+            
+            <a href="../hardware/Systempower.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="hardware/Current.html">
+            
+            <a href="../hardware/Current.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="hardware/usb.html">
+            
+            <a href="../hardware/usb.html">
+                <i class="fa fa-check"></i> <b>3.5.</b> USB
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="hardware/EEPROM.html">
+            
+            <a href="../hardware/EEPROM.html">
+                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="hardware/adc.html">
+            
+            <a href="../hardware/adc.html">
+                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="hardware/IO.html">
+            
+            <a href="../hardware/IO.html">
+                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="hardware/sensors.html">
+            
+            <a href="../hardware/sensors.html">
+                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="hardware/HardwareMap.html">
+            
+            <a href="../hardware/HardwareMap.html">
+                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="beaglepilot/BeaglePilot.html">
+            
+            <a href="../beaglepilot/BeaglePilot.html">
+                <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="beaglepilot/SimpleAutopilot.html">
+            
+            <a href="../beaglepilot/SimpleAutopilot.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="beaglepilot/beaglepilottasks.html">
+            
+            <a href="../beaglepilot/beaglepilottasks.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="beaglepilot/attitude_heading_reference_system.html">
+            
+            <a href="../beaglepilot/attitude_heading_reference_system.html">
+                <i class="fa fa-check"></i> <b>4.3.</b> Attitude Heading Reference System
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="beaglepilot/ahrs_in_beaglepilot.html">
+            
+            <a href="../beaglepilot/ahrs_in_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.3.1.</b> AHRS in BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="beaglepilot/beaglepilottutorials.html">
+            
+            <a href="../beaglepilot/beaglepilottutorials.html">
+                <i class="fa fa-check"></i> <b>4.4.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+            
+            <a href="../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.4.1.</b> Installing and Configuring BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="mavlink/mavlink.html">
+            
+            <a href="../mavlink/mavlink.html">
+                <i class="fa fa-check"></i> <b>5.</b> MAVLink
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="mavlink/mavlinkaction.html">
+            
+            <a href="../mavlink/mavlinkaction.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> mavlink in action
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="mavlink/mavlinkros.html">
+            
+            <a href="../mavlink/mavlinkros.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> ROS integration
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="mavlink/ros/mavlink_ros.html">
+            
+            <a href="../mavlink/ros/mavlink_ros.html">
+                <i class="fa fa-check"></i> <b>5.2.1.</b> mavlink_ros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="mavlink/ros/autopilot_bridge.html">
+            
+            <a href="../mavlink/ros/autopilot_bridge.html">
+                <i class="fa fa-check"></i> <b>5.2.2.</b> autopilot_bridge
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="mavlink/ros/mavros.html">
+            
+            <a href="../mavlink/ros/mavros.html">
+                <i class="fa fa-check"></i> <b>5.2.3.</b> mavros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="mavlink/ros/roscopter.html">
+            
+            <a href="../mavlink/ros/roscopter.html">
+                <i class="fa fa-check"></i> <b>5.2.4.</b> roscopter
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="mavlink/creating_a_mavlink_message.html">
+            
+            <a href="../mavlink/creating_a_mavlink_message.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Creating a MAVLink message
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="mavproxy/mavproxy.html">
+            
+            <a href="../mavproxy/mavproxy.html">
+                <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ros/ROS.html">
+            
+            <a href="../ros/ROS.html">
+                <i class="fa fa-check"></i> <b>7.</b> ROS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ros/ROS-concepts.html">
+            
+            <a href="../ros/ROS-concepts.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="ros/rostechnicaloverview.html">
+            
+            <a href="../ros/rostechnicaloverview.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="ros/rostutorials.html">
+            
+            <a href="../ros/rostutorials.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.3.1" data-path="ros/tutorials/rosinstall.html">
+            
+            <a href="../ros/tutorials/rosinstall.html">
+                <i class="fa fa-check"></i> <b>7.3.1.</b> Installing and Configuring Your ROS Environment
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.2" data-path="ros/tutorials/rosnavigating.html">
+            
+            <a href="../ros/tutorials/rosnavigating.html">
+                <i class="fa fa-check"></i> <b>7.3.2.</b> Navigating the ROS Filesystem
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.3" data-path="ros/tutorials/creating_a_ros_package.html">
+            
+            <a href="../ros/tutorials/creating_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.3.</b> Creating a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.4" data-path="ros/tutorials/building_a_ros_package.html">
+            
+            <a href="../ros/tutorials/building_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.4.</b> Building a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.5" data-path="ros/tutorials/understanding_ros_nodes.html">
+            
+            <a href="../ros/tutorials/understanding_ros_nodes.html">
+                <i class="fa fa-check"></i> <b>7.3.5.</b> Understanding ROS Nodes
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.6" data-path="ros/tutorials/understanding_ros_topics.html">
+            
+            <a href="../ros/tutorials/understanding_ros_topics.html">
+                <i class="fa fa-check"></i> <b>7.3.6.</b> Understanding ROS Topics
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="tutorials/Tutorials.html">
+            
+            <a href="../tutorials/Tutorials.html">
+                <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="tutorials/Blink.html">
+            
+            <a href="../tutorials/Blink.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="tutorials/Blink2.html">
+            
+            <a href="../tutorials/Blink2.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 44.44444444444444%;min-width: 42.22222222222222%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 2.2222222222222223%;"></a>
+    
+        <a href="../software/software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 4.444444444444445%;"></a>
+    
+        <a href="../software/linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 6.666666666666667%;"></a>
+    
+        <a href="../software/Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 8.88888888888889%;"></a>
+    
+        <a href="../software/ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../hardware/Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 13.333333333333334%;"></a>
+    
+        <a href="../hardware/Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 15.555555555555555%;"></a>
+    
+        <a href="../hardware/HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 17.77777777777778%;"></a>
+    
+        <a href="../hardware/Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 20%;"></a>
+    
+        <a href="../hardware/Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../hardware/Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 24.444444444444443%;"></a>
+    
+        <a href="../hardware/usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 26.666666666666668%;"></a>
+    
+        <a href="../hardware/EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 28.88888888888889%;"></a>
+    
+        <a href="../hardware/adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 31.11111111111111%;"></a>
+    
+        <a href="../hardware/IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../hardware/sensors.html" title="Sensors" class="chapter done " data-progress="3.9" style="left: 35.55555555555556%;"></a>
+    
+        <a href="../beaglepilot/BeaglePilot.html" title="BeaglePilot" class="chapter done new-chapter" data-progress="4" style="left: 37.77777777777778%;"></a>
+    
+        <a href="../beaglepilot/SimpleAutopilot.html" title="A simplified autopilot" class="chapter done " data-progress="4.1" style="left: 40%;"></a>
+    
+        <a href="../beaglepilot/beaglepilottasks.html" title="BeaglePilot tasks" class="chapter done " data-progress="4.2" style="left: 42.22222222222222%;"></a>
+    
+        <a href="../beaglepilot/attitude_heading_reference_system.html" title="Attitude Heading Reference System" class="chapter done " data-progress="4.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../beaglepilot/ahrs_in_beaglepilot.html" title="AHRS in BeaglePilot" class="chapter  " data-progress="4.3.1" style="left: 46.666666666666664%;"></a>
+    
+        <a href="../beaglepilot/beaglepilottutorials.html" title="Tutorials " class="chapter  " data-progress="4.4" style="left: 48.888888888888886%;"></a>
+    
+        <a href="../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html" title="Installing and Configuring BeaglePilot" class="chapter  " data-progress="4.4.1" style="left: 51.111111111111114%;"></a>
+    
+        <a href="../mavlink/mavlink.html" title="MAVLink" class="chapter  new-chapter" data-progress="5" style="left: 53.333333333333336%;"></a>
+    
+        <a href="../mavlink/mavlinkaction.html" title="mavlink in action" class="chapter  " data-progress="5.1" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../mavlink/mavlinkros.html" title="ROS integration" class="chapter  " data-progress="5.2" style="left: 57.77777777777778%;"></a>
+    
+        <a href="../mavlink/ros/mavlink_ros.html" title="mavlink_ros" class="chapter  " data-progress="5.2.1" style="left: 60%;"></a>
+    
+        <a href="../mavlink/ros/autopilot_bridge.html" title="autopilot_bridge" class="chapter  " data-progress="5.2.2" style="left: 62.22222222222222%;"></a>
+    
+        <a href="../mavlink/ros/mavros.html" title="mavros" class="chapter  " data-progress="5.2.3" style="left: 64.44444444444444%;"></a>
+    
+        <a href="../mavlink/ros/roscopter.html" title="roscopter" class="chapter  " data-progress="5.2.4" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../mavlink/creating_a_mavlink_message.html" title="Creating a MAVLink message" class="chapter  " data-progress="5.3" style="left: 68.88888888888889%;"></a>
+    
+        <a href="../mavproxy/mavproxy.html" title="MAVProxy" class="chapter  new-chapter" data-progress="6" style="left: 71.11111111111111%;"></a>
+    
+        <a href="../ros/ROS.html" title="ROS" class="chapter  new-chapter" data-progress="7" style="left: 73.33333333333333%;"></a>
+    
+        <a href="../ros/ROS-concepts.html" title="Concepts" class="chapter  " data-progress="7.1" style="left: 75.55555555555556%;"></a>
+    
+        <a href="../ros/rostechnicaloverview.html" title="Technical Overview" class="chapter  " data-progress="7.2" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../ros/rostutorials.html" title="Tutorials " class="chapter  " data-progress="7.3" style="left: 80%;"></a>
+    
+        <a href="../ros/tutorials/rosinstall.html" title="Installing and Configuring Your ROS Environment" class="chapter  " data-progress="7.3.1" style="left: 82.22222222222223%;"></a>
+    
+        <a href="../ros/tutorials/rosnavigating.html" title="Navigating the ROS Filesystem" class="chapter  " data-progress="7.3.2" style="left: 84.44444444444444%;"></a>
+    
+        <a href="../ros/tutorials/creating_a_ros_package.html" title="Creating a ROS Package" class="chapter  " data-progress="7.3.3" style="left: 86.66666666666667%;"></a>
+    
+        <a href="../ros/tutorials/building_a_ros_package.html" title="Building a ROS Package" class="chapter  " data-progress="7.3.4" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../ros/tutorials/understanding_ros_nodes.html" title="Understanding ROS Nodes" class="chapter  " data-progress="7.3.5" style="left: 91.11111111111111%;"></a>
+    
+        <a href="../ros/tutorials/understanding_ros_topics.html" title="Understanding ROS Topics" class="chapter  " data-progress="7.3.6" style="left: 93.33333333333333%;"></a>
+    
+        <a href="../tutorials/Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 95.55555555555556%;"></a>
+    
+        <a href="../tutorials/Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 97.77777777777777%;"></a>
+    
+        <a href="../tutorials/Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4028">
+                    
+                        <h1 id="attitude-heading-reference-system">Attitude Heading Reference System</h1>
+<p>An <em>A</em>ttitude <em>H</em>eading <em>R</em>eference <em>S</em>ystem (AHRS) is a set of devices and algorithms that provides <a href="http://en.wikipedia.org/wiki/Aircraft_heading#Aircraft_heading" target="_blank">heading</a>, <a href="http://en.wikipedia.org/wiki/Aircraft_attitude" target="_blank">attitude</a> and <a href="http://en.wikipedia.org/wiki/Yaw_angle#Tait.E2.80.93Bryan_angles" target="_blank">yaw information</a> for aircrafts.</p>
+<p>In a nutshell, an AHRS provides 3D orientation by integrating gyroscopes, fusing this data with accelerometer data and magnetometer data. With sensor fusion, drift from the gyroscopes integration is compensated for by reference vectors, namely gravity and the earth magnetic field.</p>
+<hr>
+<p><em>Inertial Measurement Units</em> (IMU) are electronic devices that measure and report a vehicle&#39;s velocity, orientation, and gravitational forces and are used to maneuver aircraft.</p>
+<p>The IMU is usually, depending on the manufacturer, either a simple sensor unit without angle transformation, or a sensor unit with angle transformation, but they don&#39;t include augmentation.</p>
+<hr>
+<p>This section will cover the following topics:</p>
+<ul>
+<li><em>what does an accelerometer measure</em></li>
+<li><em>what does a gyroscope measure</em></li>
+<li><em>making sense of the sensor&#39;s values</em>: how to convert analog-to-digital (ADC) readings that you get from these sensor to physical units (those would be g for accelerometer, deg/s for gyroscope)</li>
+<li><em>implementing a simple AHRS</em>: how to combine accelerometer and gyroscope readings in order to obtain accurate information about the inclination of your device relative to the ground plane (implementing an AHRS out of the IMU readings)</li>
+<li><em>how this is implemented in BeaglePilot</em>: discussed in a subsection</li>
+</ul>
+<h3 id="accelerometers">Accelerometers</h3>
+<h4 id="simplified-model">Simplified model</h4>
+<p>When thinking about accelerometers it is often useful to image a box in shape of a cube with a ball inside it.</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/04.png" alt=""></p>
+<p>If we take this box in a place with no gravitation fields or for that matter with no other fields that might affect the ball&#39;s position – the ball will simply float in the middle of the box.</p>
+<p>From the picture above you can see that we assign to each axis a pair of walls (<strong>we removed the wall <code>Y+</code> so we can look inside the box</strong>). Imagine that each wall is pressure sensitive. If we move suddenly the box to the left (we accelerate it with acceleration <code>1g = 9.8 m/s^2</code>), the ball will hit the wall <code>X-</code>. We then measure the pressure force that the ball applies to the wall and output a value of <code>-1g</code> on the <code>X axis</code>:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/05.png" alt=""></p>
+<p>Note that the accelerometer will actually detect a force that is directed in the opposite direction from the acceleration vector. This force is often called <strong>Inertial Force or Fictitious Force</strong>. One thing you should learn from this is that an accelerometer measures acceleration indirectly through a force that is applied to one of it&#39;s walls (according to this model, accelerometers might be a spring or something else in real life). This force can be caused by the acceleration , but as we&#39;ll see in the next example it is not always caused by acceleration.</p>
+<p>If we take our model and put it on Earth the ball will fall on the <code>Z-</code> wall and will apply a force of <code>1g</code> on the bottom wall, as shown in the picture below:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/06.png" alt=""></p>
+<p>In this case the box isn&#39;t moving but we still get a reading of <code>-1g</code> on the <code>Z axis</code>. The pressure that the ball has applied on the wall was <strong>caused by a gravitation force</strong>. In theory it could be a different type of force. For example, if you imagine that our ball is metallic, placing a magnet next to the box could move the ball so it hits another wall. This was said just to prove that in essence accelerometer measures force not acceleration. It just happens that acceleration causes an inertial force that is captured by the force detection mechanism of the accelerometer.</p>
+<p>While <em>this model is not exactly how a MEMS sensor is constructed</em> it is often useful in solving accelerometer related problems. There are actually similar sensors that have metallic balls inside, they are called <strong>tilt switches</strong>, however they are more primitive and usually they can only tell if the device is inclined within some range or not, not the extent of inclination.</p>
+<p>So far we have analyzed the accelerometer output on a single axis and this is all you&#39;ll get with a single axis accelerometers. The real value of triaxial accelerometers comes from the fact that they can detect inertial forces on all three axes. Let&#39;s go back to our box model, and let&#39;s rotate the box 45 degrees to the right. The ball will touch 2 walls now: Z- and X- as shown in the picture below:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/07.png" alt=""></p>
+<p>The values of <code>0.71</code> are not arbitrary, they are actually an approximation for $\sqrt(\frac{1}{2})$. This will become more clear as we introduce our next model for the accelerometer.</p>
+<h4 id="an-improved-model">An improved model</h4>
+<p>In the previous model we have fixed the gravitation force and rotated our imaginary box. In last 2 examples we have analyzed the output in 2 different box positions, while the force vector remained constant. While this was useful in understanding how the accelerometer interacts with outside forces, it is more practical to perform calculations if we fix the coordinate system to the axes of the accelerometer and imagine that the force vector rotates around us.</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/01.png" alt=""></p>
+<p>In the model above the colors of the axes are preserved so that the <strong>mental transition</strong> from the previous model to the new one is nicer. Just imagine that each axis in the new model is perpendicular to the respective faces of the box in the previous model. The <code>vector R</code> is the force vector that the accelerometer is measuring (it could be either the gravitation force or the inertial force from the examples above or a combination of both). $R_x$, $R_y$, $R_z$ are projection of the R vector on the <code>X</code>,<code>Y</code> and <code>Z</code> axes. Please notice the following relation:</p>
+<p>$$R^2 = R_x^2 + R_y^2 + R_z^2$$</p>
+<p>which is basically the equivalent of the <a href="http://demonstrations.wolfram.com/PythagoreanTheorem3D/" target="_blank">Pythagorean theorem in 3D</a>.</p>
+<p>Remember that a little bit earlier we mentioned that the values of $\sqrt(\frac{1}{2}) \approx 0.71$ are not random. If you plug them in the formula above, after recalling that our gravitation force was <code>1 g</code> we can verify this matter.</p>
+<p>The values $R_x$, $R_y$, $R_z$ are actually linearly related to the values that your real-life accelerometer will output and that you can use for performing various calculations.</p>
+<p>Most accelerometers will fall in two categories: digital and analog. Digital accelerometers will give you information using a <strong>serial protocol</strong> like I2C , SPI or UART, while analog accelerometers will <strong>output a voltage level</strong> within a predefined range that you have to convert to a digital value using an ADC (analog to digital converter) module.</p>
+<h4 id="making-sense-of-sensor-values">Making sense of sensor values</h4>
+<p>Let&#39;s move on by considering a simple example, suppose our <code>10bit ADC</code> module gave us the following values for the three accelerometer channels (axes):</p>
+<hr>
+<p>A <code>10-bit ADC</code> module will output a value in the range of <code>0..1023</code>, note that $1023 = 2^10 - 1$.</p>
+<hr>
+<p>$$AdcR_x = 586$$
+$$AdcR_y = 630$$
+$$AdcR_z = 561$$</p>
+<p>Each ADC module will have a reference voltage, let&#39;s assume in our example it is <code>3.3V</code>. To convert a 10bit adc value to voltage we use the following formula:</p>
+<p>$$ VoltsR<em>x = \frac{AdcR_x * V</em>{ref}}{1023}$$</p>
+<p>Applying this formula to all 3 channels we get (rounded to 2 decimal points):</p>
+<p>$$VoltsR_x = \frac{586 <em> 3.3V}{1023} \approx 1.89V $$
+$$VoltsRy = \frac{630 </em> 3.3V}{1023} \approx 2.03V$$
+$$VoltsRz = \frac{561 * 3.3V }{ 1023} \approx 1.81V$$</p>
+<p>Each accelerometer has a <strong>zero-g voltage level</strong>, you can find it in specs (datasheet), this is the voltage that corresponds to <code>0g</code>. To get a signed voltage value we need to calculate the shift from this level. Let&#39;s say our 0g voltage level is $Vzero_G = 1.65V$. We calculate the voltage shifts from zero-g voltage as follows::</p>
+<p>$$DeltaVoltsR_x = 1.89V – 1.65V = 0.24V$$
+$$DeltaVoltsR_y = 2.03V – 1.65V = 0.38V$$
+$$DeltaVoltsR_z = 1.81V – 1.65V = 0.16V$$</p>
+<p>We now have our accelerometer readings in Volts, it&#39;s still not in <code>g</code> ($9.8 \frac{m}{s^2}$), to do the final conversion we apply the <strong>accelerometer sensitivity</strong>, usually expressed in <code>mV/g</code>. Lets say our $Sensitivity = 478.5mV/g = 0.4785V/g$. Sensitivity values can be found in accelerometer specifications. To get the final force values expressed in g we use the following formula $R_x = \frac{DeltaVoltsR_x}{Sensitivity}$:</p>
+<p>$$Rx = \frac{0.24 V}{0.4785 V/g} \approx 0.5g$$
+$$Ry = \frac{0.38V}{0.4785 V/g} \approx 0.79g$$
+$$Rz = \frac{0.16V}{0.4785 V/g} \approx 0.33g$$</p>
+<p>All the previous steps can be convined in the following formula (exemplified for the <code>x</code> case):</p>
+<p>$$R_x = \frac{\frac{AdcR_x * Vref}{1023} - VzeroG}{Sensitivity} (g)$$</p>
+<p>We now have all 3 components that define our inertial force vector, if the device is not subject to other forces other than gravitation, we can assume this is the direction of our gravitation force vector. If you want to calculate inclination of device relative to the ground you can calculate the angle between this vector and Z axis.</p>
+<p>If you are also interested in per-axis direction of inclination you can split this result into 2 components: inclination on the <code>X</code> and <code>Y axis</code> that can be calculated as the angle between gravitation vector and X / Y axes. Calculating these angles is more simple than you might think, now that we have calculated the values for $R_x$, $R_y$ and $R_z$. Let&#39;s go back to our last accelerometer model and do some additional notations:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/02.png" alt=""></p>
+<p>The angles that we are interested in are the angles between <code>X</code>,<code>Y</code>,<code>Z</code> axes and the <code>force vector R</code>. We&#39;ll define these angles as $Axr$, $Ayr$, $Azr$. You can notice from the right-angle triangle formed by $R$ and $Rx$ that:</p>
+<p>$$ cos(Axr) = \frac{Rx}{R} $$
+$$ cos(Ayr) = \frac{Ry}{R} $$
+$$ cos(Azr) = \frac{Rz}{R} $$</p>
+<hr>
+<p>We can deduct from previous equations that $R = \sqrt( Rx^2 + Ry^2 + Rz^2)$.</p>
+<hr>
+<p>We can find now our angles by using <code>arccos()</code> function (the inverse <code>cos()</code> function ):</p>
+<p>$$Axr = arccos(\frac{Rx}{R})$$
+$$Ayr = arccos(\frac{Ry}{R})$$
+$$Azr = arccos(\frac{Rz}{R})$$</p>
+<p>We&#39;ve gone a long way to explain the accelerometer model, just to come up to these formulas. Depending on your applications you might want to use any intermediate formulas that we have derived. We&#39;ll also introduce the gyroscope model soon, and we&#39;ll see how accelerometer and gyroscope data can be combined to provide even more accurate inclination estimations.</p>
+<p>But before we do that let&#39;s do some more useful notations:</p>
+<p>$$cosX = cos(Axr) = \frac{Rx}{R}$$
+$$cosY = cos(Ayr) = \frac{Ry}{R}$$
+$$cosZ = cos(Azr) = \frac{Rz}{R}$$</p>
+<p>This triplet is often called Direction Cosine, and it basically represents the unit vector (vector with length 1) that has same direction as our R vector.</p>
+<p>This is a nice property since it absolve us from monitoring the modulus(length) of R vector. Often times if we&#39;re just interested in direction of our inertial vector, it makes sense to normalize it&#39;s modulus in order to simplify other calculations.</p>
+<h3 id="gyroscope">Gyroscope</h3>
+<p>We&#39;re not going to introduce any equivalent box model for the gyroscope like we did for accelerometer, instead we&#39;re going to jump straight to the second accelerometer model and we&#39;ll show what does the gyroscope measure according to this model:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/03.png" alt=""></p>
+<p>Each gyroscope channel measures the rotation around one of the axes. For instance a 2-axes gyroscope will measure the rotation around (or some may say &quot;about&quot;) the X and Y axes. To express this rotation in numbers let&#39;s do some notations. First let&#39;s define:</p>
+<ul>
+<li>$Rxz$ – is the projection of the inertial force <code>vector R</code> on the <code>XZ plane</code></li>
+<li>$Ryz$ – is the projection of the inertial force <code>vector R</code> on the <code>YZ plane</code></li>
+</ul>
+<p>From the right-angle triangle formed by $Rxz$ and $Rz$, using Pythagorean theorem we get:</p>
+<p>$$Rxz^2 = Rx^2 + Rz^2$$
+$$Ryz^2 = Ry^2 + Rz^2$$</p>
+<p>We&#39;re going to define the angle between the <code>Z axis</code> and $Rxz$, $Ryz$ vectors as follows:</p>
+<ul>
+<li>$Axz$ – is the angle between the $Rxz$ (projection of R on XZ plane) and <code>Z axis</code></li>
+<li>$Ayz$ – is the angle between the $Ryz$ (projection of R on YZ plane) and <code>Z axis</code></li>
+</ul>
+<p>Now we&#39;re getting closer to what the gyroscope measures. Gyroscope measures the rate of changes of the angles defined above. In other words it will output a value that is linearly related to the rate of change of these angles. To explain this <strong>let&#39;s assume that we have measured the rotation angle around axis Y</strong> (that would be $Axz$ angle) at time <code>t0</code>, and we define it as $Axz0$, next we measured this angle at a later time <code>t1</code> and it was $Axz1$. The rate of change will be calculated as follows:</p>
+<p>$$ RateAxz = \frac{Axz1 – Axz0}{t1 – t0} $$</p>
+<p>If we express $Axz$ in degrees, and time in seconds , then this value will be expressed in <code>deg/s</code>. <em>This is what a gyroscope measures</em>.</p>
+<p>In practice a gyroscope (unless it is a special digital gyroscope) will rarely give you a value expressed in <code>deg/s</code>. Same as for accelerometer you&#39;ll get an ADC value that you&#39;ll need to convert to <code>deg/s</code> using a formula similar to what we have defined for accelerometer. Let&#39;s introduce the ADC to <code>deg/s</code> conversion formula for gyroscope (we assume we&#39;re using a 10bit ADC module, for 8bit ADC replace 1023 with 255, for 12bit ADC replace 1023 with 4095):</p>
+<pre><code>RateAxz = (AdcGyroXZ * Vref / 1023 – VzeroRate) / Sensitivity
+RateAyz = (AdcGyroYZ * Vref / 1023 – VzeroRate) / Sensitivity
+</code></pre><p>We define the values used in the equations:</p>
+<ul>
+<li>$AdcGyroXZ$, $AdcGyroYZ$ – are obtained from our ADC module and they represent the channels that measure the rotation of projection of <code>R vector</code> in <code>XZ</code> respectively in <code>YZ</code> planes, which is the equivalent to saying rotation was done around Y and X axes respectively.</li>
+<li>$Vref$ – is the ADC reference voltage we&#39;ll use <code>3.3V</code> in the example below</li>
+<li>$VzeroRate$ – is the zero-rate voltage, in other words the voltage that the gyroscope outputs when it is not subject to any rotation (you can find this values in the specs – but don&#39;t trust the specs most gyros will suffer slight offset after being soldered so measure VzeroRate for each axis output using a voltmeter, usually this value will not change over time once the gyro was soldered, if it variates – write a calibration routine to measure it before device start-up, user must be instructed to keep device in still position  upon start-up for gyros to calibrate).</li>
+<li>$Sensitivity$ – is the sensitivity of your gyroscope it is expressed in $mV/(deg/s)$ often written as $mV/deg/s$ , it basically tells you how many <code>mV</code> will the gyroscope output increase , if you increase the rotation speed by one <code>deg/s</code>. For example, the sensitivity of <a href="http://www.starlino.com/store/acc-gyro" target="_blank">Acc_Gyro</a> board is for example 2mV/deg/s or 0.002V/deg/s</li>
+</ul>
+<p>Let&#39;s take an example, suppose our ADC module returned following values:</p>
+<p>$$AdcGyroXZ = 571$$
+$$AdcGyroXZ = 323$$</p>
+<p>Using the above formula, and using the specs parameters of $Acc_Gyro$ board we&#39;ll get:</p>
+<pre><code>RateAxz = (571 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ 306 deg/s
+RateAyz = (323 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ -94 deg/s
+</code></pre><p>In other words the device rotates around the Y axis (or we can say it rotates in XZ plane) with a speed of <code>306 deg/s</code> and around the X axis (or we can say it rotates in YZ plane) with a speed of <code>-94 deg/s</code>. Please note that the negative sign means that the device rotates in the opposite direction from the conventional positive direction. By convention one direction of rotation is positive (right-handed axes). <del>A good gyroscope specification sheet will show you which direction is positive</del> (never trust specs), otherwise you&#39;ll have to find it by experimenting with the device and noting which direction of rotation results in increasing voltage on the output pin.
+This is best done using an oscilloscope since as soon as you stop the rotation the voltage will drop back to the zero-rate level. If you&#39;re using a multimeter you&#39;d have to maintain a constant rotation rate for at least few seconds and note the voltage during this rotation, then compare it with the zero-rate voltage. If it is greater than the zero-rate voltage it means that direction of rotation is positive.</p>
+<h3 id="combining-accelerometer-and-gyroscope-data-making-an-ahrs-">Combining accelerometer and gyroscope data (making an AHRS)</h3>
+<p>The previous content explained how an IMU delivers its values. We will now see how to convert these values into quantities that we can understand - aka, making an AHRS.</p>
+<p>The first step in using a combination IMU device that combines an accelerometer and a gyroscope is to align their coordinate systems. The easiest way to do it is to choose the coordinate system of accelerometer as your reference coordinate system. <del>Most accelerometer data sheets will display the direction of X,Y,Z axes relative to the image of the physical chip or device</del>. This probed to be wrong for the <code>MPU6000</code> case.</p>
+<p>The next steps for a general AHRS implementation should be:</p>
+<ul>
+<li>identify the gyroscope outputs that correspond to RateAxz , RateAyz values discussed above.</li>
+<li>determine if these outputs need to be inverted due to physical position of gyroscope relative to the accelerometer</li>
+</ul>
+<p><em>Do not assume that if a gyroscope has an output marked X or Y, it will correspond to any axis in the accelerometer coordinate system, even if this output is part of an IMU unit. The best way is to test it.</em></p>
+<p>We will assume that your axis match, otherwise refer to <a href="http://www.starlino.com/imu_guide.html" target="_blank">this article</a> for a detail process of how to measure and match your axes. Next we&#39;ll analyze the relations between these values that turn out useful in obtaining more accurate estimation of the inclination of the device relative to the ground plane.</p>
+<p>You might be asking yourself by this point, if accelerometer model already gave us inclination angles of $Axr$,$Ayr$,$Azr$ why would we want to bother with the gyroscope data ? The answer is simple: accelerometer data can&#39;t always be trusted 100%. There are several reason, remember that accelerometer measures inertial force, such a force can be caused by gravitation (and ideally only by gravitation), but it might also be caused by acceleration (movement) of the device. As a result even if accelerometer is in a relatively stable state, <strong>it is still very sensitive to vibration and mechanical noise in general</strong>. This is the main reason why most IMU systems use a gyroscope to smooth out any accelerometer errors. But how is this done ? And is the gyroscope free from noise?</p>
+<p>The gyroscope is not free from noise however because it measures rotation it is less sensitive to linear mechanical movements, the type of noise that accelerometer suffers from, however gyroscopes have other types of problems like for example <strong>drift</strong> (not coming back to zero-rate value when rotation stops). Nevertheless by averaging data that comes from accelerometer and gyroscope we can obtain a relatively better estimate of current device inclination than we would obtain by using the accelerometer data alone.</p>
+<p>In the next steps we will introduce an <em>algorithm that was inspired by some ideas used in Kalman filter, however it is by far more simple and easier to implement on embedded devices</em>. Before that let&#39;s see first what we want our algorithm to calculate. Well , it is the direction of gravitation force vector R = [Rx,Ry,Rz] from which we can derive other values like $Axr$, $Ayr$, $Azr$ or $cosX$, $cosY$, $cosZ$ that will give us an idea about the inclination of our device relative to the ground plane, we discuss the relation between these values before. One might say – don&#39;t we already have these values Rx, Ry , Rz from previous equations? Well yes, but remember that these values are derived from accelerometer data only, so if you would be to use them directly in your application you might get more noise than your application can tolerate. To avoid further confusion let&#39;s re-define the accelerometer measurements as follows:</p>
+<p>$Racc$ – is the inertial force vector as measured by accelerometer, that consists of following components (projections on X,Y,Z axes):</p>
+<pre><code>RxAcc = (AdcRx * Vref / 1023 – VzeroG) / Sensitivity
+RyAcc = (AdcRy * Vref / 1023 – VzeroG) / Sensitivity
+RzAcc = (AdcRz * Vref / 1023 – VzeroG) / Sensitivity
+</code></pre><p>So far we have a set of measured values that we can obtain purely from accelerometer ADC values. We&#39;ll call this set of data a &quot;vector&quot; and we&#39;ll use the following notation.</p>
+<pre><code>Racc = [RxAcc,RyAcc,RzAcc]
+</code></pre><p>Because these components of Racc can be obtained from accelerometer data , we can consider it an input to our algorithm.</p>
+<hr>
+<p><strong>Please note that because Racc measures the gravitation force you&#39;ll be correct if you assume that the length of this vector defined as follows is equal or close to 1g.</strong></p>
+<pre><code>|Racc| = SQRT(RxAcc^2 +RyAcc^2 + RzAcc^2),
+</code></pre><hr>
+<p>However to be sure it makes sense to update this vector as follows:</p>
+<pre><code>Racc(normalized) = [RxAcc/|Racc| , RyAcc/|Racc| , RzAcc/|Racc|]
+</code></pre><p>This will ensure the length of your normalized $Racc$ vector is always 1.
+Next we&#39;ll introduce a new vector and we&#39;ll call it $Rest$:</p>
+<pre><code>Rest = [RxEst,RyEst,RzEst]
+</code></pre><p>This will be the output of our algorithm , these are corrected values based on gyroscope data and based on past estimated data.</p>
+<p>Here is what our algorithm will do:</p>
+<ul>
+<li>accelerometer tells us: &quot;<strong>You are now at position Racc</strong>&quot;</li>
+<li>we say &quot;Thank you, but let me check&quot;,</li>
+<li>then correct this information with gyroscope data as well as with past $Rest$ data and we output a new <strong>estimated vector Rest</strong>.</li>
+<li>we consider Rest to be our &quot;best bet&quot; as to the current position of the device.</li>
+</ul>
+<p>Let&#39;s see how we can make it work. We&#39;ll start our sequence by trusting our accelerometer and assigning:</p>
+<pre><code>Rest(0) = Racc(0)
+</code></pre><p>By the way remember $Rest$ and $Racc$ are vectors, so the above equation is just a simple way to write 3 sets of equations, and avoid repetition:</p>
+<pre><code>RxEst(0) = RxAcc(0)
+RyEst(0) = RyAcc(0)
+RzEst(0) = RzAcc(0)
+</code></pre><p>Next we&#39;ll do regular measurements at <strong>equal time intervals of T seconds</strong>, and we&#39;ll obtain new measurements that we&#39;ll define as <code>Racc(1)</code>, <code>Racc(2)</code> , <code>Racc(3)</code> and so on. We&#39;ll also issue new estimates at each time intervals <code>Rest(1)</code>, <code>Rest(2)</code>, <code>Rest(3)</code> and so on.</p>
+<p>Suppose we&#39;re at step n. We have two known sets of values that we&#39;d like to use:</p>
+<ul>
+<li><code>Rest(n-1)</code> – our previous estimate, with Rest(0) = Racc(0)</li>
+<li><code>Racc(n)</code> – our current accelerometer measurement</li>
+</ul>
+<p>Before we can calculate <code>Rest(n)</code> , let&#39;s introduce a new measured value, that we can obtain from our gyroscope and a previous estimate.</p>
+<p>We&#39;ll call it Rgyro , and it is also a vector consisting of 3 components:</p>
+<pre><code>Rgyro = [RxGyro,RyGyro,RzGyro]
+</code></pre><p>We&#39;ll calculate this vector one component at a time. We&#39;ll start with $RxGyro$:</p>
+<p><img src="http://www.starlino.com/wp-content/uploads/data/imu_guide/03.png" alt=""></p>
+<p>Let&#39;s start by observing the following relation in our gyroscope model, from the right-angle triangle formed by $Rz$ and $Rxz$ we can derive that:</p>
+<pre><code>tan(Axz) = Rx/Rz =&gt; Axz = atan2(Rx,Rz)
+</code></pre><p><code>Atan2</code> might be a function you never used before, it is similar to <code>atan</code>, except it returns values in range of <code>(-PI,PI)</code> as opposed to <code>(-PI/2,PI/2)</code> as returned by <code>atan</code>, and it takes 2 arguments instead of one. It allows us to convert the two values of $Rx$, $Rz$ to angles in the full range of 360 degrees (-PI to PI). You can read more about atan2 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">here</a>.</p>
+<p>So knowing <code>RxEst(n-1)</code> , and <code>RzEst(n-1)</code> we can find:</p>
+<pre><code>Axz(n-1) = atan2( RxEst(n-1) , RzEst(n-1) )
+</code></pre><p>Remember that gyroscope measures the rate of change of the Axz angle. So we can estimate the new angle Axz(n) as follows:</p>
+<pre><code>Axz(n) = Axz(n-1) + RateAxz(n) * T
+</code></pre><p>Remember that RateAxz can be obtained from our gyroscope ADC readings. A more precise formula can use an average rotation rate calculated as follows:</p>
+<pre><code>RateAxzAvg = ( RateAxz(n) + RateAxz(n-1) ) / 2
+Axz(n) = Axz(n-1) + RateAxzAvg * T
+</code></pre><p>The same way we can find:</p>
+<pre><code>Ayz(n) = Ayz(n-1) + RateAyz(n) * T
+</code></pre><p>Ok so now we have Axz(n) and Ayz(n). Where do we go from here to deduct RxGyro/RyGyro ? We can write the length of vector Rgyro as follows:</p>
+<pre><code>|Rgyro| = SQRT(RxGyro^2 + RyGyro^2 + RzGyro^2)
+</code></pre><p>Also because we normalized our Racc vector, we may assume that it&#39;s length is 1 and it hasn&#39;t changed after the rotation, so it is relatively safe to write:</p>
+<pre><code>|Rgyro| = 1
+</code></pre><p><em>Let&#39;s adopt a temporary shorter notation for the calculations below:</em></p>
+<pre><code>x =RxGyro , y=RyGyro, z=RzGyro
+</code></pre><p>Using the relations above we can write:</p>
+<pre><code>x = x / 1 = x / SQRT(x^2+y^2+z^2)
+</code></pre><p>Let&#39;s divide numerator and denominator of fraction by <code>SQRT(x^2 + z^2)</code></p>
+<pre><code>x = ( x / SQRT(x^2 + z^2) ) / SQRT( (x^2 + y^2 + z^2) / (x^2 + z^2) )
+</code></pre><p>Note that <code>x / SQRT(x^2 + z^2) = sin(Axz)</code>, so:</p>
+<pre><code>x = sin(Axz) / SQRT (1 + y^2 / (x^2 + z^2) )
+</code></pre><p>Now multiply numerator and denominator of fraction inside <code>SQRT</code> by <code>z^2</code>:</p>
+<pre><code>x = sin(Axz) / SQRT (1 + y^2  * z ^2 / (z^2 * (x^2 + z^2)) )
+</code></pre><p>Note that <code>z / SQRT(x^2 + z^2) = cos(Axz)</code> and <code>y / z = tan(Ayz)</code>, so finally:</p>
+<pre><code>x = sin(Axz) / SQRT (1 + cos(Axz)^2 * tan(Ayz)^2 )
+</code></pre><p>Going back to our notation we get:</p>
+<pre><code>RxGyro = sin(Axz(n)) / SQRT (1 + cos(Axz(n))^2 * tan(Ayz(n))^2 )
+</code></pre><p>same way we find that</p>
+<pre><code>RyGyro = sin(Ayz(n)) / SQRT (1 + cos(Ayz(n))^2 * tan(Axz(n))^2 )
+`
+</code></pre><hr>
+<p><em>Side Note</em>: it is possible to further simplify this formula. By dividing both parts of the fraction by <code>sin(Axz(n))</code> you get:</p>
+<pre><code>RxGyro =  1  / SQRT (1/ sin(Axz(n))^2  + cos(Axz(n))^2 / sin(Axz(n))^2  * tan(Ayz(n))^2 )
+RxGyro =  1  / SQRT (1/ sin(Axz(n))^2  + cot(Axz(n))^2  * sin(Ayz(n))^2  / cos(Ayz(n))^2 )
+</code></pre><p>now add and substract     <code>cos(Axz(n))^2/sin(Axz(n))^2   = cot(Axz(n))^2</code></p>
+<pre><code>RxGyro =  1  / SQRT (1/ sin(Axz(n))^2  -  cos(Axz(n))^2/sin(Axz(n))^2   + cot(Axz(n))^2  * sin(Ayz(n))^2  / cos(Ayz(n))^2  + cot(Axz(n))^2 )
+</code></pre><p>and by grouping  terms 1&amp;2 and then 3&amp;4  we get:</p>
+<pre><code>RxGyro =  1  / SQRT (1  +   cot(Axz(n))^2 * sec(Ayz(n))^2 )
+</code></pre><p>where  <code>cot(x) = 1 / tan(x)</code>  and  <code>sec(x) = 1 / cos(x)</code>
+This formula uses only 2 trigonometric functions and can be computationally less expensive. If you have Mathematica program you can verify it
+by evaluating</p>
+<pre><code>FullSimplify [Sin[A]^2/ ( 1 + Cos[A]^2  * Tan[B]^2)]
+</code></pre><hr>
+<p>Now, finally we can find:</p>
+<pre><code>RzGyro  =  Sign(RzGyro)*SQRT(1 – RxGyro^2 – RyGyro^2).
+</code></pre><p>Where <code>Sign(RzGyro) = 1</code> when <code>RzGyro&gt;=0</code> , and <code>Sign(RzGyro) = -1</code> when <code>RzGyro&lt;0</code>.</p>
+<p>One simple way to estimate this is to take:</p>
+<pre><code>Sign(RzGyro) = Sign(RzEst(n-1))
+</code></pre><p>In practice be careful when <code>RzEst(n-1)</code> is close to <code>0</code>. You may skip the gyro phase altogether in this case and assign:  <code>Rgyro = Rest(n-1)</code>. <code>Rz</code> is used as a reference for calculating $Axz$ and $Ayz$ angles and when it&#39;s close to <code>0</code>, values may overflow and trigger bad results. You&#39;ll be in domain of large floating point numbers where <code>tan() / atan()</code> function implementations may lack precision.</p>
+<p>So let&#39;s recap what we have so far, we are at step n of our algorithm and we have calculated the following values:</p>
+<ul>
+<li>$Racc$ – current readings from our accelerometer</li>
+<li>$Rgyro$ – obtained from Rest(n-1) and current gyroscope readings</li>
+</ul>
+<p>Which values do we use to calculate the updated estimate <code>Rest(n)</code>? You probably guessed that we&#39;ll use both. We&#39;ll use a weighted average, so that:</p>
+<pre><code>Rest(n) = (Racc * w1 + Rgyro * w2 ) / (w1 + w2)
+</code></pre><p>We can simplify this formula by dividing both numerator and denominator of the fraction by <code>w1</code>.</p>
+<pre><code>Rest(n) = (Racc * w1/w1 + Rgyro * w2/w1 ) / (w1/w1 + w2/w1)
+</code></pre><p>and after substituting <code>w2/w1 = wGyro</code> we get:</p>
+<pre><code>Rest(n) = (Racc + Rgyro * wGyro ) / (1 + wGyro)
+</code></pre><p>In the above formula <code>wGyro</code> tells us how much we trust our gyro compared to our accelerometer. This value can be chosen experimentally usually values between <code>5..20</code> will trigger good results.</p>
+<p><strong>The main difference of this algorithm from Kalman filter is that this weight is relatively fixed, whereas in Kalman filter the weights are permanently updated based on the measured noise of the accelerometer readings. Kalman filter is focused at giving you &quot;the best&quot; theoretical results, whereas this algorithm can give you results &quot;good enough&quot; for your practical application. You can implement an algorithm that adjusts <code>wGyro</code> depending on some noise factors that you measure, but fixed values will work well for most applications.</strong></p>
+<p>We are one step away from getting our updated estimated values:</p>
+<pre><code>RxEst(n) = (RxAcc + RxGyro * wGyro ) / (1 + wGyro)
+RyEst(n) = (RyAcc + RyGyro * wGyro ) / (1 + wGyro)
+RzEst(n) = (RzAcc + RzGyro * wGyro ) / (1 + wGyro)
+</code></pre><p>Now let&#39;s  normalize this vector again:</p>
+<pre><code>R = SQRT(RxEst(n) ^2 + RyEst(n)^2 +  RzEst(n)^2 )
+</code></pre><pre><code>RxEst(n) = RxEst(n)/R
+RyEst(n) = RyEst(n)/R
+RzEst(n) = RzEst(n)/R
+</code></pre><p>And we&#39;re ready to repeat our loop as many times as needed ;).</p>
+<h3 id="sources-">Sources:</h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Attitude_and_heading_reference_system" target="_blank">Attitude and heading reference system - Wikipedia</a></li>
+<li><a href="http://www.starlino.com/imu_guide.html" target="_blank">A Guide To using IMU (Accelerometer and Gyroscope Devices) in Embedded Applications</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/drones-discuss/R2u0j-QCUe8" target="_blank">BeaglePilot attitude issue</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../beaglepilot/beaglepilottasks.html" class="navigation navigation-prev " aria-label="Previous page: BeaglePilot tasks"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../beaglepilot/ahrs_in_beaglepilot.html" class="navigation navigation-next " aria-label="Next page: AHRS in BeaglePilot"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

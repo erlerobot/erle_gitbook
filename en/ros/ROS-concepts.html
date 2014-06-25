@@ -1,0 +1,885 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Concepts | Erle Robotics GitBook</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="erlerobot">
+    
+    
+    <link rel="next" href="../ros/rostechnicaloverview.html" />
+    
+    
+    <link rel="prev" href="../ros/ROS.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="7.1" data-basepath=".." data-revision="1403708638783">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/pulls" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basics/README.html">
+            
+            <a href="../basics/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Basics
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="software/software.html">
+            
+            <a href="../software/software.html">
+                <i class="fa fa-check"></i> <b>2.</b> Software
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="software/linux.html">
+            
+            <a href="../software/linux.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="software/Autopilot.html">
+            
+            <a href="../software/Autopilot.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="software/ros-intro.html">
+            
+            <a href="../software/ros-intro.html">
+                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="hardware/Hardware.html">
+            
+            <a href="../hardware/Hardware.html">
+                <i class="fa fa-check"></i> <b>3.</b> Hardware
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="hardware/Processor.html">
+            
+            <a href="../hardware/Processor.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="hardware/Memory.html">
+            
+            <a href="../hardware/Memory.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="hardware/Systempower.html">
+            
+            <a href="../hardware/Systempower.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="hardware/Current.html">
+            
+            <a href="../hardware/Current.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="hardware/usb.html">
+            
+            <a href="../hardware/usb.html">
+                <i class="fa fa-check"></i> <b>3.5.</b> USB
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="hardware/EEPROM.html">
+            
+            <a href="../hardware/EEPROM.html">
+                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="hardware/adc.html">
+            
+            <a href="../hardware/adc.html">
+                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="hardware/IO.html">
+            
+            <a href="../hardware/IO.html">
+                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="hardware/sensors.html">
+            
+            <a href="../hardware/sensors.html">
+                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="hardware/HardwareMap.html">
+            
+            <a href="../hardware/HardwareMap.html">
+                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="beaglepilot/BeaglePilot.html">
+            
+            <a href="../beaglepilot/BeaglePilot.html">
+                <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="beaglepilot/SimpleAutopilot.html">
+            
+            <a href="../beaglepilot/SimpleAutopilot.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="beaglepilot/beaglepilottasks.html">
+            
+            <a href="../beaglepilot/beaglepilottasks.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="beaglepilot/attitude_heading_reference_system.html">
+            
+            <a href="../beaglepilot/attitude_heading_reference_system.html">
+                <i class="fa fa-check"></i> <b>4.3.</b> Attitude Heading Reference System
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="beaglepilot/ahrs_in_beaglepilot.html">
+            
+            <a href="../beaglepilot/ahrs_in_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.3.1.</b> AHRS in BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="beaglepilot/beaglepilottutorials.html">
+            
+            <a href="../beaglepilot/beaglepilottutorials.html">
+                <i class="fa fa-check"></i> <b>4.4.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+            
+            <a href="../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.4.1.</b> Installing and Configuring BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="mavlink/mavlink.html">
+            
+            <a href="../mavlink/mavlink.html">
+                <i class="fa fa-check"></i> <b>5.</b> MAVLink
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="mavlink/mavlinkaction.html">
+            
+            <a href="../mavlink/mavlinkaction.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> mavlink in action
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="mavlink/mavlinkros.html">
+            
+            <a href="../mavlink/mavlinkros.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> ROS integration
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="mavlink/ros/mavlink_ros.html">
+            
+            <a href="../mavlink/ros/mavlink_ros.html">
+                <i class="fa fa-check"></i> <b>5.2.1.</b> mavlink_ros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="mavlink/ros/autopilot_bridge.html">
+            
+            <a href="../mavlink/ros/autopilot_bridge.html">
+                <i class="fa fa-check"></i> <b>5.2.2.</b> autopilot_bridge
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="mavlink/ros/mavros.html">
+            
+            <a href="../mavlink/ros/mavros.html">
+                <i class="fa fa-check"></i> <b>5.2.3.</b> mavros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="mavlink/ros/roscopter.html">
+            
+            <a href="../mavlink/ros/roscopter.html">
+                <i class="fa fa-check"></i> <b>5.2.4.</b> roscopter
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="mavlink/creating_a_mavlink_message.html">
+            
+            <a href="../mavlink/creating_a_mavlink_message.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Creating a MAVLink message
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="mavproxy/mavproxy.html">
+            
+            <a href="../mavproxy/mavproxy.html">
+                <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ros/ROS.html">
+            
+            <a href="../ros/ROS.html">
+                <i class="fa fa-check"></i> <b>7.</b> ROS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ros/ROS-concepts.html">
+            
+            <a href="../ros/ROS-concepts.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="ros/rostechnicaloverview.html">
+            
+            <a href="../ros/rostechnicaloverview.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="ros/rostutorials.html">
+            
+            <a href="../ros/rostutorials.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.3.1" data-path="ros/tutorials/rosinstall.html">
+            
+            <a href="../ros/tutorials/rosinstall.html">
+                <i class="fa fa-check"></i> <b>7.3.1.</b> Installing and Configuring Your ROS Environment
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.2" data-path="ros/tutorials/rosnavigating.html">
+            
+            <a href="../ros/tutorials/rosnavigating.html">
+                <i class="fa fa-check"></i> <b>7.3.2.</b> Navigating the ROS Filesystem
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.3" data-path="ros/tutorials/creating_a_ros_package.html">
+            
+            <a href="../ros/tutorials/creating_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.3.</b> Creating a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.4" data-path="ros/tutorials/building_a_ros_package.html">
+            
+            <a href="../ros/tutorials/building_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.4.</b> Building a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.5" data-path="ros/tutorials/understanding_ros_nodes.html">
+            
+            <a href="../ros/tutorials/understanding_ros_nodes.html">
+                <i class="fa fa-check"></i> <b>7.3.5.</b> Understanding ROS Nodes
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.6" data-path="ros/tutorials/understanding_ros_topics.html">
+            
+            <a href="../ros/tutorials/understanding_ros_topics.html">
+                <i class="fa fa-check"></i> <b>7.3.6.</b> Understanding ROS Topics
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="tutorials/Tutorials.html">
+            
+            <a href="../tutorials/Tutorials.html">
+                <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="tutorials/Blink.html">
+            
+            <a href="../tutorials/Blink.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="tutorials/Blink2.html">
+            
+            <a href="../tutorials/Blink2.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 75.55555555555556%;min-width: 73.33333333333333%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 2.2222222222222223%;"></a>
+    
+        <a href="../software/software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 4.444444444444445%;"></a>
+    
+        <a href="../software/linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 6.666666666666667%;"></a>
+    
+        <a href="../software/Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 8.88888888888889%;"></a>
+    
+        <a href="../software/ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../hardware/Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 13.333333333333334%;"></a>
+    
+        <a href="../hardware/Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 15.555555555555555%;"></a>
+    
+        <a href="../hardware/HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 17.77777777777778%;"></a>
+    
+        <a href="../hardware/Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 20%;"></a>
+    
+        <a href="../hardware/Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../hardware/Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 24.444444444444443%;"></a>
+    
+        <a href="../hardware/usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 26.666666666666668%;"></a>
+    
+        <a href="../hardware/EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 28.88888888888889%;"></a>
+    
+        <a href="../hardware/adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 31.11111111111111%;"></a>
+    
+        <a href="../hardware/IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../hardware/sensors.html" title="Sensors" class="chapter done " data-progress="3.9" style="left: 35.55555555555556%;"></a>
+    
+        <a href="../beaglepilot/BeaglePilot.html" title="BeaglePilot" class="chapter done new-chapter" data-progress="4" style="left: 37.77777777777778%;"></a>
+    
+        <a href="../beaglepilot/SimpleAutopilot.html" title="A simplified autopilot" class="chapter done " data-progress="4.1" style="left: 40%;"></a>
+    
+        <a href="../beaglepilot/beaglepilottasks.html" title="BeaglePilot tasks" class="chapter done " data-progress="4.2" style="left: 42.22222222222222%;"></a>
+    
+        <a href="../beaglepilot/attitude_heading_reference_system.html" title="Attitude Heading Reference System" class="chapter done " data-progress="4.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../beaglepilot/ahrs_in_beaglepilot.html" title="AHRS in BeaglePilot" class="chapter done " data-progress="4.3.1" style="left: 46.666666666666664%;"></a>
+    
+        <a href="../beaglepilot/beaglepilottutorials.html" title="Tutorials " class="chapter done " data-progress="4.4" style="left: 48.888888888888886%;"></a>
+    
+        <a href="../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html" title="Installing and Configuring BeaglePilot" class="chapter done " data-progress="4.4.1" style="left: 51.111111111111114%;"></a>
+    
+        <a href="../mavlink/mavlink.html" title="MAVLink" class="chapter done new-chapter" data-progress="5" style="left: 53.333333333333336%;"></a>
+    
+        <a href="../mavlink/mavlinkaction.html" title="mavlink in action" class="chapter done " data-progress="5.1" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../mavlink/mavlinkros.html" title="ROS integration" class="chapter done " data-progress="5.2" style="left: 57.77777777777778%;"></a>
+    
+        <a href="../mavlink/ros/mavlink_ros.html" title="mavlink_ros" class="chapter done " data-progress="5.2.1" style="left: 60%;"></a>
+    
+        <a href="../mavlink/ros/autopilot_bridge.html" title="autopilot_bridge" class="chapter done " data-progress="5.2.2" style="left: 62.22222222222222%;"></a>
+    
+        <a href="../mavlink/ros/mavros.html" title="mavros" class="chapter done " data-progress="5.2.3" style="left: 64.44444444444444%;"></a>
+    
+        <a href="../mavlink/ros/roscopter.html" title="roscopter" class="chapter done " data-progress="5.2.4" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../mavlink/creating_a_mavlink_message.html" title="Creating a MAVLink message" class="chapter done " data-progress="5.3" style="left: 68.88888888888889%;"></a>
+    
+        <a href="../mavproxy/mavproxy.html" title="MAVProxy" class="chapter done new-chapter" data-progress="6" style="left: 71.11111111111111%;"></a>
+    
+        <a href="../ros/ROS.html" title="ROS" class="chapter done new-chapter" data-progress="7" style="left: 73.33333333333333%;"></a>
+    
+        <a href="../ros/ROS-concepts.html" title="Concepts" class="chapter done " data-progress="7.1" style="left: 75.55555555555556%;"></a>
+    
+        <a href="../ros/rostechnicaloverview.html" title="Technical Overview" class="chapter  " data-progress="7.2" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../ros/rostutorials.html" title="Tutorials " class="chapter  " data-progress="7.3" style="left: 80%;"></a>
+    
+        <a href="../ros/tutorials/rosinstall.html" title="Installing and Configuring Your ROS Environment" class="chapter  " data-progress="7.3.1" style="left: 82.22222222222223%;"></a>
+    
+        <a href="../ros/tutorials/rosnavigating.html" title="Navigating the ROS Filesystem" class="chapter  " data-progress="7.3.2" style="left: 84.44444444444444%;"></a>
+    
+        <a href="../ros/tutorials/creating_a_ros_package.html" title="Creating a ROS Package" class="chapter  " data-progress="7.3.3" style="left: 86.66666666666667%;"></a>
+    
+        <a href="../ros/tutorials/building_a_ros_package.html" title="Building a ROS Package" class="chapter  " data-progress="7.3.4" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../ros/tutorials/understanding_ros_nodes.html" title="Understanding ROS Nodes" class="chapter  " data-progress="7.3.5" style="left: 91.11111111111111%;"></a>
+    
+        <a href="../ros/tutorials/understanding_ros_topics.html" title="Understanding ROS Topics" class="chapter  " data-progress="7.3.6" style="left: 93.33333333333333%;"></a>
+    
+        <a href="../tutorials/Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 95.55555555555556%;"></a>
+    
+        <a href="../tutorials/Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 97.77777777777777%;"></a>
+    
+        <a href="../tutorials/Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4063">
+                    
+                        <h1 id="ros-concepts">ROS: Concepts</h1>
+<p>ROS has three levels of concepts: the <strong>Filesystem level</strong>, the <strong>Computation Graph level</strong>, and the <strong>Community level</strong>. These levels and concepts are summarized below and later sections go into each of these in greater detail.</p>
+<p>In addition to the three levels of concepts, ROS also defines two types of names: <strong>Package Resource Names</strong> and <strong>Graph Resource Names</strong>, also discussed below.</p>
+<h3 id="filesystem-level">Filesystem level</h3>
+<p>The filesystem level concepts mainly cover ROS resources that you encounter on disk, such as:</p>
+<ul>
+<li><strong>Packages</strong>: Packages are the main unit for organizing software in ROS. A package may contain ROS runtime processes (nodes), a ROS-dependent library, datasets, configuration files, or anything else that is usefully organized together. Packages are the most atomic build item and release item in ROS. Meaning that the most granular thing you can build and release is a package.</li>
+<li><strong>Metapackages</strong>: Metapackages are specialized Packages which only serve to represent a group of related other packages. Most commonly metapackages are used as a backwards compatible place holder for converted rosbuild Stacks.</li>
+<li><strong>Package Manifests</strong>: Manifests (package.xml) provide metadata about a package, including its name, version, description, license information, dependencies, and other meta information like exported packages. The package.xml package manifest is defined in REP-0127.</li>
+<li><strong>Repositories</strong>: A collection of packages which share a common VCS system. Packages which share a VCS share the same version and can be released together using the catkin release automation tool bloom. Often these repositories will map to converted rosbuild Stacks. Repositories can also contain only one package.</li>
+<li><strong>Message (msg) types</strong>: Message descriptions, stored in my_package/msg/MyMessageType.msg, define the data structures for messages sent in ROS.</li>
+<li><strong>Service (srv) types</strong>: Service descriptions, stored in my_package/srv/MyServiceType.srv, define the request and response data structures for services in ROS.</li>
+</ul>
+<h3 id="computation-graph-level">Computation Graph level</h3>
+<p>The Computation Graph is the peer-to-peer network of ROS processes that are processing data together. The basic Computation Graph concepts of ROS are <em>nodes</em>, <em>Master</em>, <em>Parameter Server</em>, <em>messages</em>, <em>services</em>, <em>topics</em>, and <em>bags</em>, all of which provide data to the Graph in different ways.</p>
+<p>These concepts are implemented in the <a href="http://wiki.ros.org/ros_comm" target="_blank">ros_comm</a> repository.</p>
+<ul>
+<li><a href="http://wiki.ros.org/Nodes" target="_blank"><strong>Nodes</strong></a>: Nodes are processes that perform computation. ROS is designed to be modular at a fine-grained scale; a robot control system usually comprises many nodes. For example, one node controls a laser range-finder, one node controls the wheel motors, one node performs localization, one node performs path planning, one Node provides a graphical view of the system, and so on. A ROS node is written with the use of a ROS <a href="http://wiki.ros.org/Client%20Libraries" target="_blank">client library</a>, such as <a href="http://wiki.ros.org/roscpp" target="_blank">roscpp</a> or <a href="http://wiki.ros.org/rospy" target="_blank">rospy</a>.</li>
+<li><a href="http://wiki.ros.org/Master" target="_blank"><strong>Master</strong></a>: The ROS Master provides name registration and lookup to the rest of the Computation Graph. Without the Master, nodes would not be able to find each other, exchange messages, or invoke services.</li>
+<li><a href="http://wiki.ros.org/Parameter%20Server" target="_blank"><strong>Parameter Server</strong></a>: The Parameter Server allows data to be stored by key in a central location. It is currently part of the Master.</li>
+<li><a href="http://wiki.ros.org/Messages" target="_blank"><strong>Messages</strong></a>: Nodes communicate with each other by passing <a href="http://wiki.ros.org/Messages" target="_blank">messages</a>. A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating point, boolean, etc.) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays (much like C structs).</li>
+<li><p><a href="http://wiki.ros.org/Topics" target="_blank"><strong>Topics</strong></a>: Messages are routed via a transport system with publish / subscribe semantics. A node sends out a message by publishing it to a given <a href="http://wiki.ros.org/Topics" target="_blank">topic</a>. The topic is a <a href="http://wiki.ros.org/Names" target="_blank">name</a> that is used to identify the content of the message. A node that is interested in a certain kind of data will subscribe to the appropriate topic. There may be multiple concurrent publishers and subscribers for a single topic, and a single node may publish and/or subscribe to multiple topics. In general, publishers and subscribers are not aware of each others&#39; existence. The idea is to decouple the production of information from its consumption. Logically, one can think of a topic as a strongly typed message bus. Each bus has a name, and anyone can connect to the bus to send or receive messages as long as they are the right type.
+<img src="http://ros.org/images/wiki/ROS_basic_concepts.png" alt=""></p>
+</li>
+<li><p><a href="http://wiki.ros.org/Services" target="_blank"><strong>Services</strong></a>: The publish / subscribe model is a very flexible communication paradigm, but its many-to-many, one-way transport is not appropriate for request / reply interactions, which are often required in a distributed system. Request / reply is done via services, which are defined by a pair of message structures: one for the request and one for the reply. A providing node offers a service under a name and a client uses the service by sending the request message and awaiting the reply. ROS client libraries generally present this interaction to the programmer as if it were a remote procedure call.</p>
+</li>
+<li><a href="http://wiki.ros.org/Bags" target="_blank"><strong>Bags</strong></a>: Bags are a format for saving and playing back ROS message data. Bags are an important mechanism for storing data, such as sensor data, that can be difficult to collect but is necessary for developing and testing algorithms.</li>
+</ul>
+<p>The ROS Master acts as a nameservice in the ROS Computation Graph. It stores topics and services registration information for ROS nodes. Nodes communicate with the Master to report their registration information. As these nodes communicate with the Master, they can receive information about other registered nodes and make connections as appropriate. The Master will also make callbacks to these nodes when this registration information changes, which allows nodes to dynamically create connections as new nodes are run.</p>
+<p>Nodes connect to other nodes directly; the Master only provides lookup information, much like a DNS server. Nodes that subscribe to a topic will request connections from nodes that publish that topic, and will establish that connection over an agreed upon connection protocol. The most common protocol used in a ROS is called <a href="http://wiki.ros.org/ROS/TCPROS" target="_blank">TCPROS</a>, which uses standard TCP/IP sockets.</p>
+<p>This architecture allows for decoupled operation, where the names are the primary means by which larger and more complex systems can be built. Names have a very important role in ROS: nodes, topics, services, and parameters all have names. Every ROS client library supports <a href="http://wiki.ros.org/Remapping%20Arguments" target="_blank">command-line remapping of names</a>, which means a compiled program can be reconfigured at runtime to operate in a different Computation Graph topology.</p>
+<hr>
+<p>For example, to control a Hokuyo laser range-finder, we can start the hokuyo_node driver, which talks to the laser and publishes sensor_msgs/LaserScan messages on the scan topic. To process that data, we might write a node using laser_filters that subscribes to messages on the scan topic. After subscription, our filter would automatically start receiving messages from the laser.</p>
+<p>Note how the two sides are decoupled. All the hokuyo_node node does is publish scans, without knowledge of whether anyone is subscribed. All the filter does is subscribe to scans, without knowledge of whether anyone is publishing them. The two nodes can be started, killed, and restarted, in any order, without inducing any error conditions.</p>
+<p>Later we might add another laser to our robot, so we need to reconfigure our system. All we need to do is remap the names that are used. When we start our first hokuyo_node, we could tell it instead to remap scan to base_scan, and do the same with our filter node. Now, both of these nodes will communicate using the base_scan topic instead and not hear messages on the scan topic. Then we can just start another hokuyo_node for the new laser range finder.</p>
+<h3 id="community-level">Community level</h3>
+<p>The ROS Community Level concepts are ROS resources that enable separate communities to exchange software and knowledge. These resources include:</p>
+<ul>
+<li><a href="http://wiki.ros.org/Distributions" target="_blank"><strong>Distributions</strong></a>: ROS Distributions are collections of versioned stacks that you can install. Distributions play a similar role to Linux distributions: they make it easier to install a collection of software, and they also maintain consistent versions across a set of software.</li>
+<li><a href="http://wiki.ros.org/Repositories" target="_blank"><strong>Repositories</strong></a>: ROS relies on a federated network of code repositories, where different institutions can develop and release their own robot software components.</li>
+<li><a href="http://wiki.ros.org/Documentation" target="_blank"><strong>The ROS Wiki</strong></a>: The ROS community Wiki is the main forum for documenting information about ROS. Anyone can sign up for an account and contribute their own documentation, provide corrections or updates, write tutorials, and more.</li>
+<li><strong>Bug Ticket System</strong>: Please see <a href="http://wiki.ros.org/Tickets" target="_blank">Tickets</a> for information about file tickets.</li>
+<li><a href="http://wiki.ros.org/Mailing%20Lists" target="_blank"><strong>Mailing Lists</strong></a>: The ros-users mailing list is the primary communication channel about new updates to ROS, as well as a forum to ask questions about ROS software.</li>
+<li><a href="http://answers.ros.org/" target="_blank"><strong>ROS Answers</strong></a>: A Q&amp;A site for answering your ROS-related questions.</li>
+<li><a href="http://www.willowgarage.com/blog" target="_blank"><strong>Blog</strong></a>: The <a href="http://www.willowgarage.com/blog" target="_blank">Willow Garage Blog</a> provides regular updates, including photos and videos.</li>
+</ul>
+<h3 id="naming">Naming</h3>
+<h4 id="graph-resource-names">Graph Resource Names</h4>
+<p>Graph Resource Names provide a hierarchical naming structure that is used for all resources in a ROS Computation Graph, such as Nodes, Parameters, Topics, and Services. These names are very powerful in ROS and central to how larger and more complicated systems are composed in ROS, so it is critical to understand how these names work and how you can manipulate them.</p>
+<p>Before we describe names further, here are some example names:</p>
+<ul>
+<li>/ (the global namespace)</li>
+<li>/foo</li>
+<li>/stanford/robot/name</li>
+<li>/wg/node1</li>
+</ul>
+<p>Graph Resource Names are an important mechanism in ROS for providing encapsulation. Each resource is defined within a namespace, which it may share with many other resources. In general, resources can create resources within their namespace and they can access resources within or above their own namespace. Connections can be made between resources in distinct namespaces, but this is generally done by integration code above both namespaces. This encapsulation isolates different portions of the system from accidentally grabbing the wrong named resource or globally hijacking names.</p>
+<p>Names are resolved relatively, so resources do not need to be aware of which namespace they are in. This simplifies programming as nodes that work together can be written as if they are all in the top-level namespace. When these Nodes are integrated into a larger system, they can be pushed down into a namespace that defines their collection of code. For example, one could take a Stanford demo and a Willow Garage demo and merge them into a new demo with stanford and wg subgraphs. If both demos had a Node named &#39;camera&#39;, they would not conflict. Tools (e.g. graph visualization) as well as parameters (e.g. demo_name) that need to be visible to the entire graph can be created by top-level Nodes.</p>
+<h5 id="valid-names">Valid Names</h5>
+<p>A valid name has the following characteristics:</p>
+<ol>
+<li>First character is an alpha character ([a-z|A-Z]), tilde (~) or forward slash (/)</li>
+<li>Subsequent characters can be alphanumeric ([0-9|a-z|A-Z]), underscores (_), or forward slashes (/)</li>
+</ol>
+<hr>
+<p><strong>Exception</strong>: base names (described below) cannot have forward slashes (/) or tildes (~) in them.</p>
+<hr>
+<h5 id="resolving">Resolving</h5>
+<p>There are four types of Graph Resource Names in ROS: base, relative, global, and private, which have the following syntax:</p>
+<ul>
+<li>base</li>
+<li>relative/name</li>
+<li>/global/name</li>
+<li>~private/name</li>
+</ul>
+<p>By default, resolution is done relative to the node&#39;s namespace. For example, the node <code>/wg/node1</code> has the namespace <code>/wg</code>, so the name node2 will resolve to <code>/wg/node2</code>.</p>
+<p>Names with no namespace qualifiers whatsoever are base names. Base names are actually a subclass of relative names and have the same resolution rules. Base names are most frequently used to initialize the node name.</p>
+<p>Names that start with a &quot;/&quot; are global -- they are considered fully resolved. <em>Global names should be avoided as much as possible as they limit code portability</em>.</p>
+<p>Names that start with a &quot;~&quot; are private. They convert the node&#39;s name into a namespace. For example, node1 in namespace <code>/wg/</code> has the private namespace <code>/wg/node1</code>. Private names are useful for passing parameters to a specific node via the parameter server.</p>
+<p>Here are some name resolution examples:</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Relative (default)</th>
+<th>Global</th>
+<th>Private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/node1</code></td>
+<td><code>bar -&gt; /bar</code></td>
+<td><code>/bar -&gt; /bar</code></td>
+<td><code>~bar -&gt; /node1/bar</code></td>
+</tr>
+<tr>
+<td><code>/wg/node2</code></td>
+<td><code>bar -&gt; /wg/bar</code></td>
+<td><code>/bar -&gt; /bar</code></td>
+<td><code>~bar -&gt; /wg/node2/bar</code></td>
+</tr>
+<tr>
+<td><code>/wg/node3</code></td>
+<td><code>foo/bar -&gt; /wg/foo/bar</code></td>
+<td><code>/foo/bar -&gt; /foo/bar</code></td>
+<td><code>~foo/bar -&gt; /wg/node3/foo/bar</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="remapping">Remapping</h5>
+<p>Any name within a ROS Node can be remapped when the Node is launched at the command-line. For more information on this feature, see <a href="http://wiki.ros.org/Remapping%20Arguments" target="_blank">Remapping Arguments</a>.</p>
+<h4 id="package-resource-names">Package Resource Names</h4>
+<p>Package Resource Names are used in ROS with Filesystem-Level concepts to simplify the process of referring to files and data types on disk. Package Resource Names are very simple: they are just the name of the Package that the resource is in plus the name of the resource. For example, the name <code>std_msgs/String</code> refers to the &quot;String&quot; message type in the &quot;std_msgs&quot; Package.</p>
+<p>Some of the ROS-related files that may be referred to using Package Resource Names include:</p>
+<ul>
+<li><a href="http://wiki.ros.org/msg" target="_blank">Message (msg) types</a></li>
+<li><a href="http://wiki.ros.org/srv" target="_blank">Service (srv) types</a></li>
+<li><a href="http://wiki.ros.org/Nodes" target="_blank">Node types</a></li>
+</ul>
+<p>Package Resource Names are very similar to file paths, except they are much shorter. This is due to the ability of ROS to locate Packages on disk and make additional assumptions about their contents. For example, Message descriptions are always stored in the <code>msg</code> subdirectory and have the <code>.msg</code> extension, so <code>std_msgs/String</code> is shorthand for <code>path/to/std_msgs/msg/String.msg</code>. Similarly, the Node type <code>foo/bar</code> is equivalent to searching for a file named <code>bar</code> in Package <code>foo</code> with executable permissions.</p>
+<h5 id="valid-names">Valid Names</h5>
+<p>Package Resource Names have strict naming rules as they are often used in auto-generated code. For this reason, a ROS package cannot have special characters other than an underscore, and they must start with an alphabetical character. A valid name has the following characteristics:</p>
+<ol>
+<li>First character is an alpha character ([a-z|A-Z])</li>
+<li>Subsequent characters can be alphanumeric ([0-9|a-z|A-Z]), underscores (_) or a forward slash (/)</li>
+<li>There is at most one forward slash (&#39;/&#39;).</li>
+</ol>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../ros/ROS.html" class="navigation navigation-prev " aria-label="Previous page: ROS"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../ros/rostechnicaloverview.html" class="navigation navigation-next " aria-label="Next page: Technical Overview"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

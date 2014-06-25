@@ -1,0 +1,785 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Understanding ROS Topics | Erle Robotics GitBook</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="erlerobot">
+    
+    
+    <link rel="next" href="../../tutorials/Tutorials.html" />
+    
+    
+    <link rel="prev" href="../../ros/tutorials/understanding_ros_nodes.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="erlerobot/erle_gitbook" data-level="7.3.6" data-basepath="../.." data-revision="1403708638783">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/erlerobot/erle_gitbook" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/erlerobot/erle_gitbook/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/erlerobot/erle_gitbook/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../../" >Erle Robotics GitBook</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/erlerobot/erle_gitbook/pulls" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basics/README.html">
+            
+            <a href="../../basics/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Basics
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="software/software.html">
+            
+            <a href="../../software/software.html">
+                <i class="fa fa-check"></i> <b>2.</b> Software
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="software/linux.html">
+            
+            <a href="../../software/linux.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> Linux
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="software/Autopilot.html">
+            
+            <a href="../../software/Autopilot.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="software/ros-intro.html">
+            
+            <a href="../../software/ros-intro.html">
+                <i class="fa fa-check"></i> <b>2.3.</b> Robot Operative System (ROS)
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="hardware/Hardware.html">
+            
+            <a href="../../hardware/Hardware.html">
+                <i class="fa fa-check"></i> <b>3.</b> Hardware
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="hardware/Processor.html">
+            
+            <a href="../../hardware/Processor.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Processor
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="hardware/Memory.html">
+            
+            <a href="../../hardware/Memory.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Memory
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="hardware/Systempower.html">
+            
+            <a href="../../hardware/Systempower.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> System Power
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="hardware/Current.html">
+            
+            <a href="../../hardware/Current.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Current Measurement
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="hardware/usb.html">
+            
+            <a href="../../hardware/usb.html">
+                <i class="fa fa-check"></i> <b>3.5.</b> USB
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="hardware/EEPROM.html">
+            
+            <a href="../../hardware/EEPROM.html">
+                <i class="fa fa-check"></i> <b>3.6.</b> EEPROM
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="hardware/adc.html">
+            
+            <a href="../../hardware/adc.html">
+                <i class="fa fa-check"></i> <b>3.7.</b> ADC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="hardware/IO.html">
+            
+            <a href="../../hardware/IO.html">
+                <i class="fa fa-check"></i> <b>3.8.</b> I/O
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="hardware/sensors.html">
+            
+            <a href="../../hardware/sensors.html">
+                <i class="fa fa-check"></i> <b>3.9.</b> Sensors
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="hardware/HardwareMap.html">
+            
+            <a href="../../hardware/HardwareMap.html">
+                <i class="fa fa-check"></i> <b>3.10.</b> Hardware Map
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="beaglepilot/BeaglePilot.html">
+            
+            <a href="../../beaglepilot/BeaglePilot.html">
+                <i class="fa fa-check"></i> <b>4.</b> BeaglePilot
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="beaglepilot/SimpleAutopilot.html">
+            
+            <a href="../../beaglepilot/SimpleAutopilot.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> A simplified autopilot
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="beaglepilot/beaglepilottasks.html">
+            
+            <a href="../../beaglepilot/beaglepilottasks.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> BeaglePilot tasks
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="beaglepilot/attitude_heading_reference_system.html">
+            
+            <a href="../../beaglepilot/attitude_heading_reference_system.html">
+                <i class="fa fa-check"></i> <b>4.3.</b> Attitude Heading Reference System
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="beaglepilot/ahrs_in_beaglepilot.html">
+            
+            <a href="../../beaglepilot/ahrs_in_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.3.1.</b> AHRS in BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="beaglepilot/beaglepilottutorials.html">
+            
+            <a href="../../beaglepilot/beaglepilottutorials.html">
+                <i class="fa fa-check"></i> <b>4.4.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+            
+            <a href="../../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html">
+                <i class="fa fa-check"></i> <b>4.4.1.</b> Installing and Configuring BeaglePilot
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="mavlink/mavlink.html">
+            
+            <a href="../../mavlink/mavlink.html">
+                <i class="fa fa-check"></i> <b>5.</b> MAVLink
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="mavlink/mavlinkaction.html">
+            
+            <a href="../../mavlink/mavlinkaction.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> mavlink in action
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="mavlink/mavlinkros.html">
+            
+            <a href="../../mavlink/mavlinkros.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> ROS integration
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="mavlink/ros/mavlink_ros.html">
+            
+            <a href="../../mavlink/ros/mavlink_ros.html">
+                <i class="fa fa-check"></i> <b>5.2.1.</b> mavlink_ros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="mavlink/ros/autopilot_bridge.html">
+            
+            <a href="../../mavlink/ros/autopilot_bridge.html">
+                <i class="fa fa-check"></i> <b>5.2.2.</b> autopilot_bridge
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="mavlink/ros/mavros.html">
+            
+            <a href="../../mavlink/ros/mavros.html">
+                <i class="fa fa-check"></i> <b>5.2.3.</b> mavros
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="mavlink/ros/roscopter.html">
+            
+            <a href="../../mavlink/ros/roscopter.html">
+                <i class="fa fa-check"></i> <b>5.2.4.</b> roscopter
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="mavlink/creating_a_mavlink_message.html">
+            
+            <a href="../../mavlink/creating_a_mavlink_message.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Creating a MAVLink message
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="mavproxy/mavproxy.html">
+            
+            <a href="../../mavproxy/mavproxy.html">
+                <i class="fa fa-check"></i> <b>6.</b> MAVProxy
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ros/ROS.html">
+            
+            <a href="../../ros/ROS.html">
+                <i class="fa fa-check"></i> <b>7.</b> ROS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ros/ROS-concepts.html">
+            
+            <a href="../../ros/ROS-concepts.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Concepts
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="ros/rostechnicaloverview.html">
+            
+            <a href="../../ros/rostechnicaloverview.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Technical Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="ros/rostutorials.html">
+            
+            <a href="../../ros/rostutorials.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Tutorials 
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.3.1" data-path="ros/tutorials/rosinstall.html">
+            
+            <a href="../../ros/tutorials/rosinstall.html">
+                <i class="fa fa-check"></i> <b>7.3.1.</b> Installing and Configuring Your ROS Environment
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.2" data-path="ros/tutorials/rosnavigating.html">
+            
+            <a href="../../ros/tutorials/rosnavigating.html">
+                <i class="fa fa-check"></i> <b>7.3.2.</b> Navigating the ROS Filesystem
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.3" data-path="ros/tutorials/creating_a_ros_package.html">
+            
+            <a href="../../ros/tutorials/creating_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.3.</b> Creating a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.4" data-path="ros/tutorials/building_a_ros_package.html">
+            
+            <a href="../../ros/tutorials/building_a_ros_package.html">
+                <i class="fa fa-check"></i> <b>7.3.4.</b> Building a ROS Package
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.5" data-path="ros/tutorials/understanding_ros_nodes.html">
+            
+            <a href="../../ros/tutorials/understanding_ros_nodes.html">
+                <i class="fa fa-check"></i> <b>7.3.5.</b> Understanding ROS Nodes
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3.6" data-path="ros/tutorials/understanding_ros_topics.html">
+            
+            <a href="../../ros/tutorials/understanding_ros_topics.html">
+                <i class="fa fa-check"></i> <b>7.3.6.</b> Understanding ROS Topics
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="tutorials/Tutorials.html">
+            
+            <a href="../../tutorials/Tutorials.html">
+                <i class="fa fa-check"></i> <b>8.</b> General Tutorials
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="tutorials/Blink.html">
+            
+            <a href="../../tutorials/Blink.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Blink a LED
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="tutorials/Blink2.html">
+            
+            <a href="../../tutorials/Blink2.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Blink a LED in C++
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 93.33333333333333%;min-width: 91.11111111111111%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../../basics/README.html" title="Basics" class="chapter done new-chapter" data-progress="1" style="left: 2.2222222222222223%;"></a>
+    
+        <a href="../../software/software.html" title="Software" class="chapter done new-chapter" data-progress="2" style="left: 4.444444444444445%;"></a>
+    
+        <a href="../../software/linux.html" title="Linux" class="chapter done " data-progress="2.1" style="left: 6.666666666666667%;"></a>
+    
+        <a href="../../software/Autopilot.html" title="Autopilot" class="chapter done " data-progress="2.2" style="left: 8.88888888888889%;"></a>
+    
+        <a href="../../software/ros-intro.html" title="Robot Operative System (ROS)" class="chapter done " data-progress="2.3" style="left: 11.11111111111111%;"></a>
+    
+        <a href="../../hardware/Hardware.html" title="Hardware" class="chapter done new-chapter" data-progress="3" style="left: 13.333333333333334%;"></a>
+    
+        <a href="../../hardware/Processor.html" title="Processor" class="chapter done " data-progress="3.1" style="left: 15.555555555555555%;"></a>
+    
+        <a href="../../hardware/HardwareMap.html" title="Hardware Map" class="chapter done " data-progress="3.10" style="left: 17.77777777777778%;"></a>
+    
+        <a href="../../hardware/Memory.html" title="Memory" class="chapter done " data-progress="3.2" style="left: 20%;"></a>
+    
+        <a href="../../hardware/Systempower.html" title="System Power" class="chapter done " data-progress="3.3" style="left: 22.22222222222222%;"></a>
+    
+        <a href="../../hardware/Current.html" title="Current Measurement" class="chapter done " data-progress="3.4" style="left: 24.444444444444443%;"></a>
+    
+        <a href="../../hardware/usb.html" title="USB" class="chapter done " data-progress="3.5" style="left: 26.666666666666668%;"></a>
+    
+        <a href="../../hardware/EEPROM.html" title="EEPROM" class="chapter done " data-progress="3.6" style="left: 28.88888888888889%;"></a>
+    
+        <a href="../../hardware/adc.html" title="ADC" class="chapter done " data-progress="3.7" style="left: 31.11111111111111%;"></a>
+    
+        <a href="../../hardware/IO.html" title="I/O" class="chapter done " data-progress="3.8" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../../hardware/sensors.html" title="Sensors" class="chapter done " data-progress="3.9" style="left: 35.55555555555556%;"></a>
+    
+        <a href="../../beaglepilot/BeaglePilot.html" title="BeaglePilot" class="chapter done new-chapter" data-progress="4" style="left: 37.77777777777778%;"></a>
+    
+        <a href="../../beaglepilot/SimpleAutopilot.html" title="A simplified autopilot" class="chapter done " data-progress="4.1" style="left: 40%;"></a>
+    
+        <a href="../../beaglepilot/beaglepilottasks.html" title="BeaglePilot tasks" class="chapter done " data-progress="4.2" style="left: 42.22222222222222%;"></a>
+    
+        <a href="../../beaglepilot/attitude_heading_reference_system.html" title="Attitude Heading Reference System" class="chapter done " data-progress="4.3" style="left: 44.44444444444444%;"></a>
+    
+        <a href="../../beaglepilot/ahrs_in_beaglepilot.html" title="AHRS in BeaglePilot" class="chapter done " data-progress="4.3.1" style="left: 46.666666666666664%;"></a>
+    
+        <a href="../../beaglepilot/beaglepilottutorials.html" title="Tutorials " class="chapter done " data-progress="4.4" style="left: 48.888888888888886%;"></a>
+    
+        <a href="../../beaglepilot/tutorials/installing_and_configuring_beaglepilot.html" title="Installing and Configuring BeaglePilot" class="chapter done " data-progress="4.4.1" style="left: 51.111111111111114%;"></a>
+    
+        <a href="../../mavlink/mavlink.html" title="MAVLink" class="chapter done new-chapter" data-progress="5" style="left: 53.333333333333336%;"></a>
+    
+        <a href="../../mavlink/mavlinkaction.html" title="mavlink in action" class="chapter done " data-progress="5.1" style="left: 55.55555555555556%;"></a>
+    
+        <a href="../../mavlink/mavlinkros.html" title="ROS integration" class="chapter done " data-progress="5.2" style="left: 57.77777777777778%;"></a>
+    
+        <a href="../../mavlink/ros/mavlink_ros.html" title="mavlink_ros" class="chapter done " data-progress="5.2.1" style="left: 60%;"></a>
+    
+        <a href="../../mavlink/ros/autopilot_bridge.html" title="autopilot_bridge" class="chapter done " data-progress="5.2.2" style="left: 62.22222222222222%;"></a>
+    
+        <a href="../../mavlink/ros/mavros.html" title="mavros" class="chapter done " data-progress="5.2.3" style="left: 64.44444444444444%;"></a>
+    
+        <a href="../../mavlink/ros/roscopter.html" title="roscopter" class="chapter done " data-progress="5.2.4" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../../mavlink/creating_a_mavlink_message.html" title="Creating a MAVLink message" class="chapter done " data-progress="5.3" style="left: 68.88888888888889%;"></a>
+    
+        <a href="../../mavproxy/mavproxy.html" title="MAVProxy" class="chapter done new-chapter" data-progress="6" style="left: 71.11111111111111%;"></a>
+    
+        <a href="../../ros/ROS.html" title="ROS" class="chapter done new-chapter" data-progress="7" style="left: 73.33333333333333%;"></a>
+    
+        <a href="../../ros/ROS-concepts.html" title="Concepts" class="chapter done " data-progress="7.1" style="left: 75.55555555555556%;"></a>
+    
+        <a href="../../ros/rostechnicaloverview.html" title="Technical Overview" class="chapter done " data-progress="7.2" style="left: 77.77777777777777%;"></a>
+    
+        <a href="../../ros/rostutorials.html" title="Tutorials " class="chapter done " data-progress="7.3" style="left: 80%;"></a>
+    
+        <a href="../../ros/tutorials/rosinstall.html" title="Installing and Configuring Your ROS Environment" class="chapter done " data-progress="7.3.1" style="left: 82.22222222222223%;"></a>
+    
+        <a href="../../ros/tutorials/rosnavigating.html" title="Navigating the ROS Filesystem" class="chapter done " data-progress="7.3.2" style="left: 84.44444444444444%;"></a>
+    
+        <a href="../../ros/tutorials/creating_a_ros_package.html" title="Creating a ROS Package" class="chapter done " data-progress="7.3.3" style="left: 86.66666666666667%;"></a>
+    
+        <a href="../../ros/tutorials/building_a_ros_package.html" title="Building a ROS Package" class="chapter done " data-progress="7.3.4" style="left: 88.88888888888889%;"></a>
+    
+        <a href="../../ros/tutorials/understanding_ros_nodes.html" title="Understanding ROS Nodes" class="chapter done " data-progress="7.3.5" style="left: 91.11111111111111%;"></a>
+    
+        <a href="../../ros/tutorials/understanding_ros_topics.html" title="Understanding ROS Topics" class="chapter done " data-progress="7.3.6" style="left: 93.33333333333333%;"></a>
+    
+        <a href="../../tutorials/Tutorials.html" title="General Tutorials" class="chapter  new-chapter" data-progress="8" style="left: 95.55555555555556%;"></a>
+    
+        <a href="../../tutorials/Blink.html" title="Blink a LED" class="chapter  " data-progress="8.1" style="left: 97.77777777777777%;"></a>
+    
+        <a href="../../tutorials/Blink2.html" title="Blink a LED in C++" class="chapter  " data-progress="8.2" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4085">
+                    
+                        <h1 id="understanding-ros-topics">Understanding ROS Topics</h1>
+<p>This tutorial introduces ROS topics as well as using the <code>rostopic</code> commandline tools.</p>
+<hr>
+<p>Before we move forward, let&#39;s start by making sure that we have roscore running, in a new terminal:</p>
+<pre><code>$ roscore
+If you left roscore running from the last tutorial, you may get the error message:
+
+roscore cannot run as another roscore/master is already running.
+Please kill other roscore/master processes before relaunching
+This is fine. Only one roscore needs to be running.
+</code></pre><hr>
+<h3 id="ros-topics">ROS Topics</h3>
+<p>The <code>rostopic</code> tool allows you to get information about ROS topics.</p>
+<p>You can use the help option to get the available sub-commands for <code>rostopic</code></p>
+<pre><code>root@erlerobot:~# rostopic -h
+rostopic is a command-line tool for printing information about ROS Topics.
+
+Commands:
+    rostopic bw    display bandwidth used by topic
+    rostopic echo    print messages to screen
+    rostopic find    find topics by type
+    rostopic hz    display publishing rate of topic
+    rostopic info    print information about active topic
+    rostopic list    list active topics
+    rostopic pub    publish data to topic
+    rostopic type    print topic type
+
+Type rostopic &lt;command&gt; -h for more detailed usage, e.g. &#39;rostopic echo -h&#39;
+</code></pre>
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../ros/tutorials/understanding_ros_nodes.html" class="navigation navigation-prev " aria-label="Previous page: Understanding ROS Nodes"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../tutorials/Tutorials.html" class="navigation navigation-next " aria-label="Next page: General Tutorials"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
