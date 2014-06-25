@@ -19,6 +19,8 @@
 * [BeaglePilot](beaglepilot/BeaglePilot.md)
    * [A simplified autopilot](beaglepilot/SimpleAutopilot.md)
    * [BeaglePilot tasks](beaglepilot/beaglepilottasks.md)
+   * [Attitude Heading Reference System](beaglepilot/attitude_heading_reference_system.md)
+       * [AHRS in BeaglePilot](beaglepilot/ahrs_in_beaglepilot)
    * [Tutorials ](beaglepilot/beaglepilottutorials.md)
        * [Installing and Configuring BeaglePilot](beaglepilot/tutorials/installing_and_configuring_beaglepilot.md)
 * [MAVLink](mavlink/mavlink.md)
