@@ -31,6 +31,7 @@
        * [mavros](mavlink/ros/mavros.md)
        * [roscopter](mavlink/ros/roscopter.md)
    * [Creating a MAVLink message](mavlink/creating_a_mavlink_message.md)
+   * [PyMAVLink Tools](mavlink/pymavlink_tools.md)
 * [MAVProxy](mavproxy/mavproxy.md)
 * [ROS](ros/ROS.md)
    * [Concepts](ros/ROS-concepts.md)
@@ -45,4 +46,5 @@
 * [General Tutorials](tutorials/Tutorials.md)
    * [Blink a LED](tutorials/Blink.md)
    * [Blink a LED in C++](tutorials/Blink2.md)
+* [Next steps](more/README.md)
 

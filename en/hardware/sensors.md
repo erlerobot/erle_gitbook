@@ -7,17 +7,18 @@ Below the sensors included in [Erle's board](http://erlerobot.com) are described
 
 | **Sensor**   | **Features** |
 |----|---------|
-| *MPU6000* | AM3359, ARM Cortex A8 720MHz |
-| *MPU9150* | TPS65217B, Power Regulators, LiION Single cell |
-| *MPU9250* |  256MB DDR2 400MHz|
-| *LSM9DS0* | USB to Serial Adapter, On Board JTAG via USB|
+| *MPU6000* |  3-axis gyroscope and 3-axis accelerometer. I2C and SPI|
+| *MPU9150* | 3-axis gyroscope, 3-axis accelerometer and 3-axis magnetometer. I2C  |
+| *MPU9250* | 3-axis gyroscope, 3-axis accelerometer and 3-axis magnetometer. I2C and SPI |
+| *LSM9DS0* | 3-axis gyroscope, 3-axis accelerometer and 3-axis magnetometer. I2C and SPI|
 
 ### Barometers
 
 | **Sensor**   | **Features** |
 |----|---------|
-| * MS5611-01BA03* | AM3359, ARM Cortex A8 720MHz |
-| *BMP250* | TPS65217B, Power Regulators, LiION Single cell |
+| * MS5611-01BA03* | Barometer. SPI |
+| * MS5611-01BA03* | Barometer. I2C (*For some reason it doesn't seem to work properly*) |
+| *BMP250* | Barometer. SPI |
 
 
 ### Why so many sensors?
