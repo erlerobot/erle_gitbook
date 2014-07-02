@@ -24,6 +24,12 @@ Go to your ROS *workspace* and clone the following package `https://github.com/v
 
 -----
 
+-----
+
+*Note: A `.deb` has been generated for the BeagleBone and is available at https://github.com/vmayoral/ros-stuff/tree/master/deb*
+
+-----
+
 ```
 cd <catkin-ros-workspace>
 cd src
