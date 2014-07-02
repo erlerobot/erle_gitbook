@@ -155,7 +155,7 @@ After pushing the TAB key, the command line should fill out the rest:
 ``` bash
 $ roscd catkin/
 ```
-This works because `catkin` is currently the only ROS package that starts with `catk`.
+This works because `catkin` is currently the only ROS package that starts with `catkin`.
 
 ### Review
 You may have noticed a pattern with the naming of the ROS tools:
