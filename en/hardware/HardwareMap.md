@@ -1,6 +1,4 @@
-Hardware Map
-============
-
+#Hardware Map
 
 The expansion headers P8 and P9 are assigned to the following pins:
 
