@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)
 
-##Book
+##Libro
 
 En este libro podrás aprender los aspectos básicos de nuestra [tecnología](http://erlerobot.com), un **ordenador de pequeñas dimensiones para construir drones**.
 
