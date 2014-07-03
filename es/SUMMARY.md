@@ -3,7 +3,7 @@
 * [Básico](basics/README.md)
 * [Software](sotfware/README.md)
    * [Linux](sotfware/linux.md)
-   * [Ardupilot](sotfware/ardupilot.md)
+   * [Ardupilot](sotfware/autopilot.md)
    * [ROS](sotfware/ros.md)
 * [Hardware](hardware/Hardware.md)
    * [Procesador](hardware/Processor.md)
