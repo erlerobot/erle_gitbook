@@ -1,5 +1,7 @@
 # Conceptos básicos
 
+Erle es un pequeño ordenador con más de 36 sensores, salidas I/O y la potencia de procesamiento necesaria para ejecutar en tiempo real
+
 ## Características
 * Sistema Operativo Linux (Ubuntu, Debian, Android, ...)
 * ROS

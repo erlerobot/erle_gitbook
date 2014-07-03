@@ -13,3 +13,12 @@ The design uses a single MT47H128M16RT-25E:C 400MHZ memory from Micron which com
 | Column Address | A[9:0] (1K)|
 
 The DDR2 connects direct to the processor and no external interface devices are required. Power is supplied to the DDR2 via the 1.8V rail on the TPS65217B.
+
+
+###Licencia
+
+Parte del contenido es un derivado de la  *BeagleBone System Reference Manual Rev A6.0.0* bajo licencia *Creative Commons Attribution-Share Alike 3.0 Unported License*. Para ver una copia de esta licencia, visite [http://creativecommons.org/licenses/by-sa/3.0/] (http://creativecommons.org/licenses/by-sa/3.0/) o envíe una carta a * Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, EE.UU. *. 
+
+Todos los trabajos derivados deben ser atribuidos a Gerald Coley de BeagleBoard.org. 
+
+Para cualquier pregunta, preocupaciones o cuestiones que se someten a gerald [at] BeagleBoard.org.
