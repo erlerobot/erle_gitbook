@@ -1,11 +1,11 @@
-El Sistema Operativo de Robot ( ROS ): Encender robots del mundo
-=========
+#El Sistema Operativo de Robot ( ROS ): Encender robots del mundo
+
 
 ![ros](../img/rosorg-nb.png)
 
-¿Qué es ROS ?
------
-El [Sistema Operativo de Robot] (http://www.ros.org/) (ROS) es un **sistema operativo de código abierto** para su robot mantenida por el [Open Source Robótica Fundación] (http://www.osrfoundation.org/) (OSRF). Proporciona los servicios que cabe esperar de un sistema operativo, incluyendo abstracción de hardware , control de dispositivos de bajo nivel , la implementación de la funcionalidad de uso común , entre los procesos de paso de mensajes y gestión de paquetes. También proporciona herramientas y bibliotecas para la obtención , la construcción , la escritura y la ejecución de código en varios equipos. ROS es similar en algunos aspectos a los "marcos de robots, 'como jugador , YARP , Orocos , CARMEN , Orca, MOOS , y Microsoft Robotics Studio.
+##¿Qué es ROS ?
+
+El [Sistema Operativo de Robot](http://www.ros.org/) (ROS) es un **sistema operativo de código abierto** para su robot mantenida por el [Open Source Robótica Fundación](http://www.osrfoundation.org/) (OSRF). Proporciona los servicios que cabe esperar de un sistema operativo, incluyendo abstracción de hardware , control de dispositivos de bajo nivel , la implementación de la funcionalidad de uso común , entre los procesos de paso de mensajes y gestión de paquetes. También proporciona herramientas y bibliotecas para la obtención , la construcción , la escritura y la ejecución de código en varios equipos. ROS es similar en algunos aspectos a los "marcos de robots, 'como jugador , YARP , Orocos , CARMEN , Orca, MOOS , y Microsoft Robotics Studio.
 
 El tiempo de ejecución "graph" ROS es una * red de procesos de peer -to-peer * que están débilmente acoplados utilizando la infraestructura de comunicación ROS . ROS implementa varios estilos diferentes de comunicación , incluida la comunicación sincrónica de estilo RPC a través de los servicios , la transmisión asíncrona de datos a través de los temas , y el almacenamiento de datos en un servidor * Parámetro * .
 
@@ -29,7 +29,7 @@ ROS en la actualidad sólo se ejecuta en las plataformas basadas en Unix ** . **
 
 Distribuciones
 ----------
-Los siguientes distribuciones han sido probados en el robot [ Erle ] ( http://erlerobot.com ) .
+Los siguientes distribuciones han sido probados en el robot [ Erle ]( http://erlerobot.com ) .
 
 ----
 
@@ -39,13 +39,13 @@ Los siguientes distribuciones han sido probados en el robot [ Erle ] ( http://er
 
 | Distro | Fecha de salida | Foros | INSTRUCTIONS |
 | -------- | -------------- | -------- | ------------- |
-| [ ROS Hydro Medusa ] ( http://wiki.ros.org/hydro ) | 04 de septiembre 2013 | ! [ Medusa ] ( http://i.imgur.com/xvfZPAo.png ) | [ Instalación] (http :/ / wiki.ros.org / hidro / Instalación / UbuntuARM ) |
-| [ ROS Groovy Galápagos ] ( http://wiki.ros.org/groovy ) | 31 de diciembre 2012 | ! [ Medusa ] ( http://www.ros.org/images/groovygalapagos-320w.jpg ) | [ Instalación] ( http://wiki.ros.org/groovy/Installation/UbuntuARM ) |
+| [ ROS Hydro Medusa ]( http://wiki.ros.org/hydro ) | 04 de septiembre 2013 | ![Medusa](../img/hydro.png) | [Instalación](http://wiki.ros.org/hidro/Instalación/UbuntuARM ) |
+| [ ROS Groovy Galápagos ]( http://wiki.ros.org/groovy ) | 31 de diciembre 2012 | ![Medusa](http://www.ros.org/images/groovygalapagos-320w.jpg) | [ Instalación]( http://wiki.ros.org/groovy/Installation/UbuntuARM ) |
 
 
 licencia
 -------
-Parte de este material ha sido tomado de la [ ROS wiki] ( http://wiki.ros.org/ ) . Excepto donde se indique lo contrario, el wiki de ROS está licenciado bajo Creative Commons Attribution 3.0.
+Parte de este material ha sido tomado de la [ ROS wiki]( http://wiki.ros.org/ ) . Excepto donde se indique lo contrario, el wiki de ROS está licenciado bajo Creative Commons Attribution 3.0.
 
 
 
