@@ -21,6 +21,7 @@
    * [ArduPilot tasks](beaglepilot/beaglepilottasks.md)
    * [Attitude Heading Reference System](beaglepilot/attitude_heading_reference_system.md)
    * [ArduCopter](beaglepilot/arducopter.md)
+       * [Parameters](beaglepilot/parameters.md)
    * [AP_Linux_HAL](beaglepilot/ap_linux_hal.md)
        * [Storage](beaglepilot/storage.md)
    * [Tutorials ](beaglepilot/beaglepilottutorials.md)
