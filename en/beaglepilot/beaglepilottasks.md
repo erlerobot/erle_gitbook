@@ -1,4 +1,4 @@
-# BeaglePilot tasks
+# ArduPilot tasks
 
 As its predecesor (ardupilot), BeaglePilot uses the following structure to schedule tasks within the autopilot (the following code can be located in `ArduCopter/ArduCopter.pde`, `ArduPlane/ArduPlane.pde` and `APMRover2/APMRover2.pde`). This is done in this way so that the *underlying real-time operative system* accomplishes these maximum latencies:
 

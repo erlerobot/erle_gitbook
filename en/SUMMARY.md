@@ -16,11 +16,13 @@
    * [I/O](hardware/IO.md)
    * [Sensors](hardware/sensors.md)
    * [Hardware Map](hardware/HardwareMap.md)
-* [BeaglePilot](beaglepilot/BeaglePilot.md)
+* [ArduPilot](beaglepilot/BeaglePilot.md)
    * [A simplified autopilot](beaglepilot/SimpleAutopilot.md)
-   * [BeaglePilot tasks](beaglepilot/beaglepilottasks.md)
+   * [ArduPilot tasks](beaglepilot/beaglepilottasks.md)
    * [Attitude Heading Reference System](beaglepilot/attitude_heading_reference_system.md)
-       * [AHRS in BeaglePilot](beaglepilot/ahrs_in_beaglepilot.md)
+   * [ArduCopter](beaglepilot/arducopter.md)
+   * [AP_Linux_HAL](beaglepilot/ap_linux_hal.md)
+       * [Storage](beaglepilot/storage.md)
    * [Tutorials ](beaglepilot/beaglepilottutorials.md)
        * [Installing and Configuring BeaglePilot](beaglepilot/tutorials/installing_and_configuring_beaglepilot.md)
 * [MAVLink](mavlink/mavlink.md)
@@ -47,5 +49,4 @@
    * [Blink a LED](tutorials/Blink.md)
    * [Blink a LED in C++](tutorials/Blink2.md)
 * [Next steps](more/README.md)
-
 

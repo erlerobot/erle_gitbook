@@ -2,6 +2,8 @@
 
 An *A*ttitude *H*eading *R*eference *S*ystem (AHRS) is a set of devices and algorithms that provides [heading](http://en.wikipedia.org/wiki/Aircraft_heading#Aircraft_heading), [attitude](http://en.wikipedia.org/wiki/Aircraft_attitude) and [yaw information](http://en.wikipedia.org/wiki/Yaw_angle#Tait.E2.80.93Bryan_angles) for aircrafts.
 
+This section provides an overview to AHRS and IMU systems. Other sections will treat how this is implemmented in the code.
+
 In a nutshell, an AHRS provides 3D orientation by integrating gyroscopes, fusing this data with accelerometer data and magnetometer data. With sensor fusion, drift from the gyroscopes integration is compensated for by reference vectors, namely gravity and the earth magnetic field.
 
 -----
@@ -17,7 +19,6 @@ This section will cover the following topics:
 - *what does a gyroscope measure*
 - *making sense of the sensor's values*: how to convert analog-to-digital (ADC) readings that you get from these sensor to physical units (those would be g for accelerometer, deg/s for gyroscope)
 - *implementing a simple AHRS*: how to combine accelerometer and gyroscope readings in order to obtain accurate information about the inclination of your device relative to the ground plane (implementing an AHRS out of the IMU readings)
-- *how this is implemented in BeaglePilot*: discussed in a subsection
 
 ### Accelerometers
 
