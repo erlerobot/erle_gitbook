@@ -16,6 +16,8 @@
    * [I/O](hardware/IO.md)
    * [Sensores](hardware/sensors.md)
    * [Mapa de Hardware](hardware/HardwareMap.md)
+* [ArduPilot](beaglepilot/BeaglePilot.md)
+   * [Un piloto automático sencillo](beaglepilot/SimpleAutopilot.md)
 * [ROS](ros/ROS.md)
    * [Conceptos](ros/ROS-concepts.md)
 * [Tutoriales](tutorials/Tutorials.md)
