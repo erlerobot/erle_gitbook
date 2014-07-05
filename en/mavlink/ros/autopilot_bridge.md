@@ -177,6 +177,6 @@ pwr_batt_cur: -1
 
 #### Visualizing `autopilot_bridge`
 
-![node-graph](img/autopilot_bridge_graph.png)
+![node-graph](../../img/mavlinkROS/autopilot_bridge_graph.png)
 
 The ROS topic `/autopilot/imu` can be _echoed_  but not plotted with rqt_plot.

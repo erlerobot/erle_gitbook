@@ -262,7 +262,7 @@ You should choose a license and fill it in here. Some common open source license
 
 **We strongly recommend to share your code under an Open Source Initiative license**
 
-![](http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png)
+![](../img/ros/opensource.png)
 
 The [Open Source Initiative](http://opensource.org/about) (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source and to build bridges among different constituencies in the open source community.
 

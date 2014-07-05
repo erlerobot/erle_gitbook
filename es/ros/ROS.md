@@ -1,57 +1,48 @@
-#El Sistema Operativo de Robot ( ROS ): Encender robots del mundo
+The Robot Operative System (ROS): Powering the world's robots
+=========
 
+![](../../en/img/ros/rosorg-nb.png)
 
-![ros](../img/rosorg-nb.png)
-
-##¿Qué es ROS ?
-
-El [Sistema Operativo de Robot](http://www.ros.org/) (ROS) es un **sistema operativo de código abierto** para su robot mantenida por el [Open Source Robótica Fundación](http://www.osrfoundation.org/) (OSRF). Proporciona los servicios que cabe esperar de un sistema operativo, incluyendo abstracción de hardware , control de dispositivos de bajo nivel , la implementación de la funcionalidad de uso común , entre los procesos de paso de mensajes y gestión de paquetes. También proporciona herramientas y bibliotecas para la obtención , la construcción , la escritura y la ejecución de código en varios equipos. ROS es similar en algunos aspectos a los "marcos de robots, 'como jugador , YARP , Orocos , CARMEN , Orca, MOOS , y Microsoft Robotics Studio.
-
-El tiempo de ejecución "graph" ROS es una * red de procesos de peer -to-peer * que están débilmente acoplados utilizando la infraestructura de comunicación ROS . ROS implementa varios estilos diferentes de comunicación , incluida la comunicación sincrónica de estilo RPC a través de los servicios , la transmisión asíncrona de datos a través de los temas , y el almacenamiento de datos en un servidor * Parámetro * .
-
-** ROS no es un marco de tiempo real ** , aunque es posible integrar de ROS con el código de tiempo real . ROS también tiene una perfecta integración con el Orocos Toolkit en tiempo real .
-
-Objetivos
+What is ROS?
 -----
-El objetivo principal de ROS es ** código de soporte reutilización en la investigación y el desarrollo de la robótica . ** ROS es un marco distribuido de procesos (también conocido como nodos ) que permite a los ejecutables que ser diseñado de forma individual y de acoplamiento flexible en tiempo de ejecución . Estos procesos se pueden agrupar en paquetes y pilas , que puede ser fácilmente compartida y distribuida . ROS también es compatible con un sistema federado de repositorios de código que permite la colaboración a distribuir también. Este diseño , desde el nivel del sistema de archivos a nivel de la comunidad , permite tomar decisiones independientes sobre el desarrollo y puesta en práctica, pero todo puede ser llevado junto con herramientas de infraestructura ROS .
+The [Robot Operative System](http://www.ros.org/) (ROS) is an **open-source, meta-operating system** for your robot mantained by the [Open Source Robotics Foundation](http://www.osrfoundation.org/) (OSRF). It provides the services you would expect from an operating system, including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management. It also provides tools and libraries for obtaining, building, writing, and running code across multiple computers. ROS is similar in some respects to 'robot frameworks,' such as Player, YARP, Orocos, CARMEN, Orca, MOOS, and Microsoft Robotics Studio.
 
-En apoyo de este objetivo primordial de compartir y colaborar , hay varios otros objetivos del marco de ROS:
+The ROS runtime "graph" is a *peer-to-peer network of processes* that are loosely coupled using the ROS communication infrastructure. ROS implements several different styles of communication, including synchronous RPC-style communication over services, asynchronous streaming of data over topics, and storage of data on a *Parameter Server*.
 
-- ** Thin **: ROS está diseñado para ser lo más fina posible - no vamos a envolver su main () - para que el código escrito para ROS se puede utilizar con otros marcos de software robot. Un corolario de esto es que los ROS es fácil de integrar con otros marcos de software robot : ROS ya ha sido integrada con OpenRAVE , Orocos y jugador.
-- ** Bibliotecas ** ROS- agnósticos : el modelo de desarrollo preferido es escribir bibliotecas ROS- agnóstico con interfaces funcionales limpias .
-- ** Independencia Idioma **: el marco ROS es fácil de implementar en cualquier lenguaje de programación moderno . Ya hemos implementado en Python * *, * C + + * , y * Lisp * , y tenemos bibliotecas experimentales en Java * y * Lua .
-- ** Pruebas ** Fácil : ROS tiene un marco de prueba de unidad / integración incorporado llamado ROSTEST que hace que sea fácil de llevar y derribar accesorios de la prueba .
-- ** ** Escala : ROS es apropiado para sistemas de tiempo de ejecución de grandes y para grandes procesos de desarrollo.
+**ROS is not a realtime framework**, though it is possible to integrate ROS with realtime code. ROS also has seamless integration with the Orocos Real-time Toolkit.
 
-Sistemas Operativos
+Goals
+-----
+The primary goal of ROS is to **support code reuse in robotics research and development**. ROS is a distributed framework of processes (aka Nodes) that enables executables to be individually designed and loosely coupled at runtime. These processes can be grouped into Packages and Stacks, which can be easily shared and distributed. ROS also supports a federated system of code Repositories that enable collaboration to be distributed as well. This design, from the filesystem level to the community level, enables independent decisions about development and implementation, but all can be brought together with ROS infrastructure tools.
+
+In support of this primary goal of sharing and collaboration, there are several other goals of the ROS framework:
+
+- **Thin**: ROS is designed to be as thin as possible -- we won't wrap your main() -- so that code written for ROS can be used with other robot software frameworks. A corollary to this is that ROS is easy to integrate with other robot software frameworks: ROS has already been integrated with OpenRAVE, Orocos, and Player.
+- **ROS-agnostic** libraries: the preferred development model is to write ROS-agnostic libraries with clean functional interfaces.
+- **Language independence**: the ROS framework is easy to implement in any modern programming language. We have already implemented it in *Python*, *C++*, and *Lisp*, and we have *experimental libraries in Java and Lua*.
+- **Easy testing**: ROS has a builtin unit/integration test framework called rostest that makes it easy to bring up and tear down test fixtures.
+- **Scaling**: ROS is appropriate for large runtime systems and for large development processes.
+
+Operative Systems
 -------
-ROS en la actualidad sólo se ejecuta en las plataformas basadas en Unix ** . ** Software de ROS se prueba principalmente en * Ubuntu * y * sistemas * X Mac OS.
+ROS currently only runs on **Unix-based platforms**. Software for ROS is primarily tested on *Ubuntu* and *Mac OS X* systems.
 
-Distribuciones
+Distributions
 ----------
-Los siguientes distribuciones han sido probados en el robot [ Erle ]( http://erlerobot.com ) .
+The following distributions have been tested in the robot [Erle](http://erlerobot.com).
 
 ----
 
-** Por defecto las imágenes proporcionadas por Erle vienen con ROS preinstalado y completamente funcional. **
+**By default the images provided for Erle come with ROS pre-installed and fully functional.**
 
 ----
 
-| Distro | Fecha de salida | Foros | INSTRUCTIONS |
-| -------- | -------------- | -------- | ------------- |
-| [ ROS Hydro Medusa ]( http://wiki.ros.org/hydro ) | 04 de septiembre 2013 | ![Medusa](../img/hydro.png) | [Instalación](http://wiki.ros.org/hidro/Instalación/UbuntuARM ) |
-| [ ROS Groovy Galápagos ]( http://wiki.ros.org/groovy ) | 31 de diciembre 2012 | ![Medusa](http://www.ros.org/images/groovygalapagos-320w.jpg) | [ Instalación]( http://wiki.ros.org/groovy/Installation/UbuntuARM ) |
+| Distro | Release date | Poster | Instuctions |
+|--------|--------------|--------|-------------|
+| [ROS Hydro Medusa](http://wiki.ros.org/hydro) | September 4th, 2013 | ![medusa](../../en/img/ros/hydro.png) | [Installation](http://wiki.ros.org/hydro/Installation/UbuntuARM) |
+| [ROS Groovy Galapagos](http://wiki.ros.org/groovy) | December 31, 2012 | ![medusa](../../en/img/ros/galapagos.jpg) | [Installation](http://wiki.ros.org/groovy/Installation/UbuntuARM) |
 
 
-licencia
+License
 -------
-Parte de este material ha sido tomado de la [ ROS wiki]( http://wiki.ros.org/ ) . Excepto donde se indique lo contrario, el wiki de ROS está licenciado bajo Creative Commons Attribution 3.0.
-
-
-
-
-
-
-
-
-
+Some of this material has been taken from the [ROS wiki](http://wiki.ros.org/). Except where otherwise noted, the ROS wiki is licensed under Creative Commons Attribution 3.0.

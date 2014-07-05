@@ -74,7 +74,7 @@ yawspeed: 6.91747991368e-05
 
 #### Visualizing `roscopter`
 
-![node-graph](img/roscopter_graph.png)
+![node-graph](../../img/mavlinkROS/roscopter_graph.png)
 
 Let's start visualizing the topic `/attitude` values and its graphical representation:
 
@@ -85,19 +85,19 @@ Let's start visualizing the topic `/attitude` values and its graphical represent
 ---
 
 `rostopic echo /attitude`
-![](img/roscopter_values1.png)
+![](../../img/mavlinkROS/roscopter_values1.png)
 and a plot using `rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
-![](img/roscopter_plot1.png)
+![](../../img/mavlinkROS/roscopter_plot1.png)
 
 These values are a bit unexpected so we repeat the process taking several screenshots:
 `rostopic echo /attitude`
-![](img/roscopter_values2.png)
+![](../../img/mavlinkROS/roscopter_values2.png)
 `rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
-![](img/roscopter_plot21.png)
+![](../../img/mavlinkROS/roscopter_plot21.png)
 `rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
-![](img/roscopter_plot22.png)
+![](../../img/mavlinkROS/roscopter_plot22.png)
 `rqt_plot /attitude/roll:pitch:yaw:rollspeed:pitchspeed:yawspeed`
-![](img/roscopter_plot23.png)
+![](../../img/mavlinkROS/roscopter_plot23.png)
 
 Seems we have an issue with the attitude :(.
 

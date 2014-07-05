@@ -1,45 +1,47 @@
-#Alimentación
+# System Power
 
-La selección de cualquiera de los 5 VDC o el USB como fuente de alimentación se maneja internamente en el TPS65217B y cambia automáticamente a la energía 5VDC aunque ambas están conectadas. SW puede cambiar la configuración de la corriente a través de la interfaz I2C del procesador. Además, el SO puede leer el TPS65217B y determinar si la placa se está ejecutando en la entrada de 5 VDC o la entrada USB. Esto puede ser interesante para conocer la capacidad de la Junta para suministrar corriente para cosas como la frecuencia de funcionamiento y las tarjetas de expansión.
+The selection of either the 5VDC or the USB as the power source is handled internally to the TPS65217B and automatically switches to 5VDC power if both are connected. SW can change the power configuration via the I2C interface from the processor. In addition, the SW can read the TPS65217B and determine if the board is running on the 5VDC input or the USB input. This can be beneficial to know the capability of the board to supply current for things like operating frequency and expansion cards.
 
-###Administración de energía del circuito integrado (PMIC)
-
-La administración de energía del circuito integrado ( PMIC ) en el sistema la gestiona [TPS65217B](http://www.ti.com/product/tps65217b). El *TPS65217B* es un chip que consiste en un circuito de alimentación de doble entrada lineal, tres convertidores reductores, cuatro LDO y un impulso convertidor de alta eficiencia para soportar dos cadenas de hasta 10 LEDs en serie. El sistema se suministra por un puerto USB o adaptador de DC. Tres convertidores de alta eficiencia de 2.25MHz están dirigidos a proporcionar el voltaje del núcleo, MPU, y el voltaje de la memoria para la tarjeta.
-
-Los convertidores reductores entran en un modo de baja potencia con cargas ligeras para una máxima eficiencia en la gama más amplia posible de las corrientes de carga. Para aplicaciones de bajo nivel de ruido de los dispositivos pueden ser forzados a PWM de frecuencia fija utilizando la interfaz I2C. Los convertidores reductores permiten el uso de pequeños inductores y condensadores para lograr un pequeño tamaño de solución.
-
-LDO1 y LDO2 tienen como objetivo apoyar el modo de espera del sistema. En el estado SLEEP la corriente de salida se limita a 100uA para reducir la corriente de reposo, mientras que en el funcionamiento normal pueden apoyar * hasta 100 mA cada archivo *. LDO3 y LDO4 pueden soportar hasta * 285 mA cada uno *.
-Por defecto **sólo LDO1 está siempre encendido** pero cualquier carril puede ser configurado para permanecer en estado de suspensión. Especialmente los convertidores DCDC pueden permanecer en un modo de PFM de baja potencia para soportar procesador en modo de suspensión. El TPS65217B ofrece secuencias flexibles de encendido y apagado y varias funciones de mantenimiento de la casa, tales como salida de una buena potencia, monitor de botón, la función de reinicio del hardware y el sensor de temperatura para proteger la batería.
-
-La selección de cualquiera de los 5VDC o el USB como fuente de alimentación se maneja internamente en el TPS65217B y cambia automáticamente a la energía 5VDC aunque ambos esten conectados. El software puede cambiar la configuración de la corriente a través de la interfaz I2C del procesador. Además, el software puede leer **el TPS65217B y determinar si la placa se está ejecutando en la entrada de 5VDC o la entrada USB.** Esto puede ser beneficioso para conocer la capacidad de la Junta para suministrar corriente para cosas como la frecuencia de funcionamiento y las tarjetas de expansión.
-
-### 5V DC Potencia de entrada
-
-![5v](../img/5v.png)
+### Power Management Integrated Circuit (PMIC)
 
 
-Una alimentación de 5V DC se puede utilizar para proporcionar alimentación a la placa. La corriente de la fuente de alimentación depende de la cantidad y el tipo de complemento en los tablones están conectados a la tarjeta. Para un uso normal, un suministro de 5 VCC nominal de 1A debería ser suficiente. Si se espera que un mayor uso de las cabeceras de expansión o puerto host USB, entonces se requiere un suministro de corriente más alta. Un NCP349 sobre el dispositivo de tensión se utiliza para prevenir el taponamiento en de 7 a 12 V fuentes de alimentación por error. El NCP349 se apaga y el tablero no se enciende. Sin indicador visible se proporciona para indicar que existe una condición de sobretensión. La junta no se enciende.
+The main Power Management IC (PMIC) in the system is the [TPS65217B](http://www.ti.com/product/tps65217b). The *TPS65217B* is a single chip power management IC consisting of a linear dual-input power path, three step-down converters, four LDOs, and a high-efficiency boost converter to power two strings of up to 10 LEDs in series. The system is supplied by a USB port or DC adapter. Three high-efficiency 2.25MHz step-down converters are targeted at providing the core voltage, MPU, and memory voltage for the board.
+
+The step-down converters enter a low power mode at light load for maximum efficiency across the widest possible range of load currents. For low-noise applications the devices can be forced into fixed frequency PWM using the I2C interface. The step-down converters allow the use of small inductors and capacitors to achieve a small solution size.
+
+LDO1 and LDO2 are intended to support system-standby mode. In SLEEP state output current is limited to 100uA to reduce quiescent current whereas in normal operation they can support *up to 100mA each*. LDO3 and LDO4 can support up to *285mA each*.
+By default **only LDO1 is always ON** but any rail can be configured to remain up in SLEEP state. Especially the DCDC converters can remain up in a low-power PFM mode to support processor Suspend mode. The TPS65217B offers flexible power-up and power-down sequencing and several house-keeping functions such as power-good output, pushbutton monitor, hardware reset function and temperature sensor to protect the battery.
+
+The selection of either the 5VDC or the USB as the power source is handled internally to the TPS65217B and automatically switches to 5VDC power if both are connected. Software can change the power configuration via the I2C interface from the processor. In addition, the **software can read the TPS65217B and determine if the board is running on the 5VDC input or the USB input**. This can be beneficial to know the capability of the board to supply current for things like operating frequency and expansion cards.
 
 
-------
+### 5V DC Power Input
 
-**La Entrada de energía 5V DC no se rellena. Si es necesario, soldar un conector cilíndrico exterior x 5.5mm positivo 2.1MM centro**
+
+![5v](../../en/img/hardware/5v.png)
+
+A 5V DC supply can be used to provide power to the board. The power supply current depends on how many and what type of add on boards are connected to the board. For typical use, a 5VDC supply rated at 1A should be sufficient. If heavier use of the expansion headers or USB host port is expected, then a higher current supply will be required. A NCP349 over voltage device is used to prevent the plugging in of 7 to 12 V power supplies by mistake. The NCP349 will shut down and the board will not power on. No visible indicator is provided to indicate that an over voltage condition exists. The board will not power up.
 
 ------
 
-![5v](../img/5vconnector.jpg)
+**The 5V DC Power input is not populated. If needed, solder a 2.1MM center positive x 5.5mm outer barrel connector**
+
+------
+
+![5v](../../en/img/hardware/5vconnector.jpg)
 
 
-### Corriente USB
-
-![5v](../img/usbpower.png)
 
 
-La tarjeta también puede ser alimentada desde el puerto USB. Un puerto USB típico **está limitada a un máximo de 500 mA.** Si va a manejar desde el puerto USB, el carril `VDD_5V` no es proporcionada a la cabecera de expansión. Así Capes que requieren que el ferrocarril no tendrán ese riel disponible para su uso.
+### USB Power
 
-El suministro de 5 VCC desde el puerto USB se proporciona en el riel `SYS_5V` de la cabecera de expansión para su uso por un Cabo.
+![5v](../../en/img/hardware/usbpower.png)
 
-### Consumo de energía
+The board can also be powered from the USB port. A **typical USB port is limited to 500mA maximum**. When powering from the USB port, the `VDD_5V` rail is not provided to the expansion header. So Capes that require that rail will not have that rail available for use.
+
+The 5VDC supply from the USB port is provided on the `SYS_5V` rail of the expansion header for use by a Cape.
+
+### Power consumption
 
 | MODE | USB (mA) | DC (mA)* | DC + USB (mA) |
 | -----|-----|----|----------|
@@ -50,10 +52,11 @@ El suministro de 5 VCC desde el puerto USB se proporciona en el riel `SYS_5V` de
 
 ---
 
-\* En esta columna se muestra el consumo aproximado de la junta cuando un pin de los CES (5V BEC).
+\* This column shows the approximate consumption of the board when powered from the ESCs (5V BEC).
 
 ---
 
-Cuando el USB está conectado, el FT2232 y HUB están encendidos que provoca un aumento en la corriente. Si no está conectado el USB, estos dispositivos se encuentran en estado de bajo consumo, por lo tanto esto ahorra aproximadamente 120 mA de corriente y es la razón para el aumento de la corriente cuando se conecta el USB.
+When the USB is connected, the FT2232 and HUB are powered up which causes an increase in the current. If the USB is not connected, these devices are in low power state, therefore this saves roughly 120mA of current and is the reason for the increased current when the USB is connected.
 
-La corriente fluctúe como ocurren diversos activa, como los LED y los accesos de la tarjeta SD.
+The current will fluctuate as various activates occur, such as the LEDs on and SD card accesses.
+

@@ -1,7 +1,7 @@
 The Robot Operative System (ROS): Powering the world's robots
 =========
 
-![ros](../img/rosorg-nb.png)
+![](../img/ros/rosorg-nb.png)
 
 What is ROS?
 -----
@@ -39,8 +39,8 @@ The following distributions have been tested in the robot [Erle](http://erlerobo
 
 | Distro | Release date | Poster | Instuctions |
 |--------|--------------|--------|-------------|
-| [ROS Hydro Medusa](http://wiki.ros.org/hydro) | September 4th, 2013 | ![medusa](http://i.imgur.com/xvfZPAo.png) | [Installation](http://wiki.ros.org/hydro/Installation/UbuntuARM) |
-| [ROS Groovy Galapagos](http://wiki.ros.org/groovy) | December 31, 2012 | ![medusa](http://www.ros.org/images/groovygalapagos-320w.jpg) | [Installation](http://wiki.ros.org/groovy/Installation/UbuntuARM) |
+| [ROS Hydro Medusa](http://wiki.ros.org/hydro) | September 4th, 2013 | ![medusa](../img/ros/hydro.png) | [Installation](http://wiki.ros.org/hydro/Installation/UbuntuARM) |
+| [ROS Groovy Galapagos](http://wiki.ros.org/groovy) | December 31, 2012 | ![medusa](../img/ros/galapagos.jpg) | [Installation](http://wiki.ros.org/groovy/Installation/UbuntuARM) |
 
 
 License
