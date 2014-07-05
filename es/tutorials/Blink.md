@@ -1,72 +1,73 @@
-Hola mundo en robótica: parpadeo de un LED(hola)
+Hello world in robotics: blink a LED
 ======
 
-Objetivo
+Goal
 -----
-En este tutorial empezaremos con un ejemplo práctico que demostrará *cómo hacer que uno de los LEDs del robot parpadeen*.
+In this tutorial we will dive into the a practical example that teaches *how to make one of the robot LEDs blink* (the hello world in robotics).
 
 Material
 -----
-Para seguir el tutorial necesitas:
-- El robot Erle.
-- Una tarjeta microSD de 8 GB con la *Distrución Ubuntu Linux* que proporcionamos.
-- un conector (macho) USB-to-miniUSB
-- Un ordenador con un terminal serial instalado (en Windows puedes usar PuTTy in en *Unixes* `minicom`).
+In order to follow the tutorial you will need:
+- The robot Erle
+- An 8 GB microSD card (others can be used) with the *Ubuntu Linux Distribution* that we provide.
+- a (male) USB-to-miniUSB
+- A computer with a serial terminal installed (you can use PuTTy in Windows or minicom in Unix-based OSs)
 
 
 
 Tutorial
 -----
 
-Erle tiene cuatro LEDs, usr0 - usr3 accesibles a través de la interfaz sysfs en `/sys/class/leds`. Esta interfaz permite abstraer los LEDs a través de ficheros, esto significa que **es posible controlar los LEDs escribiendo en un fichero**. Genial, ¿verdad?.
+Erle has four user LEDS, usr0 - usr3 accesible throught the sysfs interface at `/sys/class/leds`. This interface abstracts the LEDs as files which means that we can actually **control how these LEDs behave writing in a file**. Cool, isn't it?
 
-Nuestro objetivo será hacer que uno de estos user LEDs parpadeen utilizando sencillas instrucciones de la shell de Unix.
+We will make blink one of the onboard USER Leds through simple bash shell commands.
 
-![leds](img/leds.jpg)
+![leds](../../en/img/tutorials/leds/leds.jpg)
 
-En primer lugar nos movemos al directorio sysfs correspondiente:
+First, move yourself to the LEDs sysfs dir:
 ```
 cd /sys/class/leds
 ```
 
-Si revisas el contenido de este directorio (`ls`) deberías ver algo como esto:
+If you check the content of this directory (`ls`) you should see something like this:
 ```
+
 erlerobot:green:usr0@
 erlerobot:green:usr1@
 erlerobot:green:usr2@
 erlerobot:green:usr3@
 ```
-Cada uno de estos directorios te permite modificar el comportamiento del LED correspondiente. Dentro de cada uno de estos directorios hay ficheros que se encargan de activar los LEDs de diferentes formas. Vamos a probar el `usr0`:
+
+Each of this directories allows you to interface with its corresponding LED and has a set of files that allow you to perform different tasks. For example, let's play with the `usr0`:
 ```
 cd erlerobot:green:usr0@
 ls
 ```
-El contenido de listar (escribiendo `ls`) este directorio debe ser:
+The content of listing (doing `ls`) this directory should be:
 ```
 brightness  device@  max_brightness  power/  subsystem@  trigger  uevent
 ```
-Como hemos dicho anteriormente, cada uno de estos ficheros te permite controlar el comportamiento del LED correspondiente y para ello basta con escribir en ellos *el contenido adecuado*. También es posible conocer el estado de los LEDs leyendo estos ficheros.
-Para conseguir que el LED se encienda o apague basta con escribir en el fichero `brightness`.
-Para encender el LED `usr0` escribe:
+As we said before, these files allow you to control the LEDs by writting on them but we can also *check what they are doing right now by reading them*. Simple blinking can be achieved by writting on the `brightness` file.
+To switch the LED `usr0` on type:
 ```
 echo 1 > brightness
 ```
-y para apagarlo:
+and to switch it off type:
 ```
 echo 0 > brightness
 ```
 
 ---
 
-Pon el LED `usr0` en modo `heartbeat` (latido de corazón):
+Put LED `usr0` in `heartbeat` mode:
 
 ```js
-# escribe aquí
+# write in here
 
 ```
 
 ```js
-# la solución (asumiendo que estás en el directorio usr0)
+# the solution (assumes that you're at the usr0 directory)
 echo "heartbeat" > trigger
 ```
 
@@ -75,5 +76,4 @@ assert(x == 10);
 ```
 
 ---
-
 

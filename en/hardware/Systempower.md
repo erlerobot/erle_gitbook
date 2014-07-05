@@ -18,7 +18,7 @@ The selection of either the 5VDC or the USB as the power source is handled inter
 ### 5V DC Power Input
 
 
-![5v](../img/5v.png)
+![5v](../img/hardware/5v.png)
 
 A 5V DC supply can be used to provide power to the board. The power supply current depends on how many and what type of add on boards are connected to the board. For typical use, a 5VDC supply rated at 1A should be sufficient. If heavier use of the expansion headers or USB host port is expected, then a higher current supply will be required. A NCP349 over voltage device is used to prevent the plugging in of 7 to 12 V power supplies by mistake. The NCP349 will shut down and the board will not power on. No visible indicator is provided to indicate that an over voltage condition exists. The board will not power up.
 
@@ -28,14 +28,14 @@ A 5V DC supply can be used to provide power to the board. The power supply curre
 
 ------
 
-![5v](../img/5vconnector.jpg)
+![5v](../img/hardware/5vconnector.jpg)
 
 
 
 
 ### USB Power
 
-![5v](../img/usbpower.png)
+![5v](../img/hardware/usbpower.png)
 
 The board can also be powered from the USB port. A **typical USB port is limited to 500mA maximum**. When powering from the USB port, the `VDD_5V` rail is not provided to the expansion header. So Capes that require that rail will not have that rail available for use.
 

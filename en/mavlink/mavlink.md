@@ -11,7 +11,7 @@ The MAVLink package is basically a stream of bytes encoded and sent over some ki
 
 Each MAVLink package is structured in the following way:
 
-![](http://qgroundcontrol.org/_media/mavlink/mavlink-packet.png?cache=)
+![](../img/mavlinkROS/mavlink-packet.png)
 
 The following table describes the message parts and bytes:
 

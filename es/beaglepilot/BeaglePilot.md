@@ -1,32 +1,32 @@
 # ArduPilot
 
-[ArduPilot](https://github.com/diydrones/ardupilot) es un piloto automático de código abierto creado en 2007 por [DIY Drones community](diydrones.com), tiene alrededor de 600k de lineas de códigoy cuenta con el apoyo de un amplio [grupo de desarrolladores](https://github.com/diydrones/ardupilot/graphs/contributors). El repositorio principal está mantenido por Andrew Tridgell y Andy Mackray. El proyecto [sigue creciendo en popularidad](https://github.com/diydrones/ardupilot/graphs/commit-activity) y hoy en día soporta 3 tipos de vehículos:
-* Copter
-* Plane
-* Rover
+[ArduPilot](https://github.com/diydrones/ardupilot) is an open source autopilot platform created in 2007 by the [DIY Drones community](diydrones.com) that has about 600K lines of code and is supported by a [wide group of developers](https://github.com/diydrones/ardupilot/graphs/contributors). The main repository is mantained by Andrew Tridgell and Andy Mackray. The project [keeps growing in popularity](https://github.com/diydrones/ardupilot/graphs/commit-activity) and nowadays it supports 3 kind of vehicles:
+- Copter
+- Plane
+- Rover
+
+
 
 ### BeaglePilot
 
-BeaglePilot es un proyecto que tiene como objetivo crear un piloto automático para equipos basados en Linux utilizando BeagleBone (Black) como el modelo de hardware.
+BeaglePilot is a project that aims to create an autopilot for Linux-based computers using the BeagleBone (Black) as the hardware blueprint.
+The project basically concentrates in pushing forward the `AP_HAL_Linux` of [ardupilot](https://github.com/diydrones/ardupilot).
 
-El proyecto basicamente se centra en el impulso de ` AP_HAL_LINUX ` de [ArduPilot](https://github.com/diydrones/ardupilot).
-
-![](../../en/img/beagle.jpg)
+![](../../en/img/beaglepilot/beagle.jpg)
 
 
 ----
 
-Se espera que el trabajo realizado en BeaglePilot se puede combinar con ArduPilot.
+The work performed at BeaglePilot is expected to be merged into ardupilot.
 
 ----
 
+The has been built by the contributions of 4 entities: [Erle Robotics](http://erlerobot.com), [3D Robotics](http://3drobotics.com), [BeagleBoard](http://beagleboard.org) and [Google (through the Google Summer of Code)](http://google.com) and many contributors.
 
-Ha sido construido por 4 entidades: [Erle Robotics](http://erlerobot.com), [3D Robotics](http://3drobotics.com), [BeagleBoard](http://beagleboard.org) and [Google (through the Google Summer of Code)](http://google.com) and many contributors.
-
-![BeaglePilot Pilars](../../en/img/beaglepilotpilars.png)
-
+![BeaglePilot Pilars](../../en/img/beaglepilot/beaglepilotpilars.png)
 
 
-### Fuentes
+
+### Sources
 - [Ardupilot website](http://ardupilot.com)
 - [Ardupilot wikipedia](http://en.wikipedia.org/wiki/Ardupilot)

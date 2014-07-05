@@ -2,7 +2,7 @@
 
 The BeagleBone has a method under which the current consumption of the board, not counting the USB Host port and expansion boards, can be measured. The voltage drop across a .1 ohm resistor is measured to determine the current consumption.
 
-![current](../img/currentmeas.png)
+![current](../img/hardware/currentmeas.png)
 
 ### `SYS_5V` Connection
 

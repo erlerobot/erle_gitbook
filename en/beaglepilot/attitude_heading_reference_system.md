@@ -25,19 +25,19 @@ This section will cover the following topics:
 #### Simplified model
 When thinking about accelerometers it is often useful to image a box in shape of a cube with a ball inside it.
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/04.png)
+![](../img/ahrs/04.png)
 
 If we take this box in a place with no gravitation fields or for that matter with no other fields that might affect the ball's position – the ball will simply float in the middle of the box.
 
 From the picture above you can see that we assign to each axis a pair of walls (**we removed the wall `Y+` so we can look inside the box**). Imagine that each wall is pressure sensitive. If we move suddenly the box to the left (we accelerate it with acceleration `1g = 9.8 m/s^2`), the ball will hit the wall `X-`. We then measure the pressure force that the ball applies to the wall and output a value of `-1g` on the `X axis`:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/05.png)
+![](../img/ahrs/05.png)
 
 Note that the accelerometer will actually detect a force that is directed in the opposite direction from the acceleration vector. This force is often called **Inertial Force or Fictitious Force**. One thing you should learn from this is that an accelerometer measures acceleration indirectly through a force that is applied to one of it's walls (according to this model, accelerometers might be a spring or something else in real life). This force can be caused by the acceleration , but as we'll see in the next example it is not always caused by acceleration.
 
 If we take our model and put it on Earth the ball will fall on the `Z-` wall and will apply a force of `1g` on the bottom wall, as shown in the picture below:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/06.png)
+![](../img/ahrs/06.png)
 
 In this case the box isn't moving but we still get a reading of `-1g` on the `Z axis`. The pressure that the ball has applied on the wall was **caused by a gravitation force**. In theory it could be a different type of force. For example, if you imagine that our ball is metallic, placing a magnet next to the box could move the ball so it hits another wall. This was said just to prove that in essence accelerometer measures force not acceleration. It just happens that acceleration causes an inertial force that is captured by the force detection mechanism of the accelerometer.
 
@@ -45,7 +45,7 @@ While *this model is not exactly how a MEMS sensor is constructed* it is often u
 
 So far we have analyzed the accelerometer output on a single axis and this is all you'll get with a single axis accelerometers. The real value of triaxial accelerometers comes from the fact that they can detect inertial forces on all three axes. Let's go back to our box model, and let's rotate the box 45 degrees to the right. The ball will touch 2 walls now: Z- and X- as shown in the picture below:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/07.png)
+![](../img/ahrs/07.png)
 
 The values of `0.71` are not arbitrary, they are actually an approximation for $\sqrt(\frac{1}{2})$. This will become more clear as we introduce our next model for the accelerometer.
 
@@ -53,7 +53,7 @@ The values of `0.71` are not arbitrary, they are actually an approximation for $
 
 In the previous model we have fixed the gravitation force and rotated our imaginary box. In last 2 examples we have analyzed the output in 2 different box positions, while the force vector remained constant. While this was useful in understanding how the accelerometer interacts with outside forces, it is more practical to perform calculations if we fix the coordinate system to the axes of the accelerometer and imagine that the force vector rotates around us.
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/01.png)
+![](../img/ahrs/01.png)
 
 In the model above the colors of the axes are preserved so that the **mental transition** from the previous model to the new one is nicer. Just imagine that each axis in the new model is perpendicular to the respective faces of the box in the previous model. The `vector R` is the force vector that the accelerometer is measuring (it could be either the gravitation force or the inertial force from the examples above or a combination of both). $R_x$, $R_y$, $R_z$ are projection of the R vector on the `X`,`Y` and `Z` axes. Please notice the following relation:
 
@@ -112,7 +112,7 @@ We now have all 3 components that define our inertial force vector, if the devic
 
 If you are also interested in per-axis direction of inclination you can split this result into 2 components: inclination on the `X` and `Y axis` that can be calculated as the angle between gravitation vector and X / Y axes. Calculating these angles is more simple than you might think, now that we have calculated the values for $R_x$, $R_y$ and $R_z$. Let's go back to our last accelerometer model and do some additional notations:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/02.png)
+![](../img/ahrs/02.png)
 
 The angles that we are interested in are the angles between `X`,`Y`,`Z` axes and the `force vector R`. We'll define these angles as $Axr$, $Ayr$, $Azr$. You can notice from the right-angle triangle formed by $R$ and $Rx$ that:
 
@@ -148,7 +148,7 @@ This is a nice property since it absolve us from monitoring the modulus(length) 
 
 We're not going to introduce any equivalent box model for the gyroscope like we did for accelerometer, instead we're going to jump straight to the second accelerometer model and we'll show what does the gyroscope measure according to this model:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/03.png)
+![](../img/ahrs/03.png)
 
 Each gyroscope channel measures the rotation around one of the axes. For instance a 2-axes gyroscope will measure the rotation around (or some may say "about") the X and Y axes. To express this rotation in numbers let's do some notations. First let's define:
 
@@ -289,7 +289,7 @@ Rgyro = [RxGyro,RyGyro,RzGyro]
 
 We'll calculate this vector one component at a time. We'll start with $RxGyro$:
 
-![](http://www.starlino.com/wp-content/uploads/data/imu_guide/03.png)
+![](../img/ahrs/03.png)
 
 Let's start by observing the following relation in our gyroscope model, from the right-angle triangle formed by $Rz$ and $Rxz$ we can derive that:
 ```

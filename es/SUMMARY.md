@@ -1,10 +1,10 @@
 # Summary
 
 * [Básico](basics/README.md)
-* [Software](sotfware/README.md)
-   * [Linux](sotfware/linux.md)
-   * [Ardupilot](sotfware/autopilot.md)
-   * [ROS](sotfware/ros.md)
+* [Software](software/README.md)
+   * [Linux](software/linux.md)
+   * [Ardupilot](software/autopilot.md)
+   * [ROS](software/ros.md)
 * [Hardware](hardware/Hardware.md)
    * [Procesador](hardware/Processor.md)
    * [Memoria](hardware/Memory.md)

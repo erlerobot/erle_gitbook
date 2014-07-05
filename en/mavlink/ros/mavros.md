@@ -178,7 +178,7 @@ root@erlerobot:~# rosrun mavros mavros_node _serial_port:=/dev/ttyAutopilot _ser
 
 #### Playing with `mavros`
 
-![](img/mavros_graph.png)
+![](../../img/mavlinkROS/mavros_graph.png)
 
 ```bash
 victor@ubuntu:~$ rosnode list
@@ -211,7 +211,7 @@ Unfortunately it seems there's an issue because topics don't output anything:
 rostopic echo /mavros/imu/data_raw
 
 ```
-`mavparam doesn't seem the respond either:
+`mavparam` doesn't seem the respond either:
 ```
 rosrun mavros mavparam dump /tmp/apm.param
 
