@@ -1,19 +1,19 @@
 #`mavlink_ros` ROS package
 
-The `mavlink_ros` package is a *serial MAVLink to ROS bridge*. This ROS package created a  node that allows to send and receive MAVLink packets through a serial interface.
+El paquete `mavlink_ros` es un *puente serie entre MAVLink y ROS*. Este paquete de ROS crea un nodo que permite enviar y recibir paquetes MAVLink a través de una interfaz serie.
 
-The [mavlink_ros](https://github.com/mavlink/mavlink_ros) ROS package was initially coded by Lorenz Meier for rosmake (old ROS versions). An updated (**catkinized**) package is available [here](https://github.com/y22ma/mavlink_ros).
+El paquete [mavlink_ros](https://github.com/mavlink/mavlink_ros) se programó originalmente por Lorenz Meier para *rosmake* (versiones antigua de ROS). El paquete (**catkinized**) actualizado esta disponible [aquí](https://github.com/y22ma/mavlink_ros).
 
-#### Compiling `mavlink_ros`
+#### Compilando `mavlink_ros`
 
-To use `mavlink_ros` you just need to clone the repository at `~/catkin_ws/src` directory:
+Para usar `mavlink_ros` es necesario clonar el repositorio del directorio `~/catkin_ws/src`:
 
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/y22ma/mavlink_ros
 ```
 
-Then we need to compile the package with `catkin_make`:
+Luego necesitamos compilar el paquete con `catkin_make`:
 ```bash
 cd  ~/catkin_ws/
 root@erlerobot:~/catkin_ws# catkin_make
@@ -97,7 +97,7 @@ Linking CXX executable /root/catkin_ws/devel/lib/mavlink_ros/mavlink_ros_serial
 make[2]: warning:  Clock skew detected.  Your build may be incomplete.
 ```
 
-#### Running `mavlink_ros`
+#### Ejecutando `mavlink_ros`
 
 ```bash
 rosrun mavlink_ros mavlink_ros_serial -p /dev/ttyO5 -b 115200
@@ -118,11 +118,11 @@ MAVLINK SERIAL TO ROS BRIDGE STARTED ON MAV 42 (COMPONENT ID:110) - RUNNING.
 
 ---
 
-*NOTE: this requires both ardupilot and ROS running in the machine*
+*NOTA: Se require que ardupilot y ROS estén ejecutando en la mismo maquina*
 
 ---
 
-In another terminal:
+En otro terminal:
 
 ```bash
 root@erlerobot:~# rosnode list
