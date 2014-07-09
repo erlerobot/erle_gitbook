@@ -20,10 +20,13 @@ And finally we compile the code:
 ```
 make erle
 ```
+You could target other boards, no only `erle`. At the time of writting, `pxf` is also supported.
+
+A log of the compilation process is provided [here](https://gist.github.com/vmayoral/4b78947bfa32f7446549).
 
 ----
 
-In a BeagleBone (white) running at 720 MHz (perf. mode) the compilation time is about 10 minutes.
+**In a BeagleBone (white) running at 720 MHz (perf. mode) the compilation time is about 10 minutes.**
 
 ----
 
@@ -31,6 +34,6 @@ After the compilation, you should have an `ArduCopter.build/ArduCopter.elf` at t
 
 ----
 
-If you wish to deploy the executables somewhere else define the enviromental variable `TMPDIR`.
+If you wish to deploy the executables somewhere else define the enviromental variable `TMPDIR`. This variable might be defined already if you use one of our images.
 
 ----
