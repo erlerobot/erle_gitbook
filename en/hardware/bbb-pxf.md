@@ -1,4 +1,4 @@
-# BBB+PXF
+# BBB-PXF
 
 ![](../img/hardware/PXF.jpg)
 

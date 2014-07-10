@@ -18,7 +18,7 @@
        * [I/O](hardware/IO.md)
        * [Sensors](hardware/sensors.md)
        * [Hardware Map](hardware/HardwareMap.md)
-   * [BBB+PXF](hardware/bbb+pxf.md)
+   * [BBB-PXF](hardware/bbb-pxf.md)
 * [ArduPilot](beaglepilot/BeaglePilot.md)
    * [A simplified autopilot](beaglepilot/SimpleAutopilot.md)
    * [ArduPilot tasks](beaglepilot/beaglepilottasks.md)
