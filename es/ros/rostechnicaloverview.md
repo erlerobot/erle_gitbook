@@ -1,12 +1,12 @@
-# Technical Overview
+# Resumen técnico
 
-This technical overview goes into greater detail about the implementation of ROS. Most ROS users do not need to know these details, but they are important for those wishing to write their own ROS client libraries or those wishing to integrate other systems with ROS.
+Esta visión general técnica entra en más detalles acerca de la implementación de ROS. La mayoria de los usuarios de ROS no necesiran conocer estos detalles, pero son importantes para aquellos que deseen escribir sus propias bibliotecas de un cliente ROS o aquelles que deseean integrar otros sistemas con ROS.
 
-This technical overview assumes that you are already familiar with the ROS system and its concepts. For example, the ROS conceptual overview provides an overview of the Computation Graph architecture, including the role of the ROS Master and nodes.
+Esta visión general sume que ya esta familiarizado con el sistema ROS y sus concpetos. Por ejemplo, el panorama conceptual de ROS proporcionado un vistazo general sobre su arquitectura computacional en forma de grafo, incluyendo el rol del Master y los nodos de ROS.
 
 ###Master
 
-The Master is implemented via `XMLRPC`, which is a *stateless, HTTP-based protocol*. `XMLRPC` was chosen primarily because it is relatively lightweight, does not require a stateful connection, and has wide availability in a variety of programming languages. For example, in Python, you can start any Python interpreter and begin interacting with the ROS Master:
+El Master se implementa a través de `XMLRPC`, que es un *protocolo HTTP sin estado*. `XMLRPC` fuer elegido principalmente porque es relativamente ligero, no requiere el estado de la conexión, y está disponible en un gran variedad de lenguajes de programación. Por ejemplo, en Python puedes iniciar un interprete y comenzar a interactuar con el ROS Master.
 
 ``` python
 $ python
@@ -17,18 +17,18 @@ $ python
 [1, 'current system state', [[['/rosout_agg', ['/rosout']]], [['/time', ['/rosout']], ['/rosout', ['/rosout']], ['/clock', ['/rosout']]], [['/rosout/set_logger_level', ['/rosout']], ['/rosout/get_loggers', ['/rosout']]]]]
 ```
 
-The Master has **registration APIs**, which allow nodes to register as publishers, subscribers, and service providers. The Master has a URI and is stored in the `ROS_MASTER_URI` environment variable. This URI corresponds to the host:port of the XML-RPC server it is running. By default, the **Master will bind to port 11311**.
+El Master tiene una **API de registro**, que permite a los nodos registrarse como publicadores, suscriptores o proveedores de servicios. El Máster tiene un RUI y alamacena en la variable de entorno `ROS_MASTER_URI`. Esta URI corresponde al hos: puerto del servicio XML_RPC que se está ejecutando. Por defecto, **el Master inicio en el puerto 11311**
 
-For more information, including an API listing, please see [Master API](http://wiki.ros.org/ROS/Master_API).
+Para más información, por favor consulte [MASTER API](http://wiki.ros.org/ROS/Master_API).
 
 ### Parameter Server
-Although the [Parameter Server](http://wiki.ros.org/Parameter%20Server) is actually part of the ROS [Master](http://wiki.ros.org/Master), we discuss its API as a separate entity to enable separation in the future.
+Aunque [Parameter Server](http://wiki.ros.org/Parameter%20Server) es en realidad una parte de ROS [Master](http://wiki.ros.org/Master).
 
-Like the Master API, the Parameter Server API is also implemented via `XMLRPC`. The use of `XMLRPC` enables easy integration with the ROS client libraries and also provides greater type flexibility when storing and retrieving data. The Parameter Server can store `basic XML-RPC scalars` (`32-bit integers`, `booleans`, `strings`, `doubles`, `iso8601 dates`), `lists`, and `base64-encoded binary data`. The Parameter Server *can also store dictionaries* (i.e. structs), but these have a special meaning.
+Al igual que el API Master, el API de *Parameter Server* es implementado a través de `XMLRPC`. El uso de `XMLRPC` permite una integración con sencilla con la libreria de clientes de ROS y porporciona una mayor flexibilidad  en cuento a almacenamiento y recuperación de datos. El *Parameter Serve* puede almacenar `basic XML-RPC scalars` (`32-bit integers`, `booleans`, `strings`, `doubles`, `iso8601 dates`), `lists`, and `base64-encoded binary data`. El *Parameter Server* *can also store dictionaries* (por ejemplo structs), pero estas tienen un significado especial.
 
-The Parameter Server **uses a dictionary-of-dictionary representation** for namespaces, where each dictionary represents a level in the naming hierarchy. This means that *each key in a dictionary represents a namespace*. If a value is a dictionary, the Parameter Server assumes that it is storing the values of a namespace. For example, if you were to set the parameter `/ns1/ns2/foo` to the value `1`, the value of `/ns1/ns2/` would be a dictionary `{foo : 1}` and the value of `/ns1/` would be a dictionary `{ns2 : { foo : 1 }}`.
+El *Parameter Server* **utiliza una repesentación de diccionario de diccionario** para los *nombres de espacio (namespaces)*, donde cada diccionario representa un nivel en la jerarquúi de nombrado. Esto significada que *cada clave del diccionario representa un namespace*. Si el valor es un diccionario, el *Parameter Server* asume que se esta almacenando el nombre de un *namespace*. Por ejemplo, si se establece el parámetro `/ns1/ns2/foo` al valor 1, el valor de `/ns1/ns2/` sería un diccionario `{foo : 1}`  y el valor de `/ns1` sería un diccionario `{ns2 : { foo : 1 }}`.
 
-The `XMLRPC API` makes it very easy to integrate Parameter Server calls without even having to use a ROS client library. Assuming you have access to an XMLRPC client library, you can make calls directly. For example:
+El `API XMLRPC` hace que sea muy fácil de integrar llamadas al *Parameter Server* sin tener que usar la biblioteca de cliente de ROS. Asumiendo que usted tiene acceso a una biblioteca de un cliente `XMLRPC`, se pueden hacer llamadas directamente.Por ejemplo:
 
 ``` python
 $ python
@@ -43,89 +43,94 @@ $ python
 [1, 'Parameter [/foo]', 'value']
 ```
 
-Please see [Parameter Server API](http://wiki.ros.org/ROS/Parameter%20Server%20API) for a detailed API listing.
+Por favor, revise [Parameter Server API](http://wiki.ros.org/ROS/Parameter%20Server%20API) para ver más detalles sobre este API.
 
-###Node
-A ROS node has several APIs:
+###Nodos
+Los nodos de ROS tiene varias APIs:
 
-1. A slave API. The slave API is an XMLRPC API that has two roles: *receiving callbacks from the Master*, and *negotiating connections with other nodes*. For a detailed API listing, please see [Slave API](http://wiki.ros.org/ROS/Slave_API).
-2. A topic transport protocol implementation (see [TCPROS](http://wiki.ros.org/ROS/TCPROS) and [UDPROS](http://wiki.ros.org/ROS/UDPROS)). Nodes establish topic connections with each other using an agreed protocol. The most general protocol is TCPROS, which uses persistent, stateful TCP/IP socket connections.
-3. A command-line API. Every node should support [command-line remapping arguments](http://wiki.ros.org/Remapping%20Arguments), which enable names within a node to be configured at runtime.
+1. Un API esclava. Es un API XMLRPC que tiene dos funciones: *recibir callbacks del Mater*, y *negociar conexiones con otros nodos*. Para más detalles sobre esta API consulta [Slave API](http://wiki.ros.org/ROS/Slave_API).
+2. Una implementación de un proctocolo de transporte de *topic* (ver [TCPROS](http://wiki.ros.org/ROS/TCPROS) y [UDPROS](http://wiki.ros.org/ROS/UDPROS)). Lo nodos establecen conexiones de *topic* entre sí utilizando el protocolo acordado. El protocolo más general es TCPROS, que utiliza conexciones de TCP/IP persistentes con estado.
+3. Una API de línea de comandos. Todos los nodos deben soportar [command-line remapping arguments](http://wiki.ros.org/Remapping%20Arguments), que permite configurar los nombres de los nodos en tiempo de ejecución.
 
 
-Every node has a URI, which corresponds to the host:port of the [XMLRPC server](http://wiki.ros.org/ROS/Master_Slave_APIs) it is running. The XMLRPC server is not used to transport topic or service data: instead, it is used to negotiate connections with other nodes and also communicate with the Master. This server is created and managed within the ROS client library, but is generally not visible to the client library user. The XMLRPC server may be bound to any port on the host where the node is running.
+CAda nodo tiene un URI, que corresponde al host: El puerte del [servidor XMLRPC ](http://wiki.ros.org/ROS/Master_Slave_APIs) esta ejecutando. El servidor XMLRPC no se utliiza transporte de *topic* o servicio de datos: en su lugar, se utiliza para negociar conexiones con otros nodos y también para comunicarse con el maestro. Este servidor es creado y gestionado dentro de la biblioteca cliente de ROS, pero es general no es visible para el usuario de la biblioteca cliente de ROS. El servidor XMLRPC puede estar unido a cualquier puerto en el host donde se ejecuta el nodo.
 
-The XMLRPC server provides a [Slave API](http://wiki.ros.org/ROS/Slave_API), which enables the node to receive *publisher update* calls from the Master. These publisher updates contain a topic name and a list of URIs for nodes that publish that topic. The XMLRPC server will also receive calls from subscribers that are looking to request topic connections. In general, when a node receives a publisher update, it will connect to any new publishers.
+El servidor XMLRPC proporciona una [Slave API](http://wiki.ros.org/ROS/Slave_API), que permite que el nodo recibir *actualizaciones de publicación* llamadas desde el Master. Estas actualizaciones contieen un nombre de *topic* y una lista de URISs para los nodos que publican ese *topic*. El servidor XMLRPC también recibirá las llamadas de los suscriptores que están esperando una respuesta de la conexión de *topic*. En general, cuando un nodo recibe una actualización de publicación, se conectará a los nuevos publicadores.
 
-Topic transports are negotiated when a subscriber requests a topic connection using the publisher's XMLRPC server. The subscriber sends the publisher a list of supported protocols. The publisher then selects a protocol from that list, such as [TCPROS](http://wiki.ros.org/ROS/TCPROS), and returns the necessary settings for that protocol (e.g. an IP address and port of a TCP/IP server socket). The subscriber then establishes a separate connection using the provided settings.
+El transporde de *topic* se negocia cuando el suscriptor solocita la conexión de un *topic* utilizando un servirdo de publicaciones XMLRPC. El suscriptor encía al publicardor una lista de protocolos soportados. El publicador seleciona un protocolo de la lsita, como [TCPROS](http://wiki.ros.org/ROS/TCPROS), y devuelve la configuración necesaria para el protocolo (por ejemplo, una IP y un puerto para una conexión TCP). El suscriptor que establece una conexión separada utilizando la configuración suministrada.
 
-###Topic Transports
-There are many ways to ship data around a network, and each has advantages and disadvantages, depending largely on the application. TCP is widely used because it provides a simple, reliable communication stream. TCP packets always arrive in order, and lost packets are resent until they arrive. While great for wired Ethernet networks, these features become bugs when the underlying network is a lossy WiFi or cell modem connection. In this situation, UDP is more appropriate. When multiple subscribers are grouped on a single subnet, it may be most efficient for the publisher to communicate with all of them simultaneously via UDP broadcast.
+###Transporte de *Topic*
+Hay muchas maneras de enviar información por la red, cada una tienes sus ventajes e desventajas, dependiendo en gran medida de la aplicación. TCP es ampliamente utilizado, ya que proporciona un canal de comunicación simple y fiable. Los paquetes TPC siempre llegan en orden, y los paquete se reenvían hasta que llegan. Mientas que para redes cableadas Ethernet funciona bien, esto no es tan bueno con utilizado una red Wifi con grandes perdidas o una conexión móvil, UDP es más apropiado. Cuando verias suscriptores se agrupan en una sola subred puede ser más eficiente para el publicador comunicarse con todos ellos utilizando difusión UDP (broadcast UDP).
 
-For these reasons, ROS does not commit to a single transport. Given a publisher URI, a subscribing node negotiates a connection, using the appropriate transport, with that publisher, via XMLRPC. The result of the negotiation is that the two nodes are connected, with messages streaming from publisher to subscriber.
 
-Each transport has its own protocol for how the message data is exchanged. For example, using TCP, the negotiation would involve the publisher giving the subscriber the IP address and port on which to call connect. The subscriber then creates a TCP/IP socket to the specified address and port. The nodes exchange a [Connection Header](http://wiki.ros.org/ROS/Connection%20Header) that includes information like the MD5 sum of the message type and the name of the topic, and then the publisher begins sending serialized message data directly over the socket.
+Por estas razones, ROS no se compromete solo con un protocolo. Dado un editor de URI, un nodo suscriptor negocia su conexión, utilizando el transporte adecuado, con ese publicador a través de XMLRPC. El resultado de la negociación es que los dos nodos esán conectados, con un flujo de mensajes desde el publicador al suscriptor.
 
-To emphasize, nodes communicate directly with each other, over an appropriate transport mechanism. Data does not route through the master. Data is not sent via XMLRPC. The XMLRPC system is used only to negotiate connections for data.
+
+Cada transporte tiene su propio protocolo de como se intercambia los datos del mensajes.
+Por ejemplo, cuando utizados TCP, la negociación involucraría al publicador darla al suscriptor la dirección IP y el puerto en esa llamada de conexión. El suscriptor crearía una socket TCP/IP a la dirección y puerto especificado. Los nodos intercambian una [cabecera de conexión](http://wiki.ros.org/ROS/Connection%20Header) que incluye información como la suma MD5 del tipo de mensaje y el nombre del *topic*, y además el publicador comienza a enviar los datos del mensaje serializados directamente sobre el socket.
+
+Cabe destacar, los nodos se comunican directamente entre sí, sobre un mecanismo de transporte adecuado. Los daos no se encaminan a través del Master. Los datos no se envían a través de XMLRPC. El sistema XMLRPC solo se utiliza para negociar la conexión de datos.
 
 Developer links:
 
 - [ROS/TCPROS](http://wiki.ros.org/ROS/TCPROS)
 - [ROS/UDPROS](http://wiki.ros.org/ROS/UDPROS)
 
-###Message serialization and msg MD5 sums
-Messages are serialized in a very compact representation that roughly corresponds to a c-struct-like serialization of the message data in little endian format. The compact representation means that two nodes communicating must agree on the layout of the message data.
+###Serialización de mensaes y suma MD5 de mensajes
+Los mensajes son serializados en un representación muy compacta que corresponde aproximadamente a una serialización de una estructura de C de los datos del mensaje en el formato little endian. La representación compacta significa que los dos nodos de comunicación deben ponerse de acuerdo sobre la distribución de los datos en el mensaje.
 
-Message types ([msgs](http://wiki.ros.org/msg)) in ROS are versioned using a special MD5 sum calculation of the msg text. In general, client libraries do not implement this MD5 sum calculation directly, instead storing this MD5 sum in auto-generated message source code using the output of `roslib/scripts/gendeps. For reference, this MD5 sum is calculated from the MD5 text of the `.msg file, where the MD5 text is the `.msg` text with:
+Los tipos de mensajes ([msgs](http://wiki.ros.org/msg)) en ROS están versionados utilizando un suma especial MD5 del mensaje. En general la librería cliente no implementa el calculo de la suma MD5 directamente, en lugar de guardar esta suma MD5  en el código fuente del mensaje utilizando la salida `roslib/scripts/gendeps`. A modo de referencia, la suma MD5 se calculada a partir del texto MD5 del fichero `msg`:
 
-- comments removed
-- whitespace removed
-- package names of dependencies removed
-- constants reordered ahead of other declarations
+- contenido eliminadocomments removed
+- espacios en blanco elimiandos
+- nombre de paquetes y dependencias elimiandas
+- constantes reordenadas al inicio por delante de otras declaraciones
 
-In order to catch changes that occur in embedded message types, the MD5 text is concatenated with the MD5 text of each of the embedded types, in the order that they appear.
+Con el fin de captar cambios que se producen en los tipos de mensaje, el tecto MD5 se concatena con el texto MD5 de cada uno de los tipos implícitos en el orden que aparecen.
 
-###Establishing a topic connection
-Putting it all together, the sequence by which two nodes begin exchanging messages is:
+###Estableciendo la conexión con un *topic*
 
-1. Subscriber starts. It reads its command-line remapping arguments to resolve which topic name it will use. (Remapping Arguments)
-2. Publisher starts. It reads its command-line remapping arguments to resolve which topic name it will use. (Remapping Arguments)
-3. Subscriber registers with the Master. (XMLRPC)
-4. Publisher registers with the Master. (XMLRPC)
-5. Master informs Subscriber of new Publisher. (XMLRPC)
-6. Subscriber contacts Publisher to request a topic connection and negotiate the transport protocol. (XMLRPC)
-7. Publisher sends Subscriber the settings for the selected transport protocol. (XMLRPC)
-8. Subscriber connects to Publisher using the selected transport protocol. (TCPROS, etc...)
+Poniendo todo junto, la secuencia en la que los dos nodos comienzan a intercambiar los mensajes es:
 
-The XMLRPC portion of this will look like:
+1. Comienza el suscriptor. Lee los argumentos de la línea de comandos para resolver el nombre del *topic que se va a utilizar.
+2. Comienza el publicador.Lee los argumentos de la línea de comandos para resolver el nombre del *topic que se va a utilizar.
+3. El suscriptor se registra en el Master. (XMLRPC)
+4. El publicador se registra en el Master. (XMLRPC)
+5. El Master indica al suscriptor de un nuevo publicador. (XMLRPC)
+6. El suscriptor contacto con el publicador para solicitar un conexión de *topic* y negocia el protocolo de transporte. (XMLRPC)
+7. El publicador envía al suscriptor la configuración del protocolo de transporte selecionado. (XMLRPC)
+8. El suscriptor se conecta al publicador usando el protocolo de transporte selecinado. (TCPROS, etc...)
+
+La tramo de XMLRPC:
 
 ```
 /subscriber_node → master.registerSubscriber(/subscriber_node, /example_topic, std_msgs/String, http://hostname:1234)
 ```
-Master returns that there are no active publishers.
+El Master devulve que no hay publicadores activos.
 ```
 /publisher_node → master.registerPublisher(/publisher_node, /example_topic, std_msgs/String, http://hostname:5678)
 ```
-Master notices that `/subscriber_node` is interested in `/example_topic`, so it makes a callback to the subscriber
+El Master se da cuenta de que  `/subscriber_node` esta interesado en `/example_topic`,  por lo que emite un callback al suscriptor
 ```
 master → subscriber.publisherUpdate(/publisher_node, /example_topic, [http://hostname:5678])
 ```
-Subscriber notices that it has not connected to `http://hostname:5678` yet, so it contacts it to request a topic.
+
+El suscriptor recibe esto y no esta conectado a `http://hostname:5678` todavía, por lo que contacta con para soliciar el *topic*.
 ```
 subscriber → publisher.requestTopic(/subscriber_node, /example_topic, [[TCPROS]])
 ```
-Publisher returns TCPROS as the selected protocol, so subscriber creates a new connection to the publishers TCPROS `host:port`.
+El publicador devuelve TCPROS como protocolo., por lo que el suscriptor crea una nueva conexión TCPROS con el publicador `host:port`.
 
-###Establishing a service connection
-We have not discussed services as much in this overview, but they can be viewed as a simplified version of topics. Whereas topics can have many publishers, there can only be a single service provider. The most recent node to register with the master is considered the current service provider. This allows for a much simpler setup protocol -- in fact, a service client does not have to be a ROS node.
+###Establecíendo una conexión de servicio
+No hemos hablado de los servicios mucho en esta descripción, pero se puede ver como una versión simplificado de los *topic*. Mientras que los temas puede muchos muchos publicadores, solo puede haber un solo proveedor de servicios. El nodo más reciente para registrarse con el maestro es considerado el proveedor de servicio actual. Esto permite una configuración de protocolo mucho más sencilla, de hecho, un cliente de servicio no tiene que ser un nodo de ROS.
 
-1. Service registers with Master
-2. Service client looks up service on the Master
-3. Service client creates TCP/IP to the service
-4. Service client and service exchange a Connection Header
-5. Service client sends serialized request message
-6. Service replies with serialized response message.
+1. El servicio se registra en el Master
+2. El servicio cliente ve el servicio en el Master
+3. El servicio cliente crea una conexión TCP/IP con el servicio
+4. El servicio cliente y el servicio intercambia una cabecera de conexión
+5. El servicio cliente envía un mensaje de petición serializada
+6. El servicio responde con un mensaje de respuesta serializado
 
-If the last several steps look familiar, its because they are an extension of the TCPROS protocol. In fact, rospy and roscpp both use the same TCP/IP server socket to receive both topic and service connections.
+Si lo últimos pasos te resultan familiares, es porque son una extensión del protocolo TCPROS. De hecho, `rospy` y `roscpp`utilizan el mismo socket de servicio TCP/IP para recibir mensajes de conexión un *topic* y servicios.
 
-As there is no callback from the Master when a new service is registered, many client libraries provide a "wait for service" API method, that simply polls the Master until a service registration appears.
+Como no hay un callback del MASter cuando se registra un nuevo servicio, muchos bibliotecas clientes proporciona un método en la API *a la espera de servicio*. Esta simplemente pregunta constantemente hasta que un servicio se registra.

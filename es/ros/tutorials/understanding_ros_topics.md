@@ -1,11 +1,10 @@
 # Understanding ROS Topics
 
-This tutorial introduces ROS topics as well as using the `rostopic` commandline tools.
+Este tutorial introcude los *topics* de ROS además del uso de la herramienta de línea de comandos `rostopic`.
 
 
 ----
-
-Before we move forward, let's start by making sure that we have roscore running, in a new terminal:
+Antes de seguir, asegurate de tener ejecutando `roscore`, en un nuevo terminal:
 
 ```
 $ roscore
@@ -19,11 +18,11 @@ This is fine. Only one roscore needs to be running.
 ----
 
 
-###ROS Topics
+###ROS *Topics*
 
-The `rostopic` tool allows you to get information about ROS topics.
+La herramienta `rostopic` permite obtener información sobre un *topic* de ROS
 
-You can use the help option to get the available sub-commands for `rostopic`
+Puedes usar la opcion de ayuda para ver los subcomandos disponible es `rostopic`:
 
 ```
 root@erlerobot:~# rostopic -h
@@ -41,4 +40,3 @@ Commands:
 
 Type rostopic <command> -h for more detailed usage, e.g. 'rostopic echo -h'
 ```
-

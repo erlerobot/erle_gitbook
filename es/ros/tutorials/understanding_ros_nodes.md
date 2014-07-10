@@ -1,29 +1,29 @@
 # Understanding ROS Nodes
 
-This tutorial introduces ROS graph concepts and discusses the use of `roscore`, `rosnode`, and `rosrun` commandline tools.
+Este tutorial los conceptos de ROS y discute el uso de las herramientas de línea de comando `roscore`, `rosnode` y `rosrun`.
 
-###Quick Overview of Graph Concepts
-- [Nodes](http://wiki.ros.org/Nodes): A node is an executable that uses ROS to communicate with other nodes.
-- [Messages](http://wiki.ros.org/Messages): ROS data type used when subscribing or publishing to a topic.
-- [Topics](http://wiki.ros.org/Topics): Nodes can publish messages to a topic as well as subscribe to a topic to receive messages.
-- [Master](http://wiki.ros.org/Master): Name service for ROS (i.e. helps nodes find each other)
-- [rosout](http://wiki.ros.org/rosout): ROS equivalent of stdout/stderr
-- [roscore](http://wiki.ros.org/roscore): Master + rosout + parameter server (parameter server will be introduced later)
+###Resumen
+- [Nodos](http://wiki.ros.org/Nodes): Un nodo es un ejecutable que usa ROS para comunicarse con otros nodos.
+- [Mensajes](http://wiki.ros.org/Messages): Tipo de dato de ROS que es utilizando durante la suscripción y publicación de un *topic*.
+- [Topics](http://wiki.ros.org/Topics): Los nodos pueden publicar mensajes a través de un *topic*. Se puede suscribirse a ellos para recibir mensajes.
+- [Master](http://wiki.ros.org/Master): Nombre de servicio para ROS(por ejemplo ayuda a encontrar otros nodos)
+- [rosout](http://wiki.ros.org/rosout): La salida equivalente de ROS a stdout/stderr
+- [roscore](http://wiki.ros.org/roscore): Master + rosout + parameter server (parameter server será introcudido más adelante)
 
 
-###Nodes
-A node really isn't much more than an executable file within a ROS package. ROS nodes use a ROS client library to communicate with other nodes. Nodes can publish or subscribe to a Topic. Nodes can also provide or use a Service.
+###Nodos
+Un nodo en realidad no es más que un archico ejecutable dentro de un paquete de ROS. Los nodos de ROS utilizan una biblioteca cliente para comunicarse con otros nodos. Los nodos pueden publicar o suscribirse a un *topic*. Los nodos pueden utilizar o proporcionar algún servicio.
 
-###Client Libraries
-ROS client libraries allow nodes written in different programming languages to communicate:
+###Libraría cliente
+La biblioteca cliente de ROS permite a escribir los nodos de ROS en diferentes lenguajes de programación:
 
 - rospy = python client library
 - roscpp = c++ client library
 
 ### `roscore`
-`roscore` is the first thing you should run when using ROS.
+`roscore` es la primero que debe ejecutar cuando usas ROS.
 
-Please run:
+Por favor ejecuta:
 
 ```bash
 roscore
@@ -56,16 +56,15 @@ started core service [/rosout]
 ```
 
 ### `rosnode`
-`rosnode` displays information about the ROS nodes that are currently running. The `rosnode list` command lists these active nodes:
+`rosnode` muestra información sobre los nodos de ROS que se están ejecutando. El comando `rosnode list` lista los nodos que están activos.
 
 ```bash
 root@erlerobot:~# rosnode list
 /rosout
 ```
+Esto nos demostró que sólo hay un  nodo en ejecución: *rosout*. Este siempre se está ejecutando, ya que recoge y registra información de duración de los nodos.
 
-This showed us that there is only one node running: rosout. This is always running as it collects and logs nodes' debugging output.
-
-The `rosnode info` command returns information about a specific node.
+El comando `rosnode info` devuelve información sobre un nodo específico.
 
 ```bash
 root@erlerobot:~#  rosnode info /rosout
@@ -88,19 +87,19 @@ Pid: 3016
 
 ```
 
-Now, let's see some more nodes. For this, we're going to use rosrun to bring up another node.
+Ahora , vamos a ver algunos nodos más. PAra ellos, vamos a utilizar `rosrun` para que aparezca otro nodo.
 
 ### `rosrun`
 
-`rosrun` allows you to use the package name to directly run a node within a package (without having to know the package path).
+`rosrun` permite usar el nombre del paquete para ejecutar directamente un nodo (sin necesidad de conocer la ruta del paquete).
 
-Usage:
+Uso:
 
 ```
 $ rosrun [package_name] [node_name]
 ```
 
-In a new terminal:
+En un nuevo terminal:
 ``` bash
 root@erlerobot:~# rosrun autopilot_bridge mavlink.py --device /dev/ttyO4 --baudrate 115200
 Starting mavlink <-> ROS interface over the following link:
@@ -110,17 +109,16 @@ Starting mavlink <-> ROS interface over the following link:
 Waiting for AP heartbeat
 ```
 
-In another terminal:
+En otro terminal:
 
 ```bash
 root@erlerobot:~# rosnode list
 /autopilot
 /rosout
 ```
+Una característica poderosa de ROS es que se pueden volver a asignar nombres desde la línea de comandos.
 
-One powerful feature of ROS is that you can reassign Names from the command-line.
-
-Go back to the rosrun autopilot_bridge terminal and use ctrl-C (there seems to be a problem with this node so you might need to open a new terminal). Now let's re-run it, but this time use a Remapping Argument to change the node's name:
+Volvemos al terminal de `rosrun autopilot_bridge` y usa ctrl-C ( parace que hay un problema con este nodo por lo que puede ser que necesite abrir un nuevo terminal). Ahora vaoms a volver a ejecutarlo, pero esta vez utiliza un argumento de vambio de nombre de nodo:
 
 ```bash
 root@erlerobot:~# rosrun autopilot_bridge mavlink.py --device /dev/ttyO4 --baudrate 115200 __name:=my_autopilot
@@ -130,7 +128,7 @@ Starting mavlink <-> ROS interface over the following link:
 
 Waiting for AP heartbeat
 ```
-Now, if we go back and use rosnode list:
+Ahora, Si volvemos atras y usarmos el comando `rosnode list`:
 
 ```bash
 root@erlerobot:~# rosnode list
@@ -138,7 +136,7 @@ root@erlerobot:~# rosnode list
 /rosout
 ```
 
-Let's use another rosnode command, ping, to test that it's up:
+Vamos a usar otro comando de `rosnode`, `ping`, para probarlo:
 
 ```bash
 root@erlerobot:~# rosnode ping my_autopilot
@@ -154,10 +152,10 @@ xmlrpc reply from http://erlerobot:39540/	time=12.681007ms
 
 ```
 
-### Review
-What was covered:
+### Comentarios
+¿Qué se ha cubierto?:
 
-- `roscore` = ros+core : master (provides name service for ROS) + rosout (stdout/stderr) + parameter server (parameter server will be introduced later)
-- `rosnode` = ros+node : ROS tool to get information about a node.
-- `rosrun` = ros+run : runs a node from a given package.
-Now that you understand how ROS nodes work, let's look at how ROS topics work. Also, feel free to press Ctrl-C to stop turtlesim_node.
+- `roscore` = ros+core : master (proporciona un nombre de servicio para ROS) + rosout (stdout/stderr) + parameter server (parameter server será introducido más tarde)
+- `rosnode` = ros+node : Herramienta de ROS que obtiene información sobre un nodo.
+- `rosrun` = ros+run : ejecuta un nodo de un paquete.
+Ahora que usted entiene cómo hacen su trabajo los nodos de ROS. PAsaremos a ver cómo funcionan los *topics* de ROS.
