@@ -26,6 +26,36 @@ Install bootstrap dependencies :
 ```bash
 sudo apt-get install python-rosdep python-rosinstall-generator python-wstool build-essential
 ```
+
+----
+
+NOTE: 15th of July, 2014
+
+From today, when trying to install the packages i get:
+```
+root@beaglebone:~# sudo apt-get install python-rosdep python-rosinstall-generator python-wstool build-essential
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+build-essential is already the newest version.
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ python-rosdep : Depends: python-catkin-pkg but it is not going to be installed
+                 Depends: python-rosdistro (>= 0.3.0) but it is not going to be installed
+ python-rosinstall-generator : Depends: python-catkin-pkg (>= 0.1.28) but it is not going to be installed
+                               Depends: python-rosdistro (>= 0.3.4) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+
+```
+
+----
+
+
 Next ensure rosdep has been initialized:
 ```bash
 sudo rosdep init
