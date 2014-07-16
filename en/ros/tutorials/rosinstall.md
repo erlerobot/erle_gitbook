@@ -29,7 +29,7 @@ sudo apt-get install python-rosdep python-rosinstall-generator python-wstool bui
 
 ----
 
-NOTE: 15th of July, 2014
+*NOTE: 15th of July, 2014*
 
 From today, when trying to install the packages i get:
 ```
@@ -53,6 +53,12 @@ E: Unable to correct problems, you have held broken packages.
 
 ```
 
+
+*NOTE 2: 15th of July, 2014*
+It seems that `rosdep` cannot be installed in non-ubuntu systems from `apt-get`. To install it, run:
+```bash
+sudo pip install -U rosdep rosinstall_generator wstool rosinstall
+```
 ----
 
 
@@ -109,6 +115,7 @@ rm -rf roslisp
 
 
 ```bash
+cd ..
 rosdep install --from-paths src --ignore-src --rosdistro hydro -y -r --os=debian:wheezy
 ```
 
@@ -123,9 +130,53 @@ The `--os` flag was necessary for the author because of differences in the way t
 
 Once all of the dependencies below are installed you should be able to run rosdep install excluding the -r option without errors by makeing sure all your dependencies are listed in the base.yaml.
 
+----
+
+*NOTE: 16th July, 2014*
+
+```bash
+root@beaglebone:~/ros_catkin_ws# rosdep install --from-paths src --ignore-src --rosdistro hydro -y -r --os=debian:wheezy
+executing command [sudo apt-get install -y python-catkin-pkg]
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ python-catkin-pkg : Depends: python:any (>= 2.7.1-0ubuntu2) but it is not installable
+E: Unable to correct problems, you have held broken packages.
+executing command [sudo apt-get install -y python-rosdep]
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ python-rosdep : Depends: python-catkin-pkg but it is not going to be installed
+                 Depends: python-rosdistro (>= 0.3.0) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+ERROR: the following rosdeps failed to install
+  apt: command [sudo apt-get install -y python-catkin-pkg] failed
+  apt: command [sudo apt-get install -y python-rosdep] failed
+  apt: Failed to detect successful installation of [python-catkin-pkg]
+  apt: Failed to detect successful installation of [python-rosdep]
+
+```
+
+Seems like the problem keeps on. Still the building step is performed and ROS works.
+
+----
 
 
-#### Building Ros
+#### Building ROS
 
 Finally run the build and install command. To install somewhere other than your home directory use the --install-space option. (Check [catkin_make_isolated REP](http://www.ros.org/reps/rep-0134.html)).
 
