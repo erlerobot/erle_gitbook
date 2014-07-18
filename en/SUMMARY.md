@@ -25,6 +25,7 @@
    * [Attitude Heading Reference System](beaglepilot/attitude_heading_reference_system.md)
    * [ArduCopter](beaglepilot/arducopter.md)
        * [Parameters](beaglepilot/parameters.md)
+   * [AP_HAL](beaglepilot/ap_hal.md)
    * [AP_HAL_Linux](beaglepilot/ap_linux_hal.md)
        * [AnalogIn](beaglepilot/analogin.md)
        * [GPIO](beaglepilot/gpio.md)
