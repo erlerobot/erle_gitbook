@@ -6,7 +6,7 @@ The `AP_HAL` consists of a set of headers (`.h`) that define the classes and met
 
 
 ### The Linux HAL: `AP_HAL_Linux`
-The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems.
+The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at `/libraries/AP_HAL_Linux/`,
 
 According to the code, the this HAL is described as:
 
