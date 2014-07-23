@@ -6,7 +6,7 @@
 
 In this book you'll learn the basics of our  [technology](http://erlerobot.com), a **small-size Linux computer for making drones**.
 
-![erlelogo](img/intro/erlelogo2.png)
+![erlelogo](./en/img/intro/erlelogo2.png)
 
 
 ##About
@@ -15,7 +15,7 @@ Given these conditions, how are we going to educate the next generations on this
 
 We are coming up with an answer to all these questions, our technology: **Erle**.
 
-![erle-board](img/intro/board2.png)
+![erle-board](./en/img/intro/board2.png)
 
 Inspired by the BeagleBone development board, we have designed a small computer with about 36+ sensors, plenty of I/O and processing power for real-time analysis. Erle is the enabling technology for the next generation of aerial and terrestrial robots that will be used in cities solving tasks such as surveillance, enviromental monitoring or even providing aid at catastrophes.
 
