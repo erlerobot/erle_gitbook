@@ -6,7 +6,7 @@ The `AP_HAL` consists of a set of headers (`.h`) that define the classes and met
 
 
 ### The Linux HAL: `AP_HAL_Linux`
-The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at `/libraries/AP_HAL_Linux/`,
+The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at [/libraries/AP_HAL_Linux/](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h),
 
 According to the code, the this HAL is described as:
 
@@ -66,11 +66,11 @@ tree ardupilot/libraries/AP_HAL_Linux
 ```
 When running ardupilot (either ArduCopter, ArduPlane or APMRover2) in a Linux machine, these classes will be used for tasks such as SPI or I2C handling, Radio Control (RC) input processing and output generation and so on.
 
-As mentioned before, a HAL is usually quite close to the hardware thereby it might be difficult sometimes to code a generic HAL for a big range of systems. In the case of Linux, the development platform has been the BeagleBone Black however an effort has been done to use standart system calls and generic Linux mechanisms. Still, some parts remain platform dependent. This is the case of `RCInput`,  `RCOuput` or the `GPIO` modules that use the PRUs (Programmable RealTime Units) to offload the main processor.
+As mentioned before, a HAL is usually quite close to the hardware,thus it might be difficult sometimes to code a generic HAL for a big range of systems. In the case of Linux, the development platform has been the BeagleBone Black however an effort has been done to use standart system calls and generic Linux mechanisms. Still, some parts remain platform dependent. This is the case of `RCInput`,  `RCOuput` or the `GPIO` modules that use the PRUs (Programmable RealTime Units) to offload the main processor.
 
 ----
 
-*Note*: The HAL has been developed with Debian thereby for major compatibility, this File System (FS) is recommended.
+*Note*: The HAL has been developed with Debian, for major compatibility, this File System (FS) is recommended.
 
 Other FS could be used (e.g.: Ubuntu, ArchLinux, etc.) but some modifications in the code might be needed.
 
