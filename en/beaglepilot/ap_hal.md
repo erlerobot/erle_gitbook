@@ -4,7 +4,7 @@
 
 `AP_HAL` is hardware abstraction layer for the `ArduPilot` project. The `AP_HAL` consists of a set of headers (`.h`) that define the classes and methods that should be implemmented if ardupilot should run in a new device/architecture. The code contained in this HALs (**Hardware Abstraction Layer**s) is usually quite **low level** and close to the hardware.
 
- The `AP_HAL` code , found in `/libraries/AP_HAL/`,
+ The `AP_HAL` code can be found at  [/libraries/AP_HAL/](https://github.com/diydrones/ardupilot/tree/master/libraries/AP_HAL).
 
 ### Using the AP_HAL
 
@@ -23,7 +23,7 @@ The collection of classes in the `AP_HAL` library exist in the `AP_HAL` C++ name
 const AP_HAL::HAL& hal = specific_hal_implementation;
 ```
 
-will create an instance that should be in a single object file. All other object files, including libraries (even those inside an `AP_HAL` implementation, should use the `AP_HAL` interface by declaring an extern reference to hal:
+will create an instance that should be in a single object file. All other object files, including libraries (even those inside an `AP_HAL` implementation), should use the `AP_HAL` interface by declaring an extern reference to hal:
 
 ```cpp
 #include <AP_HAL.h> extern const AP_HAL::HAL& hal;
@@ -174,43 +174,46 @@ These macros allow the code to build on multiple platforms more easily.
 
 ```
 
+####AP_HAL interface classes
 
 The `AP_HAL interface classes` are each defined in a header file bearing their name.
 
 The following abstractions compound the module `AP_HAL`:
 
 
-- `AP_HAL::HAL` class is a container for the a complete set of device drivers. The class is defined in `/libraries/AP_HAL/HAL.h`. It also has a virtual (i.e. overridable) method to handle driver initialization. Each device driver is exposed as a pointer an `AP_HAL` driver class, (e.g. each serial driver is exposed as a public `UARTDriver* uartN`).
+- `AP_HAL::HAL` class is a container for the a complete set of device drivers. The class is defined in [/libraries/AP_HAL/HAL.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/HAL.h). It also has a virtual (i.e. overridable) method to handle driver initialization. Each device driver is exposed as a pointer an `AP_HAL` driver class, (e.g. each serial driver is exposed as a public `UARTDriver* uartN`).
 
 
-- `AP_HAL::AnalogIn` class is pure virtual and can be found in `/libraries/AP_HAL/AnalogIn.h`. The pure virtual `AP_HAL::AnalogSource` class is also defined in that class. Defines abstract methods for voltage measurement of analog signals.
+- `AP_HAL::AnalogIn` class is pure virtual and can be found in [/libraries/AP_HAL/AnalogIn.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/AnalogIn.h). The pure virtual `AP_HAL::AnalogSource` class is also defined in that class. Defines abstract methods for voltage measurement of analog signals.
 
 
-- `AP_HAL::GPIO` class is pure virtual and can be found in `/libraries/AP_HAL/GPIO.h`.Defines abstract methods for handling the General Purpose Input/Output pines in embedded systems.
+- `AP_HAL::GPIO` class is pure virtual and can be found in [/libraries/AP_HAL/GPIO.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/GPIO.h).Defines abstract methods for handling the General Purpose Input/Output pines in embedded systems.
 
 
-- `AP_HAL::I2CDriver` class is a pure virtual interface, found in `/libraries/AP_HAL/I2CDriver.h` and is the `AP_HAL` replacment for ArduPilot's `I2C` library. The `I2CDriver` interface supports the timeout features we require to assure safe timing properties when polling the hardware I2C peripeheral. It also only exposes whole-transaction interfaces to the user, to support more efficient implementations in a threaded environment.
+- `AP_HAL::I2CDriver` class is a pure virtual interface, found in [/libraries/AP_HAL/I2CDriver.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/I2CDriver.h) and is the `AP_HAL` replacment for ArduPilot's `I2C` library. The `I2CDriver` interface supports the timeout features we require to assure safe timing properties when polling the hardware I2C peripeheral(I2C bus helps you monitor the health of your system). It also only exposes whole-transaction interfaces to the user, to support more efficient implementations in a threaded environment.
 
 
-- `AP_HAL::RCInput` class is pure virtual and can be found in `/libraries/AP_HAL/RCInput.h`. The RCInput interface is based on the input related methods of the existing ArduPilot `APM_RC` class. RCInput methods were separated from RCOutput methods for clarity.
+- `AP_HAL::RCInput` class is pure virtual and can be found in [/libraries/AP_HAL/RCInput.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/RCInput.h). The RCInput interface is based on the input related methods of the existing ArduPilot `APM_RC` class. RCInput methods were separated from RCOutput methods for clarity.
 
 
-- `AP_HAL::RCOutput` class is pure virtual and can be found in `/libraries/AP_HAL/RCOutput.h`. The RCOutput interface is based on the input related methods of the existing ArduPilot `APM_RC` class. RCOutput methods were separated from RCInput methods for clarity.
+- `AP_HAL::RCOutput` class is pure virtual and can be found in [/libraries/AP_HAL/RCOutput.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/RCOutput.h). The RCOutput interface is based on the input related methods of the existing ArduPilot `APM_RC` class. RCOutput methods were separated from RCInput methods for clarity.
 
 
-- `AP_HAL::Scheduler` class is pure virtual and can be found in `/libraries/AP_HAL/Scheduler.h`. The `AP_HAL::Scheduler` interface is designed to encapsulate scheduling asynchronous processes as a replacement to the ArduPilot `AP_PeriodicProcess` driver.
+- `AP_HAL::Scheduler` class is pure virtual and can be found in [/libraries/AP_HAL/Scheduler.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/Scheduler.h). The `AP_HAL::Scheduler` interface is designed to encapsulate scheduling asynchronous processes as a replacement to the ArduPilot `AP_PeriodicProcess` driver.
 
 
-- `AP_HAL::Semaphores`class is pure virtual and can be found in `/libraries/AP_HAL/Semaphores.h`.This class defines a semaphore abstract data type that is used for controlling access, by multiple processes, to a common resource in a parallel programming.
+- `AP_HAL::Semaphores`class is pure virtual and can be found in [/libraries/AP_HAL/Semaphores.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/Semaphores.h).This class defines a semaphore abstract data type that is used for controlling access, by multiple processes, to a common resource in a parallel programming.
 
 
-- `AP_HAL::SPIDriver` class is pure virtual and can be found in `/libraries/AP_HAL/SPIDriver.h`.It defines two classes `AP_HAL::SPIDeviceManager` and `AP_HAL::SPIDeviceDriver`, that defines methods to managin the Serial Peripheral Interface Bus.
+- `AP_HAL::SPIDriver` class is pure virtual and can be found in [/libraries/AP_HAL/SPIDriver.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/SPIDriver.h).It defines two classes `AP_HAL::SPIDeviceManager` and `AP_HAL::SPIDeviceDriver`, that defines methods to managin the Serial Peripheral Interface Bus.
 
 
-- `AP_HAL::Storage`class is pure virtual and can be found in `/libraries/AP_HAL/Storage.h` and it defines abstract methods for read and write data storage media like a SDCard.
+- `AP_HAL::Storage`class is pure virtual and can be found in [/libraries/AP_HAL/Storage.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/Storage.h) and it defines abstract methods for read and write data storage media like a SDCard.
 
 
 - `AP_HAL::UARTDriver`class is a pure virtual interface and the replacement for ArduPilot's `FastSerial` library. It provides the methods `begin()`, `end()`, `flush()`, `is_initialized()`, `set_blocking_writes`, and `tx_pending`. The class hierchary for `AP_HAL::UARTDriver` is also derived directly from the `FastSerial` class's hierarchy . `AP_HAL::UARTDriver` is a public `AP_HAL::BetterStream`, which is a public `AP_HAL::Stream`, which is a public `AP_HAL::Print`.
+You can find `AP_HAL::UARTDriver` class at [/libraries/AP_HAL/UARTDriver.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/UARTDriver.h) and at [/libraries/AP_HAL/UARTDriver.cpp](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/UARTDriver.cpp).
 
 
-- `AP_HAL::Util` class is pure virtual and can be found in `/libraries/AP_HAL/Util.h`. Util member for string utilities.
+- `AP_HAL::Util` class is pure virtual and can be found in [/libraries/AP_HAL/Util.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/Util.h).`AP_HAL::Util` class defines Util member for string utilities.
+
