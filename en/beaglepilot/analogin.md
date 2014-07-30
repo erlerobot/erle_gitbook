@@ -1,16 +1,19 @@
 # AnalogIn
 
-Class that takes care of **ADC** (Analogic to Digital Conversion).
-Not implemented yet.
+----
 
-Defines and implements methods for **voltage measurement** of **analog signals** in **linux-based** systems.
+**At the time of writting (29-07-2014) this class has not been implemented yet**
+
+----
+
+Class that takes care of **ADC** (Analogic to Digital Conversion). Defines and implements methods for **voltage measurement** of **analog signals** in **linux-based** systems.
 
 This class is divided into two files, **header** (`AnalogIn.h`) and **source code** (`AnalogIn.cpp`).
 
 ###AnalogIn.h
 
 
-Link to the code:[AnalogIn.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/AnalogIn.h).
+Link to the code: [AnalogIn.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/AnalogIn.h).
 
 `Linux::AnalogIn`class defines the methods inherited from the [AP_HAL::AnalogIn](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/AnalogIn.h) abstract class. The `Linux::LinuxAnalogSource` class is also defined in this header.
 
@@ -23,12 +26,32 @@ Link to the code:[AnalogIn.h](https://github.com/diydrones/ardupilot/blob/master
 
 class Linux::LinuxAnalogSource : public AP_HAL::AnalogSource {
 public:
+```
+Defines the `LinuxAnalogSource` class (class of [AP_HAL::AnalogSource](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/AnalogIn.h))
+
+```cpp
     LinuxAnalogSource(float v);
     float read_average();
     float read_latest();
     void set_pin(uint8_t p);
     void set_stop_pin(uint8_t p);
+```
+`void set_stop_pin(uint8_t p);`: optionally allows setting a pin that stops the device from reading. This is needed for sonar devices where you have more than one sonar, and you want to stop them interfering with each other. It assumes that if held low the device is stopped, if held high the device starts reading.
+
+
+---
+
+*Note*: uint8_t, uint16_t, uint32_t, uint64_t are integer type with a width of exactly 8, 16, 32, or 64 bits.Are part of `<cstdint> (stdint.h)`.This type is imported when including `AP_HAL.h`
+
+---
+
+```cpp
     void set_settle_time(uint16_t settle_time_ms);
+```
+`virtual void set_settle_time(uint16_t settle_time_ms);`:
+optionally allow a settle period in milliseconds. This is only used if a stop pin is set. If the settle period is non-zero then the analog input code will wait to get a reading for that number of milliseconds. Note that this will slow down the reading of analog inputs.
+
+```cpp
     float voltage_average();
     float voltage_latest();
     float voltage_average_ratiometric() { return voltage_average(); }
@@ -37,20 +60,9 @@ private:
 };
 ...
 ```
-- Defines the `LinuxAnalogSource` class.(class of class [AP_HAL::AnalogSourde](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/AnalogIn.h))
 
 
-- `void set_stop_pin(uint8_t p);`: optionally allow setting of a pin that stops the device from reading. This is needed for sonar devices where you have more than one sonar, and you want to stop them interfering with each other. It assumes that if held low the device is stopped, if held high the device starts reading.
-
-
-*Note*: uint8_t, uint16_t, uint32_t, uint64_t are integer type with a width of exactly 8, 16, 32, or 64 bits.Are part of `<cstdint> (stdint.h)`.This type is imported when including `AP_HAL.h`
-
-
-- `   virtual void set_settle_time(uint16_t settle_time_ms);`:
-optionally allow a settle period in milliseconds. This is only used if a stop pin is set. If the settle period is non-zero then the analog input code will wait to get a reading for that number of milliseconds. Note that this will slow down the reading of analog inputs.
-
-
-- The float return measured numbers.In the case of `voltage` between 0.0-5.0 v.
+The float returned is a `voltage` value between 0.0-5.0 V.
 
 ```
 ...
@@ -66,8 +78,9 @@ public:
 };
 #endif // __AP_HAL_LINUX_ANALOGIN_H__
 ```
+This piece of code:
 
-- Defines the `LinuxAnalogIn` class of class `AP_HAL::AnalogIN`.
+- Defines the `LinuxAnalogIn` class of `AP_HAL::AnalogIN`.
 
 
 - Declares the init() method with a pointer as argument.
@@ -93,7 +106,7 @@ using namespace Linux;
 ...
 ```
 
-- Inside a **namespace** you include all functions appropriate for fulfilling a certain goal.You can then refer to functions that are part of a namespace by prefixing the function with the namespace name followed by the scope operator :: .
+Inside a **namespace** you include all functions appropriate that fulfill a certain goal. You can then refer to the functions that are part of a namespace by prefixing the function with the namespace name followed by the scope operator `::` .
 
 ```cpp
 
@@ -139,4 +152,3 @@ AP_HAL::AnalogSource* LinuxAnalogIn::channel(int16_t n) {
 
 #endif // CONFIG_HAL_BOARD
 ```
-- Configures what all the functions defined in`AnalogIn.h` should return.

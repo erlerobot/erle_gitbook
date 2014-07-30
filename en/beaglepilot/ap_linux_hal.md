@@ -1,12 +1,5 @@
 # AP_HAL_Linux
 
-
-
-### Brief introduction to the `AP_HAL` layer
-The `AP_HAL` consists of a set of headers (`.h`) that define the classes and methods that should be implemmented if ardupilot should run in a new device/architecture. The code contained in this HALs (**Hardware Abstraction Layer**s) is usually quite **low level** and close to the hardware.
-
-
-### The Linux HAL: `AP_HAL_Linux`
 The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at [/libraries/AP_HAL_Linux/](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h),
 
 According to the code, the this HAL is described as:
@@ -77,25 +70,24 @@ Other FS could be used (e.g.: Ubuntu, ArchLinux, etc.) but some modifications in
 
 ----
 
+Below, we describe some abstractions implemented in this layer briefly:
 
 #####AP_HAL_Linux_Namespace.h
 
-Link to the code [AP_HAL_Linux_Namespace.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Namespace.h). This header  Declares each class by name.
+This [header](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Namespace.h) put all the abstractions under the same namespace.
 
 #####AP_HAL_Linux_Private.h
 
-Link to the code [AP_HAL_Linux_Private.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Private.h).This header defines private members, that can only be imported from inside the module `AP_HAL_Linux`.
+[AP_HAL_Linux_Private.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Private.h) defines a private umbrella for the `AP_HAL_Linux`.
 
 ##### AP_HAL_Linux.h
-Link to the code [AP_HAL_Linux.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h).The `AP_HAL_Linux` exports the `AP_HAL` content.
-The boards definition are collected at [AP_HAL_Boards.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/AP_HAL_Boards.h)
+[AP_HAL_Linux.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h) represents an umbrella header. Boards definition for the different hardware autopilots supported are collected at [AP_HAL_Boards.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/AP_HAL_Boards.h)
 
 ##### HAL_Linux_Class.h
 
-Link to the code [HAL_Linux_Class.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.h).This header defines the class `HAL_linux`.
-First declares `init()` funtion, to initialize it and exports as extern const.
+[HAL_Linux_Class.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.h) defines the class `HAL_linux`.
 
-- **NOTE**. When using include, the difference between using `<>`and `" "`is the following:
+- **include NOTE**. When using include, the difference between using `<>`and `" "`is the following:
  + `<>` Search in all directories specified to the compiler.
  + `" "`Search , first, in the current directory and after that in the others.
 
@@ -103,12 +95,13 @@ First declares `init()` funtion, to initialize it and exports as extern const.
 
 #####HAL_Linux_Class.cpp
 
-Link to the code [HAL_Linux_Class.cpp](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.cpp).This file implements the methods definet at `HAL_Linux_Class.h`. You can find some code comments [here](./hal_linux_classcpp.md).
+[HAL_Linux_Class.cpp](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.cpp) is probably one of the most relevant files of the HAL. Defines and instantiates all the abstractions used in the Linux HAL.
+
+You can find some code comments [here](./hal_linux_classcpp.md).
 
 #####AP_HAL_Linux_Main.h
 
-Link to the code [AP_HAL_Main.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Main.h).
+[AP_HAL_Main.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Main.h) is used for compatibility with previous HAL code (AVRs, etc.). Launches the system.
 
 
-
-The following subsections will describe each one of this implementations in the particular case of Linux.
+The following subsections will describe the most relevant componentes of this HAL.
