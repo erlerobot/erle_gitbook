@@ -1,12 +1,13 @@
 # AP_HAL_Linux
 
 
+
 ### Brief introduction to the `AP_HAL` layer
 The `AP_HAL` consists of a set of headers (`.h`) that define the classes and methods that should be implemmented if ardupilot should run in a new device/architecture. The code contained in this HALs (**Hardware Abstraction Layer**s) is usually quite **low level** and close to the hardware.
 
 
 ### The Linux HAL: `AP_HAL_Linux`
-The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at `/libraries/AP_HAL_Linux/`,
+The `AP_HAL_Linux` is a subclass of `AP_HAL` that implements a set of classes to be able to run `ardupilot` in Linux-based systems. The code from the `AP_HAL_Linux` can be found at [/libraries/AP_HAL_Linux/](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h),
 
 According to the code, the this HAL is described as:
 
@@ -66,14 +67,48 @@ tree ardupilot/libraries/AP_HAL_Linux
 ```
 When running ardupilot (either ArduCopter, ArduPlane or APMRover2) in a Linux machine, these classes will be used for tasks such as SPI or I2C handling, Radio Control (RC) input processing and output generation and so on.
 
-As mentioned before, a HAL is usually quite close to the hardware thereby it might be difficult sometimes to code a generic HAL for a big range of systems. In the case of Linux, the development platform has been the BeagleBone Black however an effort has been done to use standart system calls and generic Linux mechanisms. Still, some parts remain platform dependent. This is the case of `RCInput`,  `RCOuput` or the `GPIO` modules that use the PRUs (Programmable RealTime Units) to offload the main processor.
+As mentioned before, a HAL is usually quite close to the hardware,thus it might be difficult sometimes to code a generic HAL for a big range of systems. In the case of Linux, the development platform has been the BeagleBone Black however an effort has been done to use standart system calls and generic Linux mechanisms. Still, some parts remain platform dependent. This is the case of `RCInput`,  `RCOuput` or the `GPIO` modules that use the PRUs (Programmable RealTime Units) to offload the main processor.
 
 ----
 
-*Note*: The HAL has been developed with Debian thereby for major compatibility, this File System (FS) is recommended.
+*Note*: The HAL has been developed with Debian, for major compatibility, this File System (FS) is recommended.
 
 Other FS could be used (e.g.: Ubuntu, ArchLinux, etc.) but some modifications in the code might be needed.
 
 ----
+
+
+#####AP_HAL_Linux_Namespace.h
+
+Link to the code [AP_HAL_Linux_Namespace.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Namespace.h). This header  Declares each class by name.
+
+#####AP_HAL_Linux_Private.h
+
+Link to the code [AP_HAL_Linux_Private.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Private.h).This header defines private members, that can only be imported from inside the module `AP_HAL_Linux`.
+
+##### AP_HAL_Linux.h
+Link to the code [AP_HAL_Linux.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux.h).The `AP_HAL_Linux` exports the `AP_HAL` content.
+The boards definition are collected at [AP_HAL_Boards.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/AP_HAL_Boards.h)
+
+##### HAL_Linux_Class.h
+
+Link to the code [HAL_Linux_Class.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.h).This header defines the class `HAL_linux`.
+First declares `init()` funtion, to initialize it and exports as extern const.
+
+- **NOTE**. When using include, the difference between using `<>`and `" "`is the following:
+ + `<>` Search in all directories specified to the compiler.
+ + `" "`Search , first, in the current directory and after that in the others.
+
+
+
+#####HAL_Linux_Class.cpp
+
+Link to the code [HAL_Linux_Class.cpp](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/HAL_Linux_Class.cpp).This file implements the methods definet at `HAL_Linux_Class.h`. You can find some code comments [here](./hal_linux_classcpp.md).
+
+#####AP_HAL_Linux_Main.h
+
+Link to the code [AP_HAL_Main.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL_Linux/AP_HAL_Linux_Main.h).
+
+
 
 The following subsections will describe each one of this implementations in the particular case of Linux.
