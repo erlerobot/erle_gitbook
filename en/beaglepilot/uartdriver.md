@@ -245,7 +245,7 @@ LinuxUARTDriver::LinuxUARTDriver(bool default_console) :
 ...
 ```
 
-- This method initialized some variables.
+- The constructor `LinuxUARTDriver::LinuxUARTDriver` initialize `device_path` to `NULL`, the read file descriptor`_rd_fd` and write file descriptor `_wr_fd`.
 
 
 ```cpp
@@ -259,7 +259,7 @@ void LinuxUARTDriver::set_device_path(char *path)
 }
 ...
 ```
-- Set the `device_path` value.
+- Set the tty device to use introducing a `path`.
 
 
 ```cpp
@@ -428,12 +428,18 @@ void LinuxUARTDriver::begin(uint32_t b, uint16_t rxS, uint16_t txS)
 
 - In this slice of code all the methods and variables are initialized to their corresponding.
 
+- Try to open and stablish the **TCP|SERIAL|UNKNOWN** connection with the tty device.
+
+- After that when the conecction to the tty device is **stablished**, we set the **baud rate**, allocate the read and write buffers (`_readbuf`/`_writebuf`), and set `_initialized` to true.
+
+- All this using **file descriptors** (`_rd_fd`,`_wr_fd`) for managin the access to the path.
 
 - About the parameters passed to `begin()`:
  + Buffer sizes greater than ::_max_buffer_size will be rounded
  + param.	baud (b) :Selects the speed that the port will be configured to.  If zero, the port speed is left unchanged.
  +param. rxSpace (rxs):	Sets the receive buffer size for the port.  If zero then the buffer size is left unchanged if the portvis open, or set to `::_default_rx_buffer_size` if it is currently closed.
  + param. txSpace(txs):	Sets the transmit buffer size for the port.  If zero hen the buffer size is left unchanged if the port is open, or set to `::_default_tx_buffer_size` if it is currently closed.
+
 
 ```cpp
 ...
@@ -466,14 +472,18 @@ int LinuxUARTDriver::_parseDevicePath(char* arg)
         return DEVICE_UNKNOWN;
     }
 }
-
-
  ...
  ```
+
+
+- Parse the device path depending on the case (**TCP|SERIAL|UNKNOWN**) and return the device preprocessor definition. It is called in `begin()` method before doing the switch for stablish the connection.
+
+
 - `(const) char * strstr ( const char * str1, const char * str2 );` returns a pointer to the first occurrence of str2 in str1, or a null pointer if str2 is not part of str1.
 
 
 -  `char * strtok ( char * str, const char * delimiters );`split string into tokens.(A **token** is a character string that has a consistent meaning in a programming language.)A sequence of calls to this function split str into tokens, which are sequences of contiguous characters separated by any of the characters that are part of delimiters.
+
 
 ```cpp
 ...
@@ -483,28 +493,37 @@ int LinuxUARTDriver::_parseDevicePath(char* arg)
  */
 void LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)
 {
-    int one=1;
+...
+```
+
+- `LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)`, start a **TCP** connection for the serial port. If `wait_for_connection` is true then block until a client connects.
+
+
+- Let´s see the method in pieces of code:
+```cpp
+...
+int one=1;
     struct sockaddr_in sockaddr;
     int ret;
     int listen_fd = -1;  // socket we are listening on
     int net_fd = -1; // network file descriptor, will be linked to wr_fd and rd_fd
     uint8_t portNumber = 0; // connecto to _base_port + portNumber
-
-    // if (_console) {
-    //         // hack for console access
-    //         connected = true;
-    //         listen_fd = -1;
-    //         fd = 1;
-    //         return;
-    // }
-
+...
+```
+ + It defines local variables like `sockadrr_in` structure for handling internet addresses, a socket despcriptor `listen_fd` for listening the socket, and a network file descriptor `net_fd` that will be linked to `_wr_fd` and `_rd_fd` file descriptors.
+```cpp
+...
     if (net_fd != -1) {
         close(net_fd);
     }
 
     if (listen_fd == -1) {
         memset(&sockaddr,0,sizeof(sockaddr));
-
+...
+```
+ + Check `if (net_fd != -1)` closing the network file descriptor `net_fd`. Then check `if (listen_fd ==-1)` setting in memory the struct `sokaddr` and ...
+ ```cpp
+...
 #ifdef HAVE_SOCK_SIN_LEN
         sockaddr.sin_len = sizeof(sockaddr);
 #endif
@@ -514,7 +533,11 @@ void LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)
 
         // Bind to all interfaces
         sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-
+...
+```
+ + Initialize `sockaddr` structure (also if have `.sin_len`). Note that use `htons` (host to network short) and `htonl` (host to network long) for convert values between host and network byte order (See [Little-endian Big-endian](http://en.wikipedia.org/wiki/Endianness), and [Byte Order](http://www.beej.us/guide/bgnet/output/html/singlepage/bgnet.html#byteorder)).
+```cpp
+...
         listen_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (listen_fd == -1) {
             printf("socket failed - %s\n", strerror(errno));
@@ -527,7 +550,12 @@ void LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)
         printf("bind port %u for %u\n",
                 (unsigned)ntohs(sockaddr.sin_port),
                 (unsigned)portNumber),
-
+...
+```
+  + Allocate `listen_fd` socket descriptor, and set socket options to be able to re-use ports quickly.
+Note the use of `ntohs` (network to host short), for convert values between network byte order and host (See [Little-endian Big-endian](http://en.wikipedia.org/wiki/Endianness), and [Byte Order](http://www.beej.us/guide/bgnet/output/html/singlepage/bgnet.html#byteorder)).
+ ```cpp
+...
         ret = bind(listen_fd, (struct sockaddr *)&sockaddr, sizeof(sockaddr));
         if (ret == -1) {
             printf("bind failed on port %u - %s\n",
@@ -546,7 +574,11 @@ void LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)
                 _base_port + portNumber);
         fflush(stdout);
     }
-
+...
+```
+ + Bind `listen_fd` with `sockaddr` (Cast a struct `sockaddr_in*` to a struct `sockaddr*`, it´s safety); Then `listen()` for socket connections and limit the queue of **incoming connections** to `5`. Note that the `if (listen_fd == -1)` validation finish here.
+```cpp
+...
     if (wait_for_connection) {
         printf("Waiting for connection ....\n");
         fflush(stdout);
@@ -567,14 +599,11 @@ void LinuxUARTDriver::_tcp_start_connection(bool wait_for_connection)
         _wr_fd = net_fd;
     }
 }
+...
+```
+ + If `wait_for_connection` is true (boolean parameter given by `begin()` method), **accept** the connection, set **socket options** for reuse the `net_fd` net socket and set his **flags**, set `_connected` to true and **allocate** `net_fd` to `_rd_fd` and `_wr_fd` file descriptors. **End of `_tcp_start_connection()` method.**
 
 
- ...
- ```
- - Here networking processes are implemented using sockets.
-
-
- - Follow the notes provided with the code for a further understanding.
 
 
  ```cpp
@@ -611,7 +640,7 @@ void LinuxUARTDriver::end()
 
 ...
 ```
-- This codes ends the processes of UART.
+- This codes ends the processes of UART. **Restarts** some private members, **close** `_rd_fd` file descriptor and **release** read/write buffers.
 
 ```cpp
 ...
@@ -657,7 +686,7 @@ bool LinuxUARTDriver::is_initialized()
 
 ...
 ```
-- Defines buffering handling macros.
+- Defines buffering handling **macros**, from here all the methods use these macros.
 
 ```cpp
 ...
@@ -731,7 +760,12 @@ size_t LinuxUARTDriver::write(uint8_t c)
     BUF_ADVANCETAIL(_writebuf, 1);
     return 1;
 }
+...
+```
+-  Methods that read/write a `uint8_t`(**byte**) of data each time.
 
+```cpp
+...
 /*
   write size bytes to the write buffer
  */
@@ -783,7 +817,13 @@ size_t LinuxUARTDriver::write(const uint8_t *buffer, size_t size)
     }
     return size;
 }
+```
+- This method write **size bytes** to the **write buffer**, it use the per-byte delay loop in `write()` above for blocking writes.
+Validates if it´s initialized and it if have `_nonblocking_writes`, then it also check if there is enough space in `_writebuf`, to write the buffer data.
+After that perform the `memcpy()`calls, (**this sentence is wich writes**), as appropriate and advance the **tail** of `_writebuf` returning `size`.
 
+```cpp
+...
 /*
   try writing n bytes, handling an unresponsive port
  */
@@ -823,7 +863,8 @@ int LinuxUARTDriver::_read_fd(uint8_t *buf, uint16_t n)
 
 ...
 ```
-- This are reading and writing methods.
+- Try writing/reading n bytes, handling an unresponsive port.
+`LinuxUARTDriver::_write_fd` use `pollfd` structure (with **POLLOUT** event used for write normal data without blocking), and `poll()` function (provides applications with a mechanism for multiplexing input/output over a set of file descriptors). It calls to `::write(_wr_fd, buf, n);` for write if `poll()` return 1.
 
 ```cpp
 ...
@@ -881,4 +922,4 @@ void LinuxUARTDriver::_timer_tick(void)
 
 #endif // CONFIG_HAL_BOARD
 ```
-- Checks if there are pending bytes and sends them.
+- Push any pending bytes to/from the serial port and try to fill the read buffer using `_write_fd()` and `_read_fd()` methods for unresponsive port.
