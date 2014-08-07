@@ -6,7 +6,7 @@ Class that implements the methods in [/AP_HAL/utility](https://github.com/Beagle
 ---
 **Utility** software is system software designed to help analyze, configure, optimize or maintain the system.
 
-In the [/AP_HAL/Util.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/Util.h) we find  Util member for string utilities, a system clock, a state of safety controller...
+In the [/AP_HAL/Util.h](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/Util.h) we find  Util member for string utilities, a system clock, a state of safety controller... but also we through here everything that doesn't have an specific place within the system. New modules might end up being here.
 
 ---
 

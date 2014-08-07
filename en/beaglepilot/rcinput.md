@@ -1,10 +1,11 @@
 # RCInput
 
 
-Class that takes care of **RC** (Radio Control) input signals processing, in **linux-based** systems, using Pulse-width modulation.
+Class that takes care of **RC** (Radio Control) input signals. This signals are usually either PPM (PPM-SUM), PWM, D-BUS or other sort of RC starndart. This class implements a layer to abstract **linux-based** systems.
 
 ---
-**Pulse-width modulation (PWM)**, or pulse-duration modulation (PDM), is a modulation technique that controls the width of the pulse, formally the pulse duration, based on modulator signal information. Although this modulation technique can be used to encode information for transmission, its main use is to allow the control of the power supplied to electrical devices, especially to inertial loads such as motors.
+
+This class is still a work in progress.
 
 ---
 This class is divided into two files, **header** (`RCInput.h`) and **source code** (`RCInput.cpp`).

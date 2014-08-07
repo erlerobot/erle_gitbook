@@ -1,6 +1,6 @@
 # I2CDriver
 
-Class that takes care of **I2C** (Inter-Integrated Circuit) bus.
+Class that takes care of **I2C** (Inter-Integrated Circuit) serial bus communications.
 
 ---
 
@@ -33,6 +33,10 @@ class Linux::LinuxI2CDriver : public AP_HAL::I2CDriver {
 public:
     LinuxI2CDriver(AP_HAL::Semaphore* semaphore, const char *device);
 
+```
+The `LinuxI2CDriver` class inherits from [AP_HAL::I2CDriver](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/I2CDriver.h).
+
+```cpp
     void begin();
     void end();
     void setTimeout(uint16_t ms);
@@ -67,7 +71,6 @@ public:
     ...
     ```
 
- -  The `LinuxI2CDriver` class inherits from [AP_HAL::I2CDriver](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/I2CDriver.h).
 
 
  - The public members include functions for writing and reading from registers.
@@ -91,7 +94,7 @@ private:
 #endif // __AP_HAL_LINUX_I2CDRIVER_H__
 ```
 
-- In the private members whe found a Semaphore method implementation and some varibles.
+In the private members whe found a Semaphore method implementation and some varibles.
 
 
 ###I2CDriver.cpp

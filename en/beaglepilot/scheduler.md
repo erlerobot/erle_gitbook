@@ -13,6 +13,7 @@ In these cases, the purpose of the Scheduler is to **balance processor load**, p
 ---
 This class is divided into two files, **header** (`Scheduler.h`) and **source code** (`Scheduler.cpp`).
 
+For the case of Linux, the scheduler is implemented on top of the POSIX API, asumming pthreads and other nice interfaces that simplify the process of writting a real time system.
 
 
 
@@ -37,13 +38,13 @@ Link to the code:[Scheduler.h](https://github.com/diydrones/ardupilot/blob/maste
 ...
 ```
 
-- Imports `AP_HAL_linux.h` and defines the board.
+- Imports `AP_HAL_Linux.h` and defines the board.
 
 
 - The header`sys/time.h`defines time types, such as `timeval` structure that includes seconds and microsecons.- [(sys/time.h)](http://pubs.opengroup.org/onlinepubs/7908799/xsh/systime.h.html)
 
 
-- The `pthread.h` header defines symbols, functions like `pthread_mutex_unlock()` and types like `pthread_mutex_t.` - [(pthread.h)](http://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html)
+- The `pthread.h` header defines symbols, functions like `pthread_mutex_unlock()` and types like `pthread_mutex_t.` - ([pthread.h](http://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html))
 
 ```cpp
 ...
@@ -125,7 +126,8 @@ private:
 - As we have seen ,the class `LinuxScheduler` is a class of class [AP_HAL::Scheduler](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/Scheduler.h), that defines the methods and variables used is `Scheduler.cpp`.
 
 
-##
+### Scheduler.cpp
+
 [Scheduler.cpp](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/Scheduler.h) implements the methods defined  in `Scheduler.h` for managing time of processes.
 
 ```cpp

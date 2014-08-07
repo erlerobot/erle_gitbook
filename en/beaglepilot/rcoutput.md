@@ -6,6 +6,8 @@ Class that takes care of **RC** (Radio Control) output signals processing, in **
 ---
 **Pulse-width modulation (PWM)**, or pulse-duration modulation (PDM), is a modulation technique that controls the width of the pulse, formally the pulse duration, based on modulator signal information. Although this modulation technique can be used to encode information for transmission, its main use is to allow the control of the power supplied to electrical devices, especially to inertial loads such as motors.
 
+**It's important to hightlight that ardupilot uses a special PWM signals that take as inputs pulse with widths from 1000 to 2000 us.**
+
 ---
 
 This class is divided into two files, **header** (`RCOutput.h`) and **source code** (`RCOutput.cpp`).
