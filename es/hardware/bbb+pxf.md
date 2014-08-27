@@ -5,13 +5,14 @@
 El [PixHawk Fire Cape](https://github.com/diydrones/PXF) (PXF) es una *capa* para el BeagleBone Black desarrollado por Philip Rowse. La placa se usa para apoyar el `AP_HAL_Linux` de ardupilot.
 
 
-### Instrucciones de configuraciónSetup instructions
+### Instrucciones de configuración para el PXF v1.0
 #### Preparando el PXF
 
-Bend pins *P8* `46` to `31`.
+La revisión `1.0` tiene un problema en el arranque que hace que el BB o el BBB no arranque. Una solución rápida para este asunto es doblar los pins *P8* `46` a `31` para que no entren.
 
+![](../../en/img/hardware/PXF_bended.jpg)
 
-#### Prepare the BBB
+#### Preparando the BBB
 
 ----
 
@@ -19,10 +20,8 @@ Bend pins *P8* `46` to `31`.
 
 ----
 
-Obtener la [imagen de la microSD]() que proporcionamos y verific¡que que la BeagleBone Black funciona.
+Obtener la [imagen de la microSD]() que proporcionamos y verific¡que que la BeagleBone Black funciona. Recomendamos utilizar la BB para propositos de desarrollo (ya que tiene disponibilidad de un puerto serie del miniUSB que permite lanzar una consola serie a través de `minicom` o `screen`).
 
-#### PXF+BeagleBone Black
-
-Inserte correctamente la *capa* a la BeagleBone Black. Verifica que arranca correctamente.
+El BB (o el BBB) debe arrancar correctamente. En este punto estaremos dispuestos a poner la capa sobre la BB (o BBB).
 
 

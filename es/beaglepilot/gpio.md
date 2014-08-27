@@ -1,24 +1,22 @@
 # GPIO
 
-Class that takes care of **GPIO** (General-purpose input/output).
+Esta clase se encarga de **GPIO** (General-purpose input/output).
 
 ---
-**GPIO** is a generic pin on an integrated circuit whose behavior, including whether it is an input or output pin, can be controlled by the user at run time.
+**GPIO** es un pon genérico en un circuito integrado cuyo comportamiento, incluyendo si es un pin de entrada o de saldida, puede ser controlado por el usuario en tiempo de ejecución.
 
-**GPIO pins** have no special purpose defined, and go unused by default. The idea is that sometimes the system integrator building a full system that uses the chip might find it useful to have a handful of additional digital control lines, and having these available from the chip can save the hassle of having to arrange additional circuitry to provide them.
+Los **pines GPIO** no tienen ningún proposito general definido, y no se utilizan de forma predeterminada. La idea es que a veces el un sistema completo que utiliza un chip podría encontrar útil tener algunas lineas de control digital adicionales, y tenerlas a disposición del chip puede ahorrar la molestia de tener que diseñar un circuito adicional para proporcionarselo
 
 ---
-This class is divided into two files, **header** (`GPIO.h`) and **source code** (`GPIO.cpp`).
+Esta clase esta dividad en dos ficheros, **cabecera** (`GPIO.h`) and **código fuente** (`GPIO.cpp`).
 
 ###GPIO.h
 
+Enlace al código: [GPIO.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/GPIO.h)
 
-Link to the code: [GPIO.h](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/GPIO.h)
+La clase `Linux::LinuxGPIO ` define los métodos heradados de la clase abstracta [AP_HAL::GPIO](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/GPIO.h). La clase Linux::LinuxDigitalSource` también esta definida en este fichero y hereda de `AP_HAL::DigitalSource`.
 
-`Linux::LinuxGPIO `class defines the methods inherited from the [AP_HAL::GPIO](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL/GPIO.h) abstract class.Linux::LinuxDigitalSource` class is also defined in this file and inherit from `AP_HAL::DigitalSource`.
-
-
-For more clarity in the code: The GPIO files define C preproccesor Hexadecimal addresses and BeagleBone Black GPIO mappings in linux .
+*For more clarity in the code: The GPIO files define C preproccesor Hexadecimal addresses and BeagleBone Black GPIO mappings in linux.*
 
 ```cpp
 
@@ -68,12 +66,9 @@ For more clarity in the code: The GPIO files define C preproccesor Hexadecimal a
 ...
 
 ```
-- Following the statement:` #define identifier replacement`, when the preprocessor encounters this directive, it replaces any occurrence of `identifier` in the rest of the code by `replacement`.This is what is done for the identifiers in the code above.
+- A raíz de la declaración:` #define identifier replacement`, cuando el preprocesador se encuentra con esta directiva, se sustituye cualquier ocurrencia de `indetifier` en el resto de código por `replacement`. Esto es lo que se hace para los identificadores en el código de abajo.
 
-
-- It also contains a *or statement* (||) in order to enable and disable the GPIO, depending on the specified board.
-
-
+- Tambien contiene una declaración con el din de activar o desactivar el GPIO, dependiendo de la tarjeta especificada
 
 ```cpp
 ...
@@ -109,19 +104,16 @@ public:
 ...
 ```
 
-- The class `LinuxGPIO` is defined. It inherits from [AP_HAL::GPIO](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/GPIO.h).
+- La clase `LinuxGPIO` hereda de [AP_HAL::GPIO](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/GPIO.h).
 
 
-- The volatile keyword is a type qualifier used to declare that an object can be modified in the program by something such as the operating system, the hardware, or a concurrently executing thread.Here are defined some volatile pointers.
+- La palabra clave `volatile` es utilizado para declarar que un objeto puede ser modificado en el programa por algo como el sistema operativo, el hardware, o un *thread*. Aquí se definen algunos indicadores volátiles.
 
+- También se define una estructura GPIO llamada  `gpio_bank[]`, como su nombre indica, se utiliza para agrupar los pins en bancos. Puede acceder al banco por el indice.
 
-- It also defines a GPIO struct called `gpio_bank[]`, as the name suggests, is used to group pins in banks.You can access a bank by index.
+- En el ámbito público: hay definido un método `init()`, `read()` and `write()`. (estas funciones están implementadas en `GPIO.cpp`).
 
-
-- In the public fields: there is a `init()` method definition, `read()` and `write()` methods... (these functions are implemented in `GPIO.cpp`)
-
-
-- The methods defined inside `GPIO.h` in class `Linux::LinuxGPIO` like `LinuxGPIO::pinMode()`,`LinuxGPIO::read()`,`LinuxGPIO::write()` and so on, are implemented for handle the GPIO pin banks of the board.
+- Los métodos definidos dentro de `GPIO.h` en la clase `Linux::LinuxGPIO` como `LinuxGPIO::pinMode()`,`LinuxGPIO::read()`,`LinuxGPIO::write()` y así sucesivamente, son implementados para manejar los bancos de pines GPIO de la placa.
 
 ```cpp
 ...
@@ -139,21 +131,19 @@ private:
 
 #endif // __AP_HAL_LINUX_GPIO_H__
 ```
-- Defines the `LinuxDigitalSource`that inherits from `DigitalSource`, which is part of [AP_HAL::GPIO](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/GPIO.h)
+- Define el `LinuxDigitalSource` que hereda de `DigitalSource`, que es parte de [AP_HAL::GPIO](https://github.com/BeaglePilot/ardupilot/blob/master/libraries/AP_HAL/GPIO.h)
 
 
-- The methods defined inside `gpio.h` in `Linux :: LinuxDigitalSource` class, have been implemented here to manage digital external sources.
+- Los métodos definidos dentro de `gpio.h` en la clase `Linux :: LinuxDigitalSource`, se han aplicado aquí para administrar fuentes digitales. 
 
-
-- Some methods are defined here, for later implementation in `GPIO.cpp`.
+- Algunos métodos se definen aquí, para posteriormente implementarlos en `GPIO.cpp`.
 
 
 ###GPIO.cpp
 
+[GPIO.cpp](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/GPIO.cpp) implementa los métodos definidos en `GPIO.h`.
 
-[GPIO.cpp](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_HAL_Linux/GPIO.cpp) implements the methods defined  in `GPIO.h`.
-
-The most remarkable is the `init()` method which enables all GPIO banks, open the export directory `/sys/class/gpio/export`,  and map the GPIO banks in `/dev/mem`.
+El método más importante es `init()` que habilita todos los bancos GPIO, abra el directorio `/sys/class/gpio/export`, y mapeo los bancos GPIO en `/dev/mem`.
 
 ```cpp
 #include <AP_HAL.h>
@@ -172,40 +162,33 @@ The most remarkable is the `init()` method which enables all GPIO banks, open th
 #include <sys/stat.h>
 ...
 ```
-- In this piece of code `AP_HAL.h` and `GPIO.h` are included and the board is defined.
+- En este fragmento de código `AP_HAL.h` y `GPIO.h` están incluidos y la placa esta definida.
 
-Some functions and libraries are included:
+Algunas funciones y librerias están incluidas:
 
-+  Deal with Input and Output operations: manage files,read and write... - [ (stdio.h)](http://www.cplusplus.com/reference/cstdio/)
++  Trata con las operaciones de entrada y salida: gestión de archivos, lectura, escritura... - [ (stdio.h)](http://www.cplusplus.com/reference/cstdio/)
 
++ Esta cabecera define varias funciones de propósito general, incluyendo la gestión dinámica de memoria, generación de numeros aleatorios, la comunicación con el entorno, aritmética de enteros, búsqueda, clasificación...- [(stdlib.h)](http://www.cplusplus.com/reference/cstdlib/?kw=stdlib.h)
 
-+ This header defines several general purpose functions, including dynamic memory management, random number generation, communication with the environment, integer arithmetics, searching, sorting and converting.- [(stdlib.h)](http://www.cplusplus.com/reference/cstdlib/?kw=stdlib.h)
-
-
-+  The `string.h` header file defines several functions to manipulate C strings and arrays. - [(string.h)](http://www.cplusplus.com/reference/cstring/)
++  El archico de cabeceras `string.h` define varias funciones para manipular string de C y arrays. - [(string.h)](http://www.cplusplus.com/reference/cstring/)
 
 
-+ C Header that defines the following macro:
-`errno->Last error number (macro )`; plus at least three additional macro constants: EDOM, ERANGE and EILSEQ.`errno`delas with errors (see [errno](http://www.cplusplus.com/reference/cerrno/errno/) for more details). - [(errno.h)](http://www.cplusplus.com/reference/cerrno/?kw=errno.h)
++ Cabecera de C que define la siguiente macro:
 
+`errno->Last error number (macro )`; al menos 3 macros constantes adicionales: EDOM, ERANGE and EILSEQ. (see [errno](http://www.cplusplus.com/reference/cerrno/errno/) para más detalles). - [(errno.h)](http://www.cplusplus.com/reference/cerrno/?kw=errno.h)
 
-+  This header defines miscellaneous symbolic constants and types, and declares miscellaneous functions.It is provided by POSIX(Portable Operating System Interface-calls to the OS)-compatible systems.- [(unistd.h)](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html)
++  Esta cabecera denife constantes y tipos y declara funciones auxiliares. Es proporcionado por POSIX (Portable Operating System Interface-calls to the OS) - Sistemas compatibles.- [(unistd.h)](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html)
 
++ La cabecera `fcntl.h` define varias solicitudes y argumentos para el uso de las funciones `fcntl()` and `open()`. - [(fcntl.h)](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/fcntl.h.html)
 
-+ The `fcntl.h` header shall define some requests and arguments for use by the functions `fcntl()` and `open()`. - [(fcntl.h)](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/fcntl.h.html)
-
-
-
-+ The `poll.h` header defines the `pollfd` structure that includes at least the following member:
++ La cabecera `poll.h` define la estructura `pollfd` que incluye al menos los siguientes miembros:
 int *fd*(the following descriptor being polled),
 short int *events* (the input event flags) and
 short int *revents * ( the output event flags) - [(poll.h)](http://pubs.opengroup.org/onlinepubs/7908799/xsh/poll.h.html)
 
++ La cabecera `sys/mman.h` define las opciones de protección cuando hay consultas, archivos asignados en memoria, o objetos en memoria compartida compatibles con opciones son soportados- [(sys/mman.h)](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/sys/mman.h.html)
 
-+ The header `sys/mman.h` defines protection options when Advisory Information, Memory Mapped Files, or Shared Memory Objects options are supported.- [(sys/mman.h)](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/sys/mman.h.html)
-
-
-+ The `sys/stat.h` header defines the structure of the data returned by the functions `fstat()`,` lstat()`, and `stat()`. - [(sys/stat.h)](http://pubs.opengroup.org/onlinepubs/7908799/xsh/sysstat.h.html)
++ La cabecera `sys/stat.h` define la esructura de los datos devueltos por las funciones `fstat()`,` lstat()`, and `stat()`. - [(sys/stat.h)](http://pubs.opengroup.org/onlinepubs/7908799/xsh/sysstat.h.html)
 
 ```cpp
 ...
@@ -262,15 +245,14 @@ void LinuxGPIO::init()
 }
 ...
 ```
-Enable all GPIO banks(setting up the banks):
+Habilitar todos bancos GPIO (creación de los bancos):
 
-+ First, try to open  the file `/sys/class/gpio/export`: if fail print a message, if not print the content.
++ En primer lugar, intenta abrir el archivo `/sys/class/gpio/export`: si falla imprimir un mensahe, si no imprime el contenido.
+
++ Abre `/dev/mem`.
 
 
-+ Open `/dev/mem`.
-
-
-+ `off_t` is a type used to pass offset to various file related functions. With this we enable GPIO banks, mapping them in `/dev/mem`.
++ `off_t`  es un tipo usado para *offset* a varios funciones de archivos relacionados. Con esto activamos los bancos de GPIO, asignandolos en `/dev/mem`.
 
 ```cpp
 
@@ -383,4 +365,4 @@ void LinuxDigitalSource::toggle()
 
 #endif // CONFIG_HAL_BOARD
 ```
-- Here the missing functions are implemented.
+- Aquí las funciones que faltan se implementan.
