@@ -206,9 +206,92 @@ victor@ubuntu:~$ rostopic list
 
 ```
 
-Unfortunately it seems there's an issue because topics don't output anything:
+You need to set the stream rate:
+
+```bash
+rservice call /mavros/set_stream_rate 0 10 1
+```
+
+Then you can visualize topics
+```bash
+ rostopic list
+/diagnostics
+/mavlink/from
+/mavlink/to
+/mavros/battery
+/mavros/camera_image
+/mavros/camera_image/compressed
+/mavros/camera_image/compressed/parameter_descriptions
+/mavros/camera_image/compressed/parameter_updates
+/mavros/camera_image/compressedDepth
+/mavros/camera_image/compressedDepth/parameter_descriptions
+/mavros/camera_image/compressedDepth/parameter_updates
+/mavros/camera_image/theora
+/mavros/camera_image/theora/parameter_descriptions
+/mavros/camera_image/theora/parameter_updates
+/mavros/fix
+/mavros/global_position/compass_hdg
+/mavros/global_position/global
+/mavros/global_position/gps_vel
+/mavros/global_position/local
+/mavros/global_position/rel_alt
+/mavros/gps_vel
+/mavros/imu/atm_pressure
+/mavros/imu/data
+/mavros/imu/data_raw
+/mavros/imu/mag
+/mavros/imu/temperature
+/mavros/mission/waypoints
+/mavros/mocap/pose
+/mavros/optical_flow
+/mavros/position/local
+/mavros/position/vision
+/mavros/radio_status
+/mavros/rc/in
+/mavros/rc/out
+/mavros/rc/override
+/mavros/safety_area/set
+/mavros/setpoint/accel
+/mavros/setpoint/att_throttle
+/mavros/setpoint/cmd_vel
+/mavros/setpoint/local_position
+/mavros/state
+/mavros/time_reference
+/mavros/vfr_hud
+/mavros/vision_speed/speed_vector
+/rosout
+/rosout_agg
+/tf
+```
+
+For example, IMU:
+
 ```bash
 rostopic echo /mavros/imu/data_raw
+---
+header:
+  seq: 11149
+  stamp:
+    secs: 1412071746
+    nsecs: 586876282
+  frame_id: fcu
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+orientation_covariance: [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+angular_velocity:
+  x: 0.006
+  y: -0.005
+  z: 0.009
+angular_velocity_covariance: [1.2184696791468346e-07, 0.0, 0.0, 0.0, 1.2184696791468346e-07, 0.0, 0.0, 0.0, 1.2184696791468346e-07]
+linear_acceleration:
+  x: -0.24516625
+  y: 0.0196133
+  z: 10.52253545
+linear_acceleration_covariance: [8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08]
+---
 
 ```
 `mavparam` doesn't seem the respond either:
