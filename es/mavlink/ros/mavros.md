@@ -1,30 +1,31 @@
-# `mavros` ROS package
+# Paquete ROS `mavros`
+
+ `mavros` es un nodo ROS que extiende las comuniciones mediente MAVLink mediante un proxy para una Estación de Control de Tierra. Está documentado [aquí](http://wiki.ros.org/mavros).
+
+Este paquete (disponible [aquí](https://github.com/vooon/mavros)) implementa un nodo ROS que extiende las comuniciones mediente MAVLink mediante un proxy para una Estación de Control de Tierra que incluye las siguientes características:
+
+- Comunicación el autopiloto a través de puerto serie.
+- Proxy UDP para ka Estación de Control en Tierra
+- mavlink_ros es compatible con los Topics de ROS (Mavlink.msg)
+- Sistema de plugins para la traducción de ROS-MAVLink
+- Herramienta de manipulación de parámetros.
+- Herramienta de manipulación de Waypoint
 
 
-`mavros` es un nodo de comunicación extendsible a MAVLink de ROS con proxy UDP para la Estación de Control de Tierra. Esta documentado [aquí](http://wiki.ros.org/mavros) que incluye las siguientes características:
+### mavlink como una librería
 
-- Comuncicación con ardupilot a través de puerto serie
-- Proxy UDP con la Estación de Control de Tierra
-- mavlink_ros compatible con ROS Mavlink.msg
-- Plugin para la traducción de ROS-MAVLink
-- Herramienta de manipulación de parámetros
-- Herramienta de manipulación de puntos de interés
+Antes de compilar, es necesario realizar el siguiente paso que podría llegar algún tiempo si no se realiza correctamente, por lo tanto, vamos a explicar como hacerlo:
 
-### utilizando mavlink como una librería
-
-Antes de compilar mavros, es necesario este paso que podría llevar algo de tiempo si no se hace correctamente, así que se explicará como hacerlo:
-
-Ve a su *espacio de trabajo* de ROS y clona el siguiente paquete:
-
------
-
-*En lugar de clonar el repositorio manualmente, se puede utilizar `wstool`.*
+Ve al *espacio de trabajo* de ROS y clona el siguiente paquete `https://github.com/vooon/mavros`.
 
 -----
 
+*En lugar de clonar el repositorio manualmente se puede utilizar `wstool`.
 -----
 
-*NOTA: Un `.deb` puede ser generado para la BeagleBone y esta disponible en https://github.com/vmayoral/ros-stuff/tree/master/deb*
+-----
+
+*Nota: Un `.deb` ha sido generado para BeagleBone y esta disponible en https://github.com/vmayoral/ros-stuff/tree/master/deb*
 
 -----
 
@@ -33,7 +34,8 @@ cd <catkin-ros-workspace>
 cd src
 git clone https://github.com/vooon/mavros
 ```
-Ahora haz `checkout` de la rama que corresponde con la instalación de ROS:
+
+Ahora `checkout` la rama que corresponde con la instalación ROS:
 ```
   master
   remotes/origin/HEAD -> origin/master
@@ -60,9 +62,9 @@ Ahora haz `checkout` de la rama que corresponde con la instalación de ROS:
 
 ```
 
-Finalmente ve a tu `worspace` de nuevo y ejecuta `catkin_make_isolated --install-space /opt/ros/hydro/ --install`.
+Finalmente ve al *espacio de trabajo* de nuevo y ejecuta `catkin_make_isolated --install-space /opt/ros/hydro/ --install` (le recomendamos que deje únicamente el paquete mavlink).
 
-Deberías de ver algo como esto:
+Debes ver algo como esto:
 ```
 root@erlerobot:~/catkin_ws_hydro# catkin_make_isolated --install-space /opt/ros/hydro/ --install
 Base path: /root/catkin_ws_hydro
@@ -106,58 +108,34 @@ Parsing /root/catkin_ws_hydro/src/mavlink-gbp-release/message_definitions/v1.0/c
 ...
 ```
 
-El paquete `mavlink` debería estar compilado e instalado. Ahora compilemos `mavros`.
+El paquete `mavlink` debe de compilarse e instarse. Vamos a compilarlo.
 
 ### Compilando `mavros`
 
-Realice la compilación como se describe en [mavlink_ros:compiling instructions](mavlink_ros.md). El paquete debe de ser descargado en `~/catkin_ws/src` y `catkin_make` debe de ser ejecutado desde `catkin_ws` (revisar [ROS: Building a ROS Package](../../ros/tutorials/building_a_ros_package.md) para aprender más sobre el proceso de compilación de paquetes ROS).
-----
-
-*ATENCIÓN: El paquete `mavros` esta disponible para la distribución hydro+. Tengo esto en cuenta.*
+LA compilación se realizó como se describe en [mavlink_ros:compiling instructions](mavlink_ros.md). El paquete debe de ser descargado en `~/catkin_ws/src` y `catkin_make` debe de ser llamado desde `catkin_ws` (visite [ROS: Building a ROS Package](../../ros/tutorials/building_a_ros_package.md) para aprender más sobre como compilar paquetes ROS).
 
 ----
 
+*Atención: El paquete `mavros` esta disponible para la distribución hydro+. Tenga esto en cuenta*
 
+----
 
 ### Ejecutando `mavros`
 
-Por ahora, `mavros` solo soporta un dispositivo serie en el lado del autopiloto. Esto significa que si queremos ejecutarlo con una conexión TCP debes crear un PTY utilizando herramientas como [socat](http://www.dest-unreach.org/socat/).
-
-Empecemos ejecutando:
+Ahora lanzamos el Autopiloto:
 ``` bash
 ArduCopter.elf -A tcp:*:6000:wait
 ```
-Podemos facilmente verificar que se lanza un socket en todas las interfaces escuchando en el puerto 6000:
+
+Podemos facilmente verficar que se lanza un socket en todas las interfaces en el puerto 6000:
 ``` bash
 root@erlerobot:~# netstat -nap|grep Ardu
 tcp        0      0 0.0.0.0:6000            0.0.0.0:*               LISTEN      24632/ArduCopter.elf
 ```
-Ahora crearemos nuestro enlace *TCP-tty* utilizando `socat`:
-``` bash
-socat  pty,link=/dev/ttyAutopilot,raw  tcp:127.0.0.1:6000&
-```
-Si comprobamos `/dev` deberiamos ver algo como esto:
-```bash
-root@erlerobot:~# ls /dev
-alarm            fuse          loop0         mmcblk0p2           ram12   rfkill     tty11  tty23  tty35  tty47  tty59         ttyS0     vcs3   vport0p0
-ashmem           i2c-0         loop1         net                 ram13   rtc0       tty12  tty24  tty36  tty48  tty6          ttyS1     vcs4   watchdog
-autofs           i2c-1         loop2         network_latency     ram14   shm        tty13  tty25  tty37  tty49  tty60         ttyS2     vcs5   watchdog0
-binder           input         loop3         network_throughput  ram15   snd        tty14  tty26  tty38  tty5   tty61         ttyS3     vcs6   zero
-block            kmem          loop4         null                ram2    spidev1.0  tty15  tty27  tty39  tty50  tty62         ubi_ctrl  vcs7
-btrfs-control    kmsg          loop5         ppp                 ram3    spidev2.0  tty16  tty28  tty4   tty51  tty63         uinput    vcsa
-bus              log           loop6         psaux               ram4    stderr     tty17  tty29  tty40  tty52  tty7          urandom   vcsa1
-char             log_events    loop7         ptmx                ram5    stdin      tty18  tty3   tty41  tty53  tty8          usbmon0   vcsa2
-console          logibone      loop-control  pts                 ram6    stdout     tty19  tty30  tty42  tty54  tty9          usbmon1   vcsa3
-cpu_dma_latency  logibone_mem  mapper        ram0                ram7    tty        tty2   tty31  tty43  tty55  ttyAutopilot  usbmon2   vcsa4
-disk             log_main      mem           ram1                ram8    tty0       tty20  tty32  tty44  tty56  ttyO0         vcs       vcsa5
-fd               log_radio     mmcblk0       ram10               ram9    tty1       tty21  tty33  tty45  tty57  ttyO4         vcs1      vcsa6
-full             log_system    mmcblk0p1     ram11               random  tty10      tty22  tty34  tty46  tty58  ttyO5         vcs2      vcsa7
 
+Lanzamos `mavros`:
 ```
-
-Finalmente lanzamos `mavros`:
-```
-root@erlerobot:~# rosrun mavros mavros_node _serial_port:=/dev/ttyAutopilot _serial_baud:=115200 _gcs_host:=localhost
+root@erlerobot:~# rosrun mavros mavros_node _fcu_url:=192.168.7.2
 [ INFO] [1404307547.212478943]: serial: device: /dev/ttyAutopilot @ 115200 bps
 [ INFO] [1404307547.232303568]: udp: Bind address: 0.0.0.0:14555
 [ INFO] [1404307547.246258485]: udp: GCS address: 127.0.0.1:14550
@@ -174,7 +152,7 @@ root@erlerobot:~# rosrun mavros mavros_node _serial_port:=/dev/ttyAutopilot _ser
 
 #### Jugando con `mavros`
 
-![](../../../en/img/mavlinkROS/mavros_graph.png)
+![](../../img/mavlinkROS/mavros_graph.png)
 
 ```bash
 victor@ubuntu:~$ rosnode list
@@ -201,13 +179,90 @@ victor@ubuntu:~$ rostopic list
 /rosout_agg
 
 ```
-Desafortunadamente parece que hay un problema con porque no produce ninguna salida
+
+Necesitas establecer la tasa de muestreo:
+```bash
+rservice call /mavros/set_stream_rate 0 10 1
+```
+
+Ahora puedes visualizar los topics
+```bash
+ rostopic list
+/diagnostics
+/mavlink/from
+/mavlink/to
+/mavros/battery
+/mavros/camera_image
+/mavros/camera_image/compressed
+/mavros/camera_image/compressed/parameter_descriptions
+/mavros/camera_image/compressed/parameter_updates
+/mavros/camera_image/compressedDepth
+/mavros/camera_image/compressedDepth/parameter_descriptions
+/mavros/camera_image/compressedDepth/parameter_updates
+/mavros/camera_image/theora
+/mavros/camera_image/theora/parameter_descriptions
+/mavros/camera_image/theora/parameter_updates
+/mavros/fix
+/mavros/global_position/compass_hdg
+/mavros/global_position/global
+/mavros/global_position/gps_vel
+/mavros/global_position/local
+/mavros/global_position/rel_alt
+/mavros/gps_vel
+/mavros/imu/atm_pressure
+/mavros/imu/data
+/mavros/imu/data_raw
+/mavros/imu/mag
+/mavros/imu/temperature
+/mavros/mission/waypoints
+/mavros/mocap/pose
+/mavros/optical_flow
+/mavros/position/local
+/mavros/position/vision
+/mavros/radio_status
+/mavros/rc/in
+/mavros/rc/out
+/mavros/rc/override
+/mavros/safety_area/set
+/mavros/setpoint/accel
+/mavros/setpoint/att_throttle
+/mavros/setpoint/cmd_vel
+/mavros/setpoint/local_position
+/mavros/state
+/mavros/time_reference
+/mavros/vfr_hud
+/mavros/vision_speed/speed_vector
+/rosout
+/rosout_agg
+/tf
+```
+
+Por ejemplo, IMU:
+
 ```bash
 rostopic echo /mavros/imu/data_raw
-
-```
-`mavparam` parece que no responde tampoco:
-```
-rosrun mavros mavparam dump /tmp/apm.param
-
+---
+header:
+  seq: 11149
+  stamp:
+    secs: 1412071746
+    nsecs: 586876282
+  frame_id: fcu
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+orientation_covariance: [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+angular_velocity:
+  x: 0.006
+  y: -0.005
+  z: 0.009
+angular_velocity_covariance: [1.2184696791468346e-07, 0.0, 0.0, 0.0, 1.2184696791468346e-07, 0.0, 0.0, 0.0, 1.2184696791468346e-07]
+linear_acceleration:
+  x: -0.24516625
+  y: 0.0196133
+  z: 10.52253545
+linear_acceleration_covariance: [8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08]
+---
 ```
