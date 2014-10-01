@@ -1,6 +1,6 @@
 # `mavros` ROS package
 
-`mavros` is a MAVLink extendable communication node for ROS with UDP proxy for Ground Control Station. It's documented [here](http://wiki.ros.org/mavros).
+l `mavros` is a MAVLink extendable communication node for ROS with UDP proxy for Ground Control Station. It's documented [here](http://wiki.ros.org/mavros).
 
 This package (available [here](https://github.com/vooon/mavros)) implemments a MAVLink extendable communication node for ROS with UDP proxy for Ground Control Station that includes the following features:
 
@@ -125,8 +125,6 @@ Compilation is performed as described in the [mavlink_ros:compiling instructions
 
 ### Running `mavros`
 
-For now, mavros support only serial device on autopilot side. This means that if we want to run it through a TCP connection we should create a PTY device out of a TCP socket using tools such as [socat](http://www.dest-unreach.org/socat/).
-
 So we start launching ardupilot:
 ``` bash
 ArduCopter.elf -A tcp:*:6000:wait
@@ -136,32 +134,10 @@ We can easily verify that this launches a socket in all interfaces listening in 
 root@erlerobot:~# netstat -nap|grep Ardu
 tcp        0      0 0.0.0.0:6000            0.0.0.0:*               LISTEN      24632/ArduCopter.elf
 ```
-Now we create our *TCP-tty* link using `socat`:
-``` bash
-socat  pty,link=/dev/ttyAutopilot,raw  tcp:127.0.0.1:6000&
-```
-If we check `/dev` we should see it over there:
-```bash
-root@erlerobot:~# ls /dev
-alarm            fuse          loop0         mmcblk0p2           ram12   rfkill     tty11  tty23  tty35  tty47  tty59         ttyS0     vcs3   vport0p0
-ashmem           i2c-0         loop1         net                 ram13   rtc0       tty12  tty24  tty36  tty48  tty6          ttyS1     vcs4   watchdog
-autofs           i2c-1         loop2         network_latency     ram14   shm        tty13  tty25  tty37  tty49  tty60         ttyS2     vcs5   watchdog0
-binder           input         loop3         network_throughput  ram15   snd        tty14  tty26  tty38  tty5   tty61         ttyS3     vcs6   zero
-block            kmem          loop4         null                ram2    spidev1.0  tty15  tty27  tty39  tty50  tty62         ubi_ctrl  vcs7
-btrfs-control    kmsg          loop5         ppp                 ram3    spidev2.0  tty16  tty28  tty4   tty51  tty63         uinput    vcsa
-bus              log           loop6         psaux               ram4    stderr     tty17  tty29  tty40  tty52  tty7          urandom   vcsa1
-char             log_events    loop7         ptmx                ram5    stdin      tty18  tty3   tty41  tty53  tty8          usbmon0   vcsa2
-console          logibone      loop-control  pts                 ram6    stdout     tty19  tty30  tty42  tty54  tty9          usbmon1   vcsa3
-cpu_dma_latency  logibone_mem  mapper        ram0                ram7    tty        tty2   tty31  tty43  tty55  ttyAutopilot  usbmon2   vcsa4
-disk             log_main      mem           ram1                ram8    tty0       tty20  tty32  tty44  tty56  ttyO0         vcs       vcsa5
-fd               log_radio     mmcblk0       ram10               ram9    tty1       tty21  tty33  tty45  tty57  ttyO4         vcs1      vcsa6
-full             log_system    mmcblk0p1     ram11               random  tty10      tty22  tty34  tty46  tty58  ttyO5         vcs2      vcsa7
-
-```
 
 Finally we launch `mavros`:
 ```
-root@erlerobot:~# rosrun mavros mavros_node _serial_port:=/dev/ttyAutopilot _serial_baud:=115200 _gcs_host:=localhost
+root@erlerobot:~# rosrun mavros mavros_node _fcu_url:=192.168.7.2
 [ INFO] [1404307547.212478943]: serial: device: /dev/ttyAutopilot @ 115200 bps
 [ INFO] [1404307547.232303568]: udp: Bind address: 0.0.0.0:14555
 [ INFO] [1404307547.246258485]: udp: GCS address: 127.0.0.1:14550
@@ -292,10 +268,3 @@ linear_acceleration:
   z: 10.52253545
 linear_acceleration_covariance: [8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08]
 ---
-
-```
-`mavparam` doesn't seem the respond either:
-```
-rosrun mavros mavparam dump /tmp/apm.param
-
-```
