@@ -59,6 +59,13 @@ It seems that `rosdep` cannot be installed in non-ubuntu systems from `apt-get`.
 ```bash
 sudo pip install -U rosdep rosinstall_generator wstool rosinstall
 ```
+
+*NOTE 3: 4th of October, 2014*
+`nose` package nedded to be insalled before running `sudo pip install -U rosdep rosinstall_generator wstool rosinstall`.
+```bash
+pip install -U nose
+```
+
 ----
 
 
@@ -88,8 +95,18 @@ According to previous versions of ROS:
 We really just need the communication layer thereby we are installing it bare bones.
 ```bash
 rosinstall_generator ros_comm --rosdistro hydro --deps --wet-only > hydro-barebones-full-wet.rosinstall
+```
+```bash
 wstool init src hydro-barebones-full-wet.rosinstall
 ```
+or for Indigo:
+```bash
+rosinstall_generator ros_comm --rosdistro indigo --deps --wet-only > indigo-barebones-full-wet.rosinstall
+```
+```bash
+wstool init src indigo-barebones-full-wet.rosinstall
+```
+
 
 This will add all of the catkin or wet packages in the given variant and then fetch the sources into the `~/ros_catkin_ws/src` directory. The command will take a few minutes to download all of the core ROS packages into the src folder.
 If you have download cuts out restart it with the following
