@@ -1,6 +1,6 @@
 # BBB+PXF
 
-![](../../en/img/hardware/PXF.jpg)
+![](../img/hardware/PXF.jpg)
 
 El [PixHawk Fire Cape](https://github.com/diydrones/PXF) (PXF) es una *capa* para el BeagleBone Black desarrollado por Philip Rowse. La placa se usa para apoyar el `AP_HAL_Linux` de ardupilot.
 
