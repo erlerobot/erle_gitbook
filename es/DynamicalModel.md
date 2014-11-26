@@ -7,7 +7,7 @@ El *modelo dinámico* es un **conjunto de ecuaciones que describen la actitud y p
 
 concepto quadrotor
 -------
-El robot [Erle] (http://erlerobot.com) es un *quadricóptero*:
+El robot [Erle](http://erlerobot.com) es un *quadricóptero*:
 
 > Un quadricóptero, también llamado un helicóptero quadrotor , quadrotor , es un helicóptero multirotor que es levantado y propulsado por cuatro rotores. Quadcopters se clasifican como helicópteros , en oposición a las aeronaves de ala fija , porque su elevación es generada por un conjunto de perfiles de ala giratoria estrecha - acordes.
 
@@ -15,7 +15,7 @@ Desde el ï¬ Días RST en el desarrollo del helicóptero, el diseño quadrotor fue v
 
 Con cuatro rotores del control se hace más fácil y los movimientos de rotación se puede desacoplar de los ¬ IE € ects giroscópicos . Movimientos de traslación se logran por la inclinación del vehículo . En la disposición más común para quadrotor , los * dos pares de rotores ( 1 , 3 ) y ( 2 , 4 ) a su vez en direcciones opuestas * como se muestra en la figura:
 
-![quad](img/quad.png)
+![quad](../img/quad.png)
 
 Mediante la variación de la velocidad del rotor, uno puede cambiar las fuerzas de elevación y crear movimiento. El aumento o la disminución de las cuatro velocidades de rotor juntos genera un movimiento vertical. El cambio de los 2 y 4 hélices aceleran produce a la inversa ** ** rollo rotación , junto con el movimiento lateral. Paso ** ** rotación y el resultado de movimiento lateral correspondiente de 1 y 3 hélices de velocidad inversa modii ¬ ? Ed. Yaw ** ** Resultados de rotación del ¬ Dii € rencia en la lucha contra el par entre los pares de rotores .
 

@@ -2,7 +2,7 @@
 
 El BeagleBone tiene un método según el cúal se puede medir el consumo de corriente de la placa, sin contar los puertos USB y las placas de expasión. La caída de tensión en un resistencia de `0.1 ohmios` se mide para determinar el consumo de corriente.
 
-![current](../../en/img/hardware/currentmeas.png)
+![current](../img/hardware/currentmeas.png)
 
 ### Conexión `SYS_5V` 
 

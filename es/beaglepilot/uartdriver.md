@@ -22,7 +22,7 @@ A **UART** usually contains the following **components**:
 
 
 
-![UART](../en/img/beaglepilot//UART.png)
+![UART](../img/beaglepilot//UART.png)
 
 This class is divided into two files, **header** (`UARTDriver.h`) and **source code** (`UARTDriver.cpp`).
 

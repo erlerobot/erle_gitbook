@@ -8,7 +8,7 @@ De acuerdo con la [Wikipedia](http://en.wikipedia.org/wiki/Autopilot):
 
 Para entender esto mejor, vamos a analizar las diferentes formas de controlar un ** quadricoptero**, un avión no tripulado de vuelo rotativo:
 
-![quad-control](../../en/img/software/quad-control.png)
+![quad-control](../img/software/quad-control.png)
 
 Dependiendo de la variable controlada la precepción del control de un quadricoptero por un piloto se percibe de manera diferente. De acuerdo con la imagen, el caso más facil para el piloto es controlar la **posición deseada ($_d$)** a través de $x_d$, $y_d$ and $z_d$ (todavía hay un nivel más para completar el vuelo autónomo donde el piloto puede establecer el punto de inicio y fin deseado).
 

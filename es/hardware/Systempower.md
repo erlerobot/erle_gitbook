@@ -15,7 +15,7 @@ Por defecto *solo LDO1 siempre esta encendido* pero cualquier pista puede config
 ### 5V DC Alimentación de entrada
 
 
-![5v](../../en/img/hardware/5v.png)
+![5v](../img/hardware/5v.png)
 
 La alimentación de 5VDC se puede utilizar para propocionar alimentación a la placa. La corriente de alimentación depende de cuántos y qué tipo de *add on board* estén conectados a la placa. Para el uso típico, un suministro de 5VCC nominal de 1A debería ser suficiente. Si se espera un uso mayor de los soportes expansión o puerto host USB, entonces se requerirá un suministro de corriente más alto. Un `NCP349` sobre el dispositivo de tensión se utiliza para evitar problemas al conectar de 7V a 12V por errror. El `NCP349` se apagará y la placa no se enciende. No existe ningún indicador para un condición de sobretensión. La placa no se encenderá.
 

@@ -177,6 +177,6 @@ pwr_batt_cur: -1
 
 #### Visualizando `autopilot_bridge`
 
-![node-graph](../../../en/img/mavlinkROS/autopilot_bridge_graph.png)
+![node-graph](../../img/mavlinkROS/autopilot_bridge_graph.png)
 
 El `/autopilot/imu` puede tener *eco*, pero no puede ser representado con rqt_plot.

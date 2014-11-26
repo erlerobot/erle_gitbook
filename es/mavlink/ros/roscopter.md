@@ -73,7 +73,7 @@ yawspeed: 6.91747991368e-05
 
 #### Visualizando `roscopter`
 
-![node-graph](../../../en/img/mavlinkROS/roscopter_graph.png)
+![node-graph](../../img/mavlinkROS/roscopter_graph.png)
 
 Comenzacemos a visualizar los valores de `/attitude` y veamos su representación gráfica:
 

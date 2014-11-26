@@ -26,19 +26,19 @@ Esta sección cubre los siguientes aspectos:
 #### Modelo simplificado 
 Cuando pesamos sobre los acelerómetros a menuda es útil imaginar un cubo con un bola dentro.
 
-![](../../en/img/ahrs/04.png)
+![](../img/ahrs/04.png)
 
 Si tomamos esta caa en un lugar sin campo gravitacional y sin otros campos que puedan afectar a la posición de la pelota - la pelota simplemente flota en el medio de la caja.
 
 A partir de la imagen superior se puede ver que asignamos a cada eje un par de paredes. (** Eliminamos la pared ` Y+ ` para poder ver dentro de la caja**). Imagine que cada pared es sensible a la presión. Si nos movemos repentinamente la casilla de la izquierda (aceleramos con 1g = `9.8m/S^2`), la pelota golpea la pared ` X-`. Se mide la presión que ejerce la pelota contra la pared y la salida es un valor de `-1g en el eje X`:
 
-![](../../en/img/ahrs/05.png)
+![](../img/ahrs/05.png)
 
 Tenga en cuenta que el acelerómetro realmente detecta una fuerza que esta dirigida en la dirección opusta a partir del vector de aceleración. Esta fuerza se llama amenudo **Fuerza inercial o fuerza ficticia*. Una cosa que debemos aprender de esto es qe una aceleración medida con un acelerómetro mide idirectamente a través de la fuerda que se aplica a una de sus paredes (de acuerdo con este modelo, los acelerómetros podrían ser un resorte o cualquier otra cosa en la vida real). Esta fuera puede ser causada por la aceleraciń pero como veremos en el siguinete ejemplo, no siempre es causada por la aceleración.
 
 Si tomamos nuestro modelo y lo ponemos en la Tierra caerá la bola en la pared `Z-` y se aplicará ua fuerza de `1g` en la pared inferrior, como se muestra en la siguiente figura:
 
-![](../../en/img/ahrs/06.png)
+![](../img/ahrs/06.png)
 
 En este caso la caja no se mueve pero aún así se obtiene una lectura de `-1g` en el `eje Z`.La prsión que la pelota aplica en la pared es causada por ** la fuerza de la gravedad**. En teoría podría ser un tipo diferente de fuerza. Por ejemplo, si imagina que la pelota es metálica, la colocación de un imán a un lado del cuadro se podría mover la pelota para que golpeara cualquier pared. Lo que ocurre es que la aceleración provoca una fuerza inercial que es capturada por el mecanismo de detección fuerzas de aceleración.
 
@@ -46,7 +46,7 @@ Mientras *este modelo no es exactamente cómo se construye un sensor MEMS* a men
 
 Hasta ahora se ha analizado la salida del acelerómetro en un solo eje y esto es todo lo que se obtiene con un solo eje del acelerómetro. El valor real de los acelerómetros de 3 ejes proviene del hecho de que pueden detectar fuerzas de inercia en los tres ejes. Volvamos a nuestro modelo de caja, y vamos a girar el cubo 45 grados a la derecha. La pelota tocará 2 paredes ahora: `Z` y `X` como se muestra en la siguiente imagen:
 
-![](../../en/img/ahrs/07.png)
+![](../img/ahrs/07.png)
 
 Los valores ` 0.71` no es arbitrario. En realidad es un aproximación a $\sqrt(\frac{1}{2})$. Esteo se hará evidente a medida que introduzcamos nuestro próximo modelo para el acelerómero.
 
@@ -54,7 +54,7 @@ Los valores ` 0.71` no es arbitrario. En realidad es un aproximación a $\sqrt(\
 
 En el modelo definido anteriormente se ha fjado la fuerza de la gravedad y girado el cubo imaginario. En los últimos 2 ejemplos qe se han analizado la salida en dos posiciones diferentes del cubo. mientras que el vector de fuerza se mantuvo constante. Eso era útil para comprender como el acelerómetro interactúa con las fuerzas externas, es más práctico para realizar cálculos si fijamos el sistema de coordenadas de los ejes del acelerómetro e imaginamos que el vector de fuerza gira a nuestro alrededor. 
 
-![](../../en/img/ahrs/01.png)
+![](../img/ahrs/01.png)
 
 Ahora imagine que cada eje e el nuevo modelo es perpendicular a las caras respectivas del cubo en el modelo anterior. El vector `R` es el vector de fuerza que el acelerómetro está midiedo (podría ser o bien la fuerza de la gravedad o la fuerza de inercia de los ejemplos anteriores o una combinación de ambos). $R_x$, $R_y$, $R_z$ son proyección del vector R en los ejes `X`,`Y` y `Z`. Tenga en cuenta la siguiente relación:
 
@@ -112,7 +112,7 @@ Ahora tenemos las 3 componentes que definen nuestro vector fuerza de inercia, si
 
 Si también está interesado en la dirección por eje de inclinación se puede dividir este resultado en 2 componentes: la inclinación del eje `X` y `Y` que se puede calcular como el ángulo entre el vector de gravedad y los ejes X/Y. Calculando estos ángulos es más sencillo de lo que parece, ahora que hemos calculado los valores $R_x$, $R_y$ and $R_z$. Volvamos al último modelo de aceleración y hagamos algunas anotaciones adicionales.
 
-![](../../en/img/ahrs/02.png)
+![](../img/ahrs/02.png)
 
 Los ángulos que nos interesan son los ángulos entre `X`,`Y`,`Z` y el `vector de fuerza R`. Definiremos estos los ángulos como $Axr$, $Ayr$, $Azr$. Notese el triángulo rectangulo formado por $R$ y $Rx$:
 
@@ -148,7 +148,7 @@ Esta es una buena propiedad, ya que nos exime de la vigilancia del módulo (long
 
 No vamos a introducir un modelo equivalente al cubo para el giróscopo como hicimos con el acelerómetro, en lugar de eso vamos a pasar directemente al segundo modelo del acelerómetro y vamos a mostrar lo que hace la medida del giróscopo según este modelo:
 
-![](../../en/img/ahrs/03.png)
+![](../img/ahrs/03.png)
 
 Cada canal del giróscopo mide la rotación alrededor de uno de los ejes. Por ejemplo, un giróscopo de 2 ejes medira la rotación alrededor de (o agunas pueden decir "sobre") los ejes X e Y. Para expresar esta rotación en núero hagamos algunas anotaciones. En primer lugar vamos a definir:
 
@@ -286,7 +286,7 @@ Rgyro = [RxGyro,RyGyro,RzGyro]
 
 Calcularemos cada componente del vector por separado. Empezaremos con $RxGyro$:
 
-![](../../en/img/ahrs/03.png)
+![](../img/ahrs/03.png)
 
 Vamos a empezar observando la siguente relación en nuestro modelo de giróscopo, desde el triángulo rectángulo formado por $Rz$ y $Rxz$ se puede derivar que:
 ```
