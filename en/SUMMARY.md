@@ -19,7 +19,7 @@
        * [I/O](hardware/IO.md)
        * [Sensors](hardware/sensors.md)
        * [Hardware Map](hardware/HardwareMap.md)
-   * [BBB-PXF](hardware/bbb-pxf.md)
+   * [BBB-PXF](hardware/bbbpxf.md)
    * [Electric Power Systems](hardware/electric_power_systems.md)
 * [ArduPilot](beaglepilot/BeaglePilot.md)
    * [A simplified autopilot](beaglepilot/SimpleAutopilot.md)
