@@ -108,7 +108,7 @@ Lets take a look at one of our tables and fill in values for current and watts a
 |3|	33|	12x8|	3000|	100 watts|
 |4|	63|	12x8|	4000|	250 watts|
 
-So here is what we've leared so far:
+So here is what we've learned so far:
 
 - Our motor turns exactly 1000 RPM for every volt regardless of load
 - Our motor draws the current necessary to make the watts of electrical energy equal the watts of power it takes to turn the prop at the rate demanded by the voltage.

@@ -1,7 +1,7 @@
 El sistema operativo de Robots (ROS): Powering the world's robots
 =========
 
-![](../../en/img/ros/rosorg-nb.png)
+![](../img/ros/rosorg-nb.png)
 
 ¿Qué es ROS?
 -----

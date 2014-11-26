@@ -258,7 +258,7 @@ Debes escoger una licencia e indicarla aquí. Algunas licencias de código abier
 
 **Nosotros recomendamos compartir tu código bajo un licencia de la Open Source Initiative**
 
-![](../../../en/img/ros/opensource.png)
+![](../../img/ros/opensource.png)
 
 La [Open Source Initiative](http://opensource.org/about) (OSI) es una organización sin ánimo de lucro con ámbito global para educar y abogar sobre los beneficios de código abierto y construir puentes entre los diferentes grupos de interés en la comunidad de código abierto.
 

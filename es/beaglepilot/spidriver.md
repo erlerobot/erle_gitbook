@@ -17,7 +17,7 @@ The SPI is a **synchronous protocol**. The synchronization and data transmission
 
 SPI is a **single-master communication protocol**. This means that one central device initiates all the communications with the slaves. When the **SPI master** wishes to send data to a **slave** and/or request information from it, it selects slave by pulling the corresponding **SS line low** and it activates the clock signal at a clock frequency usable by the master and the slave. The master generates information onto **MOSI line** while it samples the **MISO line**.
 
-![spidriver](../en/img/beaglepilot/SPI-d.png)
+![spidriver](../img/beaglepilot/SPI-d.png)
 
 ---
 This class is divided into two files, **header** (`SPIDriver.h`) and **source code** (`SPIDriver.cpp`).

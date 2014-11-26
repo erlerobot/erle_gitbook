@@ -22,7 +22,7 @@ Erle has four user LEDS, usr0 - usr3 accesible throught the sysfs interface at `
 
 We will make blink one of the onboard USER Leds through simple bash shell commands.
 
-![leds](../../en/img/tutorials/leds/leds.jpg)
+![leds](../img/tutorials/leds/leds.jpg)
 
 First, move yourself to the LEDs sysfs dir:
 ```
