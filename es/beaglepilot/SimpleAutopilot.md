@@ -323,7 +323,7 @@ Los siguiente métodos reciben los datos de las funciones en C. Esto se hace par
 
 PID
 ----
-Esta clase ([código en GitHub](https://github.com/erlerobot/erle_control/blob/master/pid.py)) implementa un sencillo algoritmo de control PID. Las ganancias $K_p$ (proporcional), $K_d$ (derivada) and $K_i$ (integral) se pueden pasar como parámetros al inicializar la clases.
+Esta clase ([código en GitHub](https://github.com/erlerobot/erle_control/blob/master/pid.py)) implementa un sencillo algoritmo de control PID. Las ganancias `K_p` (proporcional), `K_d` (derivada) and `K_i` (integral) se pueden pasar como parámetros al inicializar la clases.
 
 ``` python
 class PID:
@@ -414,7 +414,7 @@ Un flag para la ` depuración ` es incluido. Si esta a `true`, el método ` upda
 ```
 `terms_sum` implementa la ecuación del control PID.
 
-$\begin{equation}u(t) = K_p \cdot e(t) + K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt}\end{equation}$
+\begin{equation}u(t) = K_p \cdot e(t) + K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt}\end{equation}
 
 ``` python
         if debug:

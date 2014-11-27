@@ -150,7 +150,7 @@ Checks if the GPS2 is enabled and if yes enable the uartE devide.
 	//
 ...
 ```
-Cehcks the EEPROM status for loading parameters later.
+Checks the EEPROM status for loading parameters later.
 
 ```cpp
     load_parameters();
@@ -306,9 +306,10 @@ The RC I/O are initialized.
     if (gcs[1].initialised) {
         hal.uartC->println_P(msg);
     }
-    ...
-    ```
-the main loop begins here.With three enters (which mean `num_gcs`>2) the interactive mode is initialized.  ```cpp
+...
+```
+the main loop begins here.With three enters (which mean `num_gcs`>2) the interactive mode is initialized.  
+```cpp
     if (num_gcs > 2 && gcs[2].initialised) {
         hal.uartD->println_P(msg);
     }
@@ -329,7 +330,7 @@ the main loop begins here.With three enters (which mean `num_gcs`>2) the interac
 ```
 The control mode is set, by using the switch.
 
-````cpp
+```cpp
 //********************************************************************************
 //This function does all the calibrations, etc. that we need during a ground start
 //********************************************************************************

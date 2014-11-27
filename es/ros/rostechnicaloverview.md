@@ -53,7 +53,7 @@ Los nodos de ROS tiene varias APIs:
 3. Una API de línea de comandos. Todos los nodos deben soportar [command-line remapping arguments](http://wiki.ros.org/Remapping%20Arguments), que permite configurar los nombres de los nodos en tiempo de ejecución.
 
 
-CAda nodo tiene un URI, que corresponde al host: El puerte del [servidor XMLRPC ](http://wiki.ros.org/ROS/Master_Slave_APIs) esta ejecutando. El servidor XMLRPC no se utliiza transporte de *topic* o servicio de datos: en su lugar, se utiliza para negociar conexiones con otros nodos y también para comunicarse con el maestro. Este servidor es creado y gestionado dentro de la biblioteca cliente de ROS, pero es general no es visible para el usuario de la biblioteca cliente de ROS. El servidor XMLRPC puede estar unido a cualquier puerto en el host donde se ejecuta el nodo.
+Cada nodo tiene un URI, que corresponde al host: El puerte del [servidor XMLRPC ](http://wiki.ros.org/ROS/Master_Slave_APIs) esta ejecutando. El servidor XMLRPC no se utliiza transporte de *topic* o servicio de datos: en su lugar, se utiliza para negociar conexiones con otros nodos y también para comunicarse con el maestro. Este servidor es creado y gestionado dentro de la biblioteca cliente de ROS, pero es general no es visible para el usuario de la biblioteca cliente de ROS. El servidor XMLRPC puede estar unido a cualquier puerto en el host donde se ejecuta el nodo.
 
 El servidor XMLRPC proporciona una [Slave API](http://wiki.ros.org/ROS/Slave_API), que permite que el nodo recibir *actualizaciones de publicación* llamadas desde el Master. Estas actualizaciones contieen un nombre de *topic* y una lista de URISs para los nodos que publican ese *topic*. El servidor XMLRPC también recibirá las llamadas de los suscriptores que están esperando una respuesta de la conexión de *topic*. En general, cuando un nodo recibe una actualización de publicación, se conectará a los nuevos publicadores.
 
@@ -92,8 +92,8 @@ Con el fin de captar cambios que se producen en los tipos de mensaje, el tecto M
 
 Poniendo todo junto, la secuencia en la que los dos nodos comienzan a intercambiar los mensajes es:
 
-1. Comienza el suscriptor. Lee los argumentos de la línea de comandos para resolver el nombre del *topic que se va a utilizar.
-2. Comienza el publicador.Lee los argumentos de la línea de comandos para resolver el nombre del *topic que se va a utilizar.
+1. Comienza el suscriptor. Lee los argumentos de la línea de comandos para resolver el nombre del *topic* que se va a utilizar.
+2. Comienza el publicador.Lee los argumentos de la línea de comandos para resolver el nombre del *topic* que se va a utilizar.
 3. El suscriptor se registra en el Master. (XMLRPC)
 4. El publicador se registra en el Master. (XMLRPC)
 5. El Master indica al suscriptor de un nuevo publicador. (XMLRPC)

@@ -16,7 +16,7 @@ static void init_barometer(void)
 
 
 ...
-````
+```
 This function initialize the barometer, calls the [calibrate()](https://github.com/diydrones/ardupilot/blob/master/libraries/AP_Baro/AP_Baro.cpp#L59) function from `AP_Baro` and sent a gcs message to inform.
 
 ```cpp

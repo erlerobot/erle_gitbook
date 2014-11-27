@@ -538,7 +538,7 @@ test_sonar(uint8_t argc, const Menu::arg *argv)
     }
 ...
 ```
-This trst checks the sonar status.First of all takes care about its healthy, enablement.
+This test checks the sonar status.First of all takes care about its healthy, enablement.
 
 ```cpp
     print_hit_enter();
@@ -580,10 +580,10 @@ This trst checks the sonar status.First of all takes care about its healthy, ena
         voltage2_min = min(voltage2_min, voltage);
         voltage2_max = max(voltage2_max, voltage);
 
-      ```
+```
 After that takes different measurements for both sonars.
 
-    ```cpp
+```cpp
         if (now - last_print >= 200) {
             cliSerial->printf_P(PSTR("sonar1 dist=%.1f:%.1fcm volt1=%.2f:%.2f   sonar2 dist=%.1f:%.1fcm volt2=%.2f:%.2f\n"),
                                 sonar_dist_cm_min,
@@ -608,6 +608,7 @@ After that takes different measurements for both sonars.
 }
 ...
 ```
+
 Then prints all the measured values to check them.
 ```cpp
 #if CONFIG_HAL_BOARD == HAL_BOARD_PX4 || CONFIG_HAL_BOARD == HAL_BOARD_VRBRAIN

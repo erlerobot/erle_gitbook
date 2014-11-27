@@ -47,7 +47,7 @@ So far we have analyzed the accelerometer output on a single axis and this is al
 
 ![](../img/ahrs/07.png)
 
-The values of `0.71` are not arbitrary, they are actually an approximation for $\sqrt(\frac{1}{2})$. This will become more clear as we introduce our next model for the accelerometer.
+The values of `0.71` are not arbitrary, they are actually an approximation for $$\sqrt(\frac{1}{2})$$. This will become more clear as we introduce our next model for the accelerometer.
 
 #### An improved model
 
@@ -55,15 +55,15 @@ In the previous model we have fixed the gravitation force and rotated our imagin
 
 ![](../img/ahrs/01.png)
 
-In the model above the colors of the axes are preserved so that the **mental transition** from the previous model to the new one is nicer. Just imagine that each axis in the new model is perpendicular to the respective faces of the box in the previous model. The `vector R` is the force vector that the accelerometer is measuring (it could be either the gravitation force or the inertial force from the examples above or a combination of both). $R_x$, $R_y$, $R_z$ are projection of the R vector on the `X`,`Y` and `Z` axes. Please notice the following relation:
+In the model above the colors of the axes are preserved so that the **mental transition** from the previous model to the new one is nicer. Just imagine that each axis in the new model is perpendicular to the respective faces of the box in the previous model. The `vector R` is the force vector that the accelerometer is measuring (it could be either the gravitation force or the inertial force from the examples above or a combination of both). $$R_x$$, $$R_y$$, $$R_z$$ are projection of the R vector on the `X`,`Y` and `Z` axes. Please notice the following relation:
 
 $$R^2 = R_x^2 + R_y^2 + R_z^2$$
 
 which is basically the equivalent of the [Pythagorean theorem in 3D](http://demonstrations.wolfram.com/PythagoreanTheorem3D/).
 
-Remember that a little bit earlier we mentioned that the values of $\sqrt(\frac{1}{2}) \approx 0.71$ are not random. If you plug them in the formula above, after recalling that our gravitation force was `1 g` we can verify this matter.
+Remember that a little bit earlier we mentioned that the values of $$\sqrt(\frac{1}{2}) \approx 0.71$$ are not random. If you plug them in the formula above, after recalling that our gravitation force was `1 g` we can verify this matter.
 
-The values $R_x$, $R_y$, $R_z$ are actually linearly related to the values that your real-life accelerometer will output and that you can use for performing various calculations.
+The values $$R_x$$, $$R_y$$, $$R_z$$ are actually linearly related to the values that your real-life accelerometer will output and that you can use for performing various calculations.
 
 Most accelerometers will fall in two categories: digital and analog. Digital accelerometers will give you information using a **serial protocol** like I2C , SPI or UART, while analog accelerometers will **output a voltage level** within a predefined range that you have to convert to a digital value using an ADC (analog to digital converter) module.
 
@@ -73,7 +73,7 @@ Let's move on by considering a simple example, suppose our `10bit ADC` module ga
 
 ---
 
-A `10-bit ADC` module will output a value in the range of `0..1023`, note that $1023 = 2^10 - 1$.
+A `10-bit ADC` module will output a value in the range of `0..1023`, note that $$1023 = 2^10 - 1$$.
 
 ---
 
@@ -91,13 +91,13 @@ $$VoltsR_x = \frac{586 * 3.3V}{1023} \approx 1.89V $$
 $$VoltsRy = \frac{630 * 3.3V}{1023} \approx 2.03V$$
 $$VoltsRz = \frac{561 * 3.3V }{ 1023} \approx 1.81V$$
 
-Each accelerometer has a **zero-g voltage level**, you can find it in specs (datasheet), this is the voltage that corresponds to `0g`. To get a signed voltage value we need to calculate the shift from this level. Let's say our 0g voltage level is $Vzero_G = 1.65V$. We calculate the voltage shifts from zero-g voltage as follows::
+Each accelerometer has a **zero-g voltage level**, you can find it in specs (datasheet), this is the voltage that corresponds to `0g`. To get a signed voltage value we need to calculate the shift from this level. Let's say our 0g voltage level is $$Vzero_G = 1.65V$$. We calculate the voltage shifts from zero-g voltage as follows::
 
 $$DeltaVoltsR_x = 1.89V – 1.65V = 0.24V$$
 $$DeltaVoltsR_y = 2.03V – 1.65V = 0.38V$$
 $$DeltaVoltsR_z = 1.81V – 1.65V = 0.16V$$
 
-We now have our accelerometer readings in Volts, it's still not in `g` ($9.8 \frac{m}{s^2}$), to do the final conversion we apply the **accelerometer sensitivity**, usually expressed in `mV/g`. Lets say our $Sensitivity = 478.5mV/g = 0.4785V/g$. Sensitivity values can be found in accelerometer specifications. To get the final force values expressed in g we use the following formula $R_x = \frac{DeltaVoltsR_x}{Sensitivity}$:
+We now have our accelerometer readings in Volts, it's still not in `g` ($$9.8 \frac{m}{s^2}$$), to do the final conversion we apply the **accelerometer sensitivity**, usually expressed in `mV/g`. Lets say our $$Sensitivity = 478.5mV/g = 0.4785V/g$$. Sensitivity values can be found in accelerometer specifications. To get the final force values expressed in g we use the following formula $$R_x = \frac{DeltaVoltsR_x}{Sensitivity}$$:
 
 
 $$Rx = \frac{0.24 V}{0.4785 V/g} \approx 0.5g$$
@@ -110,11 +110,11 @@ $$R_x = \frac{\frac{AdcR_x * Vref}{1023} - VzeroG}{Sensitivity} (g)$$
 
 We now have all 3 components that define our inertial force vector, if the device is not subject to other forces other than gravitation, we can assume this is the direction of our gravitation force vector. If you want to calculate inclination of device relative to the ground you can calculate the angle between this vector and Z axis.
 
-If you are also interested in per-axis direction of inclination you can split this result into 2 components: inclination on the `X` and `Y axis` that can be calculated as the angle between gravitation vector and X / Y axes. Calculating these angles is more simple than you might think, now that we have calculated the values for $R_x$, $R_y$ and $R_z$. Let's go back to our last accelerometer model and do some additional notations:
+If you are also interested in per-axis direction of inclination you can split this result into 2 components: inclination on the `X` and `Y axis` that can be calculated as the angle between gravitation vector and X / Y axes. Calculating these angles is more simple than you might think, now that we have calculated the values for $$R_x$$, $$R_y$$ and $$R_z$$. Let's go back to our last accelerometer model and do some additional notations:
 
 ![](../img/ahrs/02.png)
 
-The angles that we are interested in are the angles between `X`,`Y`,`Z` axes and the `force vector R`. We'll define these angles as $Axr$, $Ayr$, $Azr$. You can notice from the right-angle triangle formed by $R$ and $Rx$ that:
+The angles that we are interested in are the angles between `X`,`Y`,`Z` axes and the `force vector R`. We'll define these angles as $$Axr$$, $$Ayr$$, $$Azr$$. You can notice from the right-angle triangle formed by $$R$$ and $$Rx$$ that:
 
 $$ cos(Axr) = \frac{Rx}{R} $$
 $$ cos(Ayr) = \frac{Ry}{R} $$
@@ -122,7 +122,7 @@ $$ cos(Azr) = \frac{Rz}{R} $$
 
 ---
 
-We can deduct from previous equations that $R = \sqrt( Rx^2 + Ry^2 + Rz^2)$.
+We can deduct from previous equations that $$R = \sqrt( Rx^2 + Ry^2 + Rz^2)$$.
 
 ---
 
@@ -152,24 +152,24 @@ We're not going to introduce any equivalent box model for the gyroscope like we 
 
 Each gyroscope channel measures the rotation around one of the axes. For instance a 2-axes gyroscope will measure the rotation around (or some may say "about") the X and Y axes. To express this rotation in numbers let's do some notations. First let's define:
 
-- $Rxz$ – is the projection of the inertial force `vector R` on the `XZ plane`
-- $Ryz$ – is the projection of the inertial force `vector R` on the `YZ plane`
+- $$Rxz$$ – is the projection of the inertial force `vector R` on the `XZ plane`
+- $$Ryz$$ – is the projection of the inertial force `vector R` on the `YZ plane`
 
-From the right-angle triangle formed by $Rxz$ and $Rz$, using Pythagorean theorem we get:
+From the right-angle triangle formed by $$Rxz$$ and $$Rz$$, using Pythagorean theorem we get:
 
 $$Rxz^2 = Rx^2 + Rz^2$$
 $$Ryz^2 = Ry^2 + Rz^2$$
 
-We're going to define the angle between the `Z axis` and $Rxz$, $Ryz$ vectors as follows:
+We're going to define the angle between the `Z axis` and $$Rxz$$, $$Ryz$$ vectors as follows:
 
-- $Axz$ – is the angle between the $Rxz$ (projection of R on XZ plane) and `Z axis`
-- $Ayz$ – is the angle between the $Ryz$ (projection of R on YZ plane) and `Z axis`
+- $$Axz$$ – is the angle between the $$Rxz$$ (projection of R on XZ plane) and `Z axis`
+- $$Ayz$$ – is the angle between the $$Ryz$$ (projection of R on YZ plane) and `Z axis`
 
-Now we're getting closer to what the gyroscope measures. Gyroscope measures the rate of changes of the angles defined above. In other words it will output a value that is linearly related to the rate of change of these angles. To explain this **let's assume that we have measured the rotation angle around axis Y** (that would be $Axz$ angle) at time `t0`, and we define it as $Axz0$, next we measured this angle at a later time `t1` and it was $Axz1$. The rate of change will be calculated as follows:
+Now we're getting closer to what the gyroscope measures. Gyroscope measures the rate of changes of the angles defined above. In other words it will output a value that is linearly related to the rate of change of these angles. To explain this **let's assume that we have measured the rotation angle around axis Y** (that would be $$Axz$$ angle) at time `t0`, and we define it as $$Axz0$$, next we measured this angle at a later time `t1` and it was $$Axz1$$. The rate of change will be calculated as follows:
 
 $$ RateAxz = \frac{Axz1 – Axz0}{t1 – t0} $$
 
-If we express $Axz$ in degrees, and time in seconds , then this value will be expressed in `deg/s`. *This is what a gyroscope measures*.
+If we express $$Axz$$ in degrees, and time in seconds , then this value will be expressed in `deg/s`. *This is what a gyroscope measures*.
 
 In practice a gyroscope (unless it is a special digital gyroscope) will rarely give you a value expressed in `deg/s`. Same as for accelerometer you'll get an ADC value that you'll need to convert to `deg/s` using a formula similar to what we have defined for accelerometer. Let's introduce the ADC to `deg/s` conversion formula for gyroscope (we assume we're using a 10bit ADC module, for 8bit ADC replace 1023 with 255, for 12bit ADC replace 1023 with 4095):
 ```
@@ -178,17 +178,17 @@ RateAyz = (AdcGyroYZ * Vref / 1023 – VzeroRate) / Sensitivity
 ```
 
 We define the values used in the equations:
-- $AdcGyroXZ$, $AdcGyroYZ$ – are obtained from our ADC module and they represent the channels that measure the rotation of projection of `R vector` in `XZ` respectively in `YZ` planes, which is the equivalent to saying rotation was done around Y and X axes respectively.
-- $Vref$ – is the ADC reference voltage we'll use `3.3V` in the example below
-- $VzeroRate$ – is the zero-rate voltage, in other words the voltage that the gyroscope outputs when it is not subject to any rotation (you can find this values in the specs – but don't trust the specs most gyros will suffer slight offset after being soldered so measure VzeroRate for each axis output using a voltmeter, usually this value will not change over time once the gyro was soldered, if it variates – write a calibration routine to measure it before device start-up, user must be instructed to keep device in still position  upon start-up for gyros to calibrate).
-- $Sensitivity$ – is the sensitivity of your gyroscope it is expressed in $mV/(deg/s)$ often written as $mV/deg/s$ , it basically tells you how many `mV` will the gyroscope output increase , if you increase the rotation speed by one `deg/s`. For example, the sensitivity of [Acc_Gyro](http://www.starlino.com/store/acc-gyro) board is for example 2mV/deg/s or 0.002V/deg/s
+- $$AdcGyroXZ$$, $$AdcGyroYZ$$ – are obtained from our ADC module and they represent the channels that measure the rotation of projection of `R vector` in `XZ` respectively in `YZ` planes, which is the equivalent to saying rotation was done around Y and X axes respectively.
+- $$Vref$$ – is the ADC reference voltage we'll use `3.3V` in the example below
+- $$VzeroRate$$ – is the zero-rate voltage, in other words the voltage that the gyroscope outputs when it is not subject to any rotation (you can find this values in the specs – but don't trust the specs most gyros will suffer slight offset after being soldered so measure VzeroRate for each axis output using a voltmeter, usually this value will not change over time once the gyro was soldered, if it variates – write a calibration routine to measure it before device start-up, user must be instructed to keep device in still position  upon start-up for gyros to calibrate).
+- $$Sensitivity$$ – is the sensitivity of your gyroscope it is expressed in $$mV/(deg/s)$$ often written as $$mV/deg/s$$ , it basically tells you how many `mV` will the gyroscope output increase , if you increase the rotation speed by one `deg/s`. For example, the sensitivity of [Acc_Gyro](http://www.starlino.com/store/acc-gyro) board is for example 2mV/deg/s or 0.002V/deg/s
 
 Let's take an example, suppose our ADC module returned following values:
 
 $$AdcGyroXZ = 571$$
 $$AdcGyroXZ = 323$$
 
-Using the above formula, and using the specs parameters of $Acc_Gyro$ board we'll get:
+Using the above formula, and using the specs parameters of $$Acc_Gyro$$ board we'll get:
 ```
 RateAxz = (571 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ 306 deg/s
 RateAyz = (323 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ -94 deg/s
@@ -211,13 +211,13 @@ The next steps for a general AHRS implementation should be:
 
 We will assume that your axis match, otherwise refer to [this article](http://www.starlino.com/imu_guide.html) for a detail process of how to measure and match your axes. Next we'll analyze the relations between these values that turn out useful in obtaining more accurate estimation of the inclination of the device relative to the ground plane.
 
-You might be asking yourself by this point, if accelerometer model already gave us inclination angles of $Axr$,$Ayr$,$Azr$ why would we want to bother with the gyroscope data ? The answer is simple: accelerometer data can't always be trusted 100%. There are several reason, remember that accelerometer measures inertial force, such a force can be caused by gravitation (and ideally only by gravitation), but it might also be caused by acceleration (movement) of the device. As a result even if accelerometer is in a relatively stable state, **it is still very sensitive to vibration and mechanical noise in general**. This is the main reason why most IMU systems use a gyroscope to smooth out any accelerometer errors. But how is this done ? And is the gyroscope free from noise?
+You might be asking yourself by this point, if accelerometer model already gave us inclination angles of $$Axr$$,$$Ayr$$,$$Azr$$ why would we want to bother with the gyroscope data ? The answer is simple: accelerometer data can't always be trusted 100%. There are several reason, remember that accelerometer measures inertial force, such a force can be caused by gravitation (and ideally only by gravitation), but it might also be caused by acceleration (movement) of the device. As a result even if accelerometer is in a relatively stable state, **it is still very sensitive to vibration and mechanical noise in general**. This is the main reason why most IMU systems use a gyroscope to smooth out any accelerometer errors. But how is this done ? And is the gyroscope free from noise?
 
 The gyroscope is not free from noise however because it measures rotation it is less sensitive to linear mechanical movements, the type of noise that accelerometer suffers from, however gyroscopes have other types of problems like for example **drift** (not coming back to zero-rate value when rotation stops). Nevertheless by averaging data that comes from accelerometer and gyroscope we can obtain a relatively better estimate of current device inclination than we would obtain by using the accelerometer data alone.
 
-In the next steps we will introduce an *algorithm that was inspired by some ideas used in Kalman filter, however it is by far more simple and easier to implement on embedded devices*. Before that let's see first what we want our algorithm to calculate. Well , it is the direction of gravitation force vector R = [Rx,Ry,Rz] from which we can derive other values like $Axr$, $Ayr$, $Azr$ or $cosX$, $cosY$, $cosZ$ that will give us an idea about the inclination of our device relative to the ground plane, we discuss the relation between these values before. One might say – don't we already have these values Rx, Ry , Rz from previous equations? Well yes, but remember that these values are derived from accelerometer data only, so if you would be to use them directly in your application you might get more noise than your application can tolerate. To avoid further confusion let's re-define the accelerometer measurements as follows:
+In the next steps we will introduce an *algorithm that was inspired by some ideas used in Kalman filter, however it is by far more simple and easier to implement on embedded devices*. Before that let's see first what we want our algorithm to calculate. Well , it is the direction of gravitation force vector R = [Rx,Ry,Rz] from which we can derive other values like $$Axr$$, $$Ayr$$, $$Azr$$ or $$cosX$$, $$cosY$$, $$cosZ$$ that will give us an idea about the inclination of our device relative to the ground plane, we discuss the relation between these values before. One might say – don't we already have these values Rx, Ry , Rz from previous equations? Well yes, but remember that these values are derived from accelerometer data only, so if you would be to use them directly in your application you might get more noise than your application can tolerate. To avoid further confusion let's re-define the accelerometer measurements as follows:
 
-$Racc$ – is the inertial force vector as measured by accelerometer, that consists of following components (projections on X,Y,Z axes):
+$$Racc$$ – is the inertial force vector as measured by accelerometer, that consists of following components (projections on X,Y,Z axes):
 ```
 RxAcc = (AdcRx * Vref / 1023 – VzeroG) / Sensitivity
 RyAcc = (AdcRy * Vref / 1023 – VzeroG) / Sensitivity
@@ -248,8 +248,8 @@ However to be sure it makes sense to update this vector as follows:
 Racc(normalized) = [RxAcc/|Racc| , RyAcc/|Racc| , RzAcc/|Racc|]
 ```
 
-This will ensure the length of your normalized $Racc$ vector is always 1.
-Next we'll introduce a new vector and we'll call it $Rest$:
+This will ensure the length of your normalized $$Racc$$ vector is always 1.
+Next we'll introduce a new vector and we'll call it $$Rest$$:
 ```
 Rest = [RxEst,RyEst,RzEst]
 ```
@@ -259,14 +259,14 @@ This will be the output of our algorithm , these are corrected values based on g
 Here is what our algorithm will do:
 - accelerometer tells us: "**You are now at position Racc**"
 - we say "Thank you, but let me check",
-- then correct this information with gyroscope data as well as with past $Rest$ data and we output a new **estimated vector Rest**.
+- then correct this information with gyroscope data as well as with past $$Rest$$ data and we output a new **estimated vector Rest**.
 - we consider Rest to be our "best bet" as to the current position of the device.
 
 Let's see how we can make it work. We'll start our sequence by trusting our accelerometer and assigning:
 ```
 Rest(0) = Racc(0)
 ```
-By the way remember $Rest$ and $Racc$ are vectors, so the above equation is just a simple way to write 3 sets of equations, and avoid repetition:
+By the way remember $$Rest$$ and $$Racc$$ are vectors, so the above equation is just a simple way to write 3 sets of equations, and avoid repetition:
 ```
 RxEst(0) = RxAcc(0)
 RyEst(0) = RyAcc(0)
@@ -287,15 +287,15 @@ We'll call it Rgyro , and it is also a vector consisting of 3 components:
 Rgyro = [RxGyro,RyGyro,RzGyro]
 ```
 
-We'll calculate this vector one component at a time. We'll start with $RxGyro$:
+We'll calculate this vector one component at a time. We'll start with $$RxGyro$$:
 
 ![](../img/ahrs/03.png)
 
-Let's start by observing the following relation in our gyroscope model, from the right-angle triangle formed by $Rz$ and $Rxz$ we can derive that:
+Let's start by observing the following relation in our gyroscope model, from the right-angle triangle formed by $$Rz$$ and $$Rxz$$ we can derive that:
 ```
 tan(Axz) = Rx/Rz => Axz = atan2(Rx,Rz)
 ```
-`Atan2` might be a function you never used before, it is similar to `atan`, except it returns values in range of `(-PI,PI)` as opposed to `(-PI/2,PI/2)` as returned by `atan`, and it takes 2 arguments instead of one. It allows us to convert the two values of $Rx$, $Rz$ to angles in the full range of 360 degrees (-PI to PI). You can read more about atan2 [here](http://en.wikipedia.org/wiki/Atan2).
+`Atan2` might be a function you never used before, it is similar to `atan`, except it returns values in range of `(-PI,PI)` as opposed to `(-PI/2,PI/2)` as returned by `atan`, and it takes 2 arguments instead of one. It allows us to convert the two values of $$Rx$$, $$Rz$$ to angles in the full range of 360 degrees (-PI to PI). You can read more about atan2 [here](http://en.wikipedia.org/wiki/Atan2).
 
 So knowing `RxEst(n-1)` , and `RzEst(n-1)` we can find:
 ```
@@ -395,13 +395,13 @@ One simple way to estimate this is to take:
 Sign(RzGyro) = Sign(RzEst(n-1))
 ```
 
-In practice be careful when `RzEst(n-1)` is close to `0`. You may skip the gyro phase altogether in this case and assign:  `Rgyro = Rest(n-1)`. `Rz` is used as a reference for calculating $Axz$ and $Ayz$ angles and when it's close to `0`, values may overflow and trigger bad results. You'll be in domain of large floating point numbers where `tan() / atan()` function implementations may lack precision.
+In practice be careful when `RzEst(n-1)` is close to `0`. You may skip the gyro phase altogether in this case and assign:  `Rgyro = Rest(n-1)`. `Rz` is used as a reference for calculating $$Axz$$ and $$Ayz$$ angles and when it's close to `0`, values may overflow and trigger bad results. You'll be in domain of large floating point numbers where `tan() / atan()` function implementations may lack precision.
 
 
 So let's recap what we have so far, we are at step n of our algorithm and we have calculated the following values:
 
-- $Racc$ – current readings from our accelerometer
-- $Rgyro$ – obtained from Rest(n-1) and current gyroscope readings
+- $$Racc$$ – current readings from our accelerometer
+- $$Rgyro$$ – obtained from Rest(n-1) and current gyroscope readings
 
 Which values do we use to calculate the updated estimate `Rest(n)`? You probably guessed that we'll use both. We'll use a weighted average, so that:
 ```
