@@ -48,7 +48,7 @@ Hasta ahora se ha analizado la salida del acelerómetro en un solo eje y esto es
 
 ![](../img/ahrs/07.png)
 
-Los valores ` 0.71` no es arbitrario. En realidad es un aproximación a $\sqrt(\frac{1}{2})$. Esteo se hará evidente a medida que introduzcamos nuestro próximo modelo para el acelerómero.
+Los valores ` 0.71` no es arbitrario. En realidad es un aproximación a $$\sqrt(\frac{1}{2})$$. Esteo se hará evidente a medida que introduzcamos nuestro próximo modelo para el acelerómero.
 
 #### Un modelo mejorado
 
@@ -56,15 +56,15 @@ En el modelo definido anteriormente se ha fjado la fuerza de la gravedad y girad
 
 ![](../img/ahrs/01.png)
 
-Ahora imagine que cada eje e el nuevo modelo es perpendicular a las caras respectivas del cubo en el modelo anterior. El vector `R` es el vector de fuerza que el acelerómetro está midiedo (podría ser o bien la fuerza de la gravedad o la fuerza de inercia de los ejemplos anteriores o una combinación de ambos). $R_x$, $R_y$, $R_z$ son proyección del vector R en los ejes `X`,`Y` y `Z`. Tenga en cuenta la siguiente relación:
+Ahora imagine que cada eje e el nuevo modelo es perpendicular a las caras respectivas del cubo en el modelo anterior. El vector `R` es el vector de fuerza que el acelerómetro está midiedo (podría ser o bien la fuerza de la gravedad o la fuerza de inercia de los ejemplos anteriores o una combinación de ambos). $$R_x$$, $$R_y$$, $$R_z$$ son proyección del vector R en los ejes `X`,`Y` y `Z`. Tenga en cuenta la siguiente relación:
 
 $$R^2 = R_x^2 + R_y^2 + R_z^2$$
 
 que es basicametne una equivalencia del [Teorema de Pitágoras en 3D](http://demonstrations.wolfram.com/PythagoreanTheorem3D/).
 
-Recuerda que un poco antes se ha mencionado que los valores de $\sqrt(\frac{1}{2}) \approx 0.71$ no es aleatorio. Si los conecta con la fórmula anterior, después de recordar que la fuerza de gravedad es `1g`, se peude verficar que es correcto.
+Recuerda que un poco antes se ha mencionado que los valores de $$\sqrt(\frac{1}{2}) \approx 0.71$$ no es aleatorio. Si los conecta con la fórmula anterior, después de recordar que la fuerza de gravedad es `1g`, se peude verficar que es correcto.
 
-Los valores $R_x$, $R_y$, $R_z$ están relacionados linealmente con los valores que el acelerómetro devolverá en la vida real y que se pueden utilizar para llevar a cabo ciertos calculos.
+Los valores $$R_x$$, $$R_y$$, $$R_z$$ están relacionados linealmente con los valores que el acelerómetro devolverá en la vida real y que se pueden utilizar para llevar a cabo ciertos calculos.
 
 La mayoria de los acelerómetros se clasifican en dos categorias: digitales y analógicos: Los acelerómetros digitales transmiten la información a través de un *protocolo serie* como I2C, SPI o UART, mientras que los acelerómetros analógicos retornan un **nivel de voltaje a la salida** dentro de un rango predefinido que se pueden convertir en digital utilizando un conversor analógico digital.
 
@@ -74,7 +74,7 @@ Vamos a pasar a considerar un ejemplo sencillo, supongamos que nuestro conversor
 
 ---
 
-Un módulo `10-bit ADC` dará una salida en el rango `0..1023`, teniendo en cuenta $1023 = 2^10 - 1$.
+Un módulo `10-bit ADC` dará una salida en el rango `0..1023`, teniendo en cuenta $$1023 = 2^10 - 1$$.
 
 ---
 
@@ -92,13 +92,13 @@ $$VoltsR_x = \frac{586 * 3.3V}{1023} \approx 1.89V $$
 $$VoltsRy = \frac{630 * 3.3V}{1023} \approx 2.03V$$
 $$VoltsRz = \frac{561 * 3.3V }{ 1023} \approx 1.81V$$
 
-Cada acelerómetro tiene un **voltaje de salida para 0g**, lo puedes encontrar en los especificaciones (datasheet). Para obtener un valor de tensión concreto necesitamos calculo. Digamos que nuestro valor de `0g` es de $Vzero_G = 1.65V$. Calculamos los cambios de voltaje:
+Cada acelerómetro tiene un **voltaje de salida para 0g**, lo puedes encontrar en los especificaciones (datasheet). Para obtener un valor de tensión concreto necesitamos calculo. Digamos que nuestro valor de `0g` es de $$Vzero_G = 1.65V$$. Calculamos los cambios de voltaje:
 
 $$DeltaVoltsR_x = 1.89V – 1.65V = 0.24V$$
 $$DeltaVoltsR_y = 2.03V – 1.65V = 0.38V$$
 $$DeltaVoltsR_z = 1.81V – 1.65V = 0.16V$$
 
-Ahora tenemos las lecturas del acelerómetro en Voltios, pero todavia no están en `g`($9.8 \frac{m}{s^2}$), para hacer la conversión ginal aplicamos la **sensibilidad del acelerómetro** generalmente expresada en `mV/g`. Pongamos, $Sensitivity = 478.5mV/g = 0.4785V/g$. Este valor se encuentra en la hoja de características del acelerómetro. Para obtener los valores de fuerza finales expresados en `g` utilizamos la siguiente fórmula $R_x = \frac{DeltaVoltsR_x}{Sensitivity}$:
+Ahora tenemos las lecturas del acelerómetro en Voltios, pero todavia no están en `g`($$9.8 \frac{m}{s^2}$$), para hacer la conversión ginal aplicamos la **sensibilidad del acelerómetro** generalmente expresada en `mV/g`. Pongamos, $$Sensitivity = 478.5mV/g = 0.4785V/g$$. Este valor se encuentra en la hoja de características del acelerómetro. Para obtener los valores de fuerza finales expresados en `g` utilizamos la siguiente fórmula $$R_x = \frac{DeltaVoltsR_x}{Sensitivity}$$:
 
 $$Rx = \frac{0.24 V}{0.4785 V/g} \approx 0.5g$$
 $$Ry = \frac{0.38V}{0.4785 V/g} \approx 0.79g$$
@@ -110,11 +110,11 @@ $$R_x = \frac{\frac{AdcR_x * Vref}{1023} - VzeroG}{Sensitivity} (g)$$
 
 Ahora tenemos las 3 componentes que definen nuestro vector fuerza de inercia, si el dispositivos no esta sujeto a otras fuerzas distintas a la gravedad, se puede asumir que este es el sentido del vector de la fuerza de la gravedad. Si desea calcular la inclinación del dispositivo con respecto al suelo se puede calcular el ángulo entre este vector y el eje `Z` 
 
-Si también está interesado en la dirección por eje de inclinación se puede dividir este resultado en 2 componentes: la inclinación del eje `X` y `Y` que se puede calcular como el ángulo entre el vector de gravedad y los ejes X/Y. Calculando estos ángulos es más sencillo de lo que parece, ahora que hemos calculado los valores $R_x$, $R_y$ and $R_z$. Volvamos al último modelo de aceleración y hagamos algunas anotaciones adicionales.
+Si también está interesado en la dirección por eje de inclinación se puede dividir este resultado en 2 componentes: la inclinación del eje `X` y `Y` que se puede calcular como el ángulo entre el vector de gravedad y los ejes X/Y. Calculando estos ángulos es más sencillo de lo que parece, ahora que hemos calculado los valores $$R_x$$, $$R_y$$ and $$R_z$$. Volvamos al último modelo de aceleración y hagamos algunas anotaciones adicionales.
 
 ![](../img/ahrs/02.png)
 
-Los ángulos que nos interesan son los ángulos entre `X`,`Y`,`Z` y el `vector de fuerza R`. Definiremos estos los ángulos como $Axr$, $Ayr$, $Azr$. Notese el triángulo rectangulo formado por $R$ y $Rx$:
+Los ángulos que nos interesan son los ángulos entre `X`,`Y`,`Z` y el `vector de fuerza R`. Definiremos estos los ángulos como $$Axr$$, $$Ayr$$, $$Azr$$. Notese el triángulo rectangulo formado por $$R$$ y $$Rx$$:
 
 $$ cos(Axr) = \frac{Rx}{R} $$
 $$ cos(Ayr) = \frac{Ry}{R} $$
@@ -122,7 +122,7 @@ $$ cos(Azr) = \frac{Rz}{R} $$
 
 ---
 
-Se puede deducir de las ecuaciones anteriores $R = \sqrt( Rx^2 + Ry^2 + Rz^2)$.
+Se puede deducir de las ecuaciones anteriores $$R = \sqrt( Rx^2 + Ry^2 + Rz^2)$$.
 
 ---
 
@@ -152,45 +152,45 @@ No vamos a introducir un modelo equivalente al cubo para el giróscopo como hici
 
 Cada canal del giróscopo mide la rotación alrededor de uno de los ejes. Por ejemplo, un giróscopo de 2 ejes medira la rotación alrededor de (o agunas pueden decir "sobre") los ejes X e Y. Para expresar esta rotación en núero hagamos algunas anotaciones. En primer lugar vamos a definir:
 
-- $Rxz$ – es la proyección del vector de la fuerza de inercia `R` en el `plano XZ`
-- $Ryz$ – es la proyección del vector de la fuerza de inercia `R` en el `plano YZ`
+- $$Rxz$$ – es la proyección del vector de la fuerza de inercia `R` en el `plano XZ`
+- $$Ryz$$ – es la proyección del vector de la fuerza de inercia `R` en el `plano YZ`
 
-Desde el triangulo rectangulo formado por $Rxz$ and $Rz$, usando el Teorema de Pitágoras:
+Desde el triangulo rectangulo formado por $$Rxz$$ and $$Rz$$, usando el Teorema de Pitágoras:
 
 $$Rxz^2 = Rx^2 + Rz^2$$
 $$Ryz^2 = Ry^2 + Rz^2$$
 
-Vamos a definir el ángulo entre el `eje Z` y los vectores $Rxz$, $Ryz$ de la siguiente manera:
+Vamos a definir el ángulo entre el `eje Z` y los vectores $$Rxz$$, $$Ryz$$ de la siguiente manera:
 
-- $Axz$ – es el ángulo entre $Rxz$ (proyección de R sobre el `plano XZ`) y el `eje Z `
-- $Ayz$ – es el ángulo entre $Ryz$ (proyección de R sobre el `plano YZ`) y el `eje Z `
+- $$Axz$$ – es el ángulo entre $$Rxz$$ (proyección de R sobre el `plano XZ`) y el `eje Z `
+- $$Ayz$$ – es el ángulo entre $$Ryz$$ (proyección de R sobre el `plano YZ`) y el `eje Z `
 
-Ahora nos estamos acercando a lo que mide el giroscopio. El giróscopo mide la tasa de cambios de los ángulo definidos anteriormente. En otras palabras, da un valor que está relacionado linealmente con la velocidad de cambios de estos ángulos. Para explicar esto ** asumamos que hemos medido el ángulo de rotación alrededor del eje Y** (que sería el ángulo $Axz$) en el instante `t0`, y definimos como $Axz0$, la siguiente medida del ángulo en el siguiente instante `t1` es $Axz1$. La tasa de rotación se calcula de la siguiente manera:
+Ahora nos estamos acercando a lo que mide el giroscopio. El giróscopo mide la tasa de cambios de los ángulo definidos anteriormente. En otras palabras, da un valor que está relacionado linealmente con la velocidad de cambios de estos ángulos. Para explicar esto ** asumamos que hemos medido el ángulo de rotación alrededor del eje Y** (que sería el ángulo $$Axz$$) en el instante `t0`, y definimos como $$Axz0$$, la siguiente medida del ángulo en el siguiente instante `t1` es $$Axz1$$. La tasa de rotación se calcula de la siguiente manera:
 
 $$ RateAxz = \frac{Axz1 – Axz0}{t1 – t0} $$
 
-Si expresamos $Axz$ en grados, y el tiempo en segundos, entonces el valor será expresado en `deg/s`. *Esto es lo que un giróscopo mide*.
+Si expresamos $$Axz$$ en grados, y el tiempo en segundos, entonces el valor será expresado en `deg/s`. *Esto es lo que un giróscopo mide*.
 
-En la práctica, un giróscopo (a menos que sea un giróscopo digital especial) rara vez devolverá un valor expresado en `deg/s`. Igual que para el acelerómetro obteniamos un valor de ADC que era necesario convertir a `deg/s` usanso una fórmula similar como la que hemos defindio para el acelerómetro introduciremos el ADC para la conversión del giróscopo. Suponamos que estamos utilizando un módulo ADC de 10bits, para un ADC de 8 bits serán 255 valores en lugar de 1023 o si es de 12 bits serán 4095 en lugarde 1023.
+En la práctica, un giróscopo (a menos que sea un giróscopo digital especial) rara vez devolverá un valor expresado en `deg/s`. Igual que para el acelerómetro obteniamos un valor de ADC que era necesario convertir a `deg/s` usanso una fórmula similar como la que hemos defindio para el acelerómetro introduciremos el ADC para la conversión del giróscopo. Suponamos que estamos utilizando un módulo ADC de 10bits, para un ADC de 8 bits serán 255 valores en lugar de 1023 o si es de 12 bits serán 4095 en lugar de 1023.
 
-``
+```
 RateAxz = (AdcGyroXZ * Vref / 1023 – VzeroRate) / Sensitivity
 RateAyz = (AdcGyroYZ * Vref / 1023 – VzeroRate) / Sensitivity
 ```
 
 Definimos los valores utilizados en las ecuaciones:
-- $AdcGyroXZ$, $AdcGyroYZ$ – se obtienen a partir del módulo ADC y representas los canales que miden la rotación de la proyección del ` vector R` sobre los planos `XY` y `XZ` respectivamente, que es el equivalente a decir rotación sobre `X` e `Y`.
+- $$AdcGyroXZ$$, $$AdcGyroYZ$$ – se obtienen a partir del módulo ADC y representas los canales que miden la rotación de la proyección del ` vector R` sobre los planos `XY` y `XZ` respectivamente, que es el equivalente a decir rotación sobre `X` e `Y`.
 
-- $Vref$ – es la tensión de referencia, se utiliza `3.3V` en el ejemplo.
-- $VzeroRate$ – es el voltaje de tasa cero, es decir, la tensión que devuelven los giróscopos cuando no está sujeto a ninguna rotación (este valor se puede encontrar en las especificaciones técnicas, pero no es fiable ya que la mayoria de los giróscopos sufrirán un ligero desplazamiento después de haber sido soldado de manera que se medira VzeroRate para cada eje de salida con un voltímetro, por lo general este valor no cambiará con el tiempo una vez que el dispositovo este puesto en marcha, el usuario tiene que ser instruido para mantener el giróscopo en posición fija antes de calibrar el giróspoco).
-- $Sensitivity$ – es la sensibilidad de su giróscopio se expera en $mV/deg/s$, basicamente indica cuantas `mV` aumenta la salida del giróscopio. Por ejemplo, la sensibilidad de [Acc_Gyro](http://www.starlino.com/store/acc-gyro) es por ejemplpo 2mV/deg/s o 0.002V/deg/s
+- $$Vref$$ – es la tensión de referencia, se utiliza `3.3V` en el ejemplo.
+- $$VzeroRate$$ – es el voltaje de tasa cero, es decir, la tensión que devuelven los giróscopos cuando no está sujeto a ninguna rotación (este valor se puede encontrar en las especificaciones técnicas, pero no es fiable ya que la mayoria de los giróscopos sufrirán un ligero desplazamiento después de haber sido soldado de manera que se medira VzeroRate para cada eje de salida con un voltímetro, por lo general este valor no cambiará con el tiempo una vez que el dispositovo este puesto en marcha, el usuario tiene que ser instruido para mantener el giróscopo en posición fija antes de calibrar el giróspoco).
+- $$Sensitivity$$ – es la sensibilidad de su giróscopio se expera en $$mV/deg/s$$, basicamente indica cuantas `mV` aumenta la salida del giróscopio. Por ejemplo, la sensibilidad de [Acc_Gyro](http://www.starlino.com/store/acc-gyro) es por ejemplpo 2mV/deg/s o 0.002V/deg/s
 
 Tomemos un ejemplo, supongamos que nuestro módulo ADC devuelve los siguientes valores.
 
 $$AdcGyroXZ = 571$$
 $$AdcGyroXZ = 323$$
 
-Usando la fórmula y utilizando los parámetros especificados en $Acc_Gyro$ se obtiene:
+Usando la fórmula y utilizando los parámetros especificados en $$Acc_{Gyro}$$ se obtiene:
 ```
 RateAxz = (571 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ 306 deg/s
 RateAyz = (323 * 3.3V / 1023 – 1.23V) / ( 0.002V/deg/s) =~ -94 deg/s
@@ -213,20 +213,21 @@ Los siguientes pasos para implementar un AHRS deben ser:
 
 Vamos a seumir que su eje encaja, de lo contrario en [este artículo](http://www.starlino.com/imu_guide.html) hay detalles sobre el proceso de medir y combinar los ejes. A continucación vamos a analizar las relaciones entre estos valores que resultan útiles en la obtención de la estimación más precisa de la inclinación del dispositivo en relación al plano de la Tierra.
 
-Es posible que se este preguntando en este puso, si el modelo del acelerómetro ya nos dio los ángulos de inclinación de $Axr$,$Ayr$,$Azr$ ¿por qué queremos molestarnos con los datos del giróscopo? La respuesta es simple: no se puede confiar siempre en los datos delacelerómetro. Hay varias razones, recuerde que el acelerómetro mide fuerzas de inercia, esa fuerza puede estar causada por la gravitación(idealmente sólo por la gravedad), pero también puede ser causada por la aceleración (movimiento) del dispositivo. Como resultado, incluso si el acelerómetro está es un estado relativamente estable ** todavia es muy sensible a las vibraciones y el ruido mecánico en general**. Esta es la razón principal por la mayoría de los sistemas IMU que utilizan un giróscopo para suavizar los errores del acelerómetro. Pero ¿como se hace esto? ¿Y el giróscopo esta libre de ruido?
+Es posible que se este preguntando en este puso, si el modelo del acelerómetro ya nos dio los ángulos de inclinación de $$Axr$$,$$Ayr$$,$$Azr$$ ¿por qué queremos molestarnos con los datos del giróscopo? La respuesta es simple: no se puede confiar siempre en los datos delacelerómetro. Hay varias razones, recuerde que el acelerómetro mide fuerzas de inercia, esa fuerza puede estar causada por la gravitación(idealmente sólo por la gravedad), pero también puede ser causada por la aceleración (movimiento) del dispositivo. Como resultado, incluso si el acelerómetro está es un estado relativamente estable ** todavia es muy sensible a las vibraciones y el ruido mecánico en general**. Esta es la razón principal por la mayoría de los sistemas IMU que utilizan un giróscopo para suavizar los errores del acelerómetro. Pero ¿como se hace esto? ¿Y el giróscopo esta libre de ruido?
 
 El giróscopo no esta libre de ruido, sin embargo, como mide la rotación es menos sensible a los movimiento lineales mecánicos, el tipo de ruido qe sufrén los acelerómetros, sin embargo los girósocpos tienen otro tipo de problemas. como por ejemplo la **deriva** (no volver al valor de tasa cero cuando la rotación se detiene). Sin embargo, promediantdo los datos que provienen del acelerómetro y el giróscopo podemos obtener una mejor estimación de la inclinación del dispotivo actual mejor de la que se obtendría mediante el uso de los datos del acelerómetro exclusivamente. 
 
-En los siguientes pasos se introducirá un *algoritmo que se inspitto por algunas ideas que utiliza el filtro de Kalman*, sin embargo es mucho más simpre y másfacil de implementar en sistemas embebidos*. Antes de eso vamos a ver primero lo que queremos calcular con nuestro algoritmo. El vector de dirección de la gravedad R = [Rx,Ry,Rz] del cual podemos derivar otros valores como $Axr$, $Ayr$, $Azr$ o $cosX$, $cosY$, $cosZ$ nos dará un idea de la inclinación de nuestro dispositivo con respecto al plano de la Tierra, ya se discutio acerca de estos valores anteriormente. Se podría decir, ¿No teniamos estos valores de  Rx, Ry , Rz de las ecuaciones anteriores?. Bueno, si, peo recuerde que estos valores se derivan de los datos del acelerómetro unicamente, si usted desea utilizar así tenga encuenta que puede obtener más error del que su aplicación puede soportar. Para evitar una mayor confusión redefiniremos las mediciones del acelerómetro de la siguiente manera:
+En los siguientes pasos se introducirá un *algoritmo que se inspitto por algunas ideas que utiliza el filtro de Kalman*, sin embargo es mucho más simpre y másfacil de implementar en sistemas embebidos*. Antes de eso vamos a ver primero lo que queremos calcular con nuestro algoritmo. El vector de dirección de la gravedad R = [Rx,Ry,Rz] del cual podemos derivar otros valores como $$Axr$$, $$Ayr$$, $$Azr$$ o $$cosX$$, $$cosY$$, $$cosZ$$ nos dará un idea de la inclinación de nuestro dispositivo con respecto al plano de la Tierra, ya se discutio acerca de estos valores anteriormente. Se podría decir, ¿No teniamos estos valores de  Rx, Ry , Rz de las ecuaciones anteriores?. Bueno, si, peo recuerde que estos valores se derivan de los datos del acelerómetro unicamente, si usted desea utilizar así tenga encuenta que puede obtener más error del que su aplicación puede soportar. Para evitar una mayor confusión redefiniremos las mediciones del acelerómetro de la siguiente manera:
 
-$Racc$ – es el vector de fuerza inercial medida por el acelerómetro, que consta de las siguiente componentes (proyecciones en X, Y, Z):
+$$Racc$$ – es el vector de fuerza inercial medida por el acelerómetro, que consta de las siguiente componentes (proyecciones en X, Y, Z):
 ```
 RxAcc = (AdcRx * Vref / 1023 – VzeroG) / Sensitivity
 RyAcc = (AdcRy * Vref / 1023 – VzeroG) / Sensitivity
 RzAcc = (AdcRz * Vref / 1023 – VzeroG) / Sensitivity
 ```
-Hasta ahora tenemos un conjuntode valores e medición que podemos obtener sólo a partid de los valores del acelerómetro. Vamos a llamar a este conjunto de datos un "vector" y vamos a utilizar la siguiente notación.
+Hasta ahora tenemos un conjunto de valores e medición que podemos obtener sólo a partid de los valores del acelerómetro. Vamos a llamar a este conjunto de datos un "vector" y vamos a utilizar la siguiente notación.
 
+```
 Racc = [RxAcc,RyAcc,RzAcc]
 ```
 Debiado a que los componetes de Racc se pueden obtener de la información del acelerómetro , se puedo considerar que es un entrada de nuestro algoritmo.
@@ -247,8 +248,8 @@ Sin embargo para estar seguro de que tiene sentido normalize el vector:
 Racc(normalized) = [RxAcc/|Racc| , RyAcc/|Racc| , RzAcc/|Racc|]
 ```
 
-Esto asegurará que la longitud del vector $Racc$ es siempre 1.
-A continuación se presenta un nuevo vector $Rest$:
+Esto asegurará que la longitud del vector $$Racc$$ es siempre 1.
+A continuación se presenta un nuevo vector $$Rest$$:
 ```
 Rest = [RxEst,RyEst,RzEst]
 ```
@@ -257,14 +258,14 @@ Este es la salida el algoritmo, estos se corrigen basandose en las lecturas del 
 Los paso que realiza el algoritmo son:
 - el acelerómetro indica **Ahora estas en la posición Racc**
 - decimos "gracias, pero dejamos comprobarlo"
-- a continuación se corrige la información con los datos de giróscopo, así como los datos $Rest$ y obetenemos los **valores estimados Rest**.
+- a continuación se corrige la información con los datos de giróscopo, así como los datos $$Rest$$ y obetenemos los **valores estimados Rest**.
 - Consideramos Rest como la mejor apuesta en cuanto a la posición actual del dispositivo.
 
 Vamos a ver cómo podemos hacer que funcione. Empezaremos nuesta secuencia confiando en el acelerómetro y asignando:
 ```
 Rest(0) = Racc(0)
 ```
-Por cierto, recordar que $Rest$ y $Racc$ son vectores, por lo que la ecuación anterior es sólo una forma sencilla de escribr 3 conjuntos de ecuaciones yevitar la repetición:
+Por cierto, recordar que $$Rest$$ y $$Racc$$ son vectores, por lo que la ecuación anterior es sólo una forma sencilla de escribr 3 conjuntos de ecuaciones yevitar la repetición:
 ```
 RxEst(0) = RxAcc(0)
 RyEst(0) = RyAcc(0)
@@ -284,21 +285,21 @@ Se denominará `Rgyro` , y también es un vector formado por 3 componentes:
 Rgyro = [RxGyro,RyGyro,RzGyro]
 ```
 
-Calcularemos cada componente del vector por separado. Empezaremos con $RxGyro$:
+Calcularemos cada componente del vector por separado. Empezaremos con $$RxGyro$$:
 
 ![](../img/ahrs/03.png)
 
-Vamos a empezar observando la siguente relación en nuestro modelo de giróscopo, desde el triángulo rectángulo formado por $Rz$ y $Rxz$ se puede derivar que:
+Vamos a empezar observando la siguente relación en nuestro modelo de giróscopo, desde el triángulo rectángulo formado por $$Rz$$ y $$Rxz$$ se puede derivar que:
 ```
 tan(Axz) = Rx/Rz => Axz = atan2(Rx,Rz)
 ```
-`Atan2` podría ser una función que antes utilizaste, es similara `atan`, excepto que devuelve valores en el rango `(-PI,PI)` en lugar de `(-PI/2,PI/2)` como devuelve `atan`, y como dos argumentos como entrada en lugar de solo uno. Estos nos permite convertr los dos valores de $Rx$, $Rz$ a ángulos en el rango de 360 grados (-PI to PI). Puedes leer más sobre [atan2](http://en.wikipedia.org/wiki/Atan2).
+`Atan2` podría ser una función que antes utilizaste, es similara `atan`, excepto que devuelve valores en el rango `(-PI,PI)` en lugar de `(-PI/2,PI/2)` como devuelve `atan`, y como dos argumentos como entrada en lugar de solo uno. Estos nos permite convertr los dos valores de $$Rx$$, $$Rz$$ a ángulos en el rango de 360 grados (-PI to PI). Puedes leer más sobre [atan2](http://en.wikipedia.org/wiki/Atan2).
 
 Así que conociendo`RxEst(n-1)`, y `RzEst(n-1)` podemos encontrar:
 ```
 Axz(n-1) = atan2( RxEst(n-1) , RzEst(n-1) )
 ```
-Recuerde que el giróscopo mide la tasa de cambio del ángulo $Axz$. Así que podemos estimar el ángulo $Axz(n)$ de la siguinete manera:
+Recuerde que el giróscopo mide la tasa de cambio del ángulo $$Axz$$. Así que podemos estimar el ángulo $$Axz(n)$$ de la siguinete manera:
 ```
 Axz(n) = Axz(n-1) + RateAxz(n) * T
 ```
@@ -321,7 +322,7 @@ También debido a que se normalizó el vector Racc, podemos suponer que la longi
 |Rgyro| = 1
 ```
 
-* Vamos a adoptar una notación más corta temporalmente para los siguientes calculos*:
+*Vamos a adoptar una notación más corta temporalmente para los siguientes calculos*:
 ```
 x =RxGyro , y=RyGyro, z=RzGyro
 ```
@@ -352,7 +353,7 @@ RxGyro = sin(Axz(n)) / SQRT (1 + cos(Axz(n))^2 * tan(Ayz(n))^2 )
 de la misma forma encontramos que:
 ```
 RyGyro = sin(Ayz(n)) / SQRT (1 + cos(Ayz(n))^2 * tan(Axz(n))^2 )
-````
+```
 
 ---
 
@@ -370,7 +371,7 @@ y agrupando terminos 1&2 y luego 3&4 obtenemos:
 RxGyro =  1  / SQRT (1  +   cot(Axz(n))^2 * sec(Ayz(n))^2 )
 ```
 donde  `cot(x) = 1 / tan(x)` y  `sec(x) = 1 / cos(x)`
-Esta fórmula utuliza solo 2 funciones trigonométricas y puede ser computacionalmente menos costosa. Si usted dispone de Mathematica puede verificarlos:
+Esta fórmula utitiza solo 2 funciones trigonométricas y puede ser computacionalmente menos costosa. Si usted dispone de Mathematica puede verificarlos:
 ```
 FullSimplify [Sin[A]^2/ ( 1 + Cos[A]^2  * Tan[B]^2)]
 ```
@@ -386,12 +387,12 @@ Una manera simple de estimar es tomar:
 ```
 Sign(RzGyro) = Sign(RzEst(n-1))
 ```
-En la práctica hay que tener cuidado cuando `RzEst(n-1)` es proximo a `0`. Debes pasar por alto la fase del giróscopio y asignar:  `Rgyro = Rest(n-1)`. `Rz`  se utiliza como referencia para el cálculo de los ángulos $Axz$ y $Ayz$ y cuando está cerca de `0`, el valor puede desbordarse y provacar malos resultados. Estaras en el dominio de números grandes de coma flotantedonde las implementaciones de las funciones `tan() / atan()` pueden tener mala presición.
+En la práctica hay que tener cuidado cuando `RzEst(n-1)` es proximo a `0`. Debes pasar por alto la fase del giróscopio y asignar:  `Rgyro = Rest(n-1)`. `Rz`  se utiliza como referencia para el cálculo de los ángulos $$Axz$$ y $$Ayz$$ y cuando está cerca de `0`, el valor puede desbordarse y provacar malos resultados. Estaras en el dominio de números grandes de coma flotantedonde las implementaciones de las funciones `tan() / atan()` pueden tener mala presición.
 
 Así que vamos a recapitular lo que gemos visto hasta ahora, estamos en el paso n de nuestro algoritmo y hemos calculado los siguientes valores:
 
-- $Racc$ – lectura actual del acelerómetro
-- $Rgyro$ – obtenido a partir de Rest(n-1) y las lecturas actuales del giróscopio.
+- $$Racc$$ – lectura actual del acelerómetro
+- $$Rgyro$$ – obtenido a partir de Rest(n-1) y las lecturas actuales del giróscopio.
 
 ¿Qué valores se utilizan para calcular la estimación de `Rest(n)`? Problemente haya adivinado que vamos a utilizar ambos. Vamos a utilizar una media ponderada de modo que:
 ```

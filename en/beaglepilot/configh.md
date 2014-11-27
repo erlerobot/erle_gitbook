@@ -84,8 +84,6 @@ This slice of code defines the default status of the Camera and the mount disabl
 I would remark this slice of code. Enabled is defined with the binary value 1 and Disabled with the 0. It is important to note that 1 and 0 refer the **binary values** of these numbers. In electronics, generally, the binary value 1 refers something working (like a closed switch) and the value 0 the oposite (like a open switch).
 This concep will appear frecuently with dealing with electronic devices.
 
-![binary](./binary.jpg)
-
 ```cpp
 //////////////////////////////////////////////////////////////////////////////
 // sensor types

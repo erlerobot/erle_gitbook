@@ -178,7 +178,7 @@ This function `send_attitude` sends a message containing the attitude variables'
 
 Note that the position of a body is perfectly determined with both the position of a point (GC) and the rotated angles relative to a given position.
 
-![ref_frame](./ref_frames.jpg)
+![ref_frame](../img/frames.png)
 
 ```cpp
 

@@ -16,7 +16,7 @@ Motors
 
 This class ([code in GitHub](https://github.com/erlerobot/erle_control/blob/master/motors.py)) allows to control the motors speed using Pulse Width Modulation (PWM).
 
-``` python
+```python
 
 class Motor:
     """ @brief Class for interfacing with the motors.
@@ -41,16 +41,18 @@ class Motor:
         #                     ["P9_42", "P9_28"]]
         #self.motor_pins_list = ["P9_14", "P9_21","P9_22", "P9_42"]
         self.motor_pins_list = ["P9_16", "P8_13","P9_21", "P9_28"]
-````
+```
+
 eHRPWM compatible pins (high resolution PWM capable). Check the [datasheet of the processor](http://www.ti.com/product/am3359) for more information.
 
-``` python
+```python
         if (motor_number > 4) or (motor_number < 1):
             raise Exception("Motor number provided out of bounds! ([1-4])")
         self.motor_number = motor_number # 1, 2, 3 or 4
         self.max_speed= max_speed
         self.min_speed= min_speed
 ```
+
 `max_speed` and `min_speed` help while testing (it also saves the robot to crash inmmediately ;)).
 ``` python
         #self.frequency = 2000
@@ -323,7 +325,7 @@ The following methods receive the data from the C functions. This is done so tha
 
 PID
 ----
-This class ([code in GitHub](https://github.com/erlerobot/erle_control/blob/master/pid.py)) implemments a simple PID control algorithm. Gains $K_p$ (proportional), $K_d$ (derivative) and $K_i$ (integral) can be initially passed as parameters when the class is created.
+This class ([code in GitHub](https://github.com/erlerobot/erle_control/blob/master/pid.py)) implemments a simple PID control algorithm. Gains K_p` (proportional), `K_d` (derivative) and `K_i` (integral) can be initially passed as parameters when the class is created.
 
 ``` python
 class PID:
@@ -414,7 +416,7 @@ A `debug` flag is included. If `true`, the `update` method becomes **verbose**.
 ```
 `terms_sum` implemments the PID control equation:
 
-$\begin{equation}u(t) = K_p \cdot e(t) + K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt}\end{equation}$
+\begin{equation}u(t) = K_p \cdot e(t) + K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt}\end{equation}
 
 ``` python
         if debug:
@@ -1043,7 +1045,6 @@ while 1:
     frequencies.append(frequency)
 
 
-############################
 ############################
 
 ```

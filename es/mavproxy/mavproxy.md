@@ -59,7 +59,7 @@ Options:
 ```
 
 Usualmente se ejecutará `mavproxy` ya sea a través de un interfaz serie o de red:
-- `mavproxy.py --master=/dev/ttyUSB0``
+- `mavproxy.py --master=/dev/ttyUSB0`
 - `mavproxy.py --master=192.168.1.1:14550`
 
 

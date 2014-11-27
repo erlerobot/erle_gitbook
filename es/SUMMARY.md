@@ -60,7 +60,7 @@
        * [Creando un paquete ROS](ros/tutorials/creating_a_ros_package.md)
        * [Construyendo un paquete ROS](ros/tutorials/building_a_ros_package.md)
        * [Entendiendo los nodos de ROS](ros/tutorials/understanding_ros_nodes.md)
-       * [Entendiendo los *Topics* de ROS](ros/tutorials/understanding_ros_topics.md)
+       * [Entendiendo los topics de ROS](ros/tutorials/understanding_ros_topics.md)
 * [Tutoriales](tutorials/Tutorials.md)
    * [Parpadeo de un LED](tutorials/Blink.md)
    * [Parpadeo de un LED en C++](tutorials/Blink2.md)
