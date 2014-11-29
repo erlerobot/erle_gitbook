@@ -2,6 +2,10 @@
 
 [![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)
 
+At Erle Robotics we believe that drones are the future and we are working hard to make that future a reality. We maintain an open and interactive work environment and take pride in striking a sustainable work/life balance. We develop software and hardware in the open and collaborate freely with colleagues at other companies and universities. If you decide to work with us get ready for going out to the fields testing technology in real scenarios. We promise it’ll be fun :).
+
+We approach the engineering and science of robotics systems with a focus on quality and usability, and we aim for our work to have impact far beyond our team. We believe that we’re changing the world with what we’re doing.
+
 ##Book
 
 In this book you'll learn the basics of our  [technology](http://erlerobot.com), a **small-size Linux computer for making drones**.
