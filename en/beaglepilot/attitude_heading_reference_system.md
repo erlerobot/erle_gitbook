@@ -358,7 +358,7 @@ RxGyro = sin(Axz(n)) / SQRT (1 + cos(Axz(n))^2 * tan(Ayz(n))^2 )
 same way we find that
 ```
 RyGyro = sin(Ayz(n)) / SQRT (1 + cos(Ayz(n))^2 * tan(Axz(n))^2 )
-````
+```
 
 ---
 
