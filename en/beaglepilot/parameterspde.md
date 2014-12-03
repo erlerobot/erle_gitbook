@@ -634,5 +634,5 @@ static void load_parameters(void)
 }
 ```
 
-This slice of code implemtnes the `load_paramters` function.First check varible information and if it doesn't coincide with the AP_Param value a panic message is printed.
-Then if the `format_version` can't be load erase all the parameters, and save the current format version. If the `format_version is available, loads all auto-loaded EEPROM variables.Then adjust some values as explained in the last two commnets.
+This slice of code implemtnes the `load_paramters` function. First check varible information and if it doesn't coincide with the AP_Param value a panic message is printed.
+Then if the `format_version` can't be load erase all the parameters, and save the current format version. If the `format_version` is available, loads all auto-loaded EEPROM variables.Then adjust some values as explained in the last two commnets.
