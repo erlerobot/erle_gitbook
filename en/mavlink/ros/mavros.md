@@ -269,3 +269,10 @@ linear_acceleration:
 linear_acceleration_covariance: [8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08, 0.0, 0.0, 0.0, 8.999999999999999e-08]
 ---
 ```
+
+-----
+
+Some aspects has change. Refer to the package docs for an updated documentation.
+
+------
+
