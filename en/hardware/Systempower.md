@@ -22,16 +22,6 @@ The selection of either the 5VDC or the USB as the power source is handled inter
 
 A 5V DC supply can be used to provide power to the board. The power supply current depends on how many and what type of add on boards are connected to the board. For typical use, a 5VDC supply rated at 1A should be sufficient. If heavier use of the expansion headers or USB host port is expected, then a higher current supply will be required. A NCP349 over voltage device is used to prevent the plugging in of 7 to 12 V power supplies by mistake. The NCP349 will shut down and the board will not power on. No visible indicator is provided to indicate that an over voltage condition exists. The board will not power up.
 
-------
-
-**The 5V DC Power input is not populated. If needed, solder a 2.1MM center positive x 5.5mm outer barrel connector**
-
-------
-
-![5v](../img/hardware/5vconnector.jpg)
-
-
-
 
 ### USB Power
 

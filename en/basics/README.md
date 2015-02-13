@@ -29,4 +29,4 @@ None of this will make sense if the price is out of bounds. We decided to put sp
 
 ### So, how do i get started with all this?
 
-Well, start letting us know about your interest in our [pre-ordering](http://erlerobot.com/preorder.html) site and we will let you know when we are ready ;).
+Well, company's [web page](http://erlerobotics.com/blog/home-creative/) is a good starting point. There you could find lots of information about [our products](http://erlerobotics.com/blog/erle-brain/), our [store](https://erlerobotics.com/blog/tienda/), [forum](http://forum.erlerobotics.com/), [learning material](https://erlerobotics.com/blog/learn/), info about [us](http://erlerobotics.com/blog/pages/about-us/) and much more things!
