@@ -8,7 +8,7 @@
    * [Robot Operative System (ROS)](software/ros-intro.md)
    * [u-Boot](software/u-boot.md)
 * [Hardware](hardware/Hardware.md)
-   * [Erle-board](hardware/erle-board.md)
+   * [Erle-Brain](hardware/erle-board.md)
        * [Processor](hardware/Processor.md)
        * [Memory](hardware/Memory.md)
        * [System Power](hardware/Systempower.md)

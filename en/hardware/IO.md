@@ -13,9 +13,9 @@ Since October 10, 2006, no licensing fees are required to implement the I²C pro
 SMBus, defined by Intel in 1995, is a subset of I²C that defines the protocols more strictly. One purpose of SMBus is to promote robustness and interoperability. Accordingly, modern I²C systems incorporate policies and rules from SMBus, sometimes supporting both I²C and SMBus, requiring only minimal reconfiguration.
 ```
 
-####I²C in the [Erle`s board](http://erlerobot.com)
+####I²C in the Erle-Brain
 
-The educational drone [Erle](http://erlerobot.com) includes 3 I²C busses available under `/dev`: `/dev/i2c-0`, `/dev/i2c-1` and `/dev/i2c-2`.
+Our educational Erle-Brain includes 3 I²C busses available under `/dev`: `/dev/i2c-0`, `/dev/i2c-1` and `/dev/i2c-2`.
 
 ----
 
