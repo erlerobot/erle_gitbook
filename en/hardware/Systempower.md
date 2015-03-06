@@ -5,7 +5,7 @@ The selection of either the 5VDC or the USB as the power source is handled inter
 ### Power Management Integrated Circuit (PMIC)
 
 
-The main Power Management IC (PMIC) in the system is the [TPS65217B](http://www.ti.com/product/tps65217b). The *TPS65217B* is a single chip power management IC consisting of a linear dual-input power path, three step-down converters, four LDOs, and a high-efficiency boost converter to power two strings of up to 10 LEDs in series. The system is supplied by a USB port or DC adapter. Three high-efficiency 2.25MHz step-down converters are targeted at providing the core voltage, MPU, and memory voltage for the board.
+The main Power Management IC (PMIC) in the system is the [TPS65217B](http://www.ti.com/product/tps65217). The *TPS65217B* is a single chip power management IC consisting of a linear dual-input power path, three step-down converters, four LDOs, and a high-efficiency boost converter to power two strings of up to 10 LEDs in series. The system is supplied by a USB port or DC adapter. Three high-efficiency 2.25MHz step-down converters are targeted at providing the core voltage, MPU, and memory voltage for the board.
 
 The step-down converters enter a low power mode at light load for maximum efficiency across the widest possible range of load currents. For low-noise applications the devices can be forced into fixed frequency PWM using the I2C interface. The step-down converters allow the use of small inductors and capacitors to achieve a small solution size.
 
