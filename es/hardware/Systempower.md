@@ -4,7 +4,7 @@ LA seleción de cualquiera de los 5VDC o el USB como fuente de alimentación se 
 
 ### Circuito integrado de gestión de energía(PMIC)
 
-El circuito integrado de gestion de la energía (PMIC) es el [TPS65217B](http://www.ti.com/product/tps65217b). El *TPS65217B* es un único chip que consiste en un circuito de alimentación de doble entrada lineal, tres convertidores reductores, cuadtro LDOs y un conversor de alta eficiencia para alimentar dos cadenas de hasta 10 LEDs en serie. El sistema se alimenta por un puerto USB o un adaptador DC. tres conversores 2.25MHz redutores de alta eficiencia están dirigidos a proporcionar el voltaje del núcelo, MPU y el volaje de memoria de la placa.
+El circuito integrado de gestion de la energía (PMIC) es el [TPS65217B](http://www.ti.com/product/tps65217). El *TPS65217B* es un único chip que consiste en un circuito de alimentación de doble entrada lineal, tres convertidores reductores, cuadtro LDOs y un conversor de alta eficiencia para alimentar dos cadenas de hasta 10 LEDs en serie. El sistema se alimenta por un puerto USB o un adaptador DC. tres conversores 2.25MHz redutores de alta eficiencia están dirigidos a proporcionar el voltaje del núcelo, MPU y el volaje de memoria de la placa.
 
 Los convertidores entran en un modo de bajo consumo con cargar ligeras para un máxima eficiencia a través de la gama más amplia posible de las corrientes de carga. Para aplicaciones de bajo ruido los dispositivos pueden ser forzados a PWM de frecuencia fija utilizando la interfaz I2C. Lo conversores permiten el uso de pequeños inductores y condensadores para lograr un tamaño pequeño.
 
