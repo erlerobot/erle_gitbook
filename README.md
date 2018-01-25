@@ -1,16 +1,16 @@
-#Erle Robotics GitBook
+# Erle Robotics GitBook
 
 [![Build Status](https://www.gitbook.io/button/status/book/gitbookio/javascript)](https://www.gitbook.io/book/gitbookio/javascript/activity)
 
 Erle Robotics is a Spanish startup located in the Basque Country focused in bringing the next generation of educational robots to the market. We believe that drones are the future and we are working hard to make that future a reality. We maintain an open and interactive work environment and take pride in striking a sustainable work/life balance. We develop software and hardware in the open and collaborate freely with colleagues at other companies and universities. If you decide to work with us get ready for going out to the fields testing technology in real scenarios. We promise it’ll be fun :).
 
-##Book
+## Book
 
 In this book you'll learn the basics of our  [technology](http://erlerobot.com), a **small-size Linux computer for making drones**.
 
 ![erlelogo](http://erlerobotics.com/blog/wp-content/uploads/2014/10/erle_corporativo_5.0_72px_nobackground.png)
 
-##About
+## About
 For years we've been working in the robotics field, particularly with drones. We have passed through different Universities and research centers and in all these places we actually found that most of the **drones are black boxes** (check out our [60s pitch](https://www.youtube.com/watch?v=tKAqjyXaC18)). Not meant to be used for learning, research. The software they use is in most of the cases unknown, closed source or *not documented*.
 Given these conditions, how are we going to educate the next generations on this technologies? How do you get started programming drones if you don't have $1000+ budget? Which platform allows me to get started with drones without risking a hand?
 
@@ -23,7 +23,7 @@ Inspired by the BeagleBone development board, we have designed a small computer 
 Our small-size Linux computer is bringing robotics to the people and businesses.
 
 
-##License
+## License
 Unless specified, this content is licensed under the Creative Commons Attribution-NonComercial-Share Alike 3.0 Unported License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-sa/3.0/](http://creativecommons.org/licenses/by-sa/3.0/) or send a letter to *Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA*.
 
 ![license](http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
